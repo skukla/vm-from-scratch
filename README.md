@@ -1174,6 +1174,7 @@ For admin-facing passwords, navigate to: `Stores > Settings > Configuration > Ad
 
 1. Admin Session Lifetime: `900000`
 2. Maximum Login Failures to Lockout Account: `{BLANK}`
+3. Max Number of Password Reset Requests: `0`
 3. Password Lifetime: `{BLANK}`
 4. Password Change: `Recommended`
 
