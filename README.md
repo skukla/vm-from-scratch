@@ -88,7 +88,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Luma Home Page \(US\)](#luma-home-page-us)
 			- [Luma Home Page \(DE\)](#luma-home-page-de)
 			- [Venia Home Page](#venia-home-page)
-		- [Customers and Customer Groups](#customers-and-customer-groups)
+		- [Customer Configuration](#customer-configuration)
 			- [Set Up Saved Cards](#set-up-saved-cards)
 			- [Redirect to My Account](#redirect-to-my-account)
 		- [Marketing](#marketing)
@@ -1265,8 +1265,8 @@ Navigate to `Content > Elements > Pages > Home Page - Venia`
 
 When done, refresh the cache.
 
-<a id="customers-and-customer-groups"></a>
-#### Customers and Customer Groups
+<a id="customer-configuration"></a>
+#### Customer Configuration
 <a id="set-up-saved-cards"></a>
 ##### Set Up Saved Cards
 In order to show Instant Purchase, customers will need to have a Saved Card attached to their account.  We'll add one now for Sharon Reynolds.  As Sharon, create an order with the *Push It Messenger Bag*.  At checkout, use the following details:
