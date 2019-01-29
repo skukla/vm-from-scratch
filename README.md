@@ -1116,6 +1116,10 @@ When done, clear the cache.
 ##### Set UPS as the Shipping Method
 To set up UPS as the shipping method, navigate to: `Stores > Settings > Configuration > Sales > Shipping Methods`
 
+For some reason, Magento Shipping comes "configured" with API credentials which are incorrect.  We need to remove the values in the Account ID and API Token fields in order for our changes to save.  Remove those first from the `Magento Shipping` section.
+
+Next, use the following in the UPS section:
+
 1. Enabled for Checkout: `Yes`
 2. Enabled for RMA: `Yes`
 3. UPS Type: `United Parcel Service XML`
@@ -1137,8 +1141,6 @@ In order to use free shipping promotions, we need to set the following:
 (Using the ridiculously high threshold ensures that free shipping is only offered when shopping cart price rules offer it.  If we leave it at 0, Free Shipping for UPS would be offered for any order amount.)
 
 In addition, we'll disable table rate shipping and flat rate shipping.  Note:  If you ever need to work on the VM offline, you'll need to disable UPS as a shipping method and make sure to use Flat Rate shipping since it doesn't require an API call.
-
-Lastly, Magento Shipping comes "configured" with API credentials which are incorrect.  We need to remove the values in the Account ID and API Token fields in order for our changes to save.
 
 Once saved, refresh the cache.
 
