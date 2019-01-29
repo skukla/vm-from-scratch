@@ -1373,9 +1373,10 @@ Sources: [CWeagans Composer Patching Plugin](https://github.com/cweagans/compose
 #### Pickup In Store Quantity is Mis-Aligned
 For some reason, the quantity statement in the Pick Up In Store Module overlay is mis-aligned and needs to be adjusted:
 
-1. In `vendor/magentoese/module-instorepickup/view/frontend/web/js/templates/result.html`, on line 12, add CSS margin to move the "Available" string
+1. In `vendor/magentoese/module-instorepickup/view/frontend/web/js/templates/result.html`, on line 12, add CSS margin to move the "Available" string: `span style="float: right; margin-right: 20%;"`
 2. Save with `Esc`, then `:wq` and `Enter`
-3. Clear `pub/static` and the cache: `rm -rf pub/static && cache`
+3. Clear `pub/static`, then clear the cache.  After, re-deploy static content for US and German store views: `rm -rf pub/static/ && rm -rf var/cache/* var/page_cache/* && deploy-content && deploy-content-de`
+4. Note: You may need to clear browser cache to see the change
 
 <a id="pickup-in-store-extension-breaks-b2b-checkout"></a>
 #### Pickup In Store Extension Breaks B2B Checkout
