@@ -1296,7 +1296,9 @@ In order to show Instant Purchase, customers will need to have a Saved Card atta
 4. Card Verification Number: `123`
 5. Save for later use: `Yes`
 
-Optiona: Once you've placed the order, sign out as Sharon.  Next, fufill the order on the backend (create an invoice and a shipment).  Then, find *Push It Messenger Bag* and add back the quantity you purchased.
+Optiona: Once you've placed the order, sign out as Sharon.  Next, fufill the order on the backend (create an invoice and a shipment with a shipping label).  Then, find *Push It Messenger Bag* and add back the quantity you purchased.
+
+**Note**: If you need to place orders without an internet connection, remember to disable all API-driven payment methods.  (This would include Braintree and PayPal).  Check or Money Order should be enabled by default for you.
 
 <a id="marketing"></a>
 #### Marketing
