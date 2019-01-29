@@ -1264,6 +1264,8 @@ Navigate to `Content > Elements > Pages > Home Page - Venia`
 	4. Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 
+When done, refresh the cache.
+
 <a id="customers-and-customer-groups"></a>
 #### Customers and Customer Groups
 <a id="set-up-saved-cards"></a>
