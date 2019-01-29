@@ -1285,6 +1285,8 @@ In order to show Instant Purchase, customers will need to have a Saved Card atta
 4. Card Verification Number: `123`
 5. Save for later use: `Yes`
 
+Optiona: Once you've placed the order, find *Push It Messenger Bag* and add back the quantity you purchased.
+
 <a id="marketing"></a>
 #### Marketing
 
