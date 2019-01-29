@@ -89,8 +89,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Luma Home Page \(DE\)](#luma-home-page-de)
 			- [Venia Home Page](#venia-home-page)
 		- [Customer Configuration](#customer-configuration)
-			- [Set Up Saved Cards](#set-up-saved-cards)
 			- [Redirect to My Account](#redirect-to-my-account)
+			- [Set Up Saved Cards](#set-up-saved-cards)
 		- [Marketing](#marketing)
 			- [Featured Products on Home Page](#featured-products-on-home-page)
 			- [Sale Category](#sale-category)
@@ -1267,6 +1267,14 @@ When done, refresh the cache.
 
 <a id="customer-configuration"></a>
 #### Customer Configuration
+<a id="redirect-to-my-account"></a>
+##### Redirect to My Account
+Natively, when a customer logs in, they are redirected to the same page they were on when they triggered the log in action.  While this can be handy, typically, when logging in, our goal is to show the My Account area.  We can configure Magento to redirect a customer to their My Account area using the setting at:
+
+`Stores > Settings > Configuration > Customers > Customer Configuration > Login Options > Redirect Customer to Account Dashboard after Logging in`: `Yes`
+
+After saving, refresh cache.
+
 <a id="set-up-saved-cards"></a>
 ##### Set Up Saved Cards
 In order to show Instant Purchase, customers will need to have a Saved Card attached to their account.  We'll add one now for Sharon Reynolds.  As Sharon, create an order with the *Push It Messenger Bag*.  At checkout, use the following details:
@@ -1276,14 +1284,6 @@ In order to show Instant Purchase, customers will need to have a Saved Card atta
 3. Expiration Date: `01/23`
 4. Card Verification Number: `123`
 5. Save for later use: `Yes`
-
-<a id="redirect-to-my-account"></a>
-##### Redirect to My Account
-Natively, when a customer logs in, they are redirected to the same page they were on when they triggered the log in action.  While this can be handy, typically, when logging in, our goal is to show the My Account area.  We can configure Magento to redirect a customer to their My Account area using the setting at:
-
-`Stores > Settings > Configuration > Customers > Customer Configuration > Login Options > Redirect Customer to Account Dashboard after Logging in`: `Yes`
-
-After saving, refresh cache.
 
 <a id="marketing"></a>
 #### Marketing
