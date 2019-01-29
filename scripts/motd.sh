@@ -26,8 +26,9 @@ printf "\n${BOLD}Welcome to the Kukla VM!${REG}\n\n"
 # Hosts Entry and Webmin
 rulem "[ ${CYAN}Hosts Entry and Webmin${REG} ]"
 printf '\n%23s : %s %s\t%s\n' "${BOLD}Host Entry" "${REG}${IP}" "${HOSTNAME}"
-printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:10000" "User" "vagrant" "Password" "vagrant"
-
+printf '%23s : %s  \n' "${BOLD}Mailhog Inbox" "${REG}http://${HOSTNAME}:20000"
+printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:10000" "User" "vagrant" "Password" "vagrant"
+printf "\n"
 rulem "[ ${CYAN}Useful Commands${REG} ]"
 printf '\n%23s : %s' "${BOLD}set-url" "${REG}Set a new base url and hostname."
 printf '\n%23s : %s' "${BOLD}clean" "${REG}Re-indexes and clears cache."

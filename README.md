@@ -13,8 +13,10 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [Initial Setup](#initial-setup)
 	- [Installing Ubuntu](#installing-ubuntu)
 	- [Accessing via SSH](#accessing-via-ssh)
+	- [Setting the Hostname](#setting-the-hostname)
+		- [Adding the Magento QA Server to the Hosts File](#adding-the-magento-qa-server-to-the-hosts-file)
 	- [Uninstalling Cloud-Init](#uninstalling-cloud-init)
-	- [Package Updates and Setting the Hostname](#package-updates-and-setting-the-hostname)
+	- [Applying Package Updates](#applying-package-updates)
 	- [Adding the SSH Key](#adding-the-ssh-key)
 	- [Installing Helpful Additional Programs](#installing-helpful-additional-programs)
 	- [Setting the MoTD](#setting-the-motd)
@@ -33,11 +35,11 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [VM CLI](#vm-cli)
 	- [MariaDB](#mariadb)
 		- [Adding A Database and A Database User](#adding-a-database-and-a-database-user)
+		- [Database Tuning](#database-tuning)
 	- [Varnish](#varnish)
 	- [Redis](#redis)
 	- [Elasticsearch](#elasticsearch)
 		- [Install Java With The JDK](#install-java-with-the-jdk)
-		- [Installing Elasticsearch 5.2.x](#installing-elasticsearch-52x)
 		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
 		- [Configuring Elasticsearch](#configuring-elasticsearch)
 		- [Elasticsearch Plugins](#elasticsearch-plugins)
@@ -46,12 +48,66 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Install RabbitMQ](#install-rabbitmq)
 		- [Configuring RabbitMQ To Respect Hostname Change](#configuring-rabbitmq-to-respect-hostname-change)
 		- [Install RabbitMQ Management Dashboard](#install-rabbitmq-management-dashboard)
+	- [Managing the VM with Webmin](#managing-the-vm-with-webmin)
+		- [Installing and Configuring Webmin](#installing-and-configuring-webmin)
+			- [Configuring the Webmin Port](#configuring-the-webmin-port)
+			- [Remove SSL Mode](#remove-ssl-mode)
+	- [Handling Email with Mailhog](#handling-email-with-mailhog)
+		- [Installing the Go Programming Language](#installing-the-go-programming-language)
+		- [Downloading and Configuring Mailhog](#downloading-and-configuring-mailhog)
+		- [Creating the Mailhog Service](#creating-the-mailhog-service)
 - [Magento](#magento)
 	- [Downloading The Codebase With Git and Composer](#downloading-the-codebase-with-git-and-composer)
 	- [Installing The Magento Application](#installing-the-magento-application)
+	- [Installing Cron Tasks](#installing-cron-tasks)
 	- [Configuring Magento and Varnish](#configuring-magento-and-varnish)
 	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
+- [Giving Demos with the VM](#giving-demos-with-the-vm)
+	- [Demo Environments](#demo-environments)
+	- [The Hybrid VM](#the-hybrid-vm)
+		- [Preparation](#preparation)
+		- [Downloading the Code](#downloading-the-code)
+		- [Customizing the Codebase](#customizing-the-codebase)
+		- [Downloading and Applying Patches](#downloading-and-applying-patches)
+		- [Installing the Codebase](#installing-the-codebase)
+	- [Demo Case Setup](#demo-case-setup)
+		- [Autofill Setup](#autofill-setup)
+		- [Business Operations Setup](#business-operations-setup)
+			- [Update the Root Category, Website, and Store Names](#update-the-root-category-website-and-store-names)
+			- [Set the Store Information and Shipping Origin](#set-the-store-information-and-shipping-origin)
+			- [Set UPS as the Shipping Method](#set-ups-as-the-shipping-method)
+			- [YouTube API Key](#youtube-api-key)
+			- [Enable RMA](#enable-rma)
+			- [Password Policy](#password-policy)
+			- [Enable Instant Purchase](#enable-instant-purchase)
+			- [Remove Welcome Message](#remove-welcome-message)
+			- [Update Site Meta Info](#update-site-meta-info)
+			- [Configure Reward Points](#configure-reward-points)
+		- [Customers and Customer Groups](#customers-and-customer-groups)
+			- [Set Up Saved Cards](#set-up-saved-cards)
+			- [Redirect to My Account](#redirect-to-my-account)
+			- [Configure Customer Groups](#configure-customer-groups)
+		- [Marketing](#marketing)
+			- [Featured Products on Home Page](#featured-products-on-home-page)
+			- [Sale Category](#sale-category)
+			- [Customer Segments](#customer-segments)
+			- [Related Products Rules](#related-products-rules)
+			- [Promotions](#promotions)
+			- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
+		- [Grids Setup](#grids-setup)
+			- [Product Grids](#product-grids)
+			- [CMS Blocks Grid](#cms-blocks-grid)
+			- [CMS Pages Grid](#cms-pages-grid)
+			- [Staging and Preview Grid](#staging-and-preview-grid)
+		- [Tools](#tools)
+			- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
+			- [SC Theme Customizer](#sc-theme-customizer)
+	- [Fixes](#fixes)
+		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
+		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
+		- [Image Gallery Uses Prepend Instead of Replace](#image-gallery-uses-prepend-instead-of-replace)
+		- [Email "From" Doesn't Show Properly](#email-from-doesnt-show-properly)
 
 <!-- /MarkdownTOC -->
 
@@ -151,7 +207,7 @@ To Install VMWare Fusion:
 		6. *Import SSH identity:* No
 		7. *Featured Server Snaps:* Hit *tab* and choose *Done*
 		8. When available, choose *Reboot Now*
-	11. During reboot, the system will ask you to remove the installation medium and press *Enter* (press *Enter* to finish the reboot)
+	11. During reboot, the system will ask you to remove the installation medium and press `Enter` (press `Enter` again to finish the reboot)
 
 <a id="accessing-via-ssh"></a>
 ### Accessing via SSH
@@ -166,6 +222,31 @@ To use your own terminal application (such as iTerm, for example):
 2. Get the IP address of the machine from the Message of the Day (MoTD)
 3. Use ssh to tunnel in using your terminal application: `ssh magento@<YOUR_IP_HERE>`
 
+Note: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.
+
+<a id="setting-the-hostname"></a>
+### Setting the Hostname
+Next, we'll set a new hostname for the VM.  Since our initial url will be `luma.com`, let's use that as our hostname, too.  Once the hostname is changed, we also need to update our entry in the machine's `etc/hosts` file.  We'll use the VIM text editor to do this with the following commands:
+
+1. `sudo hostnamectl set-hostname luma.com`
+2. `sudo vim /etc/hosts`
+3. Use `Shift + A` to move to the end of the line and switch to *Insert* mode
+4. Press `tab` and type `luma.com`
+5. Press `Esc` to exit *Insert* mode
+6. Press `x` and then `Enter` to save the changes
+
+Once those changes are saved, reboot the machine. Once the machine boots and loads the login prompt, you'll notice it now says `luma login` instead of `localhost login` which indicates our changes have taken effect.
+
+<a id="adding-the-magento-qa-server-to-the-hosts-file"></a>
+#### Adding the Magento QA Server to the Hosts File
+In order to stay ahead of the development curve, the Solutions Innovation team often pulls pre-release cod via the Magento QA server.  We can do the same using an ssh tunnel and one of our cloud projects as a proxy.  The Magento VM CLI takes care of most of this for us, but we do need to make one change to ensure it can happen.
+
+1. `sudo vim /etc/hosts`
+3. Use `Shift + A` to move to the end of the line and switch to *Insert* mode
+3. Enter: `127.0.0.1 connect20-qa04.magedevteam.com`
+4. Press `Esc` to exit *Insert* mode
+5. Press `x` and then `Enter` to save the changes
+
 
 <a id="uninstalling-cloud-init"></a>
 ### Uninstalling Cloud-Init
@@ -177,20 +258,11 @@ When done, reboot the machine.
 
 (Source: [How to Remove cloud-init From Ubuntu](https://makandracards.com/operations/42688-how-to-remove-cloud-init-from-ubuntu))
 
-<a id="package-updates-and-setting-the-hostname"></a>
-### Package Updates and Setting the Hostname
-In this section, we'll make sure the Operating System packages are up to date and then configure our hostname to something unique.
+<a id="applying-package-updates"></a>
+### Applying Package Updates
+In this section, we'll make sure the Operating System packages are up to date.
 
-1. For package updates, use the following: `sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
-
-2. Next, we'll set a new hostname for the VM.  Since our initial url will be `luma.com`, let's use that as our hostname, too.  We can set this with the following: `sudo hostnamectl set-hostname luma.com`. Once the hostname is changed, we also need to update our entry in the machine's `etc/hosts` file.  We'll use the VIM text editor to do this with the following commands
-	 1. `sudo vim /etc/hosts`
-	 2. Use `Shift + A` to move to the end of the line and switch to *Insert* mode
-	 3. Press `tab` and type `luma.com`
-	 4. Press `Esc` to exit *Insert* mode
-	 5. Press `:wq` and `Enter` to save the changes
-
-	Once those changes are saved, reboot the machine. Once the machine boots and loads the login prompt, you'll notice it now says `luma login` instead of `localhost login` which indicates our changes have taken effect.
+Use the following: `sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
 <a id="adding-the-ssh-key"></a>
 ### Adding the SSH Key
@@ -200,7 +272,7 @@ Certain items in our solution stack such as the VM CLI and the Magento code base
 1. Create the key file with `vim /home/magento/Magento-Cloud`
 2. Switch to *Insert* mode with `i`
 3. Paste in the key contents and then exit *Insert* mode with `Esc`
-4. Save the key file with `:wq`
+4. Save the key file with `x` and then `Enter` 
 5. Change the key file permissions to 0400 with `sudo chmod 0400 /home/magento/Magento-Cloud`
 
 <a id="installing-helpful-additional-programs"></a>
@@ -213,11 +285,11 @@ Next, we'll install the additional programs listedin the [Helpful Additions](#he
 ### Setting the MoTD
 When a user logs in to a Linux-based operating system, they're greeted with what's called the *Message of the Day* (or MoTD).  This message can be modified, to show whatever we like, so let's modify it now to show some helpful information to our users.  We'll show them the machine's IP and hostname and format it in such a way that they can easily grab it for use as an entry in their local `hosts` file.
 
-To set the MoTD, we must first *disable* the parts of the existing MoTD we don't want, and then add a script of our own.  To do this, navigate to: `/etc/update-motd.d/` and run the following command: 
+To set the MoTD, we must first *disable* the parts of the existing MoTD we don't want, and then add a script of our own.  To do this, run the following command: 
 
-`sudo chmod -x 00-header 10-help-text 50-landscape-sysinfo 50-motd-news 80-esm 80-livepatch 90-updates-available 91-release-upgrade 95-hwe-eol 97-overlayroot 98-fsck-at-reboot`
+`sudo chmod -x /etc/update-motd.d/00-header /etc/update-motd.d/10-help-text /etc/update-motd.d/50-landscape-sysinfo /etc/update-motd.d/50-motd-news /etc/update-motd.d/80-esm /etc/update-motd.d/80-livepatch /etc/update-motd.d/90-updates-available /etc/update-motd.d/91-release-upgrade /etc/update-motd.d/95-hwe-eol /etc/update-motd.d/97-overlayroot /etc/update-motd.d/98-fsck-at-reboot`
 
-Next, using`vim`, we'll create a custom bash script for our own MoTD: `sudo vim 01-custom`.  Use `i` to enter *Insert* mode, and then paste in the below:
+Next, using`vim`, we'll create a custom bash script for our own MoTD: `sudo vim /etc/update-motd.d/01-custom`.  Use `i` to enter *Insert* mode, and then paste in the below:
 
 ```
 #!/bin/bash
@@ -229,6 +301,10 @@ HOSTNAME=$(hostname)
 BOLD=$(tput bold)
 REG=$(tput sgr0)
 CYAN=$(tput setaf 6)
+WEBMIN_USER=magento
+WEBMIN_PASS=magento
+WEBMIN_PORT=$(netstat -tulpn | grep "LISTEN" | grep "perl" | awk '{print $4}' | sed -e 's/.*://')
+MAILHOG_PORT=$(netstat -tulpn | grep "LISTEN" | grep "mailhog" | awk '{print $4;exit;}' | sed -e 's/.*://')
 
 # Print a horizontal rule
 rule () {
@@ -245,11 +321,14 @@ rulem ()  {
 figlet BOOM.
 printf "\n${BOLD}Welcome to the Kukla VM!${REG}\n\n"
 
-# Hosts Entry and Webmin
+# Hosts Entry, Mailhog, and Webmin
 rulem "[ ${CYAN}Hosts Entry and Webmin${REG} ]"
 printf '\n%23s : %s %s\t%s\n' "${BOLD}Host Entry" "${REG}${IP}" "${HOSTNAME}"
-printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:10000" "User" "magento" "Password" "magento"
+printf '%23s : %s  \n' "${BOLD}Mailhog Inbox" "${REG}http://${HOSTNAME}:${MAILHOG_PORT}"
+printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:${WEBMIN_PORT}" "User" "${WEBMIN_USER}" "Password" "${WEBMIN_PASS}"
+printf "\n"
 
+# Useful Commands
 rulem "[ ${CYAN}Useful Commands${REG} ]"
 printf '\n%23s : %s' "${BOLD}set-url" "${REG}Set a new base url and hostname."
 printf '\n%23s : %s' "${BOLD}clean" "${REG}Re-indexes and clears cache."
@@ -263,12 +342,13 @@ printf '\n%23s : %s' "${BOLD}staging" "${REG}Refreshes the Staging Dashboard (Ru
 printf '\n%23s : %s' "${BOLD}disable-cms-cache" "${REG}Disables the block_html, layout, and full_page caches."
 printf '\n%23s : %s' "${BOLD}enable-cache" "${REG}Enables all caches."
 printf '\n%23s : %s' "${BOLD}cron" "${REG}Runs a single cron trigger."
+printf '\n%23s : %s' "${BOLD}upgrade" "${REG}Upgrade the codebase after adding a new module to your composer.json file."
 printf "\n\n"
 
 rule
 ```
 
-Exit *Insert* mode with `Esc` and then save and quit the file with `:wq`. Finally, set the new script as executable with `sudo chmod +x /etc/update-motd.d/01-custom`.
+Exit *Insert* mode with `Esc` and then save and quit the file with `x` and `Enter`.  Make the new script as executable with `sudo chmod +x /etc/update-motd.d/01-custom`.
 
 This MoTD is much more useful; it tells the user what hosts entry to use for the machine, the webmin url and credentials, as well as some useful commands from the VM CLI.  (We'll set up Webmin and the VM CLI shortly.)  To test the new MoTD, simply reboot the machine and login again.
 
@@ -326,9 +406,9 @@ To edit these settings for PHP via the CLI:
 4. When you find the line you want to edit, switch to *Insert* mode using the `i` key
 5. Make your desired changes.  Note that if a setting is commented out with `;`, you'll need to delete the semi-colon for the setting to be live
 6. If you want to search the file again for another string after a change is made, switch back to *Command* mode with `Esc` and then search again (e.g. `/memory_limit`)
-6. Save and quit with `:wq`
+7. If you're in *Command* mode, save and quit with `x` and then `Enter`.  If in *Insert* mode, use `Esc`, `x`, and `Enter`
 
-To edit the same settings for PHP via FPM, follow the same process with `sudo vim /etc/php/7.2/fpm/php.ini`
+To use the same settings for PHP via FPM, follow the same process with `sudo vim /etc/php/7.2/fpm/php.ini`
 
 Once the configurations are saved, we'll want to restart PHP-FPM so they take effect.  Use `sudo systemctl restart php7.2-fpm`
 
@@ -351,7 +431,7 @@ When nginx is installed, it includes a user group called `www-data` which can be
 
 `sudo usermod -aG www-data magento`
 
-Using the `-G` flag makes the `www-data` group a *supplemental* group for the `magento` user.  This means that the `magento` user have access to the `www-data` group files, but new files created by that user will not have the `www-data` group label by default.  The `-a` flag makes sure that other groups the user belongs to are not lost.
+Using the `-G` flag makes the `www-data` group a *supplemental* group for the `magento` user.  This means that the `magento` user will have access to the `www-data` group files, but that new files created by that user will not have the `www-data` group label by default.  The `-a` flag makes sure that other groups the user belongs to are not lost.  This is important in our case because we happen to be a part of the `sudo` group, and if we lost that assignment, we'd be unable to continue.
 
 <a id="configuring-nginx-with-php-fpm"></a>
 #### Configuring Nginx with PHP-FPM
@@ -375,9 +455,9 @@ Next, we'll need to update the nginx configuration file to indicate that the `ma
 
 1. `sudo vim /etc/nginx/nginx.conf`
 2. Change `user www-data` to `user magento`
-3. Save and close with `Esc` and then `:wq`
+3. Save and close with `Esc`, `x` and press `Enter` 
 
-Finally, we'll restart both the web server and PHP-FPM:
+Now we'll restart both the web server and PHP-FPM:
 
 `sudo systemctl restart nginx && sudo systemctl restart php7.2-fpm`
 
@@ -489,6 +569,29 @@ Now, test the new user by logging in. You can check for the new database with `S
 
 (Source: [How to create a user in MySQL/MariaDB and grant permissions on a specific database](http://www.daniloaz.com/en/how-to-create-a-user-in-mysql-mariadb-and-grant-permissions-on-a-specific-database/))
 
+<a id="database-tuning"></a>
+#### Database Tuning
+Next, we'll tune our database to help it perform well:
+
+1. Create database configuration file `sudo vim /etc/mysql/my.cnf` and ensure it has the followng:
+
+```
+!includedir /etc/mysql/conf.d/
+!includedir /etc/mysql/mysql.conf.d/
+
+[mysqld]
+socket                          = /var/run/mysqld/mysqld.sock
+innodb_buffer_pool_size         = 1G
+max_allowed_packet              = 512M
+tmp_table_size                  = 64M
+max_heap_table_size             = 64M
+```
+
+2. Save and close with `Esc`, then `x`, then `Enter`
+3. Finally, reload the configuration by restarting the server with `sudo systemctl restart mysql`
+
+(Source: See Step 7 at [Magento Dev Docs: Configuring the Magento Database Instance](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/mysql.html#instgde-prereq-mysql-config))
+
 <a id="varnish"></a>
 ### Varnish
 Now we'll install Varnish.  Use the following command:
@@ -517,7 +620,6 @@ Next, let's install Elasticsearch.  Elasticsearch runs on Java, so the first thi
 
 <a id="install-java-with-the-jdk"></a>
 #### Install Java With The JDK
-Looks like we may need version JDK version 1.8.0_121 for Elasticsearch 5.2.2.
 
 Use the following commands to add the JDK repository and install Java:
 
@@ -526,14 +628,6 @@ Use the following commands to add the JDK repository and install Java:
 Accept the Oracle License Agreement during installation.
 
 (Source: [Magento Dev Docs: Install the Latest JDK on Ubuntu](https://devdocs.magento.com/guides/v2.3/config-guide/elasticsearch/es-overview.html#prereq-java))
-
-<a id="installing-elasticsearch-52x"></a>
-#### Installing Elasticsearch 5.2.x
-With Java installed, we'll move on to installing Elasticsearch.  Like other elements of our solution stack installing Elasticsearch will consist of adding a repository key, adding the repository to Ubuntu's repository list, and then using `apt ` to install it.  THen we'll use `apt` to update and upgrade packages, and then to remove any unneeded ones.  Use the following code:
-
-Since (as of this writing) Magento only supports Elasticsearch 5.2.x and that version is now outdated, we cannot use the typical method of adding a repository and installing via that method.  Instead, to ensure we're using version 5.2.2, we'll have to install it manually. To do so, use:
-
-`wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.2.deb && sudo dpkg -i elasticsearch-5.2.2.deb`
 
 <a id="installing-elasticsearch-56x"></a>
 #### Installing Elasticsearch 5.6.x
@@ -547,15 +641,15 @@ After the installation, a default configuration file will be populated to `/etc/
 
 1. `sudo vim /etc/elasticsearch/elasticsearch.yml`
 2. Enter *Insert* mode with `i` and change `#cluster.name: my-application` to `cluster.name: magento`
-3. Save and close with `:wq`
+3. Save and close with `Esc`, then `x` and press `Enter` 
 
-Note that the default minimum memory allocation set for Elasticsearch to use is 2GB.  This should be fine for us, but in case you want to change this to use less:
+The default minimum memory allocation set for Elasticsearch to use is 2GB.  On more powerful machines this should be fine, but as some users may have host machines which only have 8G of RAM rather than 16, we'll use less:
 
 1. `sudo vim /etc/elasticsearch/jvm.options`
-2. Enter *Insert* mode with `i` and change `-Xms2g` and `-Xmx2g` to values that make more sense for you (e.g. `-Xms512m` and `-Xmx512m` respectively.)
-3. Save and close with `:wq`
+2. Enter *Insert* mode with `i` and change `-Xms2g` and `-Xmx2g` to values that make more sense for you (e.g. `-Xms512m` and `-Xmx512m` or `-Xms1g` and `-Xmx1g`, respectively.  (Let's use `1g` for now)
+3. Save and close with `Esc`, then `x` and press `Enter`
 
-Once done, we'll reload the Elasticsearch daemon, enable Elasticsearch to start on boot, and then restart Elasticsearch:
+Next, we'll reload the Elasticsearch daemon, enable Elasticsearch to start on boot, and then restart Elasticsearch:
 
 `sudo systemctl daemon-reload && sudo systemctl enable elasticsearch.service && sudo systemctl restart elasticsearch.service`
 
@@ -596,7 +690,7 @@ First, we need to update our `/etc/hosts` file to include the proper hostname fo
 1. `sudo vim /etc/hosts`
 2. Switch into *Insert* mode and move to the end of the line with `Shift-A`
 3. Press `Tab` and then type `luma`.
-4. Save and exit with `:wq`
+4. Save and exit with `Esc`, then `x` and press `Enter` 
 
 Next, we'll create a configuration file and specify the original hostname `luma` (Note: not `luma.com` as `hostname` tells us):
 
@@ -626,6 +720,89 @@ Now, log in to the dashboard at the url above.
 
 (Source: [Enable the RabbitMQ Management Dashboard](https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-18-04-lts/))
 
+<a id="managing-the-vm-with-webmin"></a>
+### Managing the VM with Webmin
+
+<a id="installing-and-configuring-webmin"></a>
+#### Installing and Configuring Webmin
+
+<a id="configuring-the-webmin-port"></a>
+##### Configuring the Webmin Port
+Next, we'll configure webmin to use port 20000:
+
+1. `sudo vim /etc/webmin/miniserv.conf`
+2. Use `i` for *Insert* mode and change the port on the first line (`port=20000`)
+3. Save and close with `Esc`, `x`, and `Enter`
+
+(Source: [How to change webmin port using terminal?](https://www.iodocs.com/change-webmin-port-using-terminal/))
+
+<a id="remove-ssl-mode"></a>
+##### Remove SSL Mode
+Next, let's remove SSL authentication from Webmin
+
+1. `sudo vim /etc/webmin/miniserv.conf`
+2. Use `i` for *Insert* mode and change `ssl=1` to `ssl=0`
+3. Save and close with `Esc`, `x`, and `Enter`
+
+Source: ([Webmin Error: The Web Server is running in SSL mode](http://eitwebguru.com/webmin-error-the-web-server-is-running-in-ssl-mode/))
+
+Restart the `webmin` service using `sudo systemctl restart webmin`
+
+<a id="handling-email-with-mailhog"></a>
+### Handling Email with Mailhog
+Next, we'll install and configure Mailhog, a tool that catches outgoing email and presents it for viewing via a web interface.
+
+<a id="installing-the-go-programming-language"></a>
+#### Installing the Go Programming Language
+Mailhog is written in the Go programming language which is not included with Ubuntu 18.04.  So, we'll start by installing it.  Then, we'll create a directory which will serve as our "home" directory for our Go code and then designate this directory as our HOME path for all Go code execution in our bash `.profile`.  This makes it so that whenever we open an ssh or terminal session on the VM and run go code, it knows where the go packages are.  Next, we'll source our shell which will force the terminal to use the new settings, and finally, we'll copy our binaries to a location on the VM where they can be run from everywhere.
+
+`sudo apt install golang-go -y && sudo apt update -y && sudo apt upgrade -y && mkdir /home/vagrant/gocode && echo "export GOPATH=$HOME/gocode" >> ~/.profile && source ~/.profile`
+
+<a id="downloading-and-configuring-mailhog"></a>
+#### Downloading and Configuring Mailhog
+Now that we have the Go language installed, let’s download MailHog (the SMTP server) plus mhsendmail, which is the mail handler that forwards PHP’s outgoing email to MailHog.  Then, we'll copy the Mailhog and MHSendmail binaries to a location where they can be accessed globally on the system:
+
+`go get github.com/mailhog/MailHog && go get github.com/mailhog/mhsendmail && sudo cp /home/vagrant/gocode/bin/MailHog /usr/local/bin/mailhog && sudo cp /home/vagrant/gocode/bin/mhsendmail /usr/local/bin/mhsendmail`
+
+Finally, let’s connect PHP with MailHog at php.ini:
+
+For both `/etc/php/7.2/cli` and `/etc/php/7.2/fpm`:
+
+1. Find the `sendmail_path` setting `sudo` and `vim` to set it as:
+2. `sendmail_path = /usr/local/bin/mhsendmail`
+3. Use `Esc`, then `x`, and `Enter` to save and close
+4. Restart `php-fpm` with `sudo systemctl restart php7.2-fpm`
+
+<a id="creating-the-mailhog-service"></a>
+#### Creating the Mailhog Service
+In order to make it easier to use Mailhog and to be able to start it as a service when the VM boots, we need to create a service file:
+
+1. Create the file with `sudo vim /etc/systemd/system/mailhog.service`  and, after switching to *Insert* mode with `i`, paste the following into it:
+
+```
+[Unit]
+Description=MailHog service
+
+[Service]
+ExecStart=/usr/local/bin/mailhog \
+  -api-bind-addr 0.0.0.0:10000 \
+  -ui-bind-addr 0.0.0.0:10000 \
+  -smtp-bind-addr 0.0.0.0:1025
+
+[Install]
+WantedBy=multi-user.target
+```
+
+2. Save and quit with `Esc`, then `x`, then `Enter`
+3. Start the service to verify that it works: `sudo systemctl start mailhog`
+4. Enable the service so it runs on bootup: `sudo systemctl enable mailhog`
+5. Optional: Restart the VM, login, and then use `sudo netstat -tulpn | grep "mailhog"` to confirm it's running
+6. Lastly, you can test it by loading `luma.com:20000` in a browser
+
+With Mailhog configured, you should be able to send transactional emails from Magento and see them in the Mailhog interface.  We'll go over Magento-specific domain configuration in a later section.
+
+Source: [Installing MailHog for Ubuntu 16.04](https://www.lullabot.com/articles/installing-mailhog-for-ubuntu-1604)
+
 <a id="magento"></a>
 ## Magento
 
@@ -635,17 +812,30 @@ Note that before we can download the Commerce Edition code base, we'll need cred
 
 Normally, we'd use Composer to download the Magento codebase.  However, to keep consistent with our Magento Cloud counterparts, we'll add our ssh key to the key agent and navigate to the web root using the VM CLI and then install the beginnings of the code base via a git repository maintained by the Magento Solution Innovations team.  Once cloned, we'll check out the proper branch and then use composer to download the code base.
 
-`add-key && www && git clone git@github.com:PMET-public/magento-cloud.git . && git checkout 2.3.0 && composer install`
+`add-key && www && git clone git@github.com:PMET-public/magento-cloud.git . && git checkout pmet-2.3.0-demo && composer install`
 
 When prompted, enter your Magento code base repository credentials and then store the credentials in `home/magento/.composer/auth.json` when prompted.
 
 <a id="installing-the-magento-application"></a>
 ### Installing The Magento Application
+Use the following comamnd to install the Magento application (change your values where applicable):
+
+TODO: Test installation with Redis... `session-save=db`.
+
+**Without RabbitMQ**
+
+`./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=admin4tls --use-rewrites=1 --cleanup-database`
+
+**With RabbitMQ**
+
+`./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=admin4tls --use-rewrites=1 --amqp-host="luma.com" --amqp-port=5672 --amqp-user="guest" --amqp-password="guest" --amqp-virtualhost="/" --cleanup-database`
+
+<a id="installing-cron-tasks"></a>
+### Installing Cron Tasks
 
 
 <a id="configuring-magento-and-varnish"></a>
 ### Configuring Magento and Varnish
-
 
 <a id="configuring-magento-for-multisite-operation"></a>
 ### Configuring Magento For Multisite Operation
@@ -670,4 +860,472 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 <a id="how-magento-multisite-operation-works"></a>
 ### How Magento Multisite Operation Works
 
-Foo
+<a id="giving-demos-with-the-vm"></a>
+## Giving Demos with the VM
+<a id="demo-environments"></a>
+### Demo Environments
+The Solutions Innovation team provides Solutions Consultants with two Cloud projects for demonstrating the Luma brand: a Reference environment and a Demo environment.  The *Reference* environment is a completely native installation of Magento -- there are no extensions of any kind; only the code base and the sample data which ships with the platform.  In contrast, the *Demo* environment builds on the native installation with sample data but adds both custom modules built and/or maintained by the Solutions Innovation team as well as third-party extensions built by the Magento developer community.
+
+<a id="the-hybrid-vm"></a>
+### The Hybrid VM
+For some solution consultants, the two default environments cover both extremes, and may not be an ideal solution.  On one hand, while the Reference environments are entirely native, there are useful additions that will serve Solutions Consultants more effectively in the field without including too many customizations.
+
+<a id="preparation"></a>
+#### Preparation
+For whatever reason, it is not currently possible to use the cloud code base to create a custom VM.  Exhaustive testing has shown that some combinations of the Luma DE and Venia-related modules cause cron jobs to become unmanageable and results are not predictable.  As such, we will create the hybrid environment from scratch and pull in needed elements from Cloud.  Note that before you begin pulling code, you'll need a set of composer credentials for the Magento repository which have the correct access permissions.
+
+<a id="downloading-the-code"></a>
+#### Downloading the Code
+To begin, we start by using Composer to download the code in the web root.   We'll also include the B2B modules and the Luma sample data:
+
+
+1. `www`
+2. `rm -rf * .*` (Optional: Removes files from web root -- only used if this is a reinstall)
+3. `composer create-project --repository-url=https://repo.magento.com/ magento/project-enterprise-edition=^2.3.0 . && composer require magento/extension-b2b:^1.1 && ./bin/magento sampledata:deploy
+`
+
+(The sample data step will require your composer credentials, so be prepared to provide those.  It'll also ask you whether you'd like to store them for future use.)
+
+<a id="customizing-the-codebase"></a>
+#### Customizing the Codebase
+Once the native source code is downloaded, we'll adapt it by adding and removing modules we'll use for our demos.  This process will consist of specifying modules to include in the codebase in the `require` section and then specifying where the code for those modules will be downloaded in the `repositories` section.
+
+In your `composer.json`, use the following require section:
+
+```
+"require": {
+	"magento/extension-b2b": "^1.1",
+	"magento/module-bundle-sample-data": "100.3.*",
+	"magento/module-catalog-rule-sample-data": "100.3.*",
+	"magento/module-catalog-sample-data": "100.3.*",
+	"magento/module-cms-sample-data": "100.3.*",
+	"magento/module-configurable-sample-data": "100.3.*",
+	"magento/module-customer-balance-sample-data": "100.3.*",
+	"magento/module-customer-sample-data": "100.3.*",
+	"magento/module-downloadable-sample-data": "100.3.*",
+	"magento/module-gift-card-sample-data": "100.3.*",
+	"magento/module-gift-registry-sample-data": "100.3.*",
+	"magento/module-grouped-product-sample-data": "100.3.*",
+	"magento/module-msrp-sample-data": "100.3.*",
+	"magento/module-multiple-wishlist-sample-data": "100.3.*",
+	"magento/module-offline-shipping-sample-data": "100.3.*",
+	"magento/module-product-links-sample-data": "100.3.*",
+	"magento/module-review-sample-data": "100.3.*",
+	"magento/module-sales-rule-sample-data": "100.3.*",
+	"magento/module-sales-sample-data": "100.3.*",
+	"magento/module-swatches-sample-data": "100.3.*",
+	"magento/module-target-rule-sample-data": "100.3.*",
+	"magento/module-tax-sample-data": "100.3.*",
+	"magento/module-theme-sample-data": "100.3.*",
+	"magento/module-widget-sample-data": "100.3.*",
+	"magento/module-wishlist-sample-data": "100.3.*",
+	"magento/product-enterprise-edition": "2.3.0",
+	"magento/sample-data-media": "100.3.*",
+	"magento/page-builder-commerce": "*@beta",
+
+	"firegento/fastsimpleimport": "dev-updated",
+	"magentoese/module-admin-configurations": "dev-master",
+	"magentoese/module-autofill": "dev-master",
+	"magentoese/module-autofill-sample-data": "dev-demo",
+	"magentoese/module-demo-admin-configurations": "dev-master",
+	"magentoese/module-installation-overrides": "dev-master",
+	"magentoese/module-instorepickup": "dev-master",
+	"magentoese/module-instorepickup-sample-data": "dev-master",
+
+	"magentoese/module-customer-sample-data": "dev-master",
+	"magentoese/module-demo-order-data": "dev-master",
+	"magentoese/module-sales-sample-data": "dev-master",
+
+	"magentoese/module-product-sample-data-update": "dev-master",
+	"magentoese/module-productbadge": "dev-master",
+	"magentoese/module-productbadge-sample-data": "2.3.x-dev",
+	"magentoese/module-sctools": "dev-master",
+	"magentoese/module-switcherlogos": "dev-master",
+	"magentoese/module-themecustomizer": "dev-master",
+
+	"classyllama/module-owlcarousel":"dev-master",
+	"magentoese/module-lookbook": "dev-master",
+	"magentoese/module-luma-de-attributes": "dev-master",
+	"magentoese/module-luma-de-categories": "dev-master",
+	"magentoese/module-luma-de-cms": "dev-master",
+	"magentoese/module-luma-de-products": "dev-master",
+	"magentoese/module-luma-de-setup": "dev-master",
+	"magentoese/module-luma-de-widget": "dev-master",
+	"splendidinternet/mage2-locale-de-de": "dev-master",
+
+	"magentoese/module-venia-setup": "dev-master",
+	"magentoese/theme-frontend-venia": "2.3.x-dev",
+	"magentoese/module-venia-catalog-sample-data": "dev-master",
+	"magentoese/module-venia-cms-sample-data": "2.3.x-dev",
+	"magentoese/module-venia-media-sample-data": "2.3.x-dev",
+	"magentoese/module-vimeo": "2.2.x-dev",
+	"magentoese/module-venia-video-sample-data": "dev-master",
+	"magentoese/magento-scripts": "2.2.5.x-dev",
+	"magentoese/ece-tools": "2002.0.14.x-dev",
+
+	"skukla/theme-frontend-custom": "dev-master",
+	"skukla/module-custom-brand-setup": "dev-master"
+}
+```
+
+Next, use the following `repositories` section:
+
+```
+"repositories": [
+    {"type": "composer", "url": "https://repo.magento.com/"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-advanced-conditions.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-banners-lite.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-base.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-blog-pro.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-duplicate-categories.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-free-gift.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-geoip.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-groupcat.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-product-attachments.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-rules-grid.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-special-promotions-pro.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-special-promotions.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-store-locator.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-admin-configurations.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-cms-media-sample-data-update.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-switcherlogos.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-authnetcim.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-firstdata.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-stripe.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-subscriptions.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-m2epro.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-autofill-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-autofill.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-demo-admin-configurations.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-instorepickup.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-instorepickup-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-product-sample-data-update.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-productbadge.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-productbadge-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-productimageswitcher.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-sctools.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-themecustomizer.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/FireGento_FastSimpleImport2.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-installation-overrides.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-lookbook.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-luma-de-attributes.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-luma-de-categories.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-luma-de-cms.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-luma-de-products.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-luma-de-setup.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-luma-de-widget.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/Magento2_German_LocalePack_de_DE.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/theme-frontend-venia.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-venia-media-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-venia-catalog-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-venia-cms-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-venia-setup.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-venia-video-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-vimeo.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-customer-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-demo-sample-order-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-sales-sample-data.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/magento-scripts.git"},
+    {"type": "git", "url": "git@gitlab.the1umastory.com:md/ece-tools.git"},
+    {"type": "git", "url": "git@github.com:PMET-public/module-sctools.git"},
+    {"type": "git", "url": "git@github.com:skukla/theme-frontend-custom.git"},
+    {"type": "git", "url": "git@github.com:skukla/module-custom-brand-setup.git"}
+]
+```
+
+Next, since Page Builder is in beta, we'll need to update our minimum stability setting so that beta code can be included in the codebase. Change the setting from `stable` to `beta`.
+
+Save the `composer.json` file. When done, we can use `composer upgrade` to download the code we want.
+
+<a id="downloading-and-applying-patches"></a>
+#### Downloading and Applying Patches
+Since the Magento application is a moving target, The Innovations team maintains a series of patches to fix known issues prior to installing the application.  First, we'll need to create a folder for the cloud codebase outside of our web root, download the hotfixes we want to apply from the cloud codebase using git, copy them into our codebase, and then apply them:
+
+1. `www && cd ../ && mkdir cloud && cd cloud`
+2. `git clone git@github.com:PMET-public/magento-cloud.git . && git checkout pmet-2.3.0-demo`
+3. `www && cp -R ../cloud/m2-hotfixes/ .`
+4. `php vendor/magentoese/ece-tools/bin/ece-tools patch`
+
+<a id="installing-the-codebase"></a>
+#### Installing the Codebase
+With the patches applied, we can use the install command above to install the application.
+
+<a id="demo-case-setup"></a>
+### Demo Case Setup
+
+<a id="autofill-setup"></a>
+#### Autofill Setup
+Initially, the autofill extension includes three enabled personas: VIP, Runner, and Yoga.  The first change we'll make is to add names to these profiles so we can refer to them in the demo story.  In `Stores > Settings > Configuration > Magento Ese > Auto Fill`, update the personas so that the persona labels reflect the following:
+
+1. `Sharon (VIP)`
+2. `Mark (Runner)`
+3. `Lisa (Yoga)`
+
+Then, clear cache.
+
+<a id="business-operations-setup"></a>
+#### Business Operations Setup 
+
+<a id="update-the-root-category-website-and-store-names"></a>
+##### Update the Root Category, Website, and Store Names
+By default, the Root Category for the Luma Catalog is called "Default Category" which doesn't show as well as it could.  Let's update it to "Luma Catalog" instead.
+
+In addition, the Website and Store names could also show better.  Let's use the following:
+
+1. Website:
+	Website Name: `Luma Website`
+	Website Code: `base`
+2. Store:
+	Store Name: `Luma Store`
+	Store Code: `luma_store`
+
+We can also update Venia to match:
+
+3. Store:
+	Store Name: `Venia Store`
+	Store Code: `venia_store`
+
+When done, run the `clean` command to reindex and clear the cache.
+
+<a id="set-the-store-information-and-shipping-origin"></a>
+##### Set the Store Information and Shipping Origin
+In order for Shipping Labels to work properly, we'll need to fill in the Store Information address as well as the Shipping Origin:
+
+Navigate to `Stores > Settings > Configuration > General > General > Store Information` and use:
+
+1. Store Name: `Luma, Inc`
+2. Store Phone Number: `310-945-0345`
+3. Store Hours of Operation: `9AM - 5PM`
+4. Country: `United States`
+5. Region/State: `California`
+6. Zip/Postal Code: `90016`
+7. City: `Los Angeles`
+8. Street Address: `3640 Holdrege Ave`
+
+Next, to set the shipping origin, navigate to `Stores > Settings > Configuration > Sales > Shipping Settings` and update the following settings:
+
+1. Zip/Postal Code: `90016`
+2. City: `Los Angeles`
+3. Street Address: `3640 Holdrege Ave`
+
+When done, clear the cache.
+
+<a id="set-ups-as-the-shipping-method"></a>
+##### Set UPS as the Shipping Method
+To set up UPS as the shipping method, navigate to: `Stores > Settings > Configuration > Sales > Shipping Methods`
+
+1. Enabled for Checkout: `Yes`
+2. Enabled for RMA: `Yes`
+3. UPS Type: `United Parcel Service XML`
+4. Mode: `Development`
+5. User ID: `magento`
+6. Access License Number: `ECAB751ABF189ECA`
+7. Password: `magento200`
+8. Shipper Number: `207W88`
+9. Allowed Methods:
+	`Ground`
+	`UPS Next Day Air`
+
+In order to use free shipping promotions, we need to set the following:
+
+10. Free Method: `UPS Ground`
+11. Enable Free Shipping Threshold: `Enable`
+12. Free Shipping Amount Threshold: `1000000000`
+
+(Using the ridiculously high threshold ensures that free shipping is only offered when shopping cart price rules offer it.  If we leave it at 0, Free Shipping for UPS would be offered for any order amount.)
+
+In addition, we'll disable table rate shipping and flat rate shipping.  Note:  If you ever need to work on the VM offline, you'll need to disable UPS as a shipping method and make sure to use Flat Rate shipping since it doesn't require an API call.
+
+Lastly, Magento Shipping comes "configured" with API credentials which are incorrect.  We need to remove the values in the Account ID and API Token fields in order for our changes to save.
+
+Once saved, refresh the cache.
+
+<a id="youtube-api-key"></a>
+##### YouTube API Key
+To use YouTube for product videos, we need to enter a YouTube API key.  Navigate to: `Stores > Settings > Configuration > Catalog > Catalog Product Video` and use the following API key:
+
+`AIzaSyD4E-F8dCwzFp0OkOD1LdIiFFG8Q0wDy1o`
+
+Once saved, refresh the cache.
+
+<a id="enable-rma"></a>
+##### Enable RMA
+By default, RMA is not enabled for use.  To enable it, navigate to: `Stores > Settings > Configuration > Sales > Sales > RMA Settings`.
+
+1. Enable RMA on Storefront: `Yes`
+
+When saved, refresh the cache.
+
+<a id="password-policy"></a>
+##### Password Policy
+By default, Magento has a pretty stringent password policy (three separate character classes and a forced reset for admins every 90 days.)  We're going to amend that to something much more friendly.
+
+For cusotmer-facing passwords, navigate to: `Stores > Settings > Configuration > Customers > Customer Configuration > Password Options`:
+
+1. Number of Required Character Classes: `1`
+2. Maximum Login Failures to Lockout Account: `0`
+3. Minimum Password Length: `1`
+
+For admin-facing passwords, navigate to: `Stores > Settings > Configuration > Advanced > Admin > Security` and verify:
+
+1. Admin Session Lifetime: `900000`
+2. Maximum Login Failures to Lockout Account: `{BLANK}`
+3. Password Lifetime: `{BLANK}`
+4. Password Change: `Recommended`
+
+<a id="enable-instant-purchase"></a>
+##### Enable Instant Purchase
+Verify Instant Purchase is enabled at: `Stores > Settings > Configuration > Sales > Sales > Instant Purchase`
+
+<a id="remove-welcome-message"></a>
+##### Remove Welcome Message
+By default, Magento includes an annoying text string "Default welcome msg!" which gets replaced with "Welcome!" when a customer logs in.  Since this is stupidly unnecessary for a guest user, we'll remove it.
+
+Navigate to: `Content > Design > Configuration` and choose Global scope. Expand the Header section, empty the Welcome Text field, and save.  Clear cache when done.
+
+<a id="update-site-meta-info"></a>
+##### Update Site Meta Info
+Next, we'll set up global meta information for pages like the Order Confirmation results page which don't have headings.  Navigate to: `Content > Design > Configuration` and the Luma Store US English store view scope.  Use the following:
+
+*Default Page Title*: `LUMA Official Online Store`
+
+*Default Meta Description*: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
+
+*Default Meta Keywords*: `yoga,exercise,apparel,clothing,working out,fitness`
+
+<a id="configure-reward-points"></a>
+##### Configure Reward Points
+In order to use Reward Points in an order, we need to ensure that Reward Points able to be earned for purchases and that a bi-directional Reward Exchange Rate is created.
+
+1. Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by Customers`
+2. Set `Purchase` to `Yes`
+3. Navigate to `Stores > Other Settings > Reward Exchange Rates`
+4. Add a new rate for points to currency:
+	1. `Website`: `Luma Website`
+	2. `Customer Group`: `All Customer Groups`
+	3. `Direction`: `Points to Currency`
+	4. `Rate`: `1 / 1`
+5. Add a new rate for currency to points:
+	1. `Website`: `Luma Website`
+	2. `Customer Group`: `All Customer Groups`
+	3. `Direction`: `Currency to Points`
+	4. `Rate`: `1 / 1`
+
+<a id="customers-and-customer-groups"></a>
+#### Customers and Customer Groups
+<a id="set-up-saved-cards"></a>
+##### Set Up Saved Cards
+In order to show Instant Purchase, customers will need to have a Saved Card attached to their account.  We'll add one now for Sharon Reynolds.  As Sharon, create an order with the *Push It Messenger Bag*.  At checkout, use the following details:
+
+1. Credit Card
+2. CC Number: `4111111111111111`
+3. Expiration Date: `01/23`
+4. Card Verification Number: `123`
+5. Save for later use: `Yes`
+
+<a id="redirect-to-my-account"></a>
+##### Redirect to My Account
+Natively, when a customer logs in, they are redirected to the same page they were on when they triggered the log in action.  While this can be handy, typically, when logging in, our goal is to show the My Account area.  We can configure Magento to redirect a customer to their My Account area using the setting at:
+
+`Stores > Settings > Configuration > Customers > Customer Configuration > Login Options > Redirect Customer to Account Dashboard after Logging in`: `Yes`
+
+After saving, refresh cache.
+
+<a id="configure-customer-groups"></a>
+##### Configure Customer Groups
+By default, Magento includes a "Retailer" customer group which doesn't make much sense, so we'll remove it.
+
+Once removed, run the `clean` command.
+
+<a id="marketing"></a>
+#### Marketing
+
+<a id="featured-products-on-home-page"></a>
+##### Featured Products on Home Page
+
+<a id="sale-category"></a>
+##### Sale Category
+
+<a id="customer-segments"></a>
+##### Customer Segments
+
+<a id="related-products-rules"></a>
+##### Related Products Rules
+
+<a id="promotions"></a>
+##### Promotions
+
+<a id="staging-and-preview-campaigns"></a>
+##### Staging and Preview Campaigns
+
+<a id="grids-setup"></a>
+#### Grids Setup
+
+<a id="product-grids"></a>
+##### Product Grids
+
+<a id="cms-blocks-grid"></a>
+##### CMS Blocks Grid
+
+<a id="cms-pages-grid"></a>
+##### CMS Pages Grid
+
+<a id="staging-and-preview-grid"></a>
+##### Staging and Preview Grid
+
+<a id="tools"></a>
+#### Tools
+<a id="cache-warmer-site-map"></a>
+##### Cache Warmer (Site Map)
+In order for the cache warmer(s) to function properly, we need to create an XML file for each store view which has products assigned to it.  In our case, that's one for Luma US, one for Venia US, and then a final one for our Custom US store views.  Navigate to `Marketing > SEO and Search > Site Map` and create the following:
+
+1. Luma
+	1. Filename: `luma.xml`
+	2. Path: `/pub/`
+	3. Store View: `Luma Website > Luma Store > US English`
+2. Venia
+	1. Filename: `venia.xml`
+	2. Path: `/pub/`
+	3. Store View: `Luma Website > Venia Store > US English`
+3. Custom
+	1. Filename: `custom.xml`
+	2. Path: `/pub/`
+	3. Store View: `Luma Website > Custom Store > Custom US English`
+
+<a id="sc-theme-customizer"></a>
+##### SC Theme Customizer
+
+
+<a id="fixes"></a>
+### Fixes
+
+Sources: [CWeagans Composer Patching Plugin](https://github.com/cweagans/composer-patches/)
+
+<a id="pickup-in-store-quantity-is-mis-aligned"></a>
+#### Pickup In Store Quantity is Mis-Aligned
+For some reason, the quantity statement in the Pick Up In Store Module overlay is mis-aligned and needs to be adjusted:
+
+1. In `vendor/magentoese/module-instorepickup/view/frontend/web/js/templates/result.html`, on line 12, add CSS margin to move the "Available" string
+2. Save with `Esc`, then `:wq` and `Enter`
+3. Clear `pub/static` and the cache: `rm -rf pub/static && cache`
+
+<a id="pickup-in-store-extension-breaks-b2b-checkout"></a>
+#### Pickup In Store Extension Breaks B2B Checkout
+
+1. In `vendor/magento/module-negotiable-quote/Block/Checkout/LayoutProcessor.php`, comment out line 56: `$cartItemsComponent['template'] = self::TEMPLATE_CART_ITEMS;`
+2. Recompile classes, deploy static content, reindex and clear cache with: `di-compile && deploy-content && deploy-content-de && clean`
+
+<a id="image-gallery-uses-prepend-instead-of-replace"></a>
+#### Image Gallery Uses Prepend Instead of Replace
+
+1. In `vendor/magento/theme-frontend-luma/etc/view.xml`, use the `/` key and search for the word `prepend`.  
+2. Change it from `prepend` to `replace`
+3. Save with `Esc`, then `:wq` and `Enter`
+4. Clear the cache with: `cache`
+
+
+<a id="email-from-doesnt-show-properly"></a>
+#### Email "From" Doesn't Show Properly
+
+Sources: [Confirmation emails have no FROM or FROM email address 2.2.4 #14952](https://github.com/magento/magento2/issues/14952)
