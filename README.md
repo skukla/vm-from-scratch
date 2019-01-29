@@ -1095,7 +1095,7 @@ In order for Shipping Labels to work properly, we'll need to fill in the Store I
 
 Navigate to `Stores > Settings > Configuration > General > General > Store Information` and use:
 
-1. Store Name: `Luma, Inc`
+1. Store Name: `Luma, Inc.`
 2. Store Phone Number: `310-945-0345`
 3. Store Hours of Operation: `9AM - 5PM`
 4. Country: `United States`
