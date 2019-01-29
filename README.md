@@ -85,7 +85,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Update Site Meta Info](#update-site-meta-info)
 			- [Configure Reward Points](#configure-reward-points)
 		- [General Content Updates](#general-content-updates)
-			- [Luma Home Page](#luma-home-page)
+			- [Luma Home Page \(US\)](#luma-home-page-us)
+			- [Luma Home Page \(DE\)](#luma-home-page-de)
 			- [Venia Home Page](#venia-home-page)
 		- [Customers and Customer Groups](#customers-and-customer-groups)
 			- [Set Up Saved Cards](#set-up-saved-cards)
@@ -1227,17 +1228,29 @@ In order to use Reward Points in an order, we need to ensure that Reward Points 
 #### General Content Updates
 In order for our meta changes to take effect, we need to add the same changes we made for the default meta information above to each home page (Luma and Venia respectively)
 
-<a id="luma-home-page"></a>
-##### Luma Home Page
+<a id="luma-home-page-us"></a>
+##### Luma Home Page (US)
 Navigate to `Content > Elements > Pages > Home Page`
 
-1. Page Title: `Luma Home Page`
+1. Page Title: `Luma Home Page - US`
 2. Search Engine Optimization:
 	1. URL Key: `home`
 	2. Meta Title: `LUMA Official Online Store`
 	3. Meta Keywords: `yoga,exercise,apparel,clothing,working out,fitness`
 	4. Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 3. Page in Websites: `Luma Website > Luma Store > US English`
+
+<a id="luma-home-page-de"></a>
+##### Luma Home Page (DE)
+Navigate to `Content > Elements > Pages > Home Page`
+
+1. Page Title: `Luma Home Page - DE`
+2. Search Engine Optimization:
+	1. URL Key: `home`
+	2. Meta Title: `Offizieller LUMA Online-Shop`
+	3. Meta Keywords: `yoga,sport,bekleidung,kleidung,training,fitness`
+	4. Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
+3. Page in Websites: `Luma Website > Luma Store > Deutsch`
 
 <a id="venia-home-page"></a>
 ##### Venia Home Page
