@@ -1256,7 +1256,7 @@ Navigate to `Content > Elements > Pages > Home Page`
 ##### Venia Home Page
 Navigate to `Content > Elements > Pages > Home Page - Venia`
 
-1. Page Title: `Venia Home Page`
+1. Page Title: `Venia Home Page - US`
 2. Search Engine Optimization:
 	1. URL Key: `home`
 	2. Meta Title: `VENIA Official Online Store`
