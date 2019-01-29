@@ -103,6 +103,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Tools](#tools)
 			- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 			- [SC Theme Customizer](#sc-theme-customizer)
+		- [B2B Demo Cases](#b2b-demo-cases)
 	- [Fixes](#fixes)
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
 		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
@@ -1069,7 +1070,7 @@ Then, clear cache.
 
 <a id="update-the-root-category-website-and-store-names"></a>
 ##### Update the Root Category, Website, and Store Names
-By default, the Root Category for the Luma Catalog is called "Default Category" which doesn't show as well as it could.  Let's update it to "Luma Catalog" instead.
+By default, the Root Category for the Luma Catalog is called `Default Category` which doesn't show as well as it could.  Let's update it to `Luma Catalog` instead.
 
 In addition, the Website and Store names could also show better.  Let's use the following:
 
@@ -1296,6 +1297,9 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 <a id="sc-theme-customizer"></a>
 ##### SC Theme Customizer
 
+
+<a id="b2b-demo-cases"></a>
+#### B2B Demo Cases
 
 <a id="fixes"></a>
 ### Fixes
