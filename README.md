@@ -84,6 +84,9 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Remove Welcome Message](#remove-welcome-message)
 			- [Update Site Meta Info](#update-site-meta-info)
 			- [Configure Reward Points](#configure-reward-points)
+		- [General Content Updates](#general-content-updates)
+			- [Luma Home Page](#luma-home-page)
+			- [Venia Home Page](#venia-home-page)
 		- [Customers and Customer Groups](#customers-and-customer-groups)
 			- [Set Up Saved Cards](#set-up-saved-cards)
 			- [Redirect to My Account](#redirect-to-my-account)
@@ -1192,19 +1195,15 @@ Navigate to: `Content > Design > Configuration` and choose Global scope. Expand 
 ##### Update Site Meta Info
 Next, we'll set up global meta information for pages like the Order Confirmation results page which don't have headings.  Navigate to: `Content > Design > Configuration` and the `Luma Store US English` store view scope.  Use the following:
 
-*Default Page Title*: `LUMA Official Online Store`
-
-*Default Meta Description*: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
-
-*Default Meta Keywords*: `yoga,exercise,apparel,clothing,working out,fitness`
+1. Default Page Title: `LUMA Official Online Store`
+2. Default Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
+3. Default Meta Keywords: `yoga,exercise,apparel,clothing,working out,fitness`
 
 Next, use the following for the `Venia Store US English` store view scope:
 
-*Default Page Title*: `VENIA Official Online Store`
-
-*Default Meta Description*: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
-
-*Default Meta Keywords*: `fashion,women,blouse,top,pant,dress,venia`
+1. Default Page Title: `VENIA Official Online Store`
+2. Default Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
+3. Default Meta Keywords: `fashion,women,blouse,top,pant,dress,venia`
 
 <a id="configure-reward-points"></a>
 ##### Configure Reward Points
@@ -1223,6 +1222,34 @@ In order to use Reward Points in an order, we need to ensure that Reward Points 
 	2. `Customer Group`: `All Customer Groups`
 	3. `Direction`: `Currency to Points`
 	4. `Rate`: `1 / 1`
+
+<a id="general-content-updates"></a>
+#### General Content Updates
+In order for our meta changes to take effect, we need to add the same changes we made for the default meta information above to each home page (Luma and Venia respectively)
+
+<a id="luma-home-page"></a>
+##### Luma Home Page
+Navigate to `Content > Elements > Pages > Home Page`
+
+1. Page Title: `Luma Home Page`
+2. Search Engine Optimization:
+	1. URL Key: `home`
+	2. Meta Title: `LUMA Official Online Store`
+	3. Meta Keywords: `yoga,exercise,apparel,clothing,working out,fitness`
+	4. Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
+3. Page in Websites: `Luma Website > Luma Store > US English`
+
+<a id="venia-home-page"></a>
+##### Venia Home Page
+Navigate to `Content > Elements > Pages > Home Page - Venia`
+
+1. Page Title: `Venia Home Page`
+2. Search Engine Optimization:
+	1. URL Key: `home`
+	2. Meta Title: `VENIA Official Online Store`
+	3. Meta Keywords: `fashion,women,blouse,top,pant,dress,venia`
+	4. Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
+3. Page in Websites: `Luma Website > Luma Store > US English`
 
 <a id="customers-and-customer-groups"></a>
 #### Customers and Customer Groups
