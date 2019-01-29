@@ -77,6 +77,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Update the Root Category, Website, and Store Names](#update-the-root-category-website-and-store-names)
 			- [Set the Store Information and Shipping Origin](#set-the-store-information-and-shipping-origin)
 			- [Set UPS as the Shipping Method](#set-ups-as-the-shipping-method)
+			- [Configure Braintree as Authorize Only](#configure-braintree-as-authorize-only)
 			- [YouTube API Key](#youtube-api-key)
 			- [Enable RMA](#enable-rma)
 			- [Password Policy](#password-policy)
@@ -1147,6 +1148,16 @@ In addition, we'll disable table rate shipping and flat rate shipping.  Note:  I
 
 Once saved, refresh the cache.
 
+<a id="configure-braintree-as-authorize-only"></a>
+##### Configure Braintree as Authorize Only
+The innovations team has configured the demo configurations for the braintree payment method to use Authorize and Capture.  This is not ideal for demonstrating the true, complete order flow - including all possible order statuses.  We'll update that configuration to use `Authorize Only`.
+
+Navigate to: `Stores > Settings > Configuration > Sales > Payment Methods > Braintree > Configure`
+
+1. Payment Action: `Authorize`
+
+Once changed, refresh the cache. 
+
 <a id="youtube-api-key"></a>
 ##### YouTube API Key
 To use YouTube for product videos, we need to enter a YouTube API key.  Navigate to: `Stores > Settings > Configuration > Catalog > Catalog Product Video` and use the following API key:
@@ -1285,7 +1296,7 @@ In order to show Instant Purchase, customers will need to have a Saved Card atta
 4. Card Verification Number: `123`
 5. Save for later use: `Yes`
 
-Optiona: Once you've placed the order, sign out as Sharon.  Next, find *Push It Messenger Bag* and add back the quantity you purchased.
+Optiona: Once you've placed the order, sign out as Sharon.  Next, fufill the order on the backend (create an invoice and a shipment).  Then, find *Push It Messenger Bag* and add back the quantity you purchased.
 
 <a id="marketing"></a>
 #### Marketing
