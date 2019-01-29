@@ -1190,13 +1190,21 @@ Navigate to: `Content > Design > Configuration` and choose Global scope. Expand 
 
 <a id="update-site-meta-info"></a>
 ##### Update Site Meta Info
-Next, we'll set up global meta information for pages like the Order Confirmation results page which don't have headings.  Navigate to: `Content > Design > Configuration` and the Luma Store US English store view scope.  Use the following:
+Next, we'll set up global meta information for pages like the Order Confirmation results page which don't have headings.  Navigate to: `Content > Design > Configuration` and the `Luma Store US English` store view scope.  Use the following:
 
 *Default Page Title*: `LUMA Official Online Store`
 
 *Default Meta Description*: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 
 *Default Meta Keywords*: `yoga,exercise,apparel,clothing,working out,fitness`
+
+Next, use the following for the `Venia Store US English` store view scope:
+
+*Default Page Title*: `VENIA Official Online Store`
+
+*Default Meta Description*: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
+
+*Default Meta Keywords*: `fashion,women,blouse,top,pant,dress,venia`
 
 <a id="configure-reward-points"></a>
 ##### Configure Reward Points
