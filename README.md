@@ -91,7 +91,6 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Customers and Customer Groups](#customers-and-customer-groups)
 			- [Set Up Saved Cards](#set-up-saved-cards)
 			- [Redirect to My Account](#redirect-to-my-account)
-			- [Configure Customer Groups](#configure-customer-groups)
 		- [Marketing](#marketing)
 			- [Featured Products on Home Page](#featured-products-on-home-page)
 			- [Sale Category](#sale-category)
@@ -1285,12 +1284,6 @@ Natively, when a customer logs in, they are redirected to the same page they wer
 `Stores > Settings > Configuration > Customers > Customer Configuration > Login Options > Redirect Customer to Account Dashboard after Logging in`: `Yes`
 
 After saving, refresh cache.
-
-<a id="configure-customer-groups"></a>
-##### Configure Customer Groups
-By default, Magento includes a "Retailer" customer group which doesn't make much sense, so we'll remove it.
-
-Once removed, run the `clean` command.
 
 <a id="marketing"></a>
 #### Marketing
