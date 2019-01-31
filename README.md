@@ -1254,18 +1254,18 @@ In order to use Reward Points in an order, we need to ensure that Reward Points 
 
 Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by Customers`
 
-1. Set `Purchase` to `Yes`
+1. Purchase: `Yes`
 2. Navigate to `Stores > Other Settings > Reward Exchange Rates`
 3. Add a new rate for points to currency:
-	1. `Website`: `Luma Website`
-	2. `Customer Group`: `All Customer Groups`
-	3. `Direction`: `Points to Currency`
-	4. `Rate`: `1 / 1`
+	1. Website: `Luma Website`
+	2. Customer Group: `All Customer Groups`
+	3. Direction: `Points to Currency`
+	4. Rate: `1 / 1`
 4. Add a new rate for currency to points:
-	1. `Website`: `Luma Website`
-	2. `Customer Group`: `All Customer Groups`
-	3. `Direction`: `Currency to Points`
-	4. `Rate`: `1 / 1`
+	1. Website: `Luma Website`
+	2. Customer Group: `All Customer Groups`
+	3. Direction: `Currency to Points`
+	4. Rate: `1 / 1`
 
 <a id="general-content-updates"></a>
 ### General Content Updates
