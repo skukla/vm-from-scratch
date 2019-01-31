@@ -1340,7 +1340,9 @@ Repeat this for all other attribute sets.
 #### Redirect to My Account
 Natively, when a customer logs in, they are redirected to the same page they were on when they triggered the log in action.  While this can be handy, typically, when logging in, our goal is to show the My Account area.  We can configure Magento to redirect a customer to their My Account area using the setting at:
 
-`Stores > Settings > Configuration > Customers > Customer Configuration > Login Options > Redirect Customer to Account Dashboard after Logging in`: `Yes`
+`Stores > Settings > Configuration > Customers > Customer Configuration > Login Options`
+
+Redirect Customer to Account Dashboard after Logging in: `Yes`
 
 After saving, refresh cache.
 
