@@ -1167,8 +1167,8 @@ Next, use the following in the UPS section:
 7. Password: `magento200`
 8. Shipper Number: `207W88`
 9. Allowed Methods:
-	`Ground`
-	`UPS Next Day Air`
+	1. `Ground`
+	2. `UPS Next Day Air`
 
 In order to use free shipping promotions, we need to set the following:
 
