@@ -113,8 +113,9 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 				- [Gold Tier](#gold-tier)
 				- [Platinum Tier](#platinum-tier)
 			- [Purchase History](#purchase-history)
-			- [Men Who Have Purchased Pants](#men-who-have-purchased-pants)
-			- [Women Single Purchasers](#women-single-purchasers)
+				- [Apparel Purchased in the Last Week](#apparel-purchased-in-the-last-week)
+				- [Men Who Have Purchased Pants](#men-who-have-purchased-pants)
+				- [Women Single Purchasers](#women-single-purchasers)
 		- [Related Products Rules](#related-products-rules)
 			- [Remove Unwanted Rules](#remove-unwanted-rules)
 			- [Related Products – Women’s Hoodies to Women's Pants](#related-products--womens-hoodies-to-womens-pants)
@@ -1740,6 +1741,9 @@ Once saved, use the `clean` command to reindex and refresh cache.
 
 <a id="purchase-history"></a>
 ##### Purchase History
+
+<a id="apparel-purchased-in-the-last-week"></a>
+###### Apparel Purchased in the Last Week
 Navigate to: `Customers > Customer Segments > Add Segment`
 
 1. General Properties > Segment Name: `Purchase History - Apparel Purchased in the Last Week`
@@ -1759,7 +1763,7 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 Once saved, use the `clean` command to reindex and refresh cache.
 
 <a id="men-who-have-purchased-pants"></a>
-##### Men Who Have Purchased Pants
+###### Men Who Have Purchased Pants
 Navigate to: `Customers > Customer Segments > Add Segment`
 
 1. General Properties > Segment Name: `Purchase History - Men Who Have Viewed Pants`
@@ -1781,7 +1785,7 @@ Next, log in as **Mark Woodward** and view a pair of pants on the storefront.
 Finally, back in the segment, click `Refresh Segment Data` to populate the segment.
 
 <a id="women-single-purchasers"></a>
-##### Women Single Purchasers
+###### Women Single Purchasers
 
 <a id="related-products-rules"></a>
 #### Related Products Rules
