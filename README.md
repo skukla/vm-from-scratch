@@ -1186,9 +1186,7 @@ Once saved, refresh the cache.
 #### Configure Braintree as Authorize Only
 The innovations team has configured the demo configurations for the braintree payment method to use Authorize and Capture.  This is not ideal for demonstrating the true, complete order flow - including all possible order statuses.  We'll update that configuration to use `Authorize Only`.
 
-Navigate to: `Stores > Settings > Configuration > Sales > Payment Methods > Braintree > Configure`
-
-1. Payment Action: `Authorize`
+Navigate to: `Stores > Settings > Configuration > Sales > Payment Methods > Braintree > Configure` and change the Payment Action to `Authorize`.
 
 Once changed, refresh the cache. 
 
