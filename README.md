@@ -100,6 +100,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Custom Attribute Set](#custom-attribute-set)
 		- [Custom Home Page](#custom-home-page)
 		- [Custom Site Map](#custom-site-map)
+		- [Custom Theme Skin via SC Theme Customizer](#custom-theme-skin-via-sc-theme-customizer)
 	- [Marketing](#marketing)
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
@@ -132,9 +133,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [CMS Blocks Grid](#cms-blocks-grid)
 		- [CMS Pages Grid](#cms-pages-grid)
 		- [Staging and Preview Grid](#staging-and-preview-grid)
-	- [Tools](#tools)
-		- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
-		- [SC Theme Customizer](#sc-theme-customizer)
+	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
 	- [Fixes](#fixes)
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
@@ -1405,6 +1404,119 @@ Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 	2. Path: `/pub/`
 	3. Store View: `Luma Website > Custom Store > Custom US English`
 
+<a id="custom-theme-skin-via-sc-theme-customizer"></a>
+#### Custom Theme Skin via SC Theme Customizer
+The theme customizer is an extension that attaches a CSS-based skin to an existing theme.  It ships with a collection of base skins that an SC can duplicate, customize, and then apply to a custom theme in order to apply a custom look and feel.  The VM ships with a Custom theme specifically for this purpose.  Unfortunately, the "Luma" skin does not fully map to all the necessary styles in the theme and requires the SC to add additional CSS hooks to control the look and feel.
+
+Next, let's create a Luma skin based on the included one and update it with the right CSS to be more complete.  Then, we'll attach it to the included custom theme which is assigned to our custom store view.
+
+Navigate to `SC Tools > SC Tools > Theme Customizer`
+
+1. Find the `Luma Theme Template` in the grid and click `Duplicate`
+
+Next, use the following settings:
+
+1. Name: `Custom Theme Template (Luma)`
+2. Apply To Theme: `Blank Custom Theme`
+3. Top Bar Color: `#666567`
+4. Primary Link Color: `#006bb4`
+5. Nav Background Color: `#f0f0f0`
+6. Nav Link Color: `#f0f0f0`
+7. Button Background Color:`#eeeeee`
+
+In the *Additional CSS* section, paste the following CSS:
+
+```
+/* Buttons */
+.action.primary {
+    background-color:; 
+    border-color:; 
+    color: white !important;
+}
+.action.primary:hover,
+.action.primary:active,
+.action.primary:focus,
+.action.primary:visited {
+    background-color:; 
+    border-color:;
+    color: white !important;
+}
+/* Nav Links */
+.navigation ul li a, 
+.navigation ul li a:visited { 
+    color: #575757 !important;
+} 
+.navigation .level0.active>.level-top,
+.navigation .level0.has-active>.level-top,
+.navigation .level0 .submenu .active>a,
+.block-collapsible-nav .item.current a,
+.block-collapsible-nav .item.current>strong.fotorama__thumb-border { 
+    border-color:;
+}
+/* Main Nav Bar (Navigation Container - Outside Edges) */
+.nav-sections, .navigation, .nav-sections-item-content {
+    background-color:;
+}
+/* Center Nav Bar (Links) */
+nav.navigation {
+    background-color:;
+}
+/* Header Panel */
+.page-header .header.panel,
+.page-header .panel.wrapper { 
+    background-color:;
+    border:;
+}
+/* Sign in and Create Account Links */
+.header.panel > .header.links > li.welcome,
+.header.panel > .header.links > li > a {
+    color: white !important;
+}
+/* Header Text */
+ul.header.links {
+    color: white !important;
+}
+/* My Account Dropdown Links */
+.customer-welcome li a,
+.customer-welcome li a:visited {
+    color: #575757 !important;
+}
+/* Arrow Next To Logged-In Customer's Name */
+.customer-welcome .action.switch:after {
+    color: white;
+}
+/* Language and Currency Switchers */
+.page-header .switcher strong, .page-footer .switcher strong, .page-header .switcher .options .action.toggle, .page-footer .switcher .options .action.toggle {
+    color: white !important;
+}
+/* My Account Sidebar Links */
+.block-collapsible-nav .item a,
+.block-collapsible-nav .item>strong {
+    color: #575757 !important;
+}
+/* In Store Pickup Link */
+.catalog-product-view .instorepickup-pdp-wrapper .instorepickup-change-trigger {
+    color:;
+}
+/* Footer Links */
+ul.footer.links > li > a,
+.page-footer .switcher .options .action.toggle,
+.page-footer .switcher .options ul.dropdown a,
+.page-footer .switcher .options ul.dropdown a:visited { 
+    color: #575757 !important;
+}
+/* Photo Gallery Outlines */
+.fotorama__thumb-border { 
+    border-color:;
+}
+/* Swatch borders */
+.swatch-option.image:not(.disabled):hover,
+.swatch-option.color:not(.disabled):hover,
+.swatch-option.selected { 
+    outline:; 
+}
+```
+
 <a id="marketing"></a>
 ### Marketing
 
@@ -1602,10 +1714,8 @@ Save the category and then reindex and refresh the cache with the `clean` comman
 <a id="staging-and-preview-grid"></a>
 #### Staging and Preview Grid
 
-<a id="tools"></a>
-### Tools
 <a id="cache-warmer-site-map"></a>
-#### Cache Warmer (Site Map)
+### Cache Warmer (Site Map)
 In order for the cache warmer(s) to function properly, we need to create an XML file for each store view which has products assigned to it.  In our case, that's one for Luma US and one for Venia US store views.  Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 
 1. Luma
@@ -1616,119 +1726,6 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 	1. Filename: `venia.xml`
 	2. Path: `/pub/`
 	3. Store View: `Luma Website > Venia Store > US English`
-
-<a id="sc-theme-customizer"></a>
-#### SC Theme Customizer
-The theme customizer is an extension that attaches a CSS-based skin to an existing theme.  It ships with a collection of base skins that an SC can duplicate, customize, and then apply to a custom theme in order to apply a custom look and feel.  The VM ships with a Custom theme specifically for this purpose.  Unfortunately, the "Luma" skin does not fully map to all the necessary styles in the theme and requires the SC to add additional CSS hooks to control the look and feel.
-
-Next, let's create a Luma skin based on the included one and update it with the right CSS to be more complete.  Then, we'll attach it to the included custom theme which is assigned to our custom store view.
-
-Navigate to `SC Tools > SC Tools > Theme Customizer`
-
-1. Find the `Luma Theme Template` in the grid and click `Duplicate`
-
-Next, use the following settings:
-
-1. Name: `Custom Theme Template (Luma)`
-2. Apply To Theme: `Blank Custom Theme`
-3. Top Bar Color: `#666567`
-4. Primary Link Color: `#006bb4`
-5. Nav Background Color: `#f0f0f0`
-6. Nav Link Color: `#f0f0f0`
-7. Button Background Color:`#eeeeee`
-
-In the *Additional CSS* section, paste the following CSS:
-
-```
-/* Buttons */
-.action.primary {
-    background-color:; 
-    border-color:; 
-    color: white !important;
-}
-.action.primary:hover,
-.action.primary:active,
-.action.primary:focus,
-.action.primary:visited {
-    background-color:; 
-    border-color:;
-    color: white !important;
-}
-/* Nav Links */
-.navigation ul li a, 
-.navigation ul li a:visited { 
-    color: #575757 !important;
-} 
-.navigation .level0.active>.level-top,
-.navigation .level0.has-active>.level-top,
-.navigation .level0 .submenu .active>a,
-.block-collapsible-nav .item.current a,
-.block-collapsible-nav .item.current>strong.fotorama__thumb-border { 
-    border-color:;
-}
-/* Main Nav Bar (Navigation Container - Outside Edges) */
-.nav-sections, .navigation, .nav-sections-item-content {
-    background-color:;
-}
-/* Center Nav Bar (Links) */
-nav.navigation {
-    background-color:;
-}
-/* Header Panel */
-.page-header .header.panel,
-.page-header .panel.wrapper { 
-    background-color:;
-    border:;
-}
-/* Sign in and Create Account Links */
-.header.panel > .header.links > li.welcome,
-.header.panel > .header.links > li > a {
-    color: white !important;
-}
-/* Header Text */
-ul.header.links {
-    color: white !important;
-}
-/* My Account Dropdown Links */
-.customer-welcome li a,
-.customer-welcome li a:visited {
-    color: #575757 !important;
-}
-/* Arrow Next To Logged-In Customer's Name */
-.customer-welcome .action.switch:after {
-    color: white;
-}
-/* Language and Currency Switchers */
-.page-header .switcher strong, .page-footer .switcher strong, .page-header .switcher .options .action.toggle, .page-footer .switcher .options .action.toggle {
-    color: white !important;
-}
-/* My Account Sidebar Links */
-.block-collapsible-nav .item a,
-.block-collapsible-nav .item>strong {
-    color: #575757 !important;
-}
-/* In Store Pickup Link */
-.catalog-product-view .instorepickup-pdp-wrapper .instorepickup-change-trigger {
-    color:;
-}
-/* Footer Links */
-ul.footer.links > li > a,
-.page-footer .switcher .options .action.toggle,
-.page-footer .switcher .options ul.dropdown a,
-.page-footer .switcher .options ul.dropdown a:visited { 
-    color: #575757 !important;
-}
-/* Photo Gallery Outlines */
-.fotorama__thumb-border { 
-    border-color:;
-}
-/* Swatch borders */
-.swatch-option.image:not(.disabled):hover,
-.swatch-option.color:not(.disabled):hover,
-.swatch-option.selected { 
-    outline:; 
-}
-```
 
 <a id="b2b-demo-cases"></a>
 ### B2B Demo Cases
