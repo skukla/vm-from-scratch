@@ -866,10 +866,14 @@ TODO: Test installation with Redis... `session-save=db`.
 
 <a id="installing-cron-tasks"></a>
 ### Installing Cron Tasks
+Magento operates using loads of cron jobs -- everything from reindexing to staging updates requires cron jobs to run.  Luckily for us, the Magento CLI includes an easy-to-use command which allows us to create the required `crontab` to run application cron jobs.  To install it, we'll navigate to the web root and execute the CLI command with:
+
+`www && ./bin/magento cron:install`
 
 
 <a id="configuring-magento-and-varnish"></a>
 ### Configuring Magento and Varnish
+*TODO*
 
 <a id="configuring-magento-for-multisite-operation"></a>
 ### Configuring Magento For Multisite Operation
@@ -893,6 +897,7 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 
 <a id="how-magento-multisite-operation-works"></a>
 ### How Magento Multisite Operation Works
+*TODO*
 
 <a id="using-the-vm"></a>
 # Using the VM
