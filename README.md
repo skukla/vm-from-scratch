@@ -693,7 +693,7 @@ Check the status of Elasticseatch with `systemctl status elasticsearch` (Use `Ct
 
 <a id="elasticsearch-plugins"></a>
 #### Elasticsearch Plugins
-In order to mirror
+*TODO*
 
 <a id="rabbitmq"></a>
 ### RabbitMQ
