@@ -104,9 +104,29 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
 		- [Customer Segments](#customer-segments)
+			- [Luma Guest Customers](#luma-guest-customers)
+			- [Luma Registered Customers](#luma-registered-customers)
+			- [LUMA Rewards](#luma-rewards)
+			- [Purchase History](#purchase-history)
+			- [Men Who Have Purchased Pants](#men-who-have-purchased-pants)
+			- [Women Single Purchasers](#women-single-purchasers)
 		- [Related Products Rules](#related-products-rules)
-		- [Promotions](#promotions)
+			- [Remove Unwanted Rules](#remove-unwanted-rules)
+			- [Related Products – Women’s Hoodies to Women's Pants](#related-products--womens-hoodies-to-womens-pants)
+			- [Related Products - Men's Pants to Men's Hoodies \(Segmented\)](#related-products---mens-pants-to-mens-hoodies-segmented)
+			- [Upsells - Watches](#upsells---watches)
+			- [Cross-sells - Bags to Hoodies and Fitness Equipment](#cross-sells---bags-to-hoodies-and-fitness-equipment)
+		- [Promotions \(Cart Price Rules\)](#promotions-cart-price-rules)
+			- [Deactivate Unwanted Rules](#deactivate-unwanted-rules)
+			- [Free Shipping](#free-shipping)
 		- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
+			- [Valentine's Day](#valentines-day)
+			- [Summer Sale Lead-in](#summer-sale-lead-in)
+			- [Fourth of July Sale](#fourth-of-july-sale)
+			- [Summer Sale Lead-out](#summer-sale-lead-out)
+			- [Black Friday Lead-in](#black-friday-lead-in)
+			- [Black Friday Sale](#black-friday-sale)
+			- [Holiday Campaign](#holiday-campaign)
 	- [Grid Views](#grid-views)
 		- [Product Grids](#product-grids)
 		- [CMS Blocks Grid](#cms-blocks-grid)
@@ -1498,14 +1518,74 @@ Save the category and then reindex and refresh the cache with the `clean` comman
 <a id="customer-segments"></a>
 #### Customer Segments
 
+<a id="luma-guest-customers"></a>
+##### Luma Guest Customers
+
+<a id="luma-registered-customers"></a>
+##### Luma Registered Customers
+
+<a id="luma-rewards"></a>
+##### LUMA Rewards
+
+<a id="purchase-history"></a>
+##### Purchase History
+
+<a id="men-who-have-purchased-pants"></a>
+##### Men Who Have Purchased Pants
+
+<a id="women-single-purchasers"></a>
+##### Women Single Purchasers
+
 <a id="related-products-rules"></a>
 #### Related Products Rules
 
-<a id="promotions"></a>
-#### Promotions
+<a id="remove-unwanted-rules"></a>
+##### Remove Unwanted Rules
+
+<a id="related-products--womens-hoodies-to-womens-pants"></a>
+##### Related Products – Women’s Hoodies to Women's Pants
+
+<a id="related-products---mens-pants-to-mens-hoodies-segmented"></a>
+##### Related Products - Men's Pants to Men's Hoodies (Segmented)
+
+<a id="upsells---watches"></a>
+##### Upsells - Watches
+
+<a id="cross-sells---bags-to-hoodies-and-fitness-equipment"></a>
+##### Cross-sells - Bags to Hoodies and Fitness Equipment
+
+<a id="promotions-cart-price-rules"></a>
+#### Promotions (Cart Price Rules)
+
+<a id="deactivate-unwanted-rules"></a>
+##### Deactivate Unwanted Rules
+
+<a id="free-shipping"></a>
+##### Free Shipping
 
 <a id="staging-and-preview-campaigns"></a>
 #### Staging and Preview Campaigns
+
+<a id="valentines-day"></a>
+##### Valentine's Day
+
+<a id="summer-sale-lead-in"></a>
+##### Summer Sale Lead-in
+
+<a id="fourth-of-july-sale"></a>
+##### Fourth of July Sale
+
+<a id="summer-sale-lead-out"></a>
+##### Summer Sale Lead-out
+
+<a id="black-friday-lead-in"></a>
+##### Black Friday Lead-in
+
+<a id="black-friday-sale"></a>
+##### Black Friday Sale
+
+<a id="holiday-campaign"></a>
+##### Holiday Campaign
 
 <a id="grid-views"></a>
 ### Grid Views
