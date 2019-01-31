@@ -99,7 +99,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Custom Catalog, Store, and Store View](#custom-catalog-store-and-store-view)
 			- [Custom Attribute Set](#custom-attribute-set)
 			- [Custom Home Page](#custom-home-page)
-			- [Custom Store View Site Map](#custom-store-view-site-map)
+			- [Custom Site Map](#custom-site-map)
 		- [Marketing](#marketing)
 			- [Featured Products on Home Page](#featured-products-on-home-page)
 			- [Sale Category](#sale-category)
@@ -107,7 +107,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Related Products Rules](#related-products-rules)
 			- [Promotions](#promotions)
 			- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
-		- [Grids Setup](#grids-setup)
+		- [Grid Views](#grid-views)
 			- [Product Grids](#product-grids)
 			- [CMS Blocks Grid](#cms-blocks-grid)
 			- [CMS Pages Grid](#cms-pages-grid)
@@ -1376,8 +1376,8 @@ Navigate to `Content > Elements > Pages` and add a new page:
 
 When done, refresh the cache.
 
-<a id="custom-store-view-site-map"></a>
-##### Custom Store View Site Map
+<a id="custom-site-map"></a>
+##### Custom Site Map
 Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 
 1. Custom
@@ -1507,8 +1507,8 @@ Save the category and then reindex and refresh the cache with the `clean` comman
 <a id="staging-and-preview-campaigns"></a>
 ##### Staging and Preview Campaigns
 
-<a id="grids-setup"></a>
-#### Grids Setup
+<a id="grid-views"></a>
+#### Grid Views
 
 <a id="product-grids"></a>
 ##### Product Grids
