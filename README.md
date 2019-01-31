@@ -63,7 +63,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [Configuring Magento and Varnish](#configuring-magento-and-varnish)
 	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
-- [Giving Demos with the VM](#giving-demos-with-the-vm)
+- [Using the VM](#using-the-vm)
 	- [Demo Environments](#demo-environments)
 	- [The Hybrid VM](#the-hybrid-vm)
 		- [Preparation](#preparation)
@@ -875,8 +875,8 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 <a id="how-magento-multisite-operation-works"></a>
 ### How Magento Multisite Operation Works
 
-<a id="giving-demos-with-the-vm"></a>
-## Giving Demos with the VM
+<a id="using-the-vm"></a>
+## Using the VM
 <a id="demo-environments"></a>
 ### Demo Environments
 The Solutions Innovation team provides Solutions Consultants with two Cloud projects for demonstrating the Luma brand: a Reference environment and a Demo environment.  The *Reference* environment is a completely native installation of Magento -- there are no extensions of any kind; only the code base and the sample data which ships with the platform.  In contrast, the *Demo* environment builds on the native installation with sample data but adds both custom modules built and/or maintained by the Solutions Innovation team as well as third-party extensions built by the Magento developer community.
