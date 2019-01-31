@@ -876,7 +876,7 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 ### How Magento Multisite Operation Works
 
 <a id="using-the-vm"></a>
-## Using the VM
+# Using the VM
 <a id="demo-environments"></a>
 ### Demo Environments
 The Solutions Innovation team provides Solutions Consultants with two Cloud projects for demonstrating the Luma brand: a Reference environment and a Demo environment.  The *Reference* environment is a completely native installation of Magento -- there are no extensions of any kind; only the code base and the sample data which ships with the platform.  In contrast, the *Demo* environment builds on the native installation with sample data but adds both custom modules built and/or maintained by the Solutions Innovation team as well as third-party extensions built by the Magento developer community.
