@@ -89,9 +89,17 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Luma Home Page \(US\)](#luma-home-page-us)
 			- [Luma Home Page \(DE\)](#luma-home-page-de)
 			- [Venia Home Page](#venia-home-page)
+		- [Attribute Set Updates](#attribute-set-updates)
+			- [Short Description and Description Arrangement](#short-description-and-description-arrangement)
+			- [Sale and New Attributes](#sale-and-new-attributes)
 		- [Customer Configuration](#customer-configuration)
 			- [Redirect to My Account](#redirect-to-my-account)
 			- [Set Up Saved Cards](#set-up-saved-cards)
+		- [Set Up A Custom Brand](#set-up-a-custom-brand)
+			- [Custom Catalog, Store, and Store View](#custom-catalog-store-and-store-view)
+			- [Custom Attribute Set](#custom-attribute-set)
+			- [Custom Home Page](#custom-home-page)
+			- [Custom Store View Site Map](#custom-store-view-site-map)
 		- [Marketing](#marketing)
 			- [Featured Products on Home Page](#featured-products-on-home-page)
 			- [Sale Category](#sale-category)
@@ -112,6 +120,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
 		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
 		- [Image Gallery Uses Prepend Instead of Replace](#image-gallery-uses-prepend-instead-of-replace)
+		- [Hide the Venia Lookbook Category](#hide-the-venia-lookbook-category)
+		- [Fix the Venia Tops Category](#fix-the-venia-tops-category)
 		- [Email "From" Doesn't Show Properly](#email-from-doesnt-show-properly)
 
 <!-- /MarkdownTOC -->
@@ -1178,7 +1188,7 @@ When saved, refresh the cache.
 ##### Password Policy
 By default, Magento has a pretty stringent password policy (three separate character classes and a forced reset for admins every 90 days.)  We're going to amend that to something much more friendly.
 
-For cusotmer-facing passwords, navigate to: `Stores > Settings > Configuration > Customers > Customer Configuration > Password Options`:
+For customer-facing passwords, navigate to: `Stores > Settings > Configuration > Customers > Customer Configuration > Password Options`:
 
 1. Number of Required Character Classes: `1`
 2. Maximum Login Failures to Lockout Account: `0`
@@ -1220,15 +1230,16 @@ Next, use the following for the `Venia Store US English` store view scope:
 ##### Configure Reward Points
 In order to use Reward Points in an order, we need to ensure that Reward Points able to be earned for purchases and that a bi-directional Reward Exchange Rate is created.
 
-1. Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by Customers`
-2. Set `Purchase` to `Yes`
-3. Navigate to `Stores > Other Settings > Reward Exchange Rates`
-4. Add a new rate for points to currency:
+Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by Customers`
+
+1. Set `Purchase` to `Yes`
+2. Navigate to `Stores > Other Settings > Reward Exchange Rates`
+3. Add a new rate for points to currency:
 	1. `Website`: `Luma Website`
 	2. `Customer Group`: `All Customer Groups`
 	3. `Direction`: `Points to Currency`
 	4. `Rate`: `1 / 1`
-5. Add a new rate for currency to points:
+4. Add a new rate for currency to points:
 	1. `Website`: `Luma Website`
 	2. `Customer Group`: `All Customer Groups`
 	3. `Direction`: `Currency to Points`
@@ -1274,7 +1285,32 @@ Navigate to `Content > Elements > Pages > Home Page - Venia`
 	4. Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 
-When done, refresh the cache.
+<a id="attribute-set-updates"></a>
+#### Attribute Set Updates
+<a id="short-description-and-description-arrangement"></a>
+##### Short Description and Description Arrangement
+Since every second counts when creating a custom demo, we'll make some adjustments to our attribute arrangement so as to make product creation flow smoother when creating custom products.
+
+The main change here is to rearrange the `short description` and `description` fields in each attribute set, since, usually, if a product has a short description, it is shown *before* the long description (as logic would dictate).  For some reason, Magento doesn't follow this logic natively; the `description` field is listed *before* the `short description` field. Let's change that:
+
+Navigate to `Stores > Attributes > Attribute Set`
+
+1. Start with the `Default` attribute set
+2. In the `Content` attribute group, drag the `short description` attribute so that it's positioned above the `description` attribute
+3. Save the change
+
+Repeat this for all other attribute sets.
+
+<a id="sale-and-new-attributes"></a>
+##### Sale and New Attributes
+Next, we'll follow a similar process for the `sale` and `new` attribute so that we can use them for some marketing use cases to follow.  By default, the `sale` and `new` attributes do not apply to all attribute sets.  This limits their use for all products and, thus, prevents us from applying them to large numbers of products via mass actions.  Let's make sure `Sale` and `New` are added to all attribute sets:
+
+1. Start with the `Default` attribute set
+2. Drag the `new` attribute into the `Product Details` attribute group, beneath the `badge` attribute
+3. Drag the `sale` attribute into the `Product Details` attribute group, beneath the `new` attribute
+4. Save the change
+
+Repeat this for all other attribute sets.
 
 <a id="customer-configuration"></a>
 #### Customer Configuration
@@ -1296,20 +1332,168 @@ In order to show Instant Purchase, customers will need to have a Saved Card atta
 4. Card Verification Number: `123`
 5. Save for later use: `Yes`
 
-Optiona: Once you've placed the order, sign out as Sharon.  Next, fufill the order on the backend (create an invoice and a shipment with a shipping label).  Then, find *Push It Messenger Bag* and add back the quantity you purchased.
+Optional: Once you've placed the order, sign out as Sharon.  Next, fufill the order on the backend (create an invoice and a shipment with a shipping label).  Then, find *Push It Messenger Bag* and add back the quantity you purchased.
 
 *Optional*: Add a saved card for Mark and Lisa if you wish.
 
 **Note**: If you need to place orders without an internet connection, remember to disable all API-driven payment methods.  (This would include Braintree and PayPal).  Check or Money Order should be enabled by default for you.
+
+<a id="set-up-a-custom-brand"></a>
+#### Set Up A Custom Brand
+In order to make creating custom demos easier, we'll set up some base elements which SCs will use to create customized demos.
+
+<a id="custom-catalog-store-and-store-view"></a>
+##### Custom Catalog, Store, and Store View
+When preparing a custom demo, it's typically a good practice to separate the native Luma sample data and its associated demo use cases from custom use cases used to give a custom demo.  To allow for this, we've included a custom module which has installed a separate store, store view, and root category for a custom catalog.
+
+<a id="custom-attribute-set"></a>
+##### Custom Attribute Set
+Next, in the same vein of keeping custom demo cases separated from Luma ones, we'll create a `Custom` attribute set and attribute set group.  This will allow us to place our custom attributes created for custom products into a distinct attribute set and group which allows us to easily create grid filters and rules as well as to quickly create products via the admin panel given that all of our custom attributes will be grouped together in a logical arrangement.
+
+Navigate to `Stores > Attributes > Attribute Set` and add a new attribute set:
+
+1. Name: `Custom`
+2. Based On: `Default`
+
+Next, create a new Attribute Group in the `Custom` attribute set.  When you create it, the group will appear at the bottom of the set.
+
+3. Drag the `Custom` folder up in the list  (Typically, when creating new products in the admin, your custom attributes will be listed *after* basics like description)
+
+<a id="custom-home-page"></a>
+##### Custom Home Page
+To make custom demos easier, we'll create a custom home page and connect it with our custom store view:
+
+Navigate to `Content > Elements > Pages` and add a new page:
+
+1. Page Title: `Custom Home Page`
+2. Search Engine Optimization:
+	1. URL Key: `home`
+	2. Meta Title: `Custom Official Online Store`
+	3. Meta Keywords: `custom,keywords`
+	4. Meta Description: `Custom description goes here.`
+3. Page in Websites: `Luma Website > Custom Store > Custom US English`
+4. Layout: `Page -- Full Width`
+
+When done, refresh the cache.
+
+<a id="custom-store-view-site-map"></a>
+##### Custom Store View Site Map
+Navigate to `Marketing > SEO and Search > Site Map` and create the following:
+
+1. Custom
+	1. Filename: `custom.xml`
+	2. Path: `/pub/`
+	3. Store View: `Luma Website > Custom Store > Custom US English`
 
 <a id="marketing"></a>
 #### Marketing
 
 <a id="featured-products-on-home-page"></a>
 ##### Featured Products on Home Page
+The goal of this addition is to use a "Featured Product" attribute together with the Visual Merchandiser rules to populate a hidden *Featured Products* category in order to display products on the home page.  We'll show five products so that we fit with the design, and we'll use this product list to show off 5 of Magento's 7 product types.
+
+Navigate to `Catalog > Categories > Luma Catalog > Promotions`
+
+1. Add a new subcategory:
+	1. Enable Category: `Yes`
+	2. Include in Menu: `No`
+	3. Category Name: `Featured Products`
+	
+Next, we can use a "Featured Products" to mark the products we want to include in the category:
+
+Navigate to `Stores > Attributes > Product` and add a new attribute:
+
+1. Attribute Properties > Default Label: `Featured Product`
+2. Attribute Properties > Catalog Input Type for Store Owner: `Yes/No`
+3. Attribute Properties > Values Required: `No`
+4. Attribute Properties > Attribute Code: `featured_product`
+5. Advanced Attribute Properties > Scope: `Store View`
+6. Storefront Properties > Use in Search: `No`
+7. Storefront Properties > Comparable on Storefront: `No`
+8. Storefront Properties > Use for Promo Rule Conditions: `Yes`
+9. Storefront Properties > Visible on Catalog Pages on Storefront: `No`
+10. Storefront Properties > Used in Product Listing: `No`
+11. Used for Sorting in Product Listing: `No`
+
+With the attribute created, we now need to add it to all of our attribute sets (in case we want to use it with any existing product in the future):
+
+Navigate to `Stores > Attributes > Attribute Set` and add a new attribute set:
+	
+1. Select the `Bag` attribute set from the grid
+2. Add the `luma_featured_product` attribute to the `Product Details` attribute group under the `sale` attribute
+3. Save the change
+
+Repeat for all attribtue sets and then refresh the cache.
+
+Once the attribute is created, we'll go ahead and make sure we can use it via Visual Merchandiser so we can populate our Featured Products category dynamically:
+
+Navigate to `Stores > Settings > Configuration > Catalog > Visual Merchandiser`
+
+1. Find the `Featured Product` attribute in the `Visible Attributes for Category Rules` multi-select
+2. Hold `Command` (Mac) to maintain the attributes which are already selected and click the `Featured Product` attribute to add it
+3. Save the change
+
+Refresh the cache when done.
+
+Next, we'll assign our `Featured Product` attribute to the products we want to feature. You can use the Filter and the `Update Attributes` Mass Actions to assign the Featured Product attribute value to the following SKUs:
+
+1. SKU: `24-MB01` (Joust Duffle Bag)
+2. SKU: `24-WG080` (Sprite Yoga Companion Kit)
+3. SKU: `24-WG085_Group` (Set of Sprite Yoga Straps)
+4. SKU: `243-MB04` (Luma Mailed Gift Card)
+5. SKU: `WH01` (Mona Pullover Hoodie)
+
+**Note**: If you don't see the `Featured Product` attribute at the bottom of the mass action list, it most likely means the attribute hasn't been added to the product's attribute set.
+
+Next, we'll populate our Featured Products category using a Visual Merchandiser rule:
+
+Navigate to `Catalog > Categories > Luma Catalog > Promotions > Featured Products`
+
+1. Products in Category:
+	1. Match products by rule: `Yes`
+	2. Click `Add Condition`
+		1. Attribute: `Featured Product`
+		2. Operator: `Equal`
+		3. Value: `Yes`
+2. Save the category
+
+Once saved, verify the products have been added to the category as shown above.
 
 <a id="sale-category"></a>
 ##### Sale Category
+In an ideal world, category permissions and staging and preview would work well together.  In reality (as of 2.3.0), they don't.  As soon as Category Permissions are enabled, the top navigation disappears from all staging previews.  This is slated to be fixed in 2.3.1, so we'll include instructions here on how to show a *B2C* example of a custom catalog.  Our goal here is to only show the Sale category to our VIP customers.
+
+By default, category permissions are disabled, so we'll start by enabling them.
+
+Navigate to `Stores > Settings > Configuration > Catalog > Catalog > Category Permissions`
+
+1. Enable: `Yes`
+2. Allow Browsing Category: `Yes, for Everyone`
+3. Display Product Prices: `Yes, for Everyone`
+4. Allow Adding to Cart: `Yes, for Everyone`
+5. Save the changes
+
+Reindex and refresh the cache with the `clean` command.
+
+Next, we'll apply permissions specifically to the Sale category:
+
+Navigate to `Catalog > Categories > Sale`
+
+1. Expand the `Category Permissions` panel
+2. Add a new permission:
+	1. Website: `Luma Website`
+	2. Customer Group: `All Groups`
+	3. Allow Browsing Category: `Deny`
+	4. Display Product Prices: `Deny`
+	5. Allow Adding to Cart: `Deny`
+3. Add a second permission:
+	1. Website: `Luma Website`
+	2. Customer Group: `VIP`
+	3. Allow Browsing Category: `Allow`
+	4. Display Product Prices: `Allow`
+	5. Allow Adding to Cart: `Allow`
+
+Save the category and then reindex and refresh the cache with the `clean` command.
 
 <a id="customer-segments"></a>
 ##### Customer Segments
@@ -1342,7 +1526,7 @@ Optiona: Once you've placed the order, sign out as Sharon.  Next, fufill the ord
 #### Tools
 <a id="cache-warmer-site-map"></a>
 ##### Cache Warmer (Site Map)
-In order for the cache warmer(s) to function properly, we need to create an XML file for each store view which has products assigned to it.  In our case, that's one for Luma US, one for Venia US, and then a final one for our Custom US store views.  Navigate to `Marketing > SEO and Search > Site Map` and create the following:
+In order for the cache warmer(s) to function properly, we need to create an XML file for each store view which has products assigned to it.  In our case, that's one for Luma US and one for Venia US store views.  Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 
 1. Luma
 	1. Filename: `luma.xml`
@@ -1352,20 +1536,126 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 	1. Filename: `venia.xml`
 	2. Path: `/pub/`
 	3. Store View: `Luma Website > Venia Store > US English`
-3. Custom
-	1. Filename: `custom.xml`
-	2. Path: `/pub/`
-	3. Store View: `Luma Website > Custom Store > Custom US English`
 
 <a id="sc-theme-customizer"></a>
 ##### SC Theme Customizer
+The theme customizer is an extension that attaches a CSS-based skin to an existing theme.  It ships with a collection of base skins that an SC can duplicate, customize, and then apply to a custom theme in order to apply a custom look and feel.  The VM ships with a Custom theme specifically for this purpose.  Unfortunately, the "Luma" skin does not fully map to all the necessary styles in the theme and requires the SC to add additional CSS hooks to control the look and feel.
 
+Next, let's create a Luma skin based on the included one and update it with the right CSS to be more complete.  Then, we'll attach it to the included custom theme which is assigned to our custom store view.
+
+Navigate to `SC Tools > SC Tools > Theme Customizer`
+
+1. Find the `Luma Theme Template` in the grid and click `Duplicate`
+
+Next, use the following settings:
+
+1. Name: `Custom Theme Template (Luma)`
+2. Apply To Theme: `Blank Custom Theme`
+3. Top Bar Color: `#666567`
+4. Primary Link Color: `#006bb4`
+5. Nav Background Color: `#f0f0f0`
+6. Nav Link Color: `#f0f0f0`
+7. Button Background Color:`#eeeeee`
+
+In the *Additional CSS* section, paste the following CSS:
+
+```
+/* Buttons */
+.action.primary {
+    background-color:; 
+    border-color:; 
+    color: white !important;
+}
+.action.primary:hover,
+.action.primary:active,
+.action.primary:focus,
+.action.primary:visited {
+    background-color:; 
+    border-color:;
+    color: white !important;
+}
+/* Nav Links */
+.navigation ul li a, 
+.navigation ul li a:visited { 
+    color: #575757 !important;
+} 
+.navigation .level0.active>.level-top,
+.navigation .level0.has-active>.level-top,
+.navigation .level0 .submenu .active>a,
+.block-collapsible-nav .item.current a,
+.block-collapsible-nav .item.current>strong.fotorama__thumb-border { 
+    border-color:;
+}
+/* Main Nav Bar (Navigation Container - Outside Edges) */
+.nav-sections, .navigation, .nav-sections-item-content {
+    background-color:;
+}
+/* Center Nav Bar (Links) */
+nav.navigation {
+    background-color:;
+}
+/* Header Panel */
+.page-header .header.panel,
+.page-header .panel.wrapper { 
+    background-color:;
+    border:;
+}
+/* Sign in and Create Account Links */
+.header.panel > .header.links > li.welcome,
+.header.panel > .header.links > li > a {
+    color: white !important;
+}
+/* Header Text */
+ul.header.links {
+    color: white !important;
+}
+/* My Account Dropdown Links */
+.customer-welcome li a,
+.customer-welcome li a:visited {
+    color: #575757 !important;
+}
+/* Arrow Next To Logged-In Customer's Name */
+.customer-welcome .action.switch:after {
+    color: white;
+}
+/* Language and Currency Switchers */
+.page-header .switcher strong, .page-footer .switcher strong, .page-header .switcher .options .action.toggle, .page-footer .switcher .options .action.toggle {
+    color: white !important;
+}
+/* My Account Sidebar Links */
+.block-collapsible-nav .item a,
+.block-collapsible-nav .item>strong {
+    color: #575757 !important;
+}
+/* In Store Pickup Link */
+.catalog-product-view .instorepickup-pdp-wrapper .instorepickup-change-trigger {
+    color:;
+}
+/* Footer Links */
+ul.footer.links > li > a,
+.page-footer .switcher .options .action.toggle,
+.page-footer .switcher .options ul.dropdown a,
+.page-footer .switcher .options ul.dropdown a:visited { 
+    color: #575757 !important;
+}
+/* Photo Gallery Outlines */
+.fotorama__thumb-border { 
+    border-color:;
+}
+/* Swatch borders */
+.swatch-option.image:not(.disabled):hover,
+.swatch-option.color:not(.disabled):hover,
+.swatch-option.selected { 
+    outline:; 
+}
+```
 
 <a id="b2b-demo-cases"></a>
 #### B2B Demo Cases
 
 <a id="fixes"></a>
 ### Fixes
+*TODO: Convert the core file changes listed in the following sections to legitimate patches that can then be applied via composer.*
 
 Sources: [CWeagans Composer Patching Plugin](https://github.com/cweagans/composer-patches/)
 
@@ -1392,6 +1682,44 @@ For some reason, the quantity statement in the Pick Up In Store Module overlay i
 3. Save with `Esc`, then `:wq` and `Enter`
 4. Clear the cache with: `cache`
 
+<a id="hide-the-venia-lookbook-category"></a>
+#### Hide the Venia Lookbook Category
+Currently, the lookbook extension is required by other extensions but doesn't work well itself.  So, to prevent landmines, we'll disable the Lookbook category, hide it from the main navigation, and then update the Venia home page content so that it doesn't refer to anything related to the lookbook:
+
+Navigate to: `Catalog > Categories`
+
+1. Click on the `Shop the Look` category and set the following:
+	1. Enable Category: `No`
+	2. Include in Menu: `No`
+2. Navigate to: `Content > Elements > Pages` and select the `Venia Home Page - US`
+3. Change the paragraph text to: `Check out these fabulous looks we've curated just for you`
+4. Change the button text to: `SHOP TOPS`
+5. Update the button and make it link to the `Venia Catalog > Tops` category
+6. Add a second button: `SHOP BOTTOMS`
+7. Update the button and make it link to the `Venia Catalog > Bottoms` category
+8. Edit the button group and set `All Buttons are same size` to `Yes`
+9. Update the `Just For You` text to `Accessories FTW`
+10. Update the button text to: `SHOP ACCESSORIES`
+11. Update the button link to the `Venia Catalog > Accessories` category
+
+<a id="fix-the-venia-tops-category"></a>
+#### Fix the Venia Tops Category
+There's a known break in the code which causes the Venia Tops category to break and show a white page.  To fix this, we'll update the display mode of the category to use `Products Only` instead of the `Static Block` it uses by default:
+
+Navigate to: `Catalog > Categories > Venia Catalog > Display Settings`
+
+1. Set the display setting to `Products Only`
+2. Expand the `Design` section and *remove* the following content from the `Layout XML` textarea:
+
+```
+<referenceBlock name="catalog.leftnav" remove="true" />
+<referenceBlock name="page.main.title" remove="true" />
+<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+<referenceBlock name="view.addto.compare" remove="true" />
+<referenceBlock name="view.addto.wishlist" remove="true" />
+```
+
+When done, refresh the cache.
 
 <a id="email-from-doesnt-show-properly"></a>
 #### Email "From" Doesn't Show Properly
