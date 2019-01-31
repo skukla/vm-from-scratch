@@ -108,6 +108,10 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Luma Guest Customers](#luma-guest-customers)
 			- [Luma Registered Customers](#luma-registered-customers)
 			- [LUMA Rewards](#luma-rewards)
+				- [Bronze Tier](#bronze-tier)
+				- [Silver Tier](#silver-tier)
+				- [Gold Tier](#gold-tier)
+				- [Platinum Tier](#platinum-tier)
 			- [Purchase History](#purchase-history)
 			- [Men Who Have Purchased Pants](#men-who-have-purchased-pants)
 			- [Women Single Purchasers](#women-single-purchasers)
@@ -1637,18 +1641,144 @@ Save the category and then reindex and refresh the cache with the `clean` comman
 
 <a id="luma-guest-customers"></a>
 ##### Luma Guest Customers
+We'll use this segment to show targeted content to guest customers as opposed to those with accounts.
+
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `LUMA Guest Customers`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Visitors`
+5. Save
+
+Once saved, use the `clean` command to reindex and refresh cache.
 
 <a id="luma-registered-customers"></a>
 ##### Luma Registered Customers
+We'll use this segment to show targeted content to registered customers as opposed to guest customers.
+
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `LUMA Registered Customers`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
 
 <a id="luma-rewards"></a>
 ##### LUMA Rewards
+We'll use the following segments to create a simple Rewards program with tiers based on a customer's total sales amount.
+
+<a id="bronze-tier"></a>
+###### Bronze Tier
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `LUMA Rewards - Bronze ($250 - $500)`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. **Total** Sales Amount **equals or greater than** **250** while **ALL** of these Conditions match...
+		2. **Total** Sales Amount **equals or less than** **500** while **ALL** of these Conditions match...
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
+
+<a id="silver-tier"></a>
+###### Silver Tier
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `LUMA Rewards - Silver ($500 - $1000)`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. **Total** Sales Amount **equals or greater than** **500** while **ALL** of these Conditions match...
+		2. **Total** Sales Amount **equals or less than** **1000** while **ALL** of these Conditions match...
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
+
+<a id="gold-tier"></a>
+###### Gold Tier
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `LUMA Rewards - Bronze ($1000 - $2000)`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. **Total** Sales Amount **equals or greater than** **1000** while **ALL** of these Conditions match...
+		2. **Total** Sales Amount **equals or less than** **2000** while **ALL** of these Conditions match...
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
+
+<a id="platinum-tier"></a>
+###### Platinum Tier
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `LUMA Rewards - Platinum ($2000+)`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. **Total** Sales Amount **equals or greater than** **2000** while **ALL** of these Conditions match...
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
 
 <a id="purchase-history"></a>
 ##### Purchase History
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `Purchase History - Apparel Purchased in the Last Week`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. If Product **was ordered** and matches **ANY** of these Conditions
+			1. Product Attribute Set **is** **Top**
+			2. Product Attribute Set **is** **Bottom**
+		2. If Product **was ordered** and matches **ALL** of these Conditions
+			1. Period **equals or less than** **7** days Up To Date
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
 
 <a id="men-who-have-purchased-pants"></a>
 ##### Men Who Have Purchased Pants
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `Purchase History - Men Who Have Viewed Pants`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. If Customer Gender **is** **Male**
+		2. If Product **was viewed** and matches **ALL** of these Conditions
+			1. Product Category **is** **19**
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
+
+Next, log in as **Mark Woodward** and view a pair of pants on the storefront.
+
+Finally, back in the segment, click `Refresh Segment Data` to populate the segment.
 
 <a id="women-single-purchasers"></a>
 ##### Women Single Purchasers
