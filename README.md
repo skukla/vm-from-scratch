@@ -64,58 +64,58 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
 - [Using the VM](#using-the-vm)
-	- [Demo Environments](#demo-environments)
-	- [The Hybrid VM](#the-hybrid-vm)
-		- [Preparation](#preparation)
-		- [Downloading the Code](#downloading-the-code)
-		- [Customizing the Codebase](#customizing-the-codebase)
-		- [Downloading and Applying Patches](#downloading-and-applying-patches)
-		- [Installing the Codebase](#installing-the-codebase)
-	- [Demo Case Setup](#demo-case-setup)
-		- [Autofill Setup](#autofill-setup)
-		- [Business Operations Setup](#business-operations-setup)
-			- [Update the Root Category, Website, and Store Names](#update-the-root-category-website-and-store-names)
-			- [Set the Store Information and Shipping Origin](#set-the-store-information-and-shipping-origin)
-			- [Set UPS as the Shipping Method](#set-ups-as-the-shipping-method)
-			- [Configure Braintree as Authorize Only](#configure-braintree-as-authorize-only)
-			- [YouTube API Key](#youtube-api-key)
-			- [Enable RMA](#enable-rma)
-			- [Password Policy](#password-policy)
-			- [Enable Instant Purchase](#enable-instant-purchase)
-			- [Remove Welcome Message](#remove-welcome-message)
-			- [Update Site Meta Info](#update-site-meta-info)
-			- [Configure Reward Points](#configure-reward-points)
-		- [General Content Updates](#general-content-updates)
-			- [Luma Home Page \(US\)](#luma-home-page-us)
-			- [Luma Home Page \(DE\)](#luma-home-page-de)
-			- [Venia Home Page](#venia-home-page)
-		- [Attribute Set Updates](#attribute-set-updates)
-			- [Short Description and Description Arrangement](#short-description-and-description-arrangement)
-			- [Sale and New Attributes](#sale-and-new-attributes)
-		- [Customer Configuration](#customer-configuration)
-			- [Redirect to My Account](#redirect-to-my-account)
-			- [Set Up Saved Cards](#set-up-saved-cards)
-		- [Set Up A Custom Brand](#set-up-a-custom-brand)
-			- [Custom Catalog, Store, and Store View](#custom-catalog-store-and-store-view)
-			- [Custom Attribute Set](#custom-attribute-set)
-			- [Custom Home Page](#custom-home-page)
-			- [Custom Site Map](#custom-site-map)
-		- [Marketing](#marketing)
-			- [Featured Products on Home Page](#featured-products-on-home-page)
-			- [Sale Category](#sale-category)
-			- [Customer Segments](#customer-segments)
-			- [Related Products Rules](#related-products-rules)
-			- [Promotions](#promotions)
-			- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
-		- [Grid Views](#grid-views)
-			- [Product Grids](#product-grids)
-			- [CMS Blocks Grid](#cms-blocks-grid)
-			- [CMS Pages Grid](#cms-pages-grid)
-			- [Staging and Preview Grid](#staging-and-preview-grid)
-		- [Tools](#tools)
-			- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
-			- [SC Theme Customizer](#sc-theme-customizer)
-		- [B2B Demo Cases](#b2b-demo-cases)
+- [Demo Environments](#demo-environments)
+- [The Hybrid VM](#the-hybrid-vm)
+	- [Preparation](#preparation)
+	- [Downloading the Code](#downloading-the-code)
+	- [Customizing the Codebase](#customizing-the-codebase)
+	- [Downloading and Applying Patches](#downloading-and-applying-patches)
+	- [Installing the Codebase](#installing-the-codebase)
+- [Demo Case Setup](#demo-case-setup)
+	- [Autofill Setup](#autofill-setup)
+	- [Business Operations Setup](#business-operations-setup)
+		- [Update the Root Category, Website, and Store Names](#update-the-root-category-website-and-store-names)
+		- [Set the Store Information and Shipping Origin](#set-the-store-information-and-shipping-origin)
+		- [Set UPS as the Shipping Method](#set-ups-as-the-shipping-method)
+		- [Configure Braintree as Authorize Only](#configure-braintree-as-authorize-only)
+		- [YouTube API Key](#youtube-api-key)
+		- [Enable RMA](#enable-rma)
+		- [Password Policy](#password-policy)
+		- [Enable Instant Purchase](#enable-instant-purchase)
+		- [Remove Welcome Message](#remove-welcome-message)
+		- [Update Site Meta Info](#update-site-meta-info)
+		- [Configure Reward Points](#configure-reward-points)
+	- [General Content Updates](#general-content-updates)
+		- [Luma Home Page \(US\)](#luma-home-page-us)
+		- [Luma Home Page \(DE\)](#luma-home-page-de)
+		- [Venia Home Page](#venia-home-page)
+	- [Attribute Set Updates](#attribute-set-updates)
+		- [Short Description and Description Arrangement](#short-description-and-description-arrangement)
+		- [Sale and New Attributes](#sale-and-new-attributes)
+	- [Customer Configuration](#customer-configuration)
+		- [Redirect to My Account](#redirect-to-my-account)
+		- [Set Up Saved Cards](#set-up-saved-cards)
+	- [Set Up A Custom Brand](#set-up-a-custom-brand)
+		- [Custom Catalog, Store, and Store View](#custom-catalog-store-and-store-view)
+		- [Custom Attribute Set](#custom-attribute-set)
+		- [Custom Home Page](#custom-home-page)
+		- [Custom Site Map](#custom-site-map)
+	- [Marketing](#marketing)
+		- [Featured Products on Home Page](#featured-products-on-home-page)
+		- [Sale Category](#sale-category)
+		- [Customer Segments](#customer-segments)
+		- [Related Products Rules](#related-products-rules)
+		- [Promotions](#promotions)
+		- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
+	- [Grid Views](#grid-views)
+		- [Product Grids](#product-grids)
+		- [CMS Blocks Grid](#cms-blocks-grid)
+		- [CMS Pages Grid](#cms-pages-grid)
+		- [Staging and Preview Grid](#staging-and-preview-grid)
+	- [Tools](#tools)
+		- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
+		- [SC Theme Customizer](#sc-theme-customizer)
+	- [B2B Demo Cases](#b2b-demo-cases)
 	- [Fixes](#fixes)
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
 		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
@@ -878,19 +878,19 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 <a id="using-the-vm"></a>
 # Using the VM
 <a id="demo-environments"></a>
-### Demo Environments
+## Demo Environments
 The Solutions Innovation team provides Solutions Consultants with two Cloud projects for demonstrating the Luma brand: a Reference environment and a Demo environment.  The *Reference* environment is a completely native installation of Magento -- there are no extensions of any kind; only the code base and the sample data which ships with the platform.  In contrast, the *Demo* environment builds on the native installation with sample data but adds both custom modules built and/or maintained by the Solutions Innovation team as well as third-party extensions built by the Magento developer community.
 
 <a id="the-hybrid-vm"></a>
-### The Hybrid VM
+## The Hybrid VM
 For some solution consultants, the two default environments cover both extremes, and may not be an ideal solution.  On one hand, while the Reference environments are entirely native, there are useful additions that will serve Solutions Consultants more effectively in the field without including too many customizations.
 
 <a id="preparation"></a>
-#### Preparation
+### Preparation
 For whatever reason, it is not currently possible to use the cloud code base to create a custom VM.  Exhaustive testing has shown that some combinations of the Luma DE and Venia-related modules cause cron jobs to become unmanageable and results are not predictable.  As such, we will create the hybrid environment from scratch and pull in needed elements from Cloud.  Note that before you begin pulling code, you'll need a set of composer credentials for the Magento repository which have the correct access permissions.
 
 <a id="downloading-the-code"></a>
-#### Downloading the Code
+### Downloading the Code
 To begin, we start by using Composer to download the code in the web root.   We'll also include the B2B modules and the Luma sample data:
 
 
@@ -902,7 +902,7 @@ To begin, we start by using Composer to download the code in the web root.   We'
 (The sample data step will require your composer credentials, so be prepared to provide those.  It'll also ask you whether you'd like to store them for future use.)
 
 <a id="customizing-the-codebase"></a>
-#### Customizing the Codebase
+### Customizing the Codebase
 Once the native source code is downloaded, we'll adapt it by adding and removing modules we'll use for our demos.  This process will consist of specifying modules to include in the codebase in the `require` section and then specifying where the code for those modules will be downloaded in the `repositories` section.
 
 In your `composer.json`, use the following require section:
@@ -1054,7 +1054,7 @@ Next, since Page Builder is in beta, we'll need to update our minimum stability 
 Save the `composer.json` file. When done, we can use `composer upgrade` to download the code we want.
 
 <a id="downloading-and-applying-patches"></a>
-#### Downloading and Applying Patches
+### Downloading and Applying Patches
 Since the Magento application is a moving target, The Innovations team maintains a series of patches to fix known issues prior to installing the application.  First, we'll need to create a folder for the cloud codebase outside of our web root, download the hotfixes we want to apply from the cloud codebase using git, copy them into our codebase, and then apply them:
 
 1. `www && cd ../ && mkdir cloud && cd cloud`
@@ -1063,14 +1063,14 @@ Since the Magento application is a moving target, The Innovations team maintains
 4. `php vendor/magentoese/ece-tools/bin/ece-tools patch`
 
 <a id="installing-the-codebase"></a>
-#### Installing the Codebase
+### Installing the Codebase
 With the patches applied, we can use the install command above to install the application.
 
 <a id="demo-case-setup"></a>
-### Demo Case Setup
+## Demo Case Setup
 
 <a id="autofill-setup"></a>
-#### Autofill Setup
+### Autofill Setup
 Initially, the autofill extension includes three enabled personas: VIP, Runner, and Yoga.  The first change we'll make is to add names to these profiles so we can refer to them in the demo story.  In `Stores > Settings > Configuration > Magento Ese > Auto Fill`, update the personas so that the persona labels reflect the following:
 
 1. `Sharon (VIP)`
@@ -1080,10 +1080,10 @@ Initially, the autofill extension includes three enabled personas: VIP, Runner, 
 Then, clear cache.
 
 <a id="business-operations-setup"></a>
-#### Business Operations Setup 
+### Business Operations Setup 
 
 <a id="update-the-root-category-website-and-store-names"></a>
-##### Update the Root Category, Website, and Store Names
+#### Update the Root Category, Website, and Store Names
 By default, the Root Category for the Luma Catalog is called `Default Category` which doesn't show as well as it could.  Let's update it to `Luma Catalog` instead.
 
 In addition, the Website and Store names could also show better.  Let's use the following:
@@ -1104,7 +1104,7 @@ We can also update Venia to match:
 When done, run the `clean` command to reindex and clear the cache.
 
 <a id="set-the-store-information-and-shipping-origin"></a>
-##### Set the Store Information and Shipping Origin
+#### Set the Store Information and Shipping Origin
 In order for Shipping Labels to work properly, we'll need to fill in the Store Information address as well as the Shipping Origin:
 
 Navigate to `Stores > Settings > Configuration > General > General > Store Information` and use:
@@ -1127,7 +1127,7 @@ Next, to set the shipping origin, navigate to `Stores > Settings > Configuration
 When done, clear the cache.
 
 <a id="set-ups-as-the-shipping-method"></a>
-##### Set UPS as the Shipping Method
+#### Set UPS as the Shipping Method
 To set up UPS as the shipping method, navigate to: `Stores > Settings > Configuration > Sales > Shipping Methods`
 
 For some reason, Magento Shipping comes "configured" with API credentials which are incorrect.  We need to remove the values in the Account ID and API Token fields in order for our changes to save.  Remove those first from the `Magento Shipping` section.
@@ -1159,7 +1159,7 @@ In addition, we'll disable table rate shipping and flat rate shipping.  Note:  I
 Once saved, refresh the cache.
 
 <a id="configure-braintree-as-authorize-only"></a>
-##### Configure Braintree as Authorize Only
+#### Configure Braintree as Authorize Only
 The innovations team has configured the demo configurations for the braintree payment method to use Authorize and Capture.  This is not ideal for demonstrating the true, complete order flow - including all possible order statuses.  We'll update that configuration to use `Authorize Only`.
 
 Navigate to: `Stores > Settings > Configuration > Sales > Payment Methods > Braintree > Configure`
@@ -1169,7 +1169,7 @@ Navigate to: `Stores > Settings > Configuration > Sales > Payment Methods > Brai
 Once changed, refresh the cache. 
 
 <a id="youtube-api-key"></a>
-##### YouTube API Key
+#### YouTube API Key
 To use YouTube for product videos, we need to enter a YouTube API key.  Navigate to: `Stores > Settings > Configuration > Catalog > Catalog Product Video` and use the following API key:
 
 `AIzaSyD4E-F8dCwzFp0OkOD1LdIiFFG8Q0wDy1o`
@@ -1177,7 +1177,7 @@ To use YouTube for product videos, we need to enter a YouTube API key.  Navigate
 Once saved, refresh the cache.
 
 <a id="enable-rma"></a>
-##### Enable RMA
+#### Enable RMA
 By default, RMA is not enabled for use.  To enable it, navigate to: `Stores > Settings > Configuration > Sales > Sales > RMA Settings`.
 
 1. Enable RMA on Storefront: `Yes`
@@ -1185,7 +1185,7 @@ By default, RMA is not enabled for use.  To enable it, navigate to: `Stores > Se
 When saved, refresh the cache.
 
 <a id="password-policy"></a>
-##### Password Policy
+#### Password Policy
 By default, Magento has a pretty stringent password policy (three separate character classes and a forced reset for admins every 90 days.)  We're going to amend that to something much more friendly.
 
 For customer-facing passwords, navigate to: `Stores > Settings > Configuration > Customers > Customer Configuration > Password Options`:
@@ -1203,17 +1203,17 @@ For admin-facing passwords, navigate to: `Stores > Settings > Configuration > Ad
 4. Password Change: `Recommended`
 
 <a id="enable-instant-purchase"></a>
-##### Enable Instant Purchase
+#### Enable Instant Purchase
 Verify Instant Purchase is enabled at: `Stores > Settings > Configuration > Sales > Sales > Instant Purchase`
 
 <a id="remove-welcome-message"></a>
-##### Remove Welcome Message
+#### Remove Welcome Message
 By default, Magento includes an annoying text string "Default welcome msg!" which gets replaced with "Welcome!" when a customer logs in.  Since this is stupidly unnecessary for a guest user, we'll remove it.
 
 Navigate to: `Content > Design > Configuration` and choose Global scope. Expand the Header section, empty the Welcome Text field, and save.  Clear cache when done.
 
 <a id="update-site-meta-info"></a>
-##### Update Site Meta Info
+#### Update Site Meta Info
 Next, we'll set up global meta information for pages like the Order Confirmation results page which don't have headings.  Navigate to: `Content > Design > Configuration` and the `Luma Store US English` store view scope.  Use the following:
 
 1. Default Page Title: `LUMA Official Online Store`
@@ -1227,7 +1227,7 @@ Next, use the following for the `Venia Store US English` store view scope:
 3. Default Meta Keywords: `fashion,women,blouse,top,pant,dress,venia`
 
 <a id="configure-reward-points"></a>
-##### Configure Reward Points
+#### Configure Reward Points
 In order to use Reward Points in an order, we need to ensure that Reward Points able to be earned for purchases and that a bi-directional Reward Exchange Rate is created.
 
 Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by Customers`
@@ -1246,11 +1246,11 @@ Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by
 	4. `Rate`: `1 / 1`
 
 <a id="general-content-updates"></a>
-#### General Content Updates
+### General Content Updates
 In order for our meta changes to take effect, we need to add the same changes we made for the default meta information above to each home page (Luma and Venia respectively)
 
 <a id="luma-home-page-us"></a>
-##### Luma Home Page (US)
+#### Luma Home Page (US)
 Navigate to `Content > Elements > Pages > Home Page`
 
 1. Page Title: `Luma Home Page - US`
@@ -1262,7 +1262,7 @@ Navigate to `Content > Elements > Pages > Home Page`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 
 <a id="luma-home-page-de"></a>
-##### Luma Home Page (DE)
+#### Luma Home Page (DE)
 Navigate to `Content > Elements > Pages > Home Page`
 
 1. Page Title: `Luma Home Page - DE`
@@ -1274,7 +1274,7 @@ Navigate to `Content > Elements > Pages > Home Page`
 3. Page in Websites: `Luma Website > Luma Store > Deutsch`
 
 <a id="venia-home-page"></a>
-##### Venia Home Page
+#### Venia Home Page
 Navigate to `Content > Elements > Pages > Home Page - Venia`
 
 1. Page Title: `Venia Home Page - US`
@@ -1286,9 +1286,9 @@ Navigate to `Content > Elements > Pages > Home Page - Venia`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 
 <a id="attribute-set-updates"></a>
-#### Attribute Set Updates
+### Attribute Set Updates
 <a id="short-description-and-description-arrangement"></a>
-##### Short Description and Description Arrangement
+#### Short Description and Description Arrangement
 Since every second counts when creating a custom demo, we'll make some adjustments to our attribute arrangement so as to make product creation flow smoother when creating custom products.
 
 The main change here is to rearrange the `short description` and `description` fields in each attribute set, since, usually, if a product has a short description, it is shown *before* the long description (as logic would dictate).  For some reason, Magento doesn't follow this logic natively; the `description` field is listed *before* the `short description` field. Let's change that:
@@ -1302,7 +1302,7 @@ Navigate to `Stores > Attributes > Attribute Set`
 Repeat this for all other attribute sets.
 
 <a id="sale-and-new-attributes"></a>
-##### Sale and New Attributes
+#### Sale and New Attributes
 Next, we'll follow a similar process for the `sale` and `new` attribute so that we can use them for some marketing use cases to follow.  By default, the `sale` and `new` attributes do not apply to all attribute sets.  This limits their use for all products and, thus, prevents us from applying them to large numbers of products via mass actions.  Let's make sure `Sale` and `New` are added to all attribute sets:
 
 1. Start with the `Default` attribute set
@@ -1313,9 +1313,9 @@ Next, we'll follow a similar process for the `sale` and `new` attribute so that 
 Repeat this for all other attribute sets.
 
 <a id="customer-configuration"></a>
-#### Customer Configuration
+### Customer Configuration
 <a id="redirect-to-my-account"></a>
-##### Redirect to My Account
+#### Redirect to My Account
 Natively, when a customer logs in, they are redirected to the same page they were on when they triggered the log in action.  While this can be handy, typically, when logging in, our goal is to show the My Account area.  We can configure Magento to redirect a customer to their My Account area using the setting at:
 
 `Stores > Settings > Configuration > Customers > Customer Configuration > Login Options > Redirect Customer to Account Dashboard after Logging in`: `Yes`
@@ -1323,7 +1323,7 @@ Natively, when a customer logs in, they are redirected to the same page they wer
 After saving, refresh cache.
 
 <a id="set-up-saved-cards"></a>
-##### Set Up Saved Cards
+#### Set Up Saved Cards
 In order to show Instant Purchase, customers will need to have a Saved Card attached to their account.  We'll add one now for Sharon Reynolds.  As Sharon, create an order with the *Push It Messenger Bag*.  At checkout, use the following details:
 
 1. Credit Card
@@ -1339,15 +1339,15 @@ Optional: Once you've placed the order, sign out as Sharon.  Next, fufill the or
 **Note**: If you need to place orders without an internet connection, remember to disable all API-driven payment methods.  (This would include Braintree and PayPal).  Check or Money Order should be enabled by default for you.
 
 <a id="set-up-a-custom-brand"></a>
-#### Set Up A Custom Brand
+### Set Up A Custom Brand
 In order to make creating custom demos easier, we'll set up some base elements which SCs will use to create customized demos.
 
 <a id="custom-catalog-store-and-store-view"></a>
-##### Custom Catalog, Store, and Store View
+#### Custom Catalog, Store, and Store View
 When preparing a custom demo, it's typically a good practice to separate the native Luma sample data and its associated demo use cases from custom use cases used to give a custom demo.  To allow for this, we've included a custom module which has installed a separate store, store view, and root category for a custom catalog.
 
 <a id="custom-attribute-set"></a>
-##### Custom Attribute Set
+#### Custom Attribute Set
 Next, in the same vein of keeping custom demo cases separated from Luma ones, we'll create a `Custom` attribute set and attribute set group.  This will allow us to place our custom attributes created for custom products into a distinct attribute set and group which allows us to easily create grid filters and rules as well as to quickly create products via the admin panel given that all of our custom attributes will be grouped together in a logical arrangement.
 
 Navigate to `Stores > Attributes > Attribute Set` and add a new attribute set:
@@ -1360,7 +1360,7 @@ Next, create a new Attribute Group in the `Custom` attribute set.  When you crea
 3. Drag the `Custom` folder up in the list  (Typically, when creating new products in the admin, your custom attributes will be listed *after* basics like description)
 
 <a id="custom-home-page"></a>
-##### Custom Home Page
+#### Custom Home Page
 To make custom demos easier, we'll create a custom home page and connect it with our custom store view:
 
 Navigate to `Content > Elements > Pages` and add a new page:
@@ -1377,7 +1377,7 @@ Navigate to `Content > Elements > Pages` and add a new page:
 When done, refresh the cache.
 
 <a id="custom-site-map"></a>
-##### Custom Site Map
+#### Custom Site Map
 Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 
 1. Custom
@@ -1386,10 +1386,10 @@ Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 	3. Store View: `Luma Website > Custom Store > Custom US English`
 
 <a id="marketing"></a>
-#### Marketing
+### Marketing
 
 <a id="featured-products-on-home-page"></a>
-##### Featured Products on Home Page
+#### Featured Products on Home Page
 The goal of this addition is to use a "Featured Product" attribute together with the Visual Merchandiser rules to populate a hidden *Featured Products* category in order to display products on the home page.  We'll show five products so that we fit with the design, and we'll use this product list to show off 5 of Magento's 7 product types.
 
 Navigate to `Catalog > Categories > Luma Catalog > Promotions`
@@ -1460,7 +1460,7 @@ Navigate to `Catalog > Categories > Luma Catalog > Promotions > Featured Product
 Once saved, verify the products have been added to the category as shown above.
 
 <a id="sale-category"></a>
-##### Sale Category
+#### Sale Category
 In an ideal world, category permissions and staging and preview would work well together.  In reality (as of 2.3.0), they don't.  As soon as Category Permissions are enabled, the top navigation disappears from all staging previews.  This is slated to be fixed in 2.3.1, so we'll include instructions here on how to show a *B2C* example of a custom catalog.  Our goal here is to only show the Sale category to our VIP customers.
 
 By default, category permissions are disabled, so we'll start by enabling them.
@@ -1496,36 +1496,36 @@ Navigate to `Catalog > Categories > Sale`
 Save the category and then reindex and refresh the cache with the `clean` command.
 
 <a id="customer-segments"></a>
-##### Customer Segments
+#### Customer Segments
 
 <a id="related-products-rules"></a>
-##### Related Products Rules
+#### Related Products Rules
 
 <a id="promotions"></a>
-##### Promotions
+#### Promotions
 
 <a id="staging-and-preview-campaigns"></a>
-##### Staging and Preview Campaigns
+#### Staging and Preview Campaigns
 
 <a id="grid-views"></a>
-#### Grid Views
+### Grid Views
 
 <a id="product-grids"></a>
-##### Product Grids
+#### Product Grids
 
 <a id="cms-blocks-grid"></a>
-##### CMS Blocks Grid
+#### CMS Blocks Grid
 
 <a id="cms-pages-grid"></a>
-##### CMS Pages Grid
+#### CMS Pages Grid
 
 <a id="staging-and-preview-grid"></a>
-##### Staging and Preview Grid
+#### Staging and Preview Grid
 
 <a id="tools"></a>
-#### Tools
+### Tools
 <a id="cache-warmer-site-map"></a>
-##### Cache Warmer (Site Map)
+#### Cache Warmer (Site Map)
 In order for the cache warmer(s) to function properly, we need to create an XML file for each store view which has products assigned to it.  In our case, that's one for Luma US and one for Venia US store views.  Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 
 1. Luma
@@ -1538,7 +1538,7 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 	3. Store View: `Luma Website > Venia Store > US English`
 
 <a id="sc-theme-customizer"></a>
-##### SC Theme Customizer
+#### SC Theme Customizer
 The theme customizer is an extension that attaches a CSS-based skin to an existing theme.  It ships with a collection of base skins that an SC can duplicate, customize, and then apply to a custom theme in order to apply a custom look and feel.  The VM ships with a Custom theme specifically for this purpose.  Unfortunately, the "Luma" skin does not fully map to all the necessary styles in the theme and requires the SC to add additional CSS hooks to control the look and feel.
 
 Next, let's create a Luma skin based on the included one and update it with the right CSS to be more complete.  Then, we'll attach it to the included custom theme which is assigned to our custom store view.
@@ -1651,7 +1651,7 @@ ul.footer.links > li > a,
 ```
 
 <a id="b2b-demo-cases"></a>
-#### B2B Demo Cases
+### B2B Demo Cases
 
 <a id="fixes"></a>
 ### Fixes
