@@ -114,8 +114,10 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 				- [Platinum Tier](#platinum-tier)
 			- [Purchase History](#purchase-history)
 				- [Apparel Purchased in the Last Week](#apparel-purchased-in-the-last-week)
-				- [Men Who Have Purchased Pants](#men-who-have-purchased-pants)
-				- [Women Single Purchasers](#women-single-purchasers)
+				- [Men Who Have Viewed Pants](#men-who-have-viewed-pants)
+				- [VIP Customers](#vip-customers)
+				- [Female Repeat Customers \(Neve Studio Dance Jacket\)](#female-repeat-customers-neve-studio-dance-jacket)
+				- [Runners](#runners)
 		- [Related Products Rules](#related-products-rules)
 			- [Remove Unwanted Rules](#remove-unwanted-rules)
 			- [Related Products – Women’s Hoodies to Women's Pants](#related-products--womens-hoodies-to-womens-pants)
@@ -125,6 +127,11 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Promotions \(Cart Price Rules\)](#promotions-cart-price-rules)
 			- [Deactivate Unwanted Rules](#deactivate-unwanted-rules)
 			- [Free Shipping](#free-shipping)
+		- [Targeted Content \(Dynamic Blocks\)](#targeted-content-dynamic-blocks)
+			- [Loyalty Pays](#loyalty-pays)
+			- [Triple Points](#triple-points)
+			- [Free Shipping Advertisement](#free-shipping-advertisement)
+			- [Free Shipping Achieved](#free-shipping-achieved)
 		- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
 			- [Valentine's Day](#valentines-day)
 			- [Summer Sale Lead-in](#summer-sale-lead-in)
@@ -1683,8 +1690,8 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 5. Save and Continue
 6. Conditions:
 	1. If **ALL** of these conditions are **TRUE**:
-		1. **Total** Sales Amount **equals or greater than** **250** while **ALL** of these Conditions match...
-		2. **Total** Sales Amount **equals or less than** **500** while **ALL** of these Conditions match...
+		1. **Total** Sales Amount **equals or greater than** **250** while **ALL** of these Conditions match:
+		2. **Total** Sales Amount **equals or less than** **500** while **ALL** of these Conditions match:
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -1700,8 +1707,8 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 5. Save and Continue
 6. Conditions:
 	1. If **ALL** of these conditions are **TRUE**:
-		1. **Total** Sales Amount **equals or greater than** **500** while **ALL** of these Conditions match...
-		2. **Total** Sales Amount **equals or less than** **1000** while **ALL** of these Conditions match...
+		1. **Total** Sales Amount **equals or greater than** **500** while **ALL** of these Conditions match:
+		2. **Total** Sales Amount **equals or less than** **1000** while **ALL** of these Conditions match:
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -1717,8 +1724,8 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 5. Save and Continue
 6. Conditions:
 	1. If **ALL** of these conditions are **TRUE**:
-		1. **Total** Sales Amount **equals or greater than** **1000** while **ALL** of these Conditions match...
-		2. **Total** Sales Amount **equals or less than** **2000** while **ALL** of these Conditions match...
+		1. **Total** Sales Amount **equals or greater than** **1000** while **ALL** of these Conditions match:
+		2. **Total** Sales Amount **equals or less than** **2000** while **ALL** of these Conditions match:
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -1734,7 +1741,7 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 5. Save and Continue
 6. Conditions:
 	1. If **ALL** of these conditions are **TRUE**:
-		1. **Total** Sales Amount **equals or greater than** **2000** while **ALL** of these Conditions match...
+		1. **Total** Sales Amount **equals or greater than** **2000** while **ALL** of these Conditions match:
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -1762,8 +1769,8 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 
 Once saved, use the `clean` command to reindex and refresh cache.
 
-<a id="men-who-have-purchased-pants"></a>
-###### Men Who Have Purchased Pants
+<a id="men-who-have-viewed-pants"></a>
+###### Men Who Have Viewed Pants
 Navigate to: `Customers > Customer Segments > Add Segment`
 
 1. General Properties > Segment Name: `Purchase History - Men Who Have Viewed Pants`
@@ -1784,8 +1791,127 @@ Next, log in as **Mark Woodward** and view a pair of pants on the storefront.
 
 Finally, back in the segment, click `Refresh Segment Data` to populate the segment.
 
-<a id="women-single-purchasers"></a>
-###### Women Single Purchasers
+<a id="vip-customers"></a>
+###### VIP Customers
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `Purchase History - VIP Customers`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Customer Group **is** **VIP**
+7. Save the segment
+
+Once saved, use the `clean` command to reindex and refresh cache.
+
+<a id="female-repeat-customers-neve-studio-dance-jacket"></a>
+###### Female Repeat Customers (Neve Studio Dance Jacket)
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `Purchase History - Female Repeat Customers (Neve Studio Dance Jacket)`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. **Total** Number of Orders **is** **1** while **ALL** of these Conditions match:
+		2. If Product **was** **ordered** and matches **ALL** of these Conditions:
+			1. Product SKU **contains** **WJ11** 
+7. Save the segment
+
+We'll use **Lisa Firey** as our customer for this use case.  Unfortunately, she already has at least one order in the demo sales data, which means we'll need to delete her orders and place one to meet our segment criteria.  To do this, we'll install an extension from Mageplaza.
+
+SSH into the VM via terminal with: `ssh vagrant@luma.com`.  If a password is requested, use `vagrant`
+
+`www && add-key && composer require mageplaza/module-delete-orders && upgrade`
+
+With the extension added, navigate to `Sales > Orders`
+
+1. Filter the orders grid for Bill-to Name: `Lisa Firey`
+2. Select the resultant orders and use mass actions to delete them
+3. Clear the order filter
+
+Next, we'll place an order as **Lisa Firey** for the **Neve Studio Dance Jacket**
+
+1. On the storefront, log in as `Lisa Firey`
+2. Navigate to `Women > Tops > Jackets`
+3. Select a small, blue `Neve Studio Dance Jacket` and add to cart
+4. Proceed to checkout and complete the purchase
+
+Next, we'll verify that our segment updates.
+
+Navigate to `Customers > Customer Segments`
+
+1. Choose the `Purchase History - Female Repeat Customers (Neve Studio Dance Jacket)` segment
+2. Click `Refresh Segment Data`
+3. Check that `Lisa Firey` is in the segment
+
+Finally, we'll remove the Mageplaza Delete Orders extension we just used, making sure the remove data and clear static content in the process.
+
+SSH into the VM via terminal with: `ssh vagrant@luma.com`.  If a password is requested, use `vagrant`
+
+1. `./bin/magento module:uninstall --remove-data --clear-static-content Mageplaza_Core Mageplaza_DeleteOrders`
+2. Enter `y` when prompted
+3. `di-compile`
+4. `clean`
+
+Finally, clear the notifications left by the Mageplaza extensions.
+
+<a id="runners"></a>
+###### Runners
+For the Runners segment, we need to create a customer attribute.
+
+Navigate to `Stores > Attributes > Customer` and add a new attribute:
+
+1. Properties > Attribute Properties > Default Label: `Preferred Activities`
+2. Properties > Attribute Properties > Attribute Code: `preferred_activities`
+3. Properties > Attribute Properties > Input Type: `Mutiple Select`
+4. Properties > Attribute Properties > Values Required: `No`
+5. Properties > Attribute Properties > Add to Column Options: `Yes`
+6. Properties > Attribute Properties > Use in Filter Options: `Yes`
+7. Properties > Attribute Properties > Use in Search Options: `No`
+8. Properties > Attribute Properties > Use in Customer Segment: `Yes`
+9. Properties > Storefront Properties > Show on Storefront: `Yes`
+10. Properties > Storefront Properties > Sort Order: `100`
+11. Properties > Storefront Properties > Forms to Use In: `Customer Registration`, `Customer Account Edit`, `Admin Checkout`
+12. Manage Label / Options > Manage Titles:
+	1. Deutsch: `Bevorzugte Aktivitäten`
+12. Manage Label / Options > Manage Options:
+	1. Admin: `Running`, Deutsch: `Laufen`
+	2. Admin: `Crossfit`
+	3. Admin: `Pilates`
+	4. Admin: `Yoga`
+13. Save the attribute
+
+Use `clean` to reindex and refresh the cache.
+
+Next, we'll assign the attribute to **Mark Woodward**.
+
+1. Log in to the storefront as `Mark Woodward`
+2. Click on the name dropdown and choose `My Account`
+3. Click on `Account Information`
+4. Choose `Running` in the `Preferred Activities` multi-select
+5. Save the selection
+
+Next, we'll create the segment based on this preference.
+
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `Customer Preference - Runners`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Customer Preferred Activities **contains** **Running**
+7. Save the segment
+
+Use `clean` to reindex and refresh the cache.
 
 <a id="related-products-rules"></a>
 #### Related Products Rules
@@ -1813,6 +1939,21 @@ Finally, back in the segment, click `Refresh Segment Data` to populate the segme
 
 <a id="free-shipping"></a>
 ##### Free Shipping
+
+<a id="targeted-content-dynamic-blocks"></a>
+#### Targeted Content (Dynamic Blocks)
+
+<a id="loyalty-pays"></a>
+##### Loyalty Pays
+
+<a id="triple-points"></a>
+##### Triple Points
+
+<a id="free-shipping-advertisement"></a>
+##### Free Shipping Advertisement
+
+<a id="free-shipping-achieved"></a>
+##### Free Shipping Achieved
 
 <a id="staging-and-preview-campaigns"></a>
 #### Staging and Preview Campaigns
