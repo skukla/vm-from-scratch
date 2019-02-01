@@ -117,6 +117,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 				- [Men Who Have Viewed Pants](#men-who-have-viewed-pants)
 				- [VIP Customers](#vip-customers)
 				- [Female Repeat Customers \(Neve Studio Dance Jacket\)](#female-repeat-customers-neve-studio-dance-jacket)
+			- [Customer Preference](#customer-preference)
 				- [Runners](#runners)
 		- [Related Products Rules](#related-products-rules)
 			- [Remove Unwanted Rules](#remove-unwanted-rules)
@@ -1862,6 +1863,8 @@ SSH into the VM via terminal with: `ssh vagrant@luma.com`.  If a password is req
 
 Finally, clear the notifications left by the Mageplaza extensions.
 
+<a id="customer-preference"></a>
+##### Customer Preference
 <a id="runners"></a>
 ###### Runners
 For the Runners segment, we need to create a customer attribute.
