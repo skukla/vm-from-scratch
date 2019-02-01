@@ -272,8 +272,6 @@ To use your own terminal application (such as iTerm, for example):
 2. Get the IP address of the machine from the Message of the Day (MoTD)
 3. Use ssh to tunnel in using your terminal application: `ssh magento@<YOUR_IP_HERE>`
 
-**Note**: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.  If you happen to have the VM CLI installed already, you can recall the motd with `motd`.
-
 <a id="setting-the-hostname"></a>
 ### Setting the Hostname
 Next, we'll set a new hostname for the VM.  Since our initial url will be `luma.com`, let's use that as our hostname, too.  Once the hostname is changed, we also need to update our entry in the machine's `etc/hosts` file.  We'll use the VIM text editor to do this with the following commands:
@@ -401,6 +399,8 @@ rule
 Exit *Insert* mode with `Esc` and then save and quit the file with `x` and `Enter`.  Make the new script as executable with `sudo chmod +x /etc/update-motd.d/01-custom`.
 
 This MoTD is much more useful; it tells the user what hosts entry to use for the machine, the webmin url and credentials, as well as some useful commands from the VM CLI.  (We'll set up Webmin and the VM CLI shortly.)  To test the new MoTD, simply reboot the machine and login again.
+
+**Note**: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.  If you happen to have the VM CLI installed already, you can recall the motd with `motd`.
 
 <a id="solution-components-installation"></a>
 ## Solution Components Installation
