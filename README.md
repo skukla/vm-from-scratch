@@ -1844,7 +1844,7 @@ Next, we'll place an order as **Lisa Firey** for the **Neve Studio Dance Jacket*
 4. Proceed to checkout and complete the purchase
 5. Log out as `Lisa Firey`
 
-Next, we'll verify that our segment updates.
+Next, we'll verify that our segment is correct.
 
 Navigate to `Customers > Customer Segments`
 
