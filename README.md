@@ -122,7 +122,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Customer Preference](#customer-preference)
 				- [Runners](#runners)
 		- [Related Products Rules](#related-products-rules)
-			- [Remove Unwanted Rules](#remove-unwanted-rules)
+			- [Remove Unwanted Rules and Configure Global Result Numbers](#remove-unwanted-rules-and-configure-global-result-numbers)
 			- [Women’s Hoodies to Women's Pants \(Related Products\)](#womens-hoodies-to-womens-pants-related-products)
 			- [Men's Pants to Men's Hoodies \(Segmented\) \(Related Products\)](#mens-pants-to-mens-hoodies-segmented-related-products)
 			- [Watch Upsells](#watch-upsells)
@@ -272,7 +272,7 @@ To use your own terminal application (such as iTerm, for example):
 2. Get the IP address of the machine from the Message of the Day (MoTD)
 3. Use ssh to tunnel in using your terminal application: `ssh magento@<YOUR_IP_HERE>`
 
-Note: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.
+**Note**: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.  If you happen to have the VM CLI installed already, you can recall the motd with `motd`.
 
 <a id="setting-the-hostname"></a>
 ### Setting the Hostname
@@ -339,7 +339,7 @@ To set the MoTD, we must first *disable* the parts of the existing MoTD we don't
 
 `sudo chmod -x /etc/update-motd.d/00-header /etc/update-motd.d/10-help-text /etc/update-motd.d/50-landscape-sysinfo /etc/update-motd.d/50-motd-news /etc/update-motd.d/80-esm /etc/update-motd.d/80-livepatch /etc/update-motd.d/90-updates-available /etc/update-motd.d/91-release-upgrade /etc/update-motd.d/95-hwe-eol /etc/update-motd.d/97-overlayroot /etc/update-motd.d/98-fsck-at-reboot`
 
-Next, using`vim`, we'll create a custom bash script for our own MoTD: `sudo vim /etc/update-motd.d/01-custom`.  Use `i` to enter *Insert* mode, and then paste in the below:
+Next, using `vim`, we'll create a custom bash script for our own MoTD: `sudo vim /etc/update-motd.d/01-custom`.  Use `i` to enter *Insert* mode, and then paste in the below:
 
 ```
 #!/bin/bash
@@ -1928,13 +1928,19 @@ Use `clean` to reindex and refresh the cache.
 <a id="related-products-rules"></a>
 #### Related Products Rules
 
-<a id="remove-unwanted-rules"></a>
-##### Remove Unwanted Rules
+<a id="remove-unwanted-rules-and-configure-global-result-numbers"></a>
+##### Remove Unwanted Rules and Configure Global Result Numbers
 Although the included Related Products Rules help convey a fully-featured reference store, the sheer number of them can be overwhelming when trying to tell a succinct, effective demo story.  In addition, because there are so many of them, the risk of conflicting rules when creating new custom rules is quite high.  For that reason, we will remove all but the last five and then rework those rules into the ones we want.  This will preserve the ID numbering if we choose to create new, custom rules.
 
 Navigate to `Marketing > Related Products Rules`
 
 Remove rules 1-40
+
+Next, we'll update our global configuration for how many cross-sell results to return for cross-sell rules.  For some reason, the default is set to 5 when the design has room for 6.
+
+Navigate to `Stores > Settings > Configuration > Catalog > Catalog > Rule-based Product Relations`
+
+Maximum Number of Products in Cross-Sell Product List: `6`
 
 <a id="womens-hoodies-to-womens-pants-related-products"></a>
 ##### Women’s Hoodies to Women's Pants (Related Products)
@@ -2046,6 +2052,7 @@ Navigate to `Marketing > Related Products Rules`
 
 <a id="deactivate-unwanted-rules"></a>
 ##### Deactivate Unwanted Rules
+Similar to the Related Product Rules the included shopping cart price rules can make it less than ideal to tell an effective demo story.  While there are not as many rules in this case, the risk of conflicting rules when creating new custom rules is still something we'd like to avoid.  For that reason, we will deactivate all of the rules and then rework them into the story we want.  This will preserve the ID numbering if we choose to create new, custom promotions.
 
 <a id="free-shipping"></a>
 ##### Free Shipping
