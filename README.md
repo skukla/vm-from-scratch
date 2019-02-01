@@ -101,6 +101,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Custom Home Page](#custom-home-page)
 		- [Custom Site Map](#custom-site-map)
 		- [Custom Theme Skin via SC Theme Customizer](#custom-theme-skin-via-sc-theme-customizer)
+	- [Products](#products)
+		- [Re-arrange Bags Category](#re-arrange-bags-category)
 	- [Marketing](#marketing)
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
@@ -121,10 +123,11 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 				- [Runners](#runners)
 		- [Related Products Rules](#related-products-rules)
 			- [Remove Unwanted Rules](#remove-unwanted-rules)
-			- [Related Products – Women’s Hoodies to Women's Pants](#related-products--womens-hoodies-to-womens-pants)
-			- [Related Products - Men's Pants to Men's Hoodies \(Segmented\)](#related-products---mens-pants-to-mens-hoodies-segmented)
-			- [Upsells - Watches](#upsells---watches)
-			- [Cross-sells - Bags to Hoodies and Fitness Equipment](#cross-sells---bags-to-hoodies-and-fitness-equipment)
+			- [Women’s Hoodies to Women's Pants \(Related Products\)](#womens-hoodies-to-womens-pants-related-products)
+			- [Men's Pants to Men's Hoodies \(Segmented\) \(Related Products\)](#mens-pants-to-mens-hoodies-segmented-related-products)
+			- [Watch Upsells](#watch-upsells)
+			- [Venia Up-sells](#venia-up-sells)
+			- [Bags to Hoodies and Fitness Equipment \(Cross-sells\)](#bags-to-hoodies-and-fitness-equipment-cross-sells)
 		- [Promotions \(Cart Price Rules\)](#promotions-cart-price-rules)
 			- [Deactivate Unwanted Rules](#deactivate-unwanted-rules)
 			- [Free Shipping](#free-shipping)
@@ -1534,6 +1537,11 @@ ul.footer.links > li > a,
     outline:; 
 }
 ```
+<a id="products"></a>
+### Products
+
+<a id="re-arrange-bags-category"></a>
+#### Re-arrange Bags Category
 
 <a id="marketing"></a>
 ### Marketing
@@ -1922,18 +1930,116 @@ Use `clean` to reindex and refresh the cache.
 
 <a id="remove-unwanted-rules"></a>
 ##### Remove Unwanted Rules
+Although the included Related Products Rules help convey a fully-featured reference store, the sheer number of them can be overwhelming when trying to tell a succinct, effective demo story.  In addition, because there are so many of them, the risk of conflicting rules when creating new custom rules is quite high.  For that reason, we will remove all but the last five and then rework those rules into the ones we want.  This will preserve the ID numbering if we choose to create new, custom rules.
 
-<a id="related-products--womens-hoodies-to-womens-pants"></a>
-##### Related Products – Women’s Hoodies to Women's Pants
+Navigate to `Marketing > Related Products Rules`
 
-<a id="related-products---mens-pants-to-mens-hoodies-segmented"></a>
-##### Related Products - Men's Pants to Men's Hoodies (Segmented)
+Remove rules 1-40
 
-<a id="upsells---watches"></a>
-##### Upsells - Watches
+<a id="womens-hoodies-to-womens-pants-related-products"></a>
+##### Women’s Hoodies to Women's Pants (Related Products)
+Navigate to `Marketing > Related Products Rules`
 
-<a id="cross-sells---bags-to-hoodies-and-fitness-equipment"></a>
-##### Cross-sells - Bags to Hoodies and Fitness Equipment
+Reconfigure Rule ID 41: Cross-sells Women Bottoms Pants to match the following:
+
+1. Rule Information > Rule Name: `Related Products - Women's Hoodies to Women's Pants`
+2. Rule Information > Apply To: `Related Products`
+3. Rule Information > Status: `Active`
+4. Rule Information > Customer Segments: `All`
+5. Products to Match:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Category **is** **25**
+6. Products to Display:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Product Category **is** **Constant Value** **28**
+7. Save changes
+
+<a id="mens-pants-to-mens-hoodies-segmented-related-products"></a>
+##### Men's Pants to Men's Hoodies (Segmented) (Related Products)
+Navigate to `Marketing > Related Products Rules`
+
+Reconfigure Rule ID 42: Cross-sells Men Top Tees to match the following:
+
+1. Rule Information > Rule Name: `Related Products - Men's Pants to Men's Hoodies (Segmented)`
+2. Rule Information > Apply To: `Related Products`
+3. Rule Information > Status: `Active`
+4. Rule Information > Customer Segments: `Specified`
+	1. `Purchase History - Men Who Have Viewed Pants`
+5. Products to Match:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Category **is** **19**
+6. Products to Display:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Product Category **is** **Constant Value** **16**
+7. Save changes
+
+<a id="watch-upsells"></a>
+##### Watch Upsells
+In order to create this rule, we need to configure the `Price` attribute so that it can be used in the rule engine.
+
+Navigate to `Stores > Attributes > Product`
+
+1. Open the `Price` attribute
+2. Storefront Properties > Use for Promo Rule Conditions: `Yes`
+3. Reset the attribute grid filter if you used one
+4. Save changes
+
+When done, refresh the cache.
+
+Navigate to `Marketing > Related Products Rules`
+
+Next, reconfigure Rule ID 43: Cross-sells Men Bottoms Pants to match the following:
+
+1. Rule Information > Rule Name: `Up-sells - Watches`
+2. Rule Information > Apply To: `Up-sells`
+3. Rule Information > Status: `Active`
+4. Rule Information > Customer Segments: `All`
+5. Products to Match:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Category **is** **6**
+6. Products to Display:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Product Category **is** **Constant Value** **6**
+		2. Product Price **equals or greater than** **Matched Product Price**
+7. Save changes
+
+<a id="venia-up-sells"></a>
+##### Venia Up-sells
+In order to show a consistent, logical ordering of the rules grid, we'll reconfigure Rule ID 44: Cross-sells Gear Bags to match the Venia Upsells rule beneath it:
+
+Navigate to `Marketing > Related Products Rules`
+
+1. Rule Information > Rule Name: `Up-sells - Venia`
+2. Rule Information > Apply To: `Up-sells`
+3. Rule Information > Status: `Active`
+4. Rule Information > Customer Segments: `All`
+5. Products to Match:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Category **is one of** **45,47,48,49,44,50,51,52,53**
+6. Products to Display:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Product Category **is the Same as Matched Product Categories**
+7. Save changes
+
+**Note:** On the Cloud, the rule uses **is** instead of **is one of** in the `Products to Match` section. This has caused issues in older versions of Magento, so we'll use **is one of** to be safe here.
+
+<a id="bags-to-hoodies-and-fitness-equipment-cross-sells"></a>
+##### Bags to Hoodies and Fitness Equipment (Cross-sells)
+Navigate to `Marketing > Related Products Rules`
+
+1. Rule Information > Rule Name: `Cross-sells - Bags to Hoodies and Fitness Equipment`
+2. Rule Information > Apply To: `Cross-sells`
+3. Rule Information > Status: `Active`
+4. Rule Information > Customer Segments: `All`
+5. Products to Match:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Category **is** **4**
+6. Products to Display:
+	1. If **ANY** of these conditions are **TRUE**:
+		1. Product Category **is** **Constant Value** **25**
+		2. Product Category **is** **Constant Value** **16**
+		3. Product Category **is** **Constant Value** **5**
+7. Save changes
 
 <a id="promotions-cart-price-rules"></a>
 #### Promotions (Cart Price Rules)
