@@ -1841,6 +1841,7 @@ Next, we'll place an order as **Lisa Firey** for the **Neve Studio Dance Jacket*
 2. Navigate to `Women > Tops > Jackets`
 3. Select a small, blue `Neve Studio Dance Jacket` and add to cart
 4. Proceed to checkout and complete the purchase
+5. Log out as `Lisa Firey`
 
 Next, we'll verify that our segment updates.
 
