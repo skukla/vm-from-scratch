@@ -87,6 +87,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Configure Reward Points](#configure-reward-points)
 	- [General Content Updates](#general-content-updates)
 		- [Luma Home Page \(US\)](#luma-home-page-us)
+			- [Page Setup](#page-setup)
+			- [Page Reset](#page-reset)
 		- [Luma Home Page \(DE\)](#luma-home-page-de)
 		- [Venia Home Page](#venia-home-page)
 	- [Attribute Set Updates](#attribute-set-updates)
@@ -102,7 +104,10 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Custom Site Map](#custom-site-map)
 		- [Custom Theme Skin via SC Theme Customizer](#custom-theme-skin-via-sc-theme-customizer)
 	- [Products](#products)
-		- [Re-arrange Bags Category](#re-arrange-bags-category)
+		- [Re-arrange Gear > Bags Category](#re-arrange-gear--bags-category)
+		- [Re-arrange the Womens > Hoodies and Sweatshirts Category](#re-arrange-the-womens--hoodies-and-sweatshirts-category)
+		- [Add Running As An Attribute to Select Products](#add-running-as-an-attribute-to-select-products)
+		- [Add Stock for Mailed Gift Card](#add-stock-for-mailed-gift-card)
 	- [Marketing](#marketing)
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
@@ -121,6 +126,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 				- [Female Repeat Customers \(Neve Studio Dance Jacket\)](#female-repeat-customers-neve-studio-dance-jacket)
 			- [Customer Preference](#customer-preference)
 				- [Runners](#runners)
+			- [Shopping Cart](#shopping-cart)
+				- [Free Shipping Threshold \($75 - $99\)](#free-shipping-threshold-75---99)
 		- [Related Products Rules](#related-products-rules)
 			- [Remove Unwanted Rules and Configure Global Result Numbers](#remove-unwanted-rules-and-configure-global-result-numbers)
 			- [Women’s Hoodies to Women's Pants \(Related Products\)](#womens-hoodies-to-womens-pants-related-products)
@@ -132,10 +139,13 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Deactivate Unwanted Rules](#deactivate-unwanted-rules)
 			- [Free Shipping](#free-shipping)
 		- [Targeted Content \(Dynamic Blocks\)](#targeted-content-dynamic-blocks)
-			- [Loyalty Pays](#loyalty-pays)
-			- [Triple Points](#triple-points)
+			- [Featured Products \(Guest Customers\)](#featured-products-guest-customers)
+			- [Runners Featured Products](#runners-featured-products)
+			- [Women Who Purchased the Neve Studio Dance Jacket Featured Products](#women-who-purchased-the-neve-studio-dance-jacket-featured-products)
+			- [Rewards Program Advertisements](#rewards-program-advertisements)
 			- [Free Shipping Advertisement](#free-shipping-advertisement)
 			- [Free Shipping Achieved](#free-shipping-achieved)
+			- [VIP?](#vip)
 		- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
 			- [Valentine's Day](#valentines-day)
 			- [Summer Sale Lead-in](#summer-sale-lead-in)
@@ -144,8 +154,13 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Black Friday Lead-in](#black-friday-lead-in)
 			- [Black Friday Sale](#black-friday-sale)
 			- [Holiday Campaign](#holiday-campaign)
+	- [Content with Page Builder](#content-with-page-builder)
+		- [Gear Category Landing Page](#gear-category-landing-page)
 	- [Grid Views](#grid-views)
 		- [Product Grids](#product-grids)
+			- [Women's Hoodies](#womens-hoodies)
+			- [On Sale](#on-sale)
+			- [Featured Products](#featured-products)
 		- [CMS Blocks Grid](#cms-blocks-grid)
 		- [CMS Pages Grid](#cms-pages-grid)
 		- [Staging and Preview Grid](#staging-and-preview-grid)
@@ -1289,6 +1304,9 @@ In order for our meta changes to take effect, we need to add the same changes we
 
 <a id="luma-home-page-us"></a>
 #### Luma Home Page (US)
+
+<a id="page-setup"></a>
+##### Page Setup
 Navigate to `Content > Elements > Pages > Home Page`
 
 1. Page Title: `Luma Home Page - US`
@@ -1299,6 +1317,33 @@ Navigate to `Content > Elements > Pages > Home Page`
 	4. Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 
+<a id="page-reset"></a>
+##### Page Reset
+By default, the home page content is contained within blocks which are then placed onto the home page itself using a Widget.  This approach has pros and cons, but in general, it violates the reason content is generally split into blocks: easy reuse.  The content is not reused anywhere else and so, ought not to need block approach; however, the CSS has been written specifically to refer to a widget and thus, it would take more effort than I want to spend to "fix" it properly.  Thus, we'll continue to use the block content method and make some adjustments.
+
+The home page block contains two discernable chunks of content: the top row and image collage make up the first chunk, while the bottom heading and product list make up the second chunk.
+
+Since Page Builder doesn't support nesting widgets (i.e. nesting a product list widget inside of a static block widget) the heading and product list will show better as a segmented dynamic block and nested via Page Builder.
+
+Let's finish our page reset by removing the heading and product list widget:
+
+```
+<div class="content-heading">
+<h2 class="title">Hot Sellers</h2>
+<p class="info">Here is what`s trending on Luma right now</p>
+</div>
+<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" products_per_page="8" products_count="8" template="product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`sku`,`operator`:`()`,`value`:`WS12, WT09, MT07, MH07, 24-MB02, 24-WB04, 241-MB08, 240-LV05`^]^]"}}</p>
+```
+Once removed, save the block and save the `<div>` with the heading for later.
+
+Next, remove the same content from the German block so that the two experiences are equal:
+```
+<div class="content-heading">
+   <h2 class="title">Heiße Angebote</h2>
+   <p class="info">Favoriten von Luma Shoppers</p>
+</div>
+{{widget type="Magento\\CatalogWidget\\Block\\Product\\ProductsList" products_per_page="8" products_count="8" template="product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`sku`,`operator`:`()`,`value`:`WS12, WT09, MT07, MH07, 24-MB02, 24-WB04, 241-MB08, 240-LV05`^]^]"}}
+```
 <a id="luma-home-page-de"></a>
 #### Luma Home Page (DE)
 Navigate to `Content > Elements > Pages > Home Page`
@@ -1311,6 +1356,23 @@ Navigate to `Content > Elements > Pages > Home Page`
 	4. Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
 3. Page in Websites: `Luma Website > Luma Store > Deutsch`
 
+Next, for whatever reason, we need to fix the static block widget which drives the German homepage content.  It uses the `Main Content Area` Container when it should use the `Main Content Top` container:
+
+Navigate to `Content > Elements > Widgets > Home Page - DE`
+
+1. Container: `Main Content Top`
+2. Save the widget
+
+Next, we'll make the German content more demo-friendly.  For some reason, the Eco Friendly block has a ton of text in it which pushes the white containing block down too far.  To fix this:
+
+Navigate to `Content > Elements > Blocks > Home Page - DE`
+
+1. Find the following: `<strong class="title">Feuchtigkeitsableitend. Mit Kühleffekt. Perfekt. </strong>`
+2. From the above, remove `Mit Kühleffekt.`
+3. Save the block
+
+Once saved, clear the cache.
+
 <a id="venia-home-page"></a>
 #### Venia Home Page
 Navigate to `Content > Elements > Pages > Home Page - Venia`
@@ -1321,7 +1383,7 @@ Navigate to `Content > Elements > Pages > Home Page - Venia`
 	2. Meta Title: `VENIA Official Online Store`
 	3. Meta Keywords: `fashion,women,blouse,top,pant,dress,venia`
 	4. Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
-3. Page in Websites: `Luma Website > Luma Store > US English`
+3. Page in Websites: `Luma Website > Luma Store > US English` 
 
 <a id="attribute-set-updates"></a>
 ### Attribute Set Updates
@@ -1540,8 +1602,71 @@ ul.footer.links > li > a,
 <a id="products"></a>
 ### Products
 
-<a id="re-arrange-bags-category"></a>
-#### Re-arrange Bags Category
+<a id="re-arrange-gear--bags-category"></a>
+#### Re-arrange Gear > Bags Category
+We like to show the joust duffle bag during our demos, but for some reason it's shown at the bottom of the category even though its listed as the first product in the category.  Let's shove it to the top:
+
+Navigate to `Catalog > Categories > Luma Catalog > Gear > Bags`
+
+1. Expand the `Products in Category` section
+2. Swap `Joust Duffle Bag` with `Strive Shoulder Pack`
+3. Save
+4. Repeat steps 1 and 2 so that `Joust Duffle Bag` is listed first again
+5. Save
+
+Once saved, reindex and clear cache with `clean`
+
+<a id="re-arrange-the-womens--hoodies-and-sweatshirts-category"></a>
+#### Re-arrange the Womens > Hoodies and Sweatshirts Category
+We like to show the Mona Pullover Hoodie during our demos but it's at the bottom of the category.  Let's shove it to the top:
+
+Navigate to `Catalog > Categories > Luma Catalog > Women > Tops > Hoodies & Sweatshirts`
+
+1. Expand the `Products in Category` section
+2. Find the `Mona Pullover Hoodie` configurable product (Visible in catalog and search)
+3. Change its position number to `0`
+3. Save
+
+Once saved, reindex and clear cache with `clean`
+
+<a id="add-running-as-an-attribute-to-select-products"></a>
+#### Add Running As An Attribute to Select Products
+Since one of our segments is for customers whose favorite activity is Running, we'll need to select some products and update their `Activity` attribute to contain a value of `Running`.  We'll do a combination of tops and bottoms. To do this:
+
+Navigate to `Catalog > Products`
+
+First, the tops:
+
+1. Filter the grid for:
+	1. Keyword: `Running`
+	2. Type: `Configurable Product`
+	3. Attribute Set: `Top`
+2. Mass edit the `Atomic Endurance Running Tee (V-neck)` and the `Ingrid Running Jacket`
+3. Update the `Activity` attribute to include `Running`
+4. Save
+
+Next, the bottoms:
+
+1. Filter the grid for:
+	1. Keyword: `Running`
+	2. Type: `Configurable Product`
+	3. Attribute Set: `Bottom`
+2. Mass edit the `Apollo Running Short`, `Cora Parachute Pant`, and the `Erika Running Short`
+3. Update the `Activity` attribute to include `Running`
+4. Save
+
+
+<a id="add-stock-for-mailed-gift-card"></a>
+#### Add Stock for Mailed Gift Card
+For whatever reason, the gift card products show as not having stock because they have no amounts configured and Open Amounts are set to `No`.  Let's fix this by allowing an open amount from $25 - $200:
+
+Navigate to `Catalog > Products`
+
+1. Filter on `Product Type: Gift Card`
+2. Select the Mailed Gift Card
+3. Open Amount: `Yes`
+4. Open Amount From: `25`
+5. Open Amount To: `200`
 
 <a id="marketing"></a>
 ### Marketing
@@ -1925,6 +2050,36 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 
 Use `clean` to reindex and refresh the cache.
 
+<a id="shopping-cart"></a>
+##### Shopping Cart
+<a id="free-shipping-threshold-75---99"></a>
+###### Free Shipping Threshold ($75 - $99)
+We'll set up a free shipping threshold between $75 - $99 so we can target those customers and alert them to the fact that if they spend $100 or more, they'll get free shipping:
+
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. General Properties > Segment Name: `Shopping Cart - Free Shipping Threshold ($75 - $99)`
+2. General Properties > Assigned to Website: `Luma Website`
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Visitors and Registered Customers`
+5. Save and Continue
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE**:
+		1. Shopping Cart **Subtotal** Amount **equals or greater than** **$75**
+		2. Shopping Cart **Subtotal** Amount **less than** **$100**
+7. Save the segment
+
+Use `clean` to reindex and refresh the cache.
+
+Next we'll set up **Lisa Firery** so that she fits this segment:
+
+1. Log in as Lisa
+2. Add the following to the cart:
+	1. `Cassia Funnel Sweatshirt x 1`
+	2. `Affirm Water Bottle x 1`
+	3. `Joust Duffel Bag x 1`
+3. Refresh the above segment
+
 <a id="related-products-rules"></a>
 #### Related Products Rules
 
@@ -2052,25 +2207,291 @@ Navigate to `Marketing > Related Products Rules`
 
 <a id="deactivate-unwanted-rules"></a>
 ##### Deactivate Unwanted Rules
-Similar to the Related Product Rules the included shopping cart price rules can make it less than ideal to tell an effective demo story.  While there are not as many rules in this case, the risk of conflicting rules when creating new custom rules is still something we'd like to avoid.  For that reason, we will deactivate all of the rules and then rework them into the story we want.  This will preserve the ID numbering if we choose to create new, custom promotions.
+For the most part, all of the included cart rules can help tell an effective demo story.  The only one which *may* conflict, or make things more complicated, is: `20% OFF Ever $200-plus purchase!*`.  We'll deactivate this one and take care of a couple other things.
+
+Navigate to `Marketing > Promotions > Cart Price Rules`
+
+1. By default, the grid is strangely sorted.  Sort it by ID
+2. By chance, I found that the description of `20% OFF Ever $200-plus purchase!*` has pretty bad English.  Update the description to: `Shopping cart price rule for the cart over $200. Does not apply to items in the Sale category.`
+3. Set the `20% OFF Ever $200-plus purchase!*` rule to `Inactive`
 
 <a id="free-shipping"></a>
 ##### Free Shipping
+Next, we'll update the Free Shipping rule for our larger marketing story.
+
+Navigate to `Marketing > Promotions > Cart Price Rules`
+
+Make the following updates:
+
+1. Rule Name: `Spend $100 or more - shipping is free!`
+2. Description: `Free shipping on any purchase of $100 or more.`
+2. Add the `VIP` customer group to the rule
+3. Conditions:
+	1. IF **ALL** of these conditions are TRUE:
+		1. **Subtotal** **equals or greater than** **100**
 
 <a id="targeted-content-dynamic-blocks"></a>
 #### Targeted Content (Dynamic Blocks)
 
-<a id="loyalty-pays"></a>
-##### Loyalty Pays
+<a id="featured-products-guest-customers"></a>
+##### Featured Products (Guest Customers)
+First, we'll create a featured products list for guest customers, starting with the US Market:
 
-<a id="triple-points"></a>
-##### Triple Points
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+2. Set the following:
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Featured Products (Guest Customers)`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `LUMA Guest Customers`
+
+Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
+
+1. Duplicate the first row
+2. Drag an `HTML Code` element into the top row
+3. Paste the following
+
+```
+<div class="content-heading">
+    <h2 class="title">Hot Sellers</h2>
+    <p class="info">Here is what`s trending on Luma right now</p>
+</div>
+```
+
+4. Center the `HTML Code` element (Optional, but useful to illustrate the expected result)
+5. Add a `Products List` element and use the following settings:
+	1. Condition:
+		1. If **ALL** of these conditions are **TRUE**
+			1. Category **is** **62**
+	2. Number of Products to Display: `5`
+	3. Alignment: `Center`
+
+6. Save the Dynamic Block.
+7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+
+**Note:** Creating the dynamic block using `All Store Views` first is mandatory.  For some reason, Magento doesn't render store view specific dynamic blocks which are nested inside of static blocks, but it *does* render the content assigned to *All Store Views*.  By assigning the block to *All Store Views*, we ensure we can see it render in the home page content block which we'll use to demo most often.
+
+Next, open the same Dynamic Block and repeat for the German store view:
+
+1. Switch the store view scope to `Luma > Luma Store > Deutsch`
+2. De-tick `Use Default Value`
+3. Update the HTML heading to:
+```
+<div class="content-heading">
+   <h2 class="title">Heiße Angebote</h2>
+   <p class="info">Favoriten von Luma Shoppers</p>
+</div>
+```
+
+Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
+
+Navigate to `Content > Elements > Blocks > Home Page Block - US`
+
+1. Add a second row to the content - use the default `Contained` row template
+2. Update the row properties and zero out the top and bottom padding
+3. Add the `Featured Products (Guest Customers)` dynamic block to the second row
+4. Save
+
+Repeat this process for the `Home Page Block - DE` content block.
+
+<a id="runners-featured-products"></a>
+##### Runners Featured Products
+Next, we'll create a featured products list for customers whose favorite activity is running, starting with the US Market:
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+2. Set the following:
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Featured Products (Runners)`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `Customer Preference - Runners`
+
+Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
+
+1. Duplicate the first row
+2. Drag an `HTML Code` element into the top row
+3. Paste the following
+
+```
+<div class="content-heading">
+    <h2 class="title">Because You Love Running</h2>
+    <p class="info">#RunnersLife</p>
+</div>
+```
+
+4. Center the `HTML Code` element (Optional, but useful to illustrate the expected result)
+5. Add a `Products List` element and use the following settings:
+	1. Condition:
+		1. If **ALL** of these conditions are **TRUE**
+			1. Activity **contains** **Running**
+			2. Visibility **is** **Catalog, Search**
+	2. Number of Products to Display: `5`
+	3. Alignment: `Center`
+
+6. Save the Dynamic Block.
+7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+
+Next, open the same Dynamic Block and repeat for the German store view:
+
+1. Switch the store view scope to `Luma > Luma Store > Deutsch`
+2. De-tick `Use Default Value`
+3. Update the HTML heading to:
+```
+<div class="content-heading">
+    <h2 class="title">Weil Du Gerne Rennst</h2>
+    <p class="info">#LäuferLeben
+</p>
+</div>
+```
+
+Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
+
+Navigate to `Content > Elements > Blocks > Home Page Block - US`
+
+1. Duplicate the `Featured Products (Guest Customers)` dynamic block and change the newly-added dynamic block to the `Featured Products (Runners)` block
+2. Save
+
+Repeat this process for the `Home Page Block - DE` content block.
+
+<a id="women-who-purchased-the-neve-studio-dance-jacket-featured-products"></a>
+##### Women Who Purchased the Neve Studio Dance Jacket Featured Products
+Next, to align with an MBI dashboard the SC's use, we'll create a featured products list for female customers who have only made one purchase which contained the Neve Studio Dance Jacket, starting with the US Market:
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+2. Set the following:
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Featured Products (Women Who Purchased NSDJ)`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `Purchase History - Female Repeat Customers (Neve Studio Dance Jacket)`
+
+Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
+
+1. Duplicate the first row
+2. Drag an `HTML Code` element into the top row
+3. Paste the following
+
+```
+<div class="content-heading">
+    <h2 class="title">Just For You</h2>
+    <p class="info">Here are some items to go with your new jacket!</p>
+</div>
+```
+
+4. Center the `HTML Code` element (Optional, but useful to illustrate the expected result)
+5. Add a `Products List` element and use the following settings:
+	1. Condition:
+		1. If **ANY** of these conditions are **TRUE**
+			1. **SKU** **contains** **WH08**
+			2. **SKU** **contains** **WJ11**
+			3. **SKU** **is** **24-UG06**
+			4. **SKU** **contains** **MJ06**
+			5. **SKU** **contains** **MS08**
+	2. Number of Products to Display: `5`
+	3. Alignment: `Center`
+
+6. Save the Dynamic Block.
+7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+
+Next, open the same Dynamic Block and repeat for the German store view:
+
+1. Switch the store view scope to `Luma > Luma Store > Deutsch`
+2. De-tick `Use Default Value`
+3. Update the HTML heading to:
+```
+<div class="content-heading">
+    <h2 class="title">Weil Du Gerne Rennst</h2>
+    <p class="info">#LäuferLeben
+</p>
+</div>
+```
+
+Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
+
+Navigate to `Content > Elements > Blocks > Home Page Block - US`
+
+1. 1. Duplicate the `Featured Products (Runners)` dynamic block and change the newly-added dynamic block to the `Featured Products (Women Who Purchased NSDJ)` block
+2. Save
+
+Repeat this process for the `Home Page Block - DE` content block.
+
+<a id="rewards-program-advertisements"></a>
+##### Rewards Program Advertisements
+Next, we'll create our Rewards Program Advertisements - *Loyalty Pays* for Guest Customers and *Triple Points* for Bronze, Silver, and Gold members.
+
+First, *Loyalty Pays*:
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Rewards Program: Loyalty Pays - (Guest Customers)`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `LUMA Guest Customers`
+2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
+	1. Use a standard row with the `Contained` row template
+	2. Add an image element and choose `Select From Gallery`
+	3. Inside the `wysiwyg` folder, create a new folder called `promotions`
+	4. Inside the `promotions` folder, upload the `Loyalty Pays` advertisement image
+	5. Save
+
+Next, *Triple Points*:
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Rewards Program: Triple Points - (Bronze, Silver, and Gold Members)`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `LUMA Rewards - Bronze ($250 - $500), LUMA Rewards - Silver ($500 - $1000), LUMA Rewards - Gold ($1000 - $2000)`
+2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
+	1. Use a standard row with the `Contained` row template
+	2. Add an image element and choose `Select From Gallery`
+	3. Inside the `wysiwyg` folder, create a new folder called `promotions`
+	4. Inside the `promotions` folder, upload the `Triple Points` advertisement image
+	5. Save
+
+To finish, we need to create a Dynamic Block Rotator widget to insert the dynamic blocks on certain category landing pages:
+
+Navigate to `Content > Elements > Widgets`
+
+1. Add New Widget
+	1. Storefront Properties > Type: `Dynamic Block Rotator`
+	2. Storefront Properties > Design Package/Theme: `Magento Luma`
+	3. Storefront Properties > Widget Title: `Loyalty Advertisements`
+	4. Storefront Properties > Assign to Store Views: `Luma Website > Luma Store > US English, Deutsch`
+	5. Storefront Properties > Sort Order: `0`
+	6. Storefront Properties > Layout Updates:
+		1. Display on: `Anchor categories`
+		2. Categories: `Specific Categories`
+			1. `24,25,26` (Women's Jackets, Women's Hoodies & Sweatshirts, Women's Tees)
+		3. Container: `Sidebar Additional` (Beneath layered navigation filters, Compare Products, and My Wishlists blocks)
+		4. Template: `Dynamic Block Template`
+	7. Widget Options:
+		1. Dynamic Blocks to Display: `Specified Dynamic Blocks`
+		2. Restrict by Dynamic Block Types: `None`
+		3. Rotation Mode: `Display all instead of rotating`
+		4. Specify Dynamic Blocks (After clicking `Reset filter`): 
+			1. `Loyalty Pays - Rewards Program (Guest Customers)` -- Position: `1`
+			2. `Triple Points - Rewards Program (Bronze, Silver, and Gold Members)` -- Position `2`
+	8. Save the Dynamic Block Rotator widget
+
+Once saved, clear the cache
 
 <a id="free-shipping-advertisement"></a>
 ##### Free Shipping Advertisement
 
 <a id="free-shipping-achieved"></a>
 ##### Free Shipping Achieved
+
+<a id="vip"></a>
+##### VIP?
 
 <a id="staging-and-preview-campaigns"></a>
 #### Staging and Preview Campaigns
@@ -2096,18 +2517,99 @@ Similar to the Related Product Rules the included shopping cart price rules can 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
 
+<a id="content-with-page-builder"></a>
+### Content with Page Builder
+
+<a id="gear-category-landing-page"></a>
+#### Gear Category Landing Page
+Initially, the Gear category is set to show a static block of content via a Static Block widget, and the category's display mode is set to *Static Block Only*.  We'll change the display to show *Products Only* so that the SC can use it as part of a landing page creation use case.
+
+Navigate to `Catalog > Categories > Gear`
+
+1. Display Settings > Display Mode: `Products only`
+2. Content > Elements > Widgets > Gear Category Content > Layout Updates: Delete Layout Update
+3. Save
+
+When done, clear cache
+
 <a id="grid-views"></a>
 ### Grid Views
 
 <a id="product-grids"></a>
 #### Product Grids
+<a id="womens-hoodies"></a>
+##### Women's Hoodies
+Filter on the following:
+
+1. SKU: `WH`
+2. Type: `Configurable Product`
+3. Attribute Set: `Top`
+4. Use the following columns:
+	1. SKU
+	2. Thumbnail
+	3. Name
+	4. Type
+	5. Attribute Set
+	6. Price
+	7. Quantity
+	8. Salable Quantity
+	9. Visibility
+	10. Status
+	11. Websites
+
+<a id="on-sale"></a>
+##### On Sale
+1. Set the `Sale` attribute to be filterable and able to be used in column arrangement
+2. Filter on Sale = Yes (33)
+3. Select all items
+4. De-tick `Strive Shoulder Pack`, `Savvy Shoulder Tote`, `Endeavor Daytrip Backpack`, `Dual Handle Cardio Ball`
+5. Use Mass Actions to set all *other* items Sale = `No`
+6. Add the following items on sale:
+	1. Zing Jump Rope
+	2. Bolo Sport Watch
+	3. Pursuit Lumaflex Tone Band
+	4. Go Get'r Pushup Grips
+7. Use the following columns:
+	1. SKU
+	2. Thumbnail
+	3. Name
+	4. Type
+	5. Attribute Set
+	6. Price
+	7. Quantity
+	8. Salable Quantity
+	9. Visibility
+	10. Status
+	11. Websites
+	12. Sale
+
+<a id="featured-products"></a>
+##### Featured Products
+Filter on `Featured Product = Yes`
+
+Use the following columns:
+1. SKU
+2. Thumbnail
+3. Name
+4. Type
+5. Attribute Set
+6. Price
+7. Quantity
+8. Salable Quantity
+9. Visibility
+10. Status
+11. Websites
+12. Featured Product
 
 <a id="cms-blocks-grid"></a>
 #### CMS Blocks Grid
+1. Filter on Name = `Home`
+2. Save grid as `Home Page Content`
 
 <a id="cms-pages-grid"></a>
 #### CMS Pages Grid
-
+1. Filter on Name = `Home`
+2. Save grid as `Home Pages`
 <a id="staging-and-preview-grid"></a>
 #### Staging and Preview Grid
 
