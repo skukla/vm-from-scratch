@@ -2639,8 +2639,8 @@ Navigate to `Content > Elements > Dynamic Blocks`
 	2. Background > Background Color: `#e7eee6`
 	3. Background > Background Image:
 		1. Choose `Select from Gallery`
-		2. Upload the `green-check` image to the `promotions` folder and select it
-	4. Background > Background Size: `Cover`
+		2. Upload the `checkmark` image to the `promotions` folder and select it
+	4. Background > Background Size: `Auto`
 	5. Background > Background Position: `Center Left`
 	6. Layout > Minimum Height: `427`
 	7. Advanced > Margins and Padding:
