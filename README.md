@@ -89,9 +89,12 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [General Content Updates](#general-content-updates)
 		- [Luma Home Page \(US\)](#luma-home-page-us)
 			- [Page Setup](#page-setup)
-			- [Page Reset](#page-reset)
+			- [Page Builder Content](#page-builder-content)
 		- [Luma Home Page \(DE\)](#luma-home-page-de)
+			- [Page Setup](#page-setup-1)
+			- [Page Builder Content](#page-builder-content-1)
 		- [Venia Home Page](#venia-home-page)
+			- [Page Setup](#page-setup-2)
 	- [Attribute Set Updates](#attribute-set-updates)
 		- [Short Description and Description Arrangement](#short-description-and-description-arrangement)
 		- [Sale and New Attributes](#sale-and-new-attributes)
@@ -1331,35 +1334,270 @@ Navigate to `Content > Elements > Pages > Home Page`
 	4. Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 
-<a id="page-reset"></a>
-##### Page Reset
-By default, the home page content is contained within blocks which are then placed onto the home page itself using a Widget.  This approach has pros and cons, but in general, it violates the reason content is generally split into blocks: easy reuse.  The content is not reused anywhere else and so, ought not to need block approach; however, the CSS has been written specifically to refer to a widget and thus, it would take more effort than I want to spend to "fix" it properly.  Thus, we'll continue to use the block content method and make some adjustments.
+<a id="page-builder-content"></a>
+##### Page Builder Content
+By default, the home page content is contained within blocks which are then placed onto the home page itself using a widget.  This approach has pros and cons, but in general, it violates the reason content is generally split into blocks: easy reuse.  The content is not reused anywhere else and so, ought not to need block approach; however, the CSS has been written specifically to refer to a widget and thus, it would take more effort than I want to spend to "fix" it properly.  Thus, we'll continue to use the block content method and use page builder to drive the content.
 
-The home page block contains two discernable chunks of content: the top row and image collage make up the first chunk, while the bottom heading and product list make up the second chunk.
+1. **Row 1:**
+	1. Appearance: `Contained`
+	2. Background > Background Color: `None`
+	3. Background > Background Image: `home-main.jpg`
+	4. Background > Background Size: `Cover`
+	5. Background > Background Position: `Top Left`
+	6. Background > Background Attachment: `Scroll`
+	7. Background > Background Repeat: `No`
+	8. Paralax > Enable Paralax Background: `No`
+	9. Layout > Minimum Height: `460px`
+	10. Layout > Vertical Alignment: `Top`
+	11. Advanced > Alignment: `Default`
+	12. Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `10px`
+		6. Left Padding: `10px`
+		7. Right Padding: `10px`
+		8. Bottom Padding: `10px`
 
-Since Page Builder doesn't support nesting widgets (i.e. nesting a product list widget inside of a static block widget) the heading and product list will show better as a segmented dynamic block and nested via Page Builder.
+2. Next, add a column to the top row so that the row splits into two columns.
 
-Let's finish our page reset by removing the heading and product list widget:
+3. **Row 1 > Right Column (6/12):**
+	1. Grid Size: `6/12`
+	2. Appearance: `Contained`
+	3. Background > Background Color: `None`
+	4. Background > Background Image: `None`
+	5. Background > Background Size: `Cover`
+	6. Background > Background Position: `Top Left`
+	7. Background > Background Attachment: `Scroll`
+	8. Background > Background Repeat: `No`
+	9. Paralax > Enable Paralax Background: `No`
+	10. Layout > Minimum Height: `None`
+	11. Layout > Vertical Alignment: `Top`
+	12. Advanced > Alignment: `Default`
+	13. Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `0`
+		6. Left Padding: `0`
+		7. Right Padding: `0`
+		8. Bottom Padding: `0`
 
-```
-<div class="content-heading">
-<h2 class="title">Hot Sellers</h2>
-<p class="info">Here is what`s trending on Luma right now</p>
-</div>
-<p>{{widget type="Magento\CatalogWidget\Block\Product\ProductsList" products_per_page="8" products_count="8" template="product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`sku`,`operator`:`()`,`value`:`WS12, WT09, MT07, MH07, 24-MB02, 24-WB04, 241-MB08, 240-LV05`^]^]"}}</p>
-```
-Once removed, save the block and save the `<div>` with the heading for later.
+4. Inside the right column, add a text area.
 
-Next, remove the same content from the German block so that the two experiences are equal:
-```
-<div class="content-heading">
-   <h2 class="title">Heiße Angebote</h2>
-   <p class="info">Favoriten von Luma Shoppers</p>
-</div>
-{{widget type="Magento\\CatalogWidget\\Block\\Product\\ProductsList" products_per_page="8" products_count="8" template="product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`sku`,`operator`:`()`,`value`:`WS12, WT09, MT07, MH07, 24-MB02, 24-WB04, 241-MB08, 240-LV05`^]^]"}}
-```
+5. **Row 1 > Right Column > Textarea:**
+	1. Content Line 1:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `Line Height`
+		4. Text: `New Luma Yoga Collection`
+	2. Content Line 2:
+		1. Format: `Heading 2`
+		2. Font Size: `38px`
+		3. Line Height: `Line Height`
+		4. Text: `Get fit and look fab in new seasonal styles`
+	3. Advanced > Alignment: `Default`
+	4. Advanced > Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `0`
+		5. Top Padding: `0`
+		6. Left Padding: `0`
+		7. Right Padding: `0`
+		8. Bottom Padding: `0`
+
+6. Next, inside the right column, add a button element.
+
+**Note:** Individual buttons are wrapped in a `Buttons` element -- think of it like settings for the group of buttons as whole.
+
+7. **Row 1 > Right Column > Buttons:**
+	1. Appearance: `Inline`
+	2. Appearance > All Buttons are same size: `No`
+	3. Advanced > Alignment: `Default`
+	4. Advanced > Margins and Padding:
+		1. Top Margin: `-25px`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `0`
+		5. Top Padding: `10px`
+		6. Left Padding: `0`
+		7. Right Padding: `10px`
+		8. Bottom Padding: `0`
+
+8. **Row 1 > Right Column > Buttons > Button:** 
+	1. Content > Text: `Shop New Yoga`
+	2. Content > Button Type: `Primary`
+	3. Content > Button Link: `Category` -- `What's New` (Do not open in a new tab)
+	4. Advanced > Alignment: `Center`
+
+10. Duplicate the first row.
+
+11. **Row 2:**
+	1. Background Image: `None`
+	2. Layout > Minimum Height: `None`
+	3. Advanced > Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `10px`
+		6. Left Padding: `10px`
+		7. Right Padding: `10px`
+		8. Bottom Padding: `10px`
+
+12. Next, add a column to the second row so that it splits into two columns.
+
+13. **Row 2 > Left Column:**
+	1. Grid Size: `4/12`
+	2. Appearance: `Centered`
+	3. Background Color: `None`
+	4. Background Image: `hp-guy-left.jpg`
+	5. Background Size: `Cover`
+	6. Background Position: `Top Left`
+	7. Background Attachment: `Scroll`
+	8. Background Repeat: `No`
+	9. Paralax > Enable Paralax Background: `No`
+	10. Layout > Minimum Height: `350px`
+	11. Layout > Vertical Alignment: `Center`
+	12. Advanced > Alignment: `Right`
+	13. Margins and Padding:
+		1. Top Margin: `10px`
+		2. Left Margin: `0`
+		3. Right Margin: `10px`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `20px`
+		6. Left Padding: `20px`
+		7. Right Padding: `20px`
+		8. Bottom Padding: `20px`
+
+14. Inside the Left Column, add a text area.
+
+15. **Row 2 > Left Column > Textarea:**
+	1. Content Line 1:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `Line Height`
+		4. Text: `20% Off`
+		5. Color: `White`
+	2. Content Line 2:
+		1. Format: `Heading 2`
+		2. Font Size: `38px`
+		3. Line Height: `Line Height`
+		4. Text: `Luma hoodies when you shop today`
+		5. Color: `White`
+	3. Advanced > Alignment: `Default`
+	4. Advanced > Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `0`
+		5. Top Padding: `0`
+		6. Left Padding: `0`
+		7. Right Padding: `0`
+		8. Bottom Padding: `0`
+
+16. Duplicate the left column.
+
+17. **Row 2 > Center Column:**
+	1. Background Image: `hp-erin-center.jpg`
+	2. Advanced > Alignment: `Left`
+	3. Margins and Padding:
+		1. Top Margin: `10px`
+		2. Left Margin: `10px`
+		3. Right Margin: `10px`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `20px`
+		6. Left Padding: `20px`
+		7. Right Padding: `20px`
+		8. Bottom Padding: `20px`
+
+18. **Row 2 > Center Column > Textarea:**
+	1. Content Line 1: 
+		1. Text: `Take it from Erin`
+		2. Color: `Black`
+	2. Content Line 2:
+		1. Text: `Luma founder Erin Renney shares her favorites`
+		2. Color: `Black`
+
+19. Duplicate the center column.
+
+20. **Row 2 > Right Column:**
+
+	1. Background Image: `hp-girl-right.jpg`
+	2. Advanced > Alignment: `Right`
+	3. Margins and Padding:
+		1. Top Margin: `10px`
+		2. Left Margin: `10px`
+		3. Right Margin: `0`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `20px`
+		6. Left Padding: `20px`
+		7. Right Padding: `20px`
+		8. Bottom Padding: `20px`
+
+21. **Row 2 > Right Column > Textarea:**
+	1. Content Line 1: 
+		1. Text: `All Shirts`
+		2. Color: `Black`
+	2. Content Line 2:
+		1. Text: `Buy 3 tees and get a 4th free`
+		2. Color: `Black`
+
+22. Duplicate the first row and drag it beneath the second row.
+
+23. ** Row 3:**
+	1. Background Image: `hp-woman-on-fence.jpg`
+	2. Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `0`
+		6. Left Padding: `10px`
+		7. Right Padding: `10px`
+		8. Bottom Padding: `0`
+
+24. **Row 3 > Right Column > Textarea:**
+	1. Content Line 1: 
+		1. Text: `Twice around, twice as nice`
+	2. Content Line 2:
+		1. Text: `Find conscientious, comfy clothing in our eco-friendly collection`
+
+25. **Row 3 > Right Column > Buttons > Button:** 
+	1. Content > Text: `Shop the Collection`
+
+26. **Row 4**
+	1. Appearance: `Contained`
+	2. Background > Background Color: `None`
+	3. Background > Background Image: `None`
+	4. Background > Background Size: `Cover`
+	5. Background > Background Position: `Top Left`
+	6. Background > Background Attachment: `Scroll`
+	7. Background > Background Repeat: `No`
+	8. Paralax Background > Enable Paralax Background > `No`
+	9. Layout > Minimum Height: `None`
+	10. Layout > Vertical Alignment: `Top`
+	11. Advanced > Alignment: `Default`
+	12. Advanced > Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Margin: `10px`
+		5. Top Padding: `10px`
+		6. Left Padding: `10px`
+		7. Right Padding: `10px`
+		8. Bottom Padding: `10px`
+
+27. Save the block (we'll add more to it later).
+
 <a id="luma-home-page-de"></a>
 #### Luma Home Page (DE)
+
+<a id="page-setup-1"></a>
+##### Page Setup
 Navigate to `Content > Elements > Pages > Home Page`
 
 1. Page Title: `Luma Home Page - DE`
@@ -1370,25 +1608,51 @@ Navigate to `Content > Elements > Pages > Home Page`
 	4. Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
 3. Page in Websites: `Luma Website > Luma Store > Deutsch`
 
-Next, for whatever reason, we need to fix the static block widget which drives the German homepage content.  It uses the `Main Content Area` Container when it should use the `Main Content Top` container:
+<a id="page-builder-content-1"></a>
+##### Page Builder Content
+Next, re-create the `Luma Home Page (US)` above (or delete the existing DE block and duplicate `Luma Home Page (US)`) and make the following updates:
 
-Navigate to `Content > Elements > Widgets > Home Page - DE`
+1. **Row 1 > Right Column > Textarea:**
+	1. Content Line 1:
+		1. Text: `Neue Yoga Kollektion`
+	2. Content Line 2:
+		1. Text: `Ab jetzt bedeutet Mode immer auch Komfort`
 
-1. Container: `Main Content Top`
-2. Save the widget
+2. **Row 1 > Right Column > Buttons > Button:** 
+	1. Content > Text: `In Neue Yoga Stöbern`
 
-Next, we'll make the German content more demo-friendly.  For some reason, the Eco Friendly block has a ton of text in it which pushes the white containing block down too far.  To fix this:
+3. **Row 2 > Left Column > Textarea:**
+	1. Content Line 1:
+		1. Text: `20% Rabatt`
+	2. Content Line 2:
+		2. Text: `Luma Hoodies, wenn Sie heute einkaufen`
 
-Navigate to `Content > Elements > Blocks > Home Page - DE`
+4. **Row 2 > Center Column > Textarea:**
+	1. Content Line 1: 
+		1. Text: `Hören Sie von Erin`
+	2. Content Line 2:
+		1. Text: `Luma-Gründerin Erin Renney teilt ihre Favoriten`
 
-1. Find the following: `<strong class="title">Feuchtigkeitsableitend. Mit Kühleffekt. Perfekt. </strong>`
-2. From the above, remove `Mit Kühleffekt.`
-3. Save the block
+5. **Row 2 > Right Column > Textarea:**
+	1. Content Line 1: 
+		1. Text: `Alle Hemden`
+	2. Content Line 2:
+		1. Text: `Kaufe 3 Tees und erhalte einen vierten gratis`
 
-Once saved, clear the cache.
+6. **Row 3 > Right Column > Textarea:**
+	1. Content Line 1: 
+		1. Text: `Zweimal herum, doppelt so schön`
+	2. Content Line 2:
+		1. Text: `Schauen Sie sich unsere gewissenhafte, komfortable und umweltfreundliche Kollektion an`
+
+7. **Row 3 > Right Column > Buttons > Button:** 
+	1. Content > Text: `Kaufen Sie die Kollektion`
 
 <a id="venia-home-page"></a>
 #### Venia Home Page
+
+<a id="page-setup-2"></a>
+##### Page Setup
 Navigate to `Content > Elements > Pages > Home Page - Venia`
 
 1. Page Title: `Venia Home Page - US`
@@ -2331,8 +2595,7 @@ First, we'll create a featured products list for guest customers, starting with 
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
-2. Set the following:
+1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Featured Products (Guest Customers)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
@@ -2393,8 +2656,7 @@ Next, we'll create a featured products list for customers whose favorite activit
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
-2. Set the following:
+1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Featured Products (Runners)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
@@ -2453,8 +2715,7 @@ Next, to align with an MBI dashboard the SC's use, we'll create a featured produ
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
-2. Set the following:
+1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Featured Products (Women Who Purchased NSDJ)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
@@ -2515,8 +2776,7 @@ Next, we'll show our VIP customers a list of our newest products, starting with 
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
-2. Set the following:
+1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Featured Products (VIP)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
@@ -2573,20 +2833,19 @@ Next, we'll create a free shipping advertisement which will show on the shopping
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
+1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Free Shipping Advertisement`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `Shopping Cart - Free Shipping Threshold ($75 - $99)`
-2. Block Settings:
-	1. Appearance: `Contained`
-	1. Background > Background Image:
+	5. Appearance: `Contained`
+	6. Background > Background Image:
 		1. Choose `Select from Gallery`
 		2. Upload the `free_ship_2019.png` image to the `promotions` folder and select it
-	2. Background > Background Size: `Cover`
-	3. Background > Background Position: `Center Right`
-	4. Layout > Minimum Height: `427`
-	5. Advanced > Margins and Padding:
+	7. Background > Background Size: `Cover`
+	8. Background > Background Position: `Center Right`
+	9. Layout > Minimum Height: `427`
+	10. Advanced > Margins and Padding:
 		1. Top Margin: `0`
 		2. Left Margin: `0`
 		3. Right Margin: `0`
@@ -2595,19 +2854,18 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `10`
 		7. Right Padding: `10`
 		8. Bottom Padding: `10`
-	6. Save the row
+
 2. Add a `Text` element:
-	1. First Line:
+	1. Content Line 1:
 		1. Format: `Heading 2`
 		2. Font Size: `40px`
 		3. Line Height: `26px`
-		4. Content: `You're Almost There!`
-	2. Second and Third Line:
+		4. Text: `You're Almost There!`
+	2. Content Lines 2 and 3:
 		1. Format: `Heading 2`
 		2. Font Size: `26px`
 		3. Line Height: `34px`
-		4. Content: `Spend $100 or more to get` (Add a non-breaking line break using `Shift+Enter`)
-		5. Content: **FREE SHIPPING**
+		4. Text: `Spend $100 or more to get` (Add a non-breaking line break using `Shift+Enter`) `**FREE SHIPPING**`
 	3. Advanced > Margins and Padding: 
 		1. Top Margin: `20`
 		2. Left Margin: `60`
@@ -2617,13 +2875,12 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `0`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
-	4. Save the text element
 
 Next, we need to create a new Dynamic Block Rotator widget we'll use to display the Free Shipping advertisement:
 
 Navigate to `Content > Elements > Widgets`
 
-1. Add New Widget
+1. Add a new widget
 	1. Storefront Properties > Type: `Dynamic Block Rotator`
 	2. Storefront Properties > Design Package/Theme: `Magento Luma`
 	3. Storefront Properties > Widget Title: `Free Shipping Messaging`
@@ -2650,22 +2907,21 @@ Next, we'll create a *Free Shipping Applied* message which tells the customer th
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
+1. Add a new Dynamic Block
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Free Shipping Applied`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `All Segments`
-2. Block settings:
-	1. Appearance: `Contained`
-	2. Background > Background Color: `#e7eee6`
-	3. Background > Background Image:
+	5. Appearance: `Contained`
+	6. Background > Background Color: `#e7eee6`
+	7. Background > Background Image:
 		1. Choose `Select from Gallery`
 		2. Upload the `checkmark` image to the `promotions` folder and select it
-	4. Background > Background Size: `Auto`
-	5. Background > Background Position: `Center Left`
-	6. Layout > Minimum Height: `75px`
-	7. Vertical Alignment: `Top`
-	7. Advanced > Margins and Padding:
+	8. Background > Background Size: `Auto`
+	9. Background > Background Position: `Center Left`
+	10. Layout > Minimum Height: `75px`
+	11. Vertical Alignment: `Top`
+	12. Advanced > Margins and Padding:
 		1. Top Margin: `-45px`
 		2. Left Margin: `0`
 		3. Right Margin: `0`
@@ -2674,14 +2930,14 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `0`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
-	8. Save the row
+
 2. Add a `Text` element:
-	1. First Line:
+	1. Content Line 1:
 		1. Format: `Paragraph`
 		2. Font Size: `18px`
 		3. Line Height: `Line Height`
 		4. Text Color: `#006400`
-		4. Content: `Free Shipping Applied!`
+		4. Text: `Free Shipping Applied!`
 	2. Advanced > Margins and Padding: 
 		1. Top Margin: `0`
 		2. Left Margin: `0`
@@ -2691,9 +2947,9 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `65px`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
-	4. Save the text element
-	5. Related Promotions > Add Cart Price Rules > `Spend $100 or more - shipping is free!`
-	7. Save the Dynamic Block
+
+3. Related Promotions > Add Cart Price Rules > `Spend $100 or more - shipping is free!`
+4. Save the Dynamic Block
 
 **Note:** The reason for the -45px top margin above has to do with how Magento displays Dynamic Block rotator widgets. In our example, we'll be displaying two separate dynamic block rotator widgets on the same shopping cart page.  Each of these rotators is contained within its own `div` element which is still *visible* on the page (only its *content* is hidden and displayed based on segmentation). Therefore, each Dynamic Block Rotator widget's containing `div` is still affected by padding and margin.
 
@@ -2701,7 +2957,7 @@ Next, we need to create a new Dynamic Block Rotator widget we'll use to display 
 
 Navigate to `Content > Elements > Widgets`
 
-1. Add New Widget
+1. Add a new widget
 	1. Storefront Properties > Type: `Dynamic Block Rotator`
 	2. Storefront Properties > Design Package/Theme: `Magento Luma`
 	3. Storefront Properties > Widget Title: `Free Shipping Applied Message`
@@ -2728,38 +2984,44 @@ First, *Loyalty Pays*:
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
+1. Add a new Dynamic Block
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Rewards Program (Guest Customers)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `LUMA Guest Customers`
-2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
-	1. Use a standard row with the `Contained` row template
-	2. Add an image element and choose `Select From Gallery`
-	3. Inside the `wysiwyg` folder, create a new folder called `promotions`
-	4. Inside the `promotions` folder, upload the `Loyalty Pays` advertisement image
-	5. Save
+
+	**Note:** For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
+
+	5. Appearance: `Contained`
+	6. Add an image:
+		1. `Select From Gallery`
+		2. Inside the `wysiwyg` folder, create a new folder called `promotions`
+		3. Inside the `promotions` folder, upload the `loyalty-pays.jpg` image
+	7. Save
 
 Next, *Triple Points*:
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
-1. Add Dynamic Block
+1. Add a new Dynamic Block
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Rewards Program (Bronze, Silver, and Gold Members)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `LUMA Rewards - Bronze ($250 - $500), LUMA Rewards - Silver ($500 - $1000), LUMA Rewards - Gold ($1000 - $2000)`
-2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
-	1. Use a standard row with the `Contained` row template
-	2. Add an image element and choose `Select From Gallery`
-	3. Inside the `promotions` folder, upload the `Triple Points` advertisement image
-	4. Save
+
+	**Note:**  For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
+	
+	5. Appearance: `Contained`
+	6. Add an image:
+		1. `Select From Gallery`
+		2. Inside the `promotions` folder, upload the `triple-points.jpg` image
+	7. Save
 
 To finish, we need to create a Dynamic Block Rotator widget to insert the dynamic blocks on certain category landing pages:
 
 Navigate to `Content > Elements > Widgets`
 
-1. Add New Widget
+1. Add a new widget
 	1. Storefront Properties > Type: `Dynamic Block Rotator`
 	2. Storefront Properties > Design Package/Theme: `Magento Luma`
 	3. Storefront Properties > Widget Title: `Loyalty Advertisements`
