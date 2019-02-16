@@ -85,6 +85,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Remove Welcome Message](#remove-welcome-message)
 		- [Update Site Meta Info](#update-site-meta-info)
 		- [Configure Reward Points](#configure-reward-points)
+		- [Configure Related Products Display](#configure-related-products-display)
 	- [General Content Updates](#general-content-updates)
 		- [Luma Home Page \(US\)](#luma-home-page-us)
 			- [Page Setup](#page-setup)
@@ -108,6 +109,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Re-arrange the Womens > Hoodies and Sweatshirts Category](#re-arrange-the-womens--hoodies-and-sweatshirts-category)
 		- [Add Running As An Attribute to Select Products](#add-running-as-an-attribute-to-select-products)
 		- [Add Stock for Mailed Gift Card](#add-stock-for-mailed-gift-card)
+		- [Remove Manual Up-sells from Cronus Yoga Pant](#remove-manual-up-sells-from-cronus-yoga-pant)
 	- [Marketing](#marketing)
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
@@ -1298,6 +1300,18 @@ Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by
 	3. Direction: `Currency to Points`
 	4. Rate: `1 / 1`
 
+<a id="configure-related-products-display"></a>
+#### Configure Related Products Display
+By default, the related products display doesn't quite fit the theme cleanly. The maximum number of products shown in related products and cross-sells lists is 6 and upsells is 8.  Related products works better at 5 (a single row), cross-sells can stay at 6, and up-sells should match related products at 5 (one row).  To set these:
+
+Navigate to `Stores > Settings > Configuration > Catalog > Catalog > Rule-Based Product Relations`
+
+1. Maximum Number of Products in Related Products List: `5`
+2. Maximum Number of Products in Cross-Sell Product List: `6`
+3. Maximum Number of Products in Upsell Product List: `5`
+
+When done, save the configuration and clear cache.
+
 <a id="general-content-updates"></a>
 ### General Content Updates
 In order for our meta changes to take effect, we need to add the same changes we made for the default meta information above to each home page (Luma and Venia respectively)
@@ -1537,7 +1551,9 @@ In the *Additional CSS* section, paste the following CSS:
     border-color:;
 }
 /* Main Nav Bar (Navigation Container - Outside Edges) */
-.nav-sections, .navigation, .nav-sections-item-content {
+.nav-sections, 
+.navigation, 
+.nav-sections-item-content {
     background-color:;
 }
 /* Center Nav Bar (Links) */
@@ -1573,7 +1589,10 @@ ul.header.links {
     color: white;
 }
 /* Language and Currency Switchers */
-.page-header .switcher strong, .page-footer .switcher strong, .page-header .switcher .options .action.toggle, .page-footer .switcher .options .action.toggle {
+.page-header .switcher strong, 
+.page-footer .switcher strong, 
+.page-header .switcher .options .action.toggle, 
+.page-footer .switcher .options .action.toggle {
     color: white !important;
 }
 /* Mini Cart Icon */
@@ -1732,6 +1751,10 @@ Navigate to `Catalog > Products`
 3. Open Amount: `Yes`
 4. Open Amount From: `25`
 5. Open Amount To: `200`
+
+<a id="remove-manual-up-sells-from-cronus-yoga-pant"></a>
+#### Remove Manual Up-sells from Cronus Yoga Pant
+One of our customer segments revolves around men who purchase pants.  This segment is designed to feature the *Cronus Yoga Pant* and shows a change in related products rules when logged in as a member of that segment.  Natively, the product has some manually configured up-sells which, when shown as part of the demo scenario, make the change in segment less effective.  To address this, we'll remove the manually-assigned up-sell products from the *Cronus Yoga Pant* configurable product.
 
 <a id="marketing"></a>
 ### Marketing
@@ -2707,7 +2730,7 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 1. Add Dynamic Block
 	1. Enable Dynamic Block: `Yes`
-	2. Dynamic Block Name: `Rewards Program: Loyalty Pays - (Guest Customers)`
+	2. Dynamic Block Name: `Rewards Program (Guest Customers)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `LUMA Guest Customers`
 2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
@@ -2723,7 +2746,7 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 1. Add Dynamic Block
 	1. Enable Dynamic Block: `Yes`
-	2. Dynamic Block Name: `Rewards Program: Triple Points - (Bronze, Silver, and Gold Members)`
+	2. Dynamic Block Name: `Rewards Program (Bronze, Silver, and Gold Members)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `LUMA Rewards - Bronze ($250 - $500), LUMA Rewards - Silver ($500 - $1000), LUMA Rewards - Gold ($1000 - $2000)`
 2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
@@ -2753,8 +2776,8 @@ Navigate to `Content > Elements > Widgets`
 		2. Restrict by Dynamic Block Types: `None`
 		3. Rotation Mode: `Display all instead of rotating`
 		4. Specify Dynamic Blocks (After clicking `Reset filter`): 
-			1. `Loyalty Pays - Rewards Program (Guest Customers)` -- Position: `1`
-			2. `Triple Points - Rewards Program (Bronze, Silver, and Gold Members)` -- Position `2`
+			1. `Rewards Program (Guest Customers)` -- Position: `1`
+			2. `Rewards Program (Bronze, Silver, and Gold Members)` -- Position `2`
 	8. Save the Dynamic Block Rotator widget
 
 Once saved, clear the cache
