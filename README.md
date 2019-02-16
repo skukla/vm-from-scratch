@@ -2328,13 +2328,13 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
+4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. Category **is** **62**
 	2. Number of Products to Display: `5`
-	3. Alignment: `Center`
+	3. Advanced > Alignment: `Center`
 
 6. Save the Dynamic Block.
 7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
@@ -2390,14 +2390,14 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
+4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. Activity **contains** **Running**
 			2. Visibility **is** **Catalog, Search**
 	2. Number of Products to Display: `5`
-	3. Alignment: `Center`
+	3. Advanced > Alignment: `Center`
 
 6. Save the Dynamic Block.
 7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
@@ -2450,7 +2450,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
+4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ANY** of these conditions are **TRUE**
@@ -2460,7 +2460,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 			4. **SKU** **contains** **MJ06**
 			5. **SKU** **contains** **MS08**
 	2. Number of Products to Display: `5`
-	3. Alignment: `Center`
+	3. Advanced > Alignment: `Center`
 
 6. Save the Dynamic Block.
 7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
@@ -2512,13 +2512,13 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
+4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. New **is** **Yes**
 	2. Number of Products to Display: `5`
-	3. Alignment: `Center`
+	3. Advanced > Alignment: `Center`
 
 6. Save the Dynamic Block.
 7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
@@ -2547,8 +2547,6 @@ Repeat this process for the `Home Page Block - DE` content block.
 <a id="free-shipping-advertisement"></a>
 ##### Free Shipping Advertisement
 Next, we'll create a free shipping advertisement which will show on the shopping cart whenever a customer enters the Free Shipping threshold we set up with our Free Shipping promotion ($75 - $99).
-
-*Free Shipping Advertisement*
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
