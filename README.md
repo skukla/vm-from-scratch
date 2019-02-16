@@ -140,12 +140,12 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Free Shipping](#free-shipping)
 		- [Targeted Content \(Dynamic Blocks\)](#targeted-content-dynamic-blocks)
 			- [Featured Products \(Guest Customers\)](#featured-products-guest-customers)
-			- [Runners Featured Products](#runners-featured-products)
-			- [Women Who Purchased the Neve Studio Dance Jacket Featured Products](#women-who-purchased-the-neve-studio-dance-jacket-featured-products)
-			- [Rewards Program Advertisements](#rewards-program-advertisements)
+			- [Featured Products \(Runners\)](#featured-products-runners)
+			- [Featured Products \(Women Who Purchased NSDJ\)](#featured-products-women-who-purchased-nsdj)
+			- [Featured Products \(VIP\)](#featured-products-vip)
 			- [Free Shipping Advertisement](#free-shipping-advertisement)
-			- [Free Shipping Achieved](#free-shipping-achieved)
-			- [VIP?](#vip)
+			- [Free Shipping Applied Message](#free-shipping-applied-message)
+			- [Rewards Program Advertisements](#rewards-program-advertisements)
 		- [Staging and Preview Campaigns](#staging-and-preview-campaigns)
 			- [Valentine's Day](#valentines-day)
 			- [Summer Sale Lead-in](#summer-sale-lead-in)
@@ -1544,11 +1544,15 @@ In the *Additional CSS* section, paste the following CSS:
 nav.navigation {
     background-color:;
 }
-/* Header Panel */
+/* Header Bar */
 .page-header .header.panel,
 .page-header .panel.wrapper { 
     background-color:;
     border:;
+}
+/* Header Panel */
+.page-header {
+    background-color: white !important;
 }
 /* Sign in and Create Account Links */
 .header.panel > .header.links > li.welcome,
@@ -1571,6 +1575,10 @@ ul.header.links {
 /* Language and Currency Switchers */
 .page-header .switcher strong, .page-footer .switcher strong, .page-header .switcher .options .action.toggle, .page-footer .switcher .options .action.toggle {
     color: white !important;
+}
+/* Mini Cart Icon */
+.minicart-wrapper .action.showcart:before {
+    color: #757575 !important;
 }
 /* My Account Sidebar Links */
 .block-collapsible-nav .item a,
@@ -1597,6 +1605,63 @@ ul.footer.links > li > a,
 .swatch-option.color:not(.disabled):hover,
 .swatch-option.selected { 
     outline:; 
+}
+
+/* Page Builder Styles */
+
+/* Page Builder Primary Buttons */
+a.pagebuilder-button-primary, 
+button.pagebuilder-button-primary, 
+div.pagebuilder-button-primary {
+	background:;
+	border:;
+	color:;
+}
+a.pagebuilder-button-primary:hover,
+button.pagebuilder-button-primary:hover,
+div.pagebuilder-button-primary:hover {
+	background:;
+	border:;
+	color:;
+}
+/* Page Builder Secondary Buttons */
+a.pagebuilder-button-secondary,
+button.pagebuilder-button-secondary,
+div.pagebuilder-button-secondary {
+	background:;
+	border:;
+	color:;
+}
+a.pagebuilder-button-secondary:hover,
+button.pagebuilder-button-secondary:hover,
+div.pagebuilder-button-secondary:hover {
+	background:;
+	border:;
+	color:;
+}
+/* Page Builder Buttons as Links */
+a.pagebuilder-button-link,
+button.pagebuilder-button-link,
+div.pagebuilder-button-link { 
+	color: #006bb4 !important;
+	text-decoration:;
+}
+a.pagebuilder-button-link:hover,
+button.pagebuilder-button-link:hover,
+div.pagebuilder-button-link:hover {
+	color:;
+	text-decoration:;
+}
+/* Page Builder Slider Dots */
+.slick-dots li.slick-active button { 
+	background: #006bb4 !important; 
+}
+/* Page Builder Slider Arrows */
+.slick-prev:before,
+.slick-next:before,
+.slick-prev:after,
+.slick-next:after { 
+	color: #006bb4 !important; 
 }
 ```
 <a id="products"></a>
@@ -1935,8 +2000,12 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 4. General Properties > Apply To: `Registered Customers`
 5. Save and Continue
 6. Conditions:
-	1. If **ALL** of these conditions are **TRUE**:
-		1. Customer Group **is** **VIP**
+	1. If **ANY** of these conditions are **TRUE**:
+		1. **Total** Number of Orders **equals or greater than** **100** while **ANY** of these Conditions match:
+			1. Order Status **is** **Complete**
+			2. Order Status **is** **Processing**
+		2. **Total** Sales Amount **equals or greater than** **10000** while **ALL** of these Conditions match:
+		3. Customer Group **is** **VIP**
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -2259,7 +2328,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Center the `HTML Code` element (Optional, but useful to illustrate the expected result)
+4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
@@ -2284,7 +2353,6 @@ Next, open the same Dynamic Block and repeat for the German store view:
    <p class="info">Favoriten von Luma Shoppers</p>
 </div>
 ```
-
 Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
@@ -2296,8 +2364,8 @@ Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
 Repeat this process for the `Home Page Block - DE` content block.
 
-<a id="runners-featured-products"></a>
-##### Runners Featured Products
+<a id="featured-products-runners"></a>
+##### Featured Products (Runners)
 Next, we'll create a featured products list for customers whose favorite activity is running, starting with the US Market:
 
 Navigate to `Content > Elements > Dynamic Blocks`
@@ -2322,7 +2390,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Center the `HTML Code` element (Optional, but useful to illustrate the expected result)
+4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
@@ -2347,18 +2415,17 @@ Next, open the same Dynamic Block and repeat for the German store view:
 </p>
 </div>
 ```
-
 Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. Duplicate the `Featured Products (Guest Customers)` dynamic block and change the newly-added dynamic block to the `Featured Products (Runners)` block
+1. Duplicate the `Featured Products (Guest Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Runners)` block, and then drag the `Featured Products (Runners)` block *above* the `Featured Products (Guest Customers)` block.
 2. Save
 
 Repeat this process for the `Home Page Block - DE` content block.
 
-<a id="women-who-purchased-the-neve-studio-dance-jacket-featured-products"></a>
-##### Women Who Purchased the Neve Studio Dance Jacket Featured Products
+<a id="featured-products-women-who-purchased-nsdj"></a>
+##### Featured Products (Women Who Purchased NSDJ)
 Next, to align with an MBI dashboard the SC's use, we'll create a featured products list for female customers who have only made one purchase which contained the Neve Studio Dance Jacket, starting with the US Market:
 
 Navigate to `Content > Elements > Dynamic Blocks`
@@ -2383,7 +2450,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Center the `HTML Code` element (Optional, but useful to illustrate the expected result)
+4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
 5. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ANY** of these conditions are **TRUE**
@@ -2406,20 +2473,233 @@ Next, open the same Dynamic Block and repeat for the German store view:
 3. Update the HTML heading to:
 ```
 <div class="content-heading">
-    <h2 class="title">Weil Du Gerne Rennst</h2>
-    <p class="info">#LäuferLeben
-</p>
+    <h2 class="title">Nur für Dich</h2>
+    <p class="info">Hier sind einige Artikel zu Ihrer neuen Jacke!</p>
 </div>
 ```
-
 Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. 1. Duplicate the `Featured Products (Runners)` dynamic block and change the newly-added dynamic block to the `Featured Products (Women Who Purchased NSDJ)` block
+1. Duplicate the `Featured Products (Runners)` dynamic block, change the newly-added dynamic block to the `Featured Products (Women Who Purchased NSDJ)` block, and then drag the `Featured Products (Women Who Purchased NSDJ)` block *above* the `Featured Products (Runners)` block.
 2. Save
 
 Repeat this process for the `Home Page Block - DE` content block.
+
+<a id="featured-products-vip"></a>
+##### Featured Products (VIP)
+Next, we'll show our VIP customers a list of our newest products, starting with the US Market:
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+2. Set the following:
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Featured Products (VIP)`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `Purchase History - VIP Customers`
+
+Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
+
+1. Duplicate the first row
+2. Drag an `HTML Code` element into the top row
+3. Paste the following
+
+```
+<div class="content-heading">
+    <h2 class="title">For Your Eyes Only, VIP</h2>
+    <p class="info">Here are some of our newest products</p>
+</div>
+```
+
+4. Alignment: `Center` (Optional, but useful to illustrate the expected result)
+5. Add a `Products List` element and use the following settings:
+	1. Condition:
+		1. If **ALL** of these conditions are **TRUE**
+			1. New **is** **Yes**
+	2. Number of Products to Display: `5`
+	3. Alignment: `Center`
+
+6. Save the Dynamic Block.
+7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+
+Next, open the same Dynamic Block and repeat for the German store view:
+
+1. Switch the store view scope to `Luma > Luma Store > Deutsch`
+2. De-tick `Use Default Value`
+3. Update the HTML heading to:
+```
+<div class="content-heading">
+    <h2 class="title">Nur für Deine Augen, VIP</h2>
+    <p class="info">Hier sind einige unserer neuesten Produkte</p>
+</div>
+```
+Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
+
+Navigate to `Content > Elements > Blocks > Home Page Block - US`
+
+1. Duplicate the `Featured Products (Women Who Purchased NSDJ)` dynamic block, change the newly-added dynamic block to the `Featured Products (VIP)` block, and then drag the `Featured Products (VIP)` block *above* the `Featured Products (Women Who Purchased NSDJ)` block.
+2. Save
+
+Repeat this process for the `Home Page Block - DE` content block.
+
+<a id="free-shipping-advertisement"></a>
+##### Free Shipping Advertisement
+Next, we'll create a free shipping advertisement which will show on the shopping cart whenever a customer enters the Free Shipping threshold we set up with our Free Shipping promotion ($75 - $99).
+
+*Free Shipping Advertisement*
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Free Shipping Advertisement`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `Shopping Cart - Free Shipping Threshold ($75 - $99)`
+2. Block Settings:
+	1. Appearance: `Contained`
+	1. Background > Background Image:
+		1. Choose `Select from Gallery`
+		2. Upload the `free_ship_2019.png` image to the `promotions` folder and select it
+	2. Background > Background Size: `Cover`
+	3. Background > Background Position: `Center Right`
+	4. Layout > Minimum Height: `427`
+	5. Advanced > Margins and Padding:
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Magin: `10`
+		5. Top Padding: `10`
+		6. Left Padding: `10`
+		7. Right Padding: `10`
+		8. Bottom Padding: `10`
+	6. Save the row
+2. Add a `Text` element:
+	1. First Line:
+		1. Format: `Heading 2`
+		2. Font Size: `40px`
+		3. Line Height: `26px`
+		4. Content: `You're Almost There!`
+	2. Second and Third Line:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `34px`
+		4. Content: `Spend $100 or more to get` (Add a non-breaking line break using `Shift+Enter`)
+		5. Content: **FREE SHIPPING**
+	3. Advanced > Margins and Padding: 
+		1. Top Margin: `20`
+		2. Left Margin: `60`
+		3. Right Margin: `0`
+		4. Bottom Magin: `0`
+		5. Top Padding: `0`
+		6. Left Padding: `0`
+		7. Right Padding: `0`
+		8. Bottom Padding: `0`
+	4. Save the text element
+
+Next, we need to create a new Dynamic Block Rotator widget we'll use to display the Free Shipping advertisement:
+
+Navigate to `Content > Elements > Widgets`
+
+1. Add New Widget
+	1. Storefront Properties > Type: `Dynamic Block Rotator`
+	2. Storefront Properties > Design Package/Theme: `Magento Luma`
+	3. Storefront Properties > Widget Title: `Free Shipping Messaging`
+	4. Storefront Properties > Assign to Store Views: `Luma Website > Luma Store > US English, Deutsch`
+	5. Storefront Properties > Sort Order: `0`
+	6. Storefront Properties > Layout Updates:
+		1. Display on: `Specified Page`
+		2. Page: `Shopping Cart`
+		3. Container: `After Page Header Top` (Beneath the main navigation on the shopping cart page)
+		4. Template: `Dynamic Block Template`
+	7. Widget Options:
+		1. Dynamic Blocks to Display: `Specified Dynamic Blocks`
+		2. Restrict by Dynamic Block Types: `None`
+		3. Rotation Mode: `Display all instead of rotating`
+		4. Specify Dynamic Blocks (After clicking `Reset filter`): 
+			1. `Free Shipping Advertisement` -- Position: `1`
+	8. Save the Dynamic Block Rotator widget
+
+Once saved, clear the cache
+
+<a id="free-shipping-applied-message"></a>
+##### Free Shipping Applied Message
+Next, we'll create a *Free Shipping Applied* message which tells the customer that free shipping has been applied (since, by default, the 'Estimate Shipping and Tax' information which would show a shipping cost of $0 is collapsed).  We'll use the *Related Promotions* feature to ensure that this message appears whenever the Free Shipping promotion has been applied.
+
+Navigate to `Content > Elements > Dynamic Blocks`
+
+1. Add Dynamic Block
+	1. Enable Dynamic Block: `Yes`
+	2. Dynamic Block Name: `Free Shipping Applied`
+	3. Dynamic Block Type: `Any Dynamic Block Type`
+	4. Customer Segment: `All Segments`
+2. Block settings:
+	1. Appearance: `Contained`
+	2. Background > Background Color: `#e7eee6`
+	3. Background > Background Image:
+		1. Choose `Select from Gallery`
+		2. Upload the `green-check` image to the `promotions` folder and select it
+	4. Background > Background Size: `Cover`
+	5. Background > Background Position: `Center Right`
+	6. Layout > Minimum Height: `427`
+	7. Advanced > Margins and Padding:
+		1. Top Margin: `-45`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Magin: `10`
+		5. Top Padding: `10`
+		6. Left Padding: `10`
+		7. Right Padding: `10`
+		8. Bottom Padding: `10`
+	8. Save the row
+2. Add a `Text` element:
+	1. First Line:
+		1. Format: `Heading 2`
+		2. Font Size: `40px`
+		3. Line Height: `26px`
+		4. Content: `You're Almost There!`
+	2. Second and Third Line:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `34px`
+		4. Content: `Spend $100 or more to get` (Add a non-breaking line break using `Shift+Enter`)
+		5. Content: **FREE SHIPPING**
+	3. Advanced > Margins and Padding: 
+		1. Top Margin: `20`
+		2. Left Margin: `60`
+		3. Right Margin: `0`
+		4. Bottom Magin: `0`
+		5. Top Padding: `0`
+		6. Left Padding: `0`
+		7. Right Padding: `0`
+		8. Bottom Padding: `0`
+	4. Save the text element
+
+**Note:** The reason for the -45px top margin above has to do with how Magento displays Dynamic Block rotator widgets. In our example, we'll be displaying two separate dynamic block rotator widgets on the same shopping cart page.  Each of these rotators is contained within its own `div` element which is still *visible* on the page (only its *content* is hidden and displayed based on segmentation). Therefore, each Dynamic Block Rotator widget's containing `div` is still affected by padding and margin.
+
+Next, we need to create a new Dynamic Block Rotator widget we'll use to display the :
+
+Navigate to `Content > Elements > Widgets`
+
+1. Add New Widget
+	1. Storefront Properties > Type: `Dynamic Block Rotator`
+	2. Storefront Properties > Design Package/Theme: `Magento Luma`
+	3. Storefront Properties > Widget Title: `Free Shipping Applied Message`
+	4. Storefront Properties > Assign to Store Views: `Luma Website > Luma Store > US English, Deutsch`
+	5. Storefront Properties > Sort Order: `10`
+	6. Storefront Properties > Layout Updates:
+		1. Display on: `Shopping Cart`
+		2. Page: `Shopping Cart`
+		3. Container: `After Page Header Top` (Beneath the main navigation on the shopping cart page)
+		4. Template: `Dynamic Block Template`
+	7. Widget Options:
+		1. Dynamic Blocks to Display: `Shopping Cart Promotions Related`
+		2. Restrict by Dynamic Block Types: `None`
+		3. Rotation Mode: `Display all instead of rotating`
+	8. Save the Dynamic Block Rotator widget
+
+**Note:** The value of `10` for the sort order is important: it ensures that the advertisement is display first and the applied message is shown second.  Hence, our top margin value of `-45px` for the applied message moves the message up to where the advertisement sits. 
 
 <a id="rewards-program-advertisements"></a>
 ##### Rewards Program Advertisements
@@ -2453,9 +2733,8 @@ Navigate to `Content > Elements > Dynamic Blocks`
 2. For this block, we'll need to use an image since we'll be showing the advertisement in the left column of certain category landing pages and Page Builder content isn't fully responsive yet.
 	1. Use a standard row with the `Contained` row template
 	2. Add an image element and choose `Select From Gallery`
-	3. Inside the `wysiwyg` folder, create a new folder called `promotions`
-	4. Inside the `promotions` folder, upload the `Triple Points` advertisement image
-	5. Save
+	3. Inside the `promotions` folder, upload the `Triple Points` advertisement image
+	4. Save
 
 To finish, we need to create a Dynamic Block Rotator widget to insert the dynamic blocks on certain category landing pages:
 
@@ -2483,15 +2762,6 @@ Navigate to `Content > Elements > Widgets`
 	8. Save the Dynamic Block Rotator widget
 
 Once saved, clear the cache
-
-<a id="free-shipping-advertisement"></a>
-##### Free Shipping Advertisement
-
-<a id="free-shipping-achieved"></a>
-##### Free Shipping Achieved
-
-<a id="vip"></a>
-##### VIP?
 
 <a id="staging-and-preview-campaigns"></a>
 #### Staging and Preview Campaigns
