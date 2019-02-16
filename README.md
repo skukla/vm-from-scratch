@@ -2567,7 +2567,7 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		1. Top Margin: `0`
 		2. Left Margin: `0`
 		3. Right Margin: `0`
-		4. Bottom Magin: `10`
+		4. Bottom Magin: `0`
 		5. Top Padding: `10`
 		6. Left Padding: `10`
 		7. Right Padding: `10`
@@ -2640,39 +2640,37 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		2. Upload the `checkmark` image to the `promotions` folder and select it
 	4. Background > Background Size: `Auto`
 	5. Background > Background Position: `Center Left`
-	6. Layout > Minimum Height: `427`
+	6. Layout > Minimum Height: `75px`
+	7. Vertical Alignment: `Top`
 	7. Advanced > Margins and Padding:
-		1. Top Margin: `-45`
+		1. Top Margin: `-45px`
 		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Magin: `10`
-		5. Top Padding: `10`
-		6. Left Padding: `10`
-		7. Right Padding: `10`
-		8. Bottom Padding: `10`
-	8. Save the row
-2. Add a `Text` element:
-	1. First Line:
-		1. Format: `Heading 2`
-		2. Font Size: `40px`
-		3. Line Height: `26px`
-		4. Content: `You're Almost There!`
-	2. Second and Third Line:
-		1. Format: `Heading 2`
-		2. Font Size: `26px`
-		3. Line Height: `34px`
-		4. Content: `Spend $100 or more to get` (Add a non-breaking line break using `Shift+Enter`)
-		5. Content: **FREE SHIPPING**
-	3. Advanced > Margins and Padding: 
-		1. Top Margin: `20`
-		2. Left Margin: `60`
 		3. Right Margin: `0`
 		4. Bottom Magin: `0`
 		5. Top Padding: `0`
 		6. Left Padding: `0`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
+	8. Save the row
+2. Add a `Text` element:
+	1. First Line:
+		1. Format: `Paragraph`
+		2. Font Size: `18px`
+		3. Line Height: `Line Height`
+		4. Text Color: `#006400`
+		4. Content: `Free Shipping Applied!`
+	2. Advanced > Margins and Padding: 
+		1. Top Margin: `0`
+		2. Left Margin: `0`
+		3. Right Margin: `0`
+		4. Bottom Magin: `0`
+		5. Top Padding: `25px`
+		6. Left Padding: `65px`
+		7. Right Padding: `0`
+		8. Bottom Padding: `0`
 	4. Save the text element
+	5. Related Promotions > Add Cart Price Rules > `Spend $100 or more - shipping is free!`
+	7. Save the Dynamic Block
 
 **Note:** The reason for the -45px top margin above has to do with how Magento displays Dynamic Block rotator widgets. In our example, we'll be displaying two separate dynamic block rotator widgets on the same shopping cart page.  Each of these rotators is contained within its own `div` element which is still *visible* on the page (only its *content* is hidden and displayed based on segmentation). Therefore, each Dynamic Block Rotator widget's containing `div` is still affected by padding and margin.
 
