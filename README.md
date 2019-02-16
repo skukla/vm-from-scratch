@@ -2641,7 +2641,7 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		1. Choose `Select from Gallery`
 		2. Upload the `green-check` image to the `promotions` folder and select it
 	4. Background > Background Size: `Cover`
-	5. Background > Background Position: `Center Right`
+	5. Background > Background Position: `Center Left`
 	6. Layout > Minimum Height: `427`
 	7. Advanced > Margins and Padding:
 		1. Top Margin: `-45`
