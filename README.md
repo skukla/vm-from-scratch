@@ -167,9 +167,13 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [On Sale](#on-sale)
 			- [Featured Products](#featured-products)
 		- [CMS Pages Grid](#cms-pages-grid)
+		- [Customers Grid](#customers-grid)
 		- [Staging and Preview Grid](#staging-and-preview-grid)
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
+		- [Configuration](#configuration)
+			- [Enable Modules](#enable-modules)
+			- [Payment on Account](#payment-on-account)
 		- [Customers](#customers)
 		- [Sales Representative Role and User](#sales-representative-role-and-user)
 		- [Companies](#companies)
@@ -3162,6 +3166,14 @@ Use the following columns:
 1. Filter on Name = `Home`
 2. Save grid as `Home Pages`
 
+<a id="customers-grid"></a>
+#### Customers Grid
+By default, the customers grid is very crowded.  To help with this, consider removing the following columns:
+
+1. Confirmed Email
+2. Tax/VAT Number
+3. Customer Since
+
 <a id="staging-and-preview-grid"></a>
 #### Staging and Preview Grid
 
@@ -3180,6 +3192,32 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 
 <a id="b2b-demo-cases"></a>
 ### B2B Demo Cases
+
+<a id="configuration"></a>
+#### Configuration
+
+<a id="enable-modules"></a>
+##### Enable Modules
+To use the B2B features, we'll need to enable them first:
+
+Navigate to: `Stores > Settings > Configuration > General > B2B Features`
+
+1. Enable Company: `Yes`
+2. Enable Shared Catalog: `No` (We'll leave this disabled for now until the product team fixes it properly -- expected in 2.3.1)
+3. Enable B2B Quote: `Yes`
+4. Enable Quick Order: `Yes`
+5. Enable Requisition List: `Yes`
+
+<a id="payment-on-account"></a>
+##### Payment on Account
+By default, the Payment on Account method used to deduct a purchase amount from company credit is disabled and needs to be enabled before it can be used.  To enable it:
+
+Navigate to `Stores > Settings > Configuration > Sales > Payment Methods`
+
+1. Payment on Account > Enabled: `Yes`
+2. Save the payment method
+
+When saved, clear the cache
 
 <a id="customers"></a>
 #### Customers
@@ -3202,6 +3240,14 @@ Navigate to `System > Data Transfer > Import`
 3. Select File to Import: `B2B Customers Addresses.csv`
 4. Check Data
 5. Import
+
+Once the users are imported, we'll need to set them as active (even though they are listed as being active in their account information.) To ensure that they are active:
+
+Navigate to: `Customers > All Customers`
+
+1. Filter the customer grid on the customer in question
+2. Ensure that Customer Information > Account Information > Customer Active: `Yes`
+3. Save the customer and note the `Active` status in the customer grid
 
 <a id="sales-representative-role-and-user"></a>
 #### Sales Representative Role and User
@@ -3261,7 +3307,7 @@ Navigate to `Customers > Companies`
 13. Legal Address > State/Province: `California`
 14. Legal Address > Zip/Postal Code: `90232`
 15. Legal Address > Phone Number: `310-345-0984`
-16. Company Admin > Website: `Luma`
+16. Company Admin > Website: `Luma Website`
 17. Company Admin > Job Title: `VP, eCommerce`
 18. Company Admin > Email: `john.smith@terraoutfitters.com`
 19. Company Admin > Prefix: `None`
@@ -3272,8 +3318,9 @@ Navigate to `Customers > Companies`
 24. Company Admin > Gender: `Male`
 25. Company Credit > Credit Currency: `US Dollar`
 26. Company Credit > Credit Limit: `$50,000`
-27. Company Credit > Allow to Exceed Credit Limit: `No`
-28. Advanced Settings > Allow Quotes: `Yes`
+27. Company Credit > Reason For Change: `Initial allotment`
+28. Company Credit > Allow to Exceed Credit Limit: `No`
+29. Advanced Settings > Allow Quotes: `Yes`
 
 <a id="emilys-exercise-emporium"></a>
 ##### Emily's Exercise Emporium
@@ -3304,8 +3351,9 @@ Navigate to `Customers > Companies`
 24. Company Admin > Gender: `Female`
 25. Company Credit > Credit Currency: `US Dollar`
 26. Company Credit > Credit Limit: `$25,000`
-27. Company Credit > Allow to Exceed Credit Limit: `No`
-28. Advanced Settings > Allow Quotes: `Yes`
+27. Company Credit > Reason For Change: `Initial allotment`
+28. Company Credit > Allow to Exceed Credit Limit: `No`
+29. Advanced Settings > Allow Quotes: `Yes`
 
 <a id="catalogs"></a>
 #### Catalogs
