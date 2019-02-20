@@ -171,6 +171,12 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Staging and Preview Grid](#staging-and-preview-grid)
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
+		- [Customers](#customers)
+		- [Sales Representative Role and User](#sales-representative-role-and-user)
+		- [Companies](#companies)
+			- [Terra Outfitters](#terra-outfitters)
+			- [Emily's Exercise Emporium](#emilys-exercise-emporium)
+		- [Catalogs](#catalogs)
 	- [Fixes](#fixes)
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
 		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
@@ -1532,6 +1538,8 @@ By default, the home page content is contained within blocks which are then plac
 
 22. **Row 3:**
 	1. Background Image: `hp-woman-on-fence.jpg`
+	2. Advanced > Margins and Padding:
+		1. Top Margin: `10px`
 
 23. **Row 3 > Right Column > Textarea:**
 	1. Content Line 1: 
@@ -3025,21 +3033,46 @@ Once saved, clear the cache
 
 <a id="summer-sale-lead-in"></a>
 ##### Summer Sale Lead-in
+1. Change the top row background image to `promotions/summersunset.jpg`
+2. Text:
+	1. Line 1: `Summer's Here`
+	2. Line 2: `Wow your friends and hit the beach in style!`
+
 
 <a id="fourth-of-july-sale"></a>
 ##### Fourth of July Sale
+1. Change the top row background image to `promotions/summersunset.jpg`
+2. Text:
+	1. Line 1: `Summer's Here`
+	2. Line 2: `Wow your friends and hit the beach in style!`
 
 <a id="summer-sale-lead-out"></a>
 ##### Summer Sale Lead-out
+1. Change the top row background image to `promotions/summersunset.jpg`
+2. Text:
+	1. Line 1: `Summer's Here`
+	2. Line 2: `Wow your friends and hit the beach in style!`
 
 <a id="black-friday-lead-in"></a>
 ##### Black Friday Lead-in
+1. Change the top row background image to `promotions/summersunset.jpg`
+2. Text:
+	1. Line 1: `Summer's Here`
+	2. Line 2: `Wow your friends and hit the beach in style!`
 
 <a id="black-friday-sale"></a>
 ##### Black Friday Sale
+1. Change the top row background image to `promotions/summersunset.jpg`
+2. Text:
+	1. Line 1: `Summer's Here`
+	2. Line 2: `Wow your friends and hit the beach in style!`
 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
+1. Change the top row background image to `promotions/summersunset.jpg`
+2. Text:
+	1. Line 1: `Summer's Here`
+	2. Line 2: `Wow your friends and hit the beach in style!`
 
 <a id="content-with-page-builder"></a>
 ### Content with Page Builder
@@ -3152,6 +3185,135 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 
 <a id="b2b-demo-cases"></a>
 ### B2B Demo Cases
+
+<a id="customers"></a>
+#### Customers
+First, we'll need to import or create customers to use for our B2B use cases.  You can expedite this by importing the included `B2B Customers Main File` CSV file followed by the `B2B Customer Addresses` CSV file:
+
+Navigate to `System > Data Transfer > Import`
+
+*Main File*
+
+1. Entity Type: `Customers Main File`
+2. Import Behavior: `Add/Update Complex Data`
+3. Select File to Import: `B2B Customers Main File.csv`
+4. Check Data
+5. Import
+
+*Addresses File*
+
+1. Entity Type: `Customer Addresses`
+2. Import Behavior: `Add/Update Complex Data`
+3. Select File to Import: `B2B Customers Addresses.csv`
+4. Check Data
+5. Import
+
+<a id="sales-representative-role-and-user"></a>
+#### Sales Representative Role and User
+Next, we'll create another admin user and user role that we'll assign as the sales representative for our companies.
+
+**Note:** For whatever reason, permissions for Quotes are not available to anyone except a user with complete access.
+
+*User Role*
+
+Navigate to `System > Permissions > User Roles`
+
+1. Add a new role
+2. Role Info > Role Name: `Sales Representative`
+3. Role Info > Your Password: `admin4tls`
+4. Role Resources > Role Scopes: `All`
+5. Role Resources > Role Resources > Resource Access > `All` 
+6. Save the role
+
+*User*
+
+Navigate to `System > Permissions > All Users`
+
+1. Add a new user
+2. User Info > Account Information > User Name: `mjones`
+3. User Info > Account Information > First Name: `Mark`
+4. User Info > Account Information > Last Name: `Jones`
+5. User Info > Account Information > Email: `mjones@luma.com`
+6. User Info > Account Information > Password: `admin4tls`
+7. User Info > Account Information > Password Confirmation: `admin4tls`
+8. User Info > Account Information > Interface Locale: `English (United States)`
+9. User Info > Account Information > This account is: `Active`
+10. User Info > Current User Identity Verification > Your Password: `admin4tls`
+11. User Role: `Sales Representative`
+12. Save the user
+
+<a id="companies"></a>
+#### Companies
+After the customers are imported, we'll create the two companies we're going to use to tell the B2B story, and then assign the proper customers to them.
+
+Navigate to `Customers > Companies`
+
+<a id="terra-outfitters"></a>
+##### Terra Outfitters
+
+1. Add a new company
+2. Company Name: `Terra Outfitters`
+3. Status: `Active`
+4. Company Email: `info@terraoutfitters.com`
+5. Sales Representative: `mjones`
+6. Account Information > Company Legal Name: `Terra Outfitters, Inc.`
+7. Account Information > VAT / TAX ID: `None`
+8. Reseller ID: `1548`
+9. Account Information > Comment: `None`
+10. Legal Address > Street Address: `10441 Jefferson Blvd., Ste 200`
+11. Legal Address > City: `Culver City`
+12. Legal Address > Country: `United States`
+13. Legal Address > State/Province: `California`
+14. Legal Address > Zip/Postal Code: `90232`
+15. Legal Address > Phone Number: `310-345-0984`
+16. Company Admin > Website: `Luma`
+17. Company Admin > Job Title: `VP, eCommerce`
+18. Company Admin > Email: `john.smith@terraoutfitters.com`
+19. Company Admin > Prefix: `None`
+20. Company Admin > First Name: `John`
+21. Company Admin > Middle Name/Initial: `None`
+22. Company Admin > Last Name: `Smith`
+23. Company Admin > Suffix: `None`
+24. Company Admin > Gender: `Male`
+25. Company Credit > Credit Currency: `US Dollar`
+26. Company Credit > Credit Limit: `$50,000`
+27. Company Credit > Allow to Exceed Credit Limit: `No`
+28. Advanced Settings > Allow Quotes: `Yes`
+
+<a id="emilys-exercise-emporium"></a>
+##### Emily's Exercise Emporium
+
+1. Add a new company
+2. Company Name: `Emily's Exercise Emporium`
+3. Status: `Active`
+4. Company Email: `contact@3e.com`
+5. Sales Representative: `mjones`
+6. Account Information > Company Legal Name: `Emily's Exercise Emporium, LLC`
+7. Account Information > VAT / TAX ID: `None`
+8. Reseller ID: `1549`
+9. Account Information > Comment: `None`
+10. Legal Address > Street Address: `135 Cannon St`
+11. Legal Address > City: `Charleston`
+12. Legal Address > Country: `United States`
+13. Legal Address > State/Province: `South Carolina`
+14. Legal Address > Zip/Postal Code: `29403`
+15. Legal Address > Phone Number: `843-493-2938`
+16. Company Admin > Website: `Luma`
+17. Company Admin > Job Title: `Owner`
+18. Company Admin > Email: `emily.hopkins@3e.com`
+19. Company Admin > Prefix: `None`
+20. Company Admin > First Name: `Emily`
+21. Company Admin > Middle Name/Initial: `None`
+22. Company Admin > Last Name: `Hopkins`
+23. Company Admin > Suffix: `None`
+24. Company Admin > Gender: `Female`
+25. Company Credit > Credit Currency: `US Dollar`
+26. Company Credit > Credit Limit: `$25,000`
+27. Company Credit > Allow to Exceed Credit Limit: `No`
+28. Advanced Settings > Allow Quotes: `Yes`
+
+<a id="catalogs"></a>
+#### Catalogs
 
 <a id="fixes"></a>
 ### Fixes
