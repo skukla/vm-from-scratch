@@ -166,7 +166,6 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Women's Hoodies](#womens-hoodies)
 			- [On Sale](#on-sale)
 			- [Featured Products](#featured-products)
-		- [CMS Blocks Grid](#cms-blocks-grid)
 		- [CMS Pages Grid](#cms-pages-grid)
 		- [Staging and Preview Grid](#staging-and-preview-grid)
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
@@ -3158,15 +3157,11 @@ Use the following columns:
 11. Websites
 12. Featured Product
 
-<a id="cms-blocks-grid"></a>
-#### CMS Blocks Grid
-1. Filter on Name = `Home`
-2. Save grid as `Home Page Content`
-
 <a id="cms-pages-grid"></a>
 #### CMS Pages Grid
 1. Filter on Name = `Home`
 2. Save grid as `Home Pages`
+
 <a id="staging-and-preview-grid"></a>
 #### Staging and Preview Grid
 
