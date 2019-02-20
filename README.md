@@ -1291,7 +1291,13 @@ Next, we'll set up global meta information for pages like the Order Confirmation
 2. Default Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 3. Default Meta Keywords: `yoga,exercise,apparel,clothing,working out,fitness`
 
-Next, use the following for the `Venia Store US English` store view scope:
+Next, we'll translate that into German and apply it to the `Luma Store > Deutsch` store view:
+
+1. Default Page Title: `Offizieller LUMA Online-Shop`
+2. Default Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
+3. Default Meta Keywords: `yoga,sport,bekleidung,kleidung,training,fitness`
+
+Next, use the following for the `Venia Store > US English` store view scope:
 
 1. Default Page Title: `VENIA Official Online Store`
 2. Default Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
