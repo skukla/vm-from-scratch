@@ -1327,19 +1327,21 @@ In order for our meta changes to take effect, we need to add the same changes we
 Navigate to `Content > Elements > Pages > Home Page`
 
 1. Page Title: `Luma Home Page - US`
+2. Content Heading: `None`
 2. Search Engine Optimization:
 	1. URL Key: `home`
 	2. Meta Title: `LUMA Official Online Store`
 	3. Meta Keywords: `yoga,exercise,apparel,clothing,working out,fitness`
 	4. Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 3. Page in Websites: `Luma Website > Luma Store > US English`
+4. Layout: `Page -- Full Width`
 
 <a id="page-builder-content"></a>
 ##### Page Builder Content
 By default, the home page content is contained within blocks which are then placed onto the home page itself using a widget.  This approach has pros and cons, but in general, it violates the reason content is generally split into blocks: easy reuse.  The content is not reused anywhere else and so, ought not to need block approach; however, the CSS has been written specifically to refer to a widget and thus, it would take more effort than I want to spend to "fix" it properly.  Thus, we'll continue to use the block content method and use page builder to drive the content.
 
 1. **Row 1:**
-	1. Appearance: `Contained`
+	1. Appearance: `Full Width`
 	2. Background > Background Color: `None`
 	3. Background > Background Image: `home-main.jpg`
 	4. Background > Background Size: `Cover`
@@ -1347,25 +1349,25 @@ By default, the home page content is contained within blocks which are then plac
 	6. Background > Background Attachment: `Scroll`
 	7. Background > Background Repeat: `No`
 	8. Paralax > Enable Paralax Background: `No`
-	9. Layout > Minimum Height: `460px`
+	9. Layout > Minimum Height: `600px`
 	10. Layout > Vertical Alignment: `Top`
 	11. Advanced > Alignment: `Default`
 	12. Margins and Padding:
 		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `10px`
+		2. Right Margin: `0`
+		3. Bottom Margin: `10px`
+		4. Left Margin: `0`
 		5. Top Padding: `10px`
-		6. Left Padding: `10px`
-		7. Right Padding: `10px`
-		8. Bottom Padding: `10px`
+		6. Right Padding: `10px`
+		7. Bottom Padding: `10px`
+		8. Left Padding: `10px`
 
 2. Next, add a column to the top row so that the row splits into two columns.
 
-3. **Row 1 > Right Column (6/12):**
+3. **Row 1 > Right Column:**
 	1. Grid Size: `6/12`
-	2. Appearance: `Contained`
-	3. Background > Background Color: `None`
+	2. Appearance: `Centered`
+	3. Background > Background Color: `rgba(255, 255, 255, 0.9)`
 	4. Background > Background Image: `None`
 	5. Background > Background Size: `Cover`
 	6. Background > Background Position: `Top Left`
@@ -1376,14 +1378,14 @@ By default, the home page content is contained within blocks which are then plac
 	11. Layout > Vertical Alignment: `Top`
 	12. Advanced > Alignment: `Default`
 	13. Margins and Padding:
-		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `10px`
-		5. Top Padding: `0`
-		6. Left Padding: `0`
-		7. Right Padding: `0`
-		8. Bottom Padding: `0`
+		1. Top Margin: `20px`
+		2. Right Margin: `20px`
+		3. Bottom Margin: `0`
+		4. Left Margin: `0`
+		5. Top Padding: `10px`
+		6. Right Padding: `20px`
+		7. Bottom Padding: `10px`
+		8. Left Padding: `20px`
 
 4. Inside the right column, add a text area.
 
@@ -1395,19 +1397,19 @@ By default, the home page content is contained within blocks which are then plac
 		4. Text: `New Luma Yoga Collection`
 	2. Content Line 2:
 		1. Format: `Heading 2`
-		2. Font Size: `38px`
+		2. Font Size: `36px`
 		3. Line Height: `Line Height`
-		4. Text: `Get fit and look fab in new seasonal styles`
+		4. Text: `Get fit and look fabulous in new seasonal styles`
 	3. Advanced > Alignment: `Default`
 	4. Advanced > Margins and Padding:
 		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `0`
+		2. Right Margin: `0`
+		3. Bottom Margin: `0`
+		4. Left Margin: `0`
 		5. Top Padding: `0`
-		6. Left Padding: `0`
-		7. Right Padding: `0`
-		8. Bottom Padding: `0`
+		6. Right Padding: `0`
+		7. Bottom Padding: `0`
+		8. Left Padding: `0`
 
 6. Next, inside the right column, add a button element.
 
@@ -1418,14 +1420,14 @@ By default, the home page content is contained within blocks which are then plac
 	2. Appearance > All Buttons are same size: `No`
 	3. Advanced > Alignment: `Default`
 	4. Advanced > Margins and Padding:
-		1. Top Margin: `-25px`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `0`
+		1. Top Margin: `0`
+		2. Right Margin: `0`
+		3. Bottom Margin: `0`
+		4. Left Margin: `0`
 		5. Top Padding: `10px`
-		6. Left Padding: `0`
-		7. Right Padding: `10px`
-		8. Bottom Padding: `0`
+		6. Right Padding: `10px`
+		7. Bottom Padding: `0`
+		8. Left Padding: `0`
 
 8. **Row 1 > Right Column > Buttons > Button:** 
 	1. Content > Text: `Shop New Yoga`
@@ -1433,24 +1435,22 @@ By default, the home page content is contained within blocks which are then plac
 	3. Content > Button Link: `Category` -- `What's New` (Do not open in a new tab)
 	4. Advanced > Alignment: `Center`
 
-10. Duplicate the first row.
+10. Duplicate the first row and remove right column.
 
 11. **Row 2:**
 	1. Background Image: `None`
 	2. Layout > Minimum Height: `None`
 	3. Advanced > Margins and Padding:
-		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `10px`
+		1. Top Margin: `10px`
+		2. Right Margin: `0`
+		3. Bottom Margin: `10px`
+		4. Left Margin: `0`
 		5. Top Padding: `10px`
-		6. Left Padding: `10px`
-		7. Right Padding: `10px`
-		8. Bottom Padding: `10px`
+		6. Right Padding: `10px`
+		7. Bottom Padding: `10px`
+		8. Left Padding: `10px`
 
-12. Next, add a column to the second row so that it splits into two columns.
-
-13. **Row 2 > Left Column:**
+12. **Row 2 > Left Column:**
 	1. Grid Size: `4/12`
 	2. Appearance: `Centered`
 	3. Background Color: `None`
@@ -1465,56 +1465,47 @@ By default, the home page content is contained within blocks which are then plac
 	12. Advanced > Alignment: `Right`
 	13. Margins and Padding:
 		1. Top Margin: `10px`
-		2. Left Margin: `0`
-		3. Right Margin: `10px`
-		4. Bottom Margin: `10px`
+		2. Right Margin: `10px`
+		3. Bottom Margin: `10px`
+		4. Left Margin: `10px`
 		5. Top Padding: `20px`
-		6. Left Padding: `20px`
-		7. Right Padding: `20px`
-		8. Bottom Padding: `20px`
+		6. Right Padding: `20px`
+		7. Bottom Padding: `20px`
+		8. Left Padding: `20px`
 
-14. Inside the Left Column, add a text area.
+13. Inside the Left Column, add a text area.
 
-15. **Row 2 > Left Column > Textarea:**
+14. **Row 2 > Left Column > Textarea:**
 	1. Content Line 1:
 		1. Format: `Heading 2`
-		2. Font Size: `26px`
+		2. Font Size: `36px`
 		3. Line Height: `Line Height`
 		4. Text: `20% Off`
 		5. Color: `White`
 	2. Content Line 2:
 		1. Format: `Heading 2`
-		2. Font Size: `38px`
+		2. Font Size: `26px`
 		3. Line Height: `Line Height`
 		4. Text: `Luma hoodies when you shop today`
 		5. Color: `White`
 	3. Advanced > Alignment: `Default`
 	4. Advanced > Margins and Padding:
 		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `0`
+		2. Right Margin: `0`
+		3. Bottom Margin: `0`
+		4. Left Margin: `0`
 		5. Top Padding: `0`
-		6. Left Padding: `0`
-		7. Right Padding: `0`
-		8. Bottom Padding: `0`
+		6. Right Padding: `0`
+		7. Bottom Padding: `0`
+		8. Left Padding: `0`
 
-16. Duplicate the left column.
+15. Duplicate the left column.
 
-17. **Row 2 > Center Column:**
+16. **Row 2 > Center Column:**
 	1. Background Image: `hp-erin-center.jpg`
 	2. Advanced > Alignment: `Left`
-	3. Margins and Padding:
-		1. Top Margin: `10px`
-		2. Left Margin: `10px`
-		3. Right Margin: `10px`
-		4. Bottom Margin: `10px`
-		5. Top Padding: `20px`
-		6. Left Padding: `20px`
-		7. Right Padding: `20px`
-		8. Bottom Padding: `20px`
 
-18. **Row 2 > Center Column > Textarea:**
+17. **Row 2 > Center Column > Textarea:**
 	1. Content Line 1: 
 		1. Text: `Take it from Erin`
 		2. Color: `Black`
@@ -1522,55 +1513,37 @@ By default, the home page content is contained within blocks which are then plac
 		1. Text: `Luma founder Erin Renney shares her favorites`
 		2. Color: `Black`
 
-19. Duplicate the center column.
+18. Duplicate the center column.
 
-20. **Row 2 > Right Column:**
+19. **Row 2 > Right Column:**
 
 	1. Background Image: `hp-girl-right.jpg`
 	2. Advanced > Alignment: `Right`
-	3. Margins and Padding:
-		1. Top Margin: `10px`
-		2. Left Margin: `10px`
-		3. Right Margin: `0`
-		4. Bottom Margin: `10px`
-		5. Top Padding: `20px`
-		6. Left Padding: `20px`
-		7. Right Padding: `20px`
-		8. Bottom Padding: `20px`
 
-21. **Row 2 > Right Column > Textarea:**
+20. **Row 2 > Right Column > Textarea:**
 	1. Content Line 1: 
 		1. Text: `All Shirts`
 		2. Color: `Black`
 	2. Content Line 2:
-		1. Text: `Buy 3 tees and get a 4th free`
+		1. Text: `Buy 3 Luma tees and get a 4th free`
 		2. Color: `Black`
 
-22. Duplicate the first row and drag it beneath the second row.
+21. Duplicate the first row and drag it beneath the second row.
 
-23. ** Row 3:**
+22. **Row 3:**
 	1. Background Image: `hp-woman-on-fence.jpg`
-	2. Margins and Padding:
-		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `10px`
-		5. Top Padding: `0`
-		6. Left Padding: `10px`
-		7. Right Padding: `10px`
-		8. Bottom Padding: `0`
 
-24. **Row 3 > Right Column > Textarea:**
+23. **Row 3 > Right Column > Textarea:**
 	1. Content Line 1: 
 		1. Text: `Twice around, twice as nice`
 	2. Content Line 2:
 		1. Text: `Find conscientious, comfy clothing in our eco-friendly collection`
 
-25. **Row 3 > Right Column > Buttons > Button:** 
+24. **Row 3 > Right Column > Buttons > Button:** 
 	1. Content > Text: `Shop the Collection`
 
-26. **Row 4**
-	1. Appearance: `Contained`
+25. **Row 4**
+	1. Appearance: `Full Width`
 	2. Background > Background Color: `None`
 	3. Background > Background Image: `None`
 	4. Background > Background Size: `Cover`
@@ -1582,16 +1555,16 @@ By default, the home page content is contained within blocks which are then plac
 	10. Layout > Vertical Alignment: `Top`
 	11. Advanced > Alignment: `Default`
 	12. Advanced > Margins and Padding:
-		1. Top Margin: `0`
-		2. Left Margin: `0`
-		3. Right Margin: `0`
-		4. Bottom Margin: `10px`
+		1. Top Margin: `10px`
+		2. Right Margin: `0`
+		3. Bottom Margin: `10px`
+		4. Left Margin: `0`
 		5. Top Padding: `10px`
-		6. Left Padding: `10px`
-		7. Right Padding: `10px`
-		8. Bottom Padding: `10px`
+		6. Right Padding: `10px`
+		7. Bottom Padding: `10px`
+		8. Left Padding: `10px`
 
-27. Save the block (we'll add more to it later).
+26. Save the block (we'll add more to it later).
 
 <a id="luma-home-page-de"></a>
 #### Luma Home Page (DE)
