@@ -172,13 +172,17 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
 		- [Configuration](#configuration)
-			- [Enable Modules](#enable-modules)
+			- [Enable B2B Modules](#enable-b2b-modules)
 			- [Payment on Account](#payment-on-account)
 		- [Customers](#customers)
 		- [Sales Representative Role and User](#sales-representative-role-and-user)
 		- [Companies](#companies)
 			- [Terra Outfitters](#terra-outfitters)
 			- [Emily's Exercise Emporium](#emilys-exercise-emporium)
+		- [Buyer Users](#buyer-users)
+		- [Buyer Teams](#buyer-teams)
+		- [Buyer Roles and Permissions](#buyer-roles-and-permissions)
+		- [B2B Autofill](#b2b-autofill)
 		- [Catalogs](#catalogs)
 	- [Fixes](#fixes)
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
@@ -1142,9 +1146,9 @@ With the patches applied, we can use the install command above to install the ap
 ### Autofill Setup
 Initially, the autofill extension includes three enabled personas: VIP, Runner, and Yoga.  The first change we'll make is to add names to these profiles so we can refer to them in the demo story.  In `Stores > Settings > Configuration > Magento Ese > Auto Fill`, update the personas so that the persona labels reflect the following:
 
-1. `Sharon (VIP)`
-2. `Mark (Runner)`
-3. `Lisa (Yoga)`
+1. `Sharon Reynolds (VIP)`
+2. `Mark Woodward (Runner)`
+3. `Lisa Firey (Yogi)`
 
 Then, clear cache.
 
@@ -1773,7 +1777,9 @@ In the *Additional CSS* section, paste the following CSS:
 
 ```
 /* Buttons */
-.action.primary {
+.action.primary,
+.actions-toolbar>.primary .action:last-child, 
+.actions-toolbar>.secondary .action:last-child {
     background-color:; 
     border-color:; 
     color: white !important;
@@ -1847,6 +1853,11 @@ ul.header.links {
 .minicart-wrapper .action.showcart:before {
     color: #757575 !important;
 }
+/* Mini Cart Items Count (Orange) */
+.minicart-wrapper .action.showcart .counter.qty {
+	background: #ff5501;
+	color: #ffffff;
+}
 /* My Account Sidebar Links */
 .block-collapsible-nav .item a,
 .block-collapsible-nav .item>strong {
@@ -1855,6 +1866,13 @@ ul.header.links {
 /* In Store Pickup Link */
 .catalog-product-view .instorepickup-pdp-wrapper .instorepickup-change-trigger {
     color:;
+}
+/* B2B-specific My Account Links */
+.form-edit-role .box-actions button.action, 
+.block-dashboard-company .box-actions button.action, 
+.form-edit-role .box-actions .quote-details-items .actions-toolbar>.action.action, 
+.block-dashboard-company .box-actions .quote-details-items .actions-toolbar>.action.action {
+	color: #1979c3;
 }
 /* Footer Links */
 ul.footer.links > li > a,
@@ -1867,11 +1885,25 @@ ul.footer.links > li > a,
 .fotorama__thumb-border { 
     border-color:;
 }
-/* Swatch borders */
+/* Swatch Borders */
 .swatch-option.image:not(.disabled):hover,
 .swatch-option.color:not(.disabled):hover,
 .swatch-option.selected { 
     outline:; 
+}
+/* Checkout Styles */
+.opc-progress-bar-item._active:before,
+.opc-progress-bar-item._active>span:before {
+	background:;
+	border-color:;
+}
+.opc-progress-bar-item._active>span:after,
+.opc-wrapper .shipping-address-item.selected-item {
+	border-color:;
+}
+.opc-wrapper .shipping-address-item.selected-item:after {
+	background:;
+	color:;
 }
 
 /* Page Builder Styles */
@@ -3196,8 +3228,8 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 <a id="configuration"></a>
 #### Configuration
 
-<a id="enable-modules"></a>
-##### Enable Modules
+<a id="enable-b2b-modules"></a>
+##### Enable B2B Modules
 To use the B2B features, we'll need to enable them first:
 
 Navigate to: `Stores > Settings > Configuration > General > B2B Features`
@@ -3354,6 +3386,149 @@ Navigate to `Customers > Companies`
 27. Company Credit > Reason For Change: `Initial allotment`
 28. Company Credit > Allow to Exceed Credit Limit: `No`
 29. Advanced Settings > Allow Quotes: `Yes`
+
+<a id="buyer-users"></a>
+#### Buyer Users
+Once the users have been imported and the companies have been created, we can assign Jack Fitz and Jill Moorehouse to Terra Outfitters:
+
+Navigate to `Customers > All Customers`
+
+1. Find the desired customer in the grid
+2. Customer Information > Account Information > Associate to Company: `Terra Outfitters`
+3. Save the customer
+
+<a id="buyer-teams"></a>
+#### Buyer Teams
+Now that the users have been created and assigned to their companies, we'll create user teams on the storefront and users to them.
+
+Login as `John Smith` on the storefront and navigate to `John Smith > Company Structure`
+
+*East Coast Team*
+1. Add a team
+2. Team Title: `East Coast`
+3. Description: `This is our East Coast team - based out of Montclair, New Jersey.`
+4. Save the team
+5. Drag Jack Fitz into the East Coast team and expand it
+
+*West Coast Team*
+1. Add a team
+2. Team Title: `West Coast`
+3. Description: `This is our West Coast team - based out of San Francisco, California.`
+4. Save the team
+5. Drag Jill Moorehouse into the West Coast team and expand it
+
+<a id="buyer-roles-and-permissions"></a>
+#### Buyer Roles and Permissions
+Next, we'll edit the Default User role and rename it to Buyer.  Then, we'll customize its permissions.
+
+Login as `John Smith` on the storefront and navigate to `John Smith > Roles and Permissions`
+
+1. Edit the `Default User` role
+2. Role Name: `Buyer`
+3. Add `Use Pay On Account Method` permission
+4. Remove `Company User Management` permission
+5. Add `Company Credit` and `Company Credit > View` permissions
+
+
+<a id="b2b-autofill"></a>
+#### B2B Autofill
+Now that we've added the B2B customers, we can add them as personas in the autofill so we can easily login to their accounts during a demo:
+
+Navigate to `Stores > Settings > Configuration > Magento Ese > Auto Fill`
+
+*John Smith*
+1. Expand `Persona 4`
+2. Enable this Persona: `Yes`
+3. Persona Label: `John Smith (VP, eCommerce - Terra Outfitters)`
+4. Email Account: `john.smith@terraoutfitters.com`
+5. Password: `Password1`
+6. First Name: `John`
+7. Last Name: `Smith`
+8. Company: `Terra Outfitters, Inc`
+9. Address: `10441 Jefferson Blvd., Ste 200`
+10. Country: `United States`
+11. State/Province: `California`
+12. City: `Culver City`
+13. Zip/Postal Code: `90232`
+14. Telephone: `310-345-0984`
+15. Fax: `None`
+16. Credit Card Type: `Visa`
+17. Credit Card Number: `4111111111111111`
+18. Credit Card Expiration Month: `1`
+19. Credit Card Expiration Year: `2023`
+20. Credit Card Verification Number: `123`
+
+*Jack Fitz*
+1. Expand `Persona 5`
+2. Enable this Persona: `Yes`
+3. Persona Label: `Jack Fitz (Buyer - Terra Outfitters)`
+4. Email Account: `jack.fitz@terraoutfitters.com`
+5. Password: `Password1`
+6. First Name: `Jack`
+7. Last Name: `Fitz`
+8. Company: `Terra Outfitters, Inc.`
+9. Address: `7 N Willow St`
+10. Country: `United States`
+11. State/Province: `New Jersey`
+12. City: `Montclair`
+13. Zip/Postal Code: `07042`
+14. Telephone: `231-394-0342`
+15. Fax: `None`
+16. Credit Card Type: `Visa`
+17. Credit Card Number: `4111111111111111`
+18. Credit Card Expiration Month: `1`
+19. Credit Card Expiration Year: `2023`
+20. Credit Card Verification Number: `123`
+
+*Jill Moorehouse*
+1. Expand `Persona 6`
+2. Enable this Persona: `Yes`
+3. Persona Label: `Jill Moorehouse (Buyer - Terra Outfitters)`
+4. Email Account: `jill.moorehouse@terraoutfitters.com`
+5. Password: `Password1`
+6. First Name: `Jill`
+7. Last Name: `Moorehouse`
+8. Company: `Terra Outfitters, Inc.`
+9. Address: `130 Beaver St`
+10. Country: `United States`
+11. State/Province: `California`
+12. City: `San Francisco`
+13. Zip/Postal Code: `94115`
+14. Telephone: `556-417-6947`
+15. Fax: `None`
+16. Credit Card Type: `Visa`
+17. Credit Card Number: `4111111111111111`
+18. Credit Card Expiration Month: `1`
+19. Credit Card Expiration Year: `2023`
+20. Credit Card Verification Number: `123`
+
+*Emily Hopkins*
+1. Expand `Persona 7`
+2. Enable this Persona: `Yes`
+3. Persona Label: `Emily Hopkins (Owner, Emilys Exercise Emporium)`
+4. Email Account: `emily.hopkins@3e.com`
+5. Password: `Password1`
+6. First Name: `Emily`
+7. Last Name: `Hopkins`
+8. Company: `Emilys Exercise Emporium`
+9. Address: `135 Cannon St`
+10. Country: `United States`
+11. State/Province: `South Carolina`
+12. City: `Charleston`
+13. Zip/Postal Code: `29403`
+14. Telephone: `843-493-2938`
+15. Fax: `None`
+16. Credit Card Type: `Visa`
+17. Credit Card Number: `4111111111111111`
+18. Credit Card Expiration Month: `1`
+19. Credit Card Expiration Year: `2023`
+20. Credit Card Verification Number: `123`
+
+Clear cache once the personas are saved
+
+**Note:** Do *not* use apostrophes in the Persona Labels or the Company names.  For some reason those cause errors.
+
+**Note:** It's a good idea to disable the B2B personas by default once they're set up and tested.
 
 <a id="catalogs"></a>
 #### Catalogs
