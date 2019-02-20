@@ -113,6 +113,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Add Running As An Attribute to Select Products](#add-running-as-an-attribute-to-select-products)
 		- [Add Stock for Mailed Gift Card](#add-stock-for-mailed-gift-card)
 		- [Remove Manual Up-sells from Cronus Yoga Pant](#remove-manual-up-sells-from-cronus-yoga-pant)
+		- [Fix the Green color filter in Women's Hoodies and Sweatshirts](#fix-the-green-color-filter-in-womens-hoodies-and-sweatshirts)
 	- [Marketing](#marketing)
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
@@ -2041,6 +2042,10 @@ Navigate to `Catalog > Products`
 <a id="remove-manual-up-sells-from-cronus-yoga-pant"></a>
 #### Remove Manual Up-sells from Cronus Yoga Pant
 One of our customer segments revolves around men who purchase pants.  This segment is designed to feature the *Cronus Yoga Pant* and shows a change in related products rules when logged in as a member of that segment.  Natively, the product has some manually configured up-sells which, when shown as part of the demo scenario, make the change in segment less effective.  To address this, we'll remove the manually-assigned up-sell products from the *Cronus Yoga Pant* configurable product.
+
+<a id="fix-the-green-color-filter-in-womens-hoodies-and-sweatshirts"></a>
+#### Fix the Green color filter in Women's Hoodies and Sweatshirts
+TBD
 
 <a id="marketing"></a>
 ### Marketing
