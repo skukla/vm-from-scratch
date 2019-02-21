@@ -18,6 +18,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [Uninstalling Cloud-Init](#uninstalling-cloud-init)
 	- [Applying Package Updates](#applying-package-updates)
 	- [Adding the SSH Key](#adding-the-ssh-key)
+	- [Adding the Magento Cloud CLI](#adding-the-magento-cloud-cli)
 	- [Installing Helpful Additional Programs](#installing-helpful-additional-programs)
 	- [Setting the MoTD](#setting-the-motd)
 - [Solution Components Installation](#solution-components-installation)
@@ -107,13 +108,14 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Custom Home Page](#custom-home-page)
 		- [Custom Site Map](#custom-site-map)
 		- [Custom Theme Skin via SC Theme Customizer](#custom-theme-skin-via-sc-theme-customizer)
+		- [Add Additional Language Packs](#add-additional-language-packs)
 	- [Products](#products)
 		- [Re-arrange Gear > Bags Category](#re-arrange-gear--bags-category)
 		- [Re-arrange the Womens > Hoodies and Sweatshirts Category](#re-arrange-the-womens--hoodies-and-sweatshirts-category)
 		- [Add Running As An Attribute to Select Products](#add-running-as-an-attribute-to-select-products)
 		- [Add Stock for Mailed Gift Card](#add-stock-for-mailed-gift-card)
 		- [Remove Manual Up-sells from Cronus Yoga Pant](#remove-manual-up-sells-from-cronus-yoga-pant)
-		- [Fix the Green color filter in Women's Hoodies and Sweatshirts](#fix-the-green-color-filter-in-womens-hoodies-and-sweatshirts)
+		- [Add a Monogram as a Custom Option to the Strive Shoulder Pack](#add-a-monogram-as-a-custom-option-to-the-strive-shoulder-pack)
 	- [Marketing](#marketing)
 		- [Featured Products on Home Page](#featured-products-on-home-page)
 		- [Sale Category](#sale-category)
@@ -189,6 +191,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
 		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
 		- [Image Gallery Uses Prepend Instead of Replace](#image-gallery-uses-prepend-instead-of-replace)
+		- ["Find Your Local Store" String Isn't Translated](#find-your-local-store-string-isnt-translated)
 		- [Hide the Venia Lookbook Category](#hide-the-venia-lookbook-category)
 		- [Fix the Venia Tops Category](#fix-the-venia-tops-category)
 		- [Email "From" Doesn't Show Properly](#email-from-doesnt-show-properly)
@@ -356,6 +359,14 @@ Certain items in our solution stack such as the VM CLI and the Magento code base
 3. Paste in the key contents and then exit *Insert* mode with `Esc`
 4. Save the key file with `x` and then `Enter` 
 5. Change the key file permissions to 0400 with `sudo chmod 0400 /home/magento/Magento-Cloud`
+
+<a id="adding-the-magento-cloud-cli"></a>
+### Adding the Magento Cloud CLI
+In order to access private modules provided by the Solution Innovations team, we'll be setting up proxies between a Magento cloud environment and the Innovations team's gitlab repositories.  To do this, we'll need to ssh into the VM and follow the Cloud CLI pre-requisites provided in the Innovations team's Cloud extension.  Execute the following inside the VM:
+
+1. `curl -sS https://raw.githubusercontent.com/PMET-public/magento-cloud-extension/0.0.23/sh-scripts/install-cli-and-login.sh | bash `
+2. Once the Cloud cli is installed, you'll need to log into your cloud account via the terminal.  To do this, try the login command provided by the CLI.  It will give you an incorrect URL; something like: `https://localhost:5000`.  Along with that, it will offer an option to login via terminal.  
+3. Use that command and supply your credentials when prompted
 
 <a id="installing-helpful-additional-programs"></a>
 ### Installing Helpful Additional Programs
@@ -1898,7 +1909,7 @@ ul.footer.links > li > a,
 .swatch-option.selected { 
     outline:; 
 }
-/* Checkout Styles */
+/* Checkout Styles  - Orange Progress Bars, etc */
 .opc-progress-bar-item._active:before,
 .opc-progress-bar-item._active>span:before {
 	background:;
@@ -1970,6 +1981,14 @@ div.pagebuilder-button-link:hover {
 	color: #006bb4 !important; 
 }
 ```
+<a id="add-additional-language-packs"></a>
+#### Add Additional Language Packs
+At this point, the code base contains language packs for US English and German.  Since our SC colleagues are dispersed throughout the world, we'll include some additional language packs so that our colleagues can use them in their custom demos.  For now, we'll include Brazilian Portuguese, Argentine Spanish, Hindi, and Japanese:
+
+1. From a terminal, we can use `add-key && composer require magento2translations/language_pt_br:dev-master magento2translations/language_es_ar:dev-master magento2translations/language_hi_in:dev-master magento2translations/language_ja_jp:dev-master
+` to download the language packs
+2. 
+
 <a id="products"></a>
 ### Products
 
@@ -2043,9 +2062,26 @@ Navigate to `Catalog > Products`
 #### Remove Manual Up-sells from Cronus Yoga Pant
 One of our customer segments revolves around men who purchase pants.  This segment is designed to feature the *Cronus Yoga Pant* and shows a change in related products rules when logged in as a member of that segment.  Natively, the product has some manually configured up-sells which, when shown as part of the demo scenario, make the change in segment less effective.  To address this, we'll remove the manually-assigned up-sell products from the *Cronus Yoga Pant* configurable product.
 
-<a id="fix-the-green-color-filter-in-womens-hoodies-and-sweatshirts"></a>
-#### Fix the Green color filter in Women's Hoodies and Sweatshirts
-TBD
+<a id="add-a-monogram-as-a-custom-option-to-the-strive-shoulder-pack"></a>
+#### Add a Monogram as a Custom Option to the Strive Shoulder Pack
+In order to demonstrate product custom options, we'll create a monogram option on the `Strive Shoulder Pack` product.
+
+Navigate to `Catalog > Products > Strive Shoulder Pack`
+
+*All Store Views*
+
+1. Expand `Customizable Options`
+2. Add an option
+3. Option Title: `Add Your Initials`
+4. Input: `Text Field`
+5. Required: `No`
+6. Price: `25%`
+7. SKU: `engraving`
+8. Max Characters: `5`
+
+*Luma Website > Luma Store > Deutsch Store View*
+
+1. Option Title: `Fügen Sie Ihre Initialen`
 
 <a id="marketing"></a>
 ### Marketing
@@ -3572,6 +3608,15 @@ For some reason, the quantity statement in the Pick Up In Store Module overlay i
 2. Change it from `prepend` to `replace`
 3. Save with `Esc`, then `:wq` and `Enter`
 4. Clear the cache with: `cache`
+
+<a id="find-your-local-store-string-isnt-translated"></a>
+#### "Find Your Local Store" String Isn't Translated
+
+1. `vim /vendor/magentoese/module-instorepickup/view/frontend/web/js/store_selector.js`
+2. Use `set number` to view line numbers
+3. In the `translate_` function, on line 40, (after the comment), add: `var nothing = $.mage.__('Find your local store');`
+4. Save and exit with `:wq`
+5. Compile dependencies and deploy static content, clear cache and reindex with: `di-compile && deploy-content && clean`
 
 <a id="hide-the-venia-lookbook-category"></a>
 #### Hide the Venia Lookbook Category
