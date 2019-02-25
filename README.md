@@ -195,6 +195,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Hide the Venia Lookbook Category](#hide-the-venia-lookbook-category)
 		- [Fix the Venia Tops Category](#fix-the-venia-tops-category)
 		- [Email "From" Doesn't Show Properly](#email-from-doesnt-show-properly)
+	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 
 <!-- /MarkdownTOC -->
 
@@ -3306,8 +3307,18 @@ Initially, the Gear category is set to show a static block of content via a Stat
 Navigate to `Catalog > Categories > Gear`
 
 1. Display Settings > Display Mode: `Products only`
-2. Content > Elements > Widgets > Gear Category Content > Layout Updates: Delete Layout Update
-3. Save
+
+Navigate to `Content > Elements > Widgets > Gear Category Content`
+
+1. Layout Updates: `Delete Layout Update`
+2. Save
+
+Next, let's also remove the Gear category left navigation.  This is not layered navigation - it's a separate CMS block/widget pair `Gear Left Menu`.
+
+Navigate to `Content > Elements > Widgets > Gear Left Menu`
+
+1. Layout Updates: `Delete Layout Update`
+2. Save
 
 When done, clear cache
 
@@ -3801,3 +3812,9 @@ When done, refresh the cache.
 #### Email "From" Doesn't Show Properly
 
 Sources: [Confirmation emails have no FROM or FROM email address 2.2.4 #14952](https://github.com/magento/magento2/issues/14952)
+
+<a id="notes-on-updating-the-codebase"></a>
+### Notes on Updating the Codebase
+As of this writing (2/25/19), there have been changes made to the Solution Innovations team's gitlab account which have placed it behind a firewall.  This change makes it a bit more tedious to add new code to the VM for the moment, so the following are some details on what to expect:
+
+1.
