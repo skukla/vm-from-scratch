@@ -1418,9 +1418,9 @@ By default, the home page content is contained within blocks which are then plac
 		7. Bottom Padding: `10px`
 		8. Left Padding: `20px`
 
-4. Inside the right column, add a text area.
+4. Inside the right column, add a text element.
 
-5. **Row 1 > Right Column > Textarea:**
+5. **Row 1 > Right Column > Text:**
 	1. Content Line 1:
 		1. Format: `Heading 2`
 		2. Font Size: `26px`
@@ -1461,7 +1461,8 @@ By default, the home page content is contained within blocks which are then plac
 		8. Left Padding: `0`
 
 8. **Row 1 > Right Column > Buttons > Button:** 
-	1. Content > Text: `Shop New Yoga`
+	1. Content
+		1. Text: `Shop New Yoga`
 	2. Content > Button Type: `Primary`
 	3. Content > Button Link: `Category` -- `What's New` (Do not open in a new tab)
 	4. Advanced > Alignment: `Center`
@@ -1491,22 +1492,22 @@ By default, the home page content is contained within blocks which are then plac
 	7. Background Attachment: `Scroll`
 	8. Background Repeat: `No`
 	9. Paralax > Enable Paralax Background: `No`
-	10. Layout > Minimum Height: `350px`
+	10. Layout > Minimum Height: `400px`
 	11. Layout > Vertical Alignment: `Center`
 	12. Advanced > Alignment: `Right`
 	13. Margins and Padding:
 		1. Top Margin: `10px`
-		2. Right Margin: `10px`
+		2. Right Margin: `15px`
 		3. Bottom Margin: `10px`
-		4. Left Margin: `10px`
+		4. Left Margin: `15px`
 		5. Top Padding: `20px`
 		6. Right Padding: `20px`
 		7. Bottom Padding: `20px`
 		8. Left Padding: `20px`
 
-13. Inside the Left Column, add a text area.
+13. Inside the Left Column, add a text element.
 
-14. **Row 2 > Left Column > Textarea:**
+14. **Row 2 > Left Column > Text:**
 	1. Content Line 1:
 		1. Format: `Heading 2`
 		2. Font Size: `36px`
@@ -1536,7 +1537,7 @@ By default, the home page content is contained within blocks which are then plac
 	1. Background Image: `hp-erin-center.jpg`
 	2. Advanced > Alignment: `Left`
 
-17. **Row 2 > Center Column > Textarea:**
+17. **Row 2 > Center Column > Text:**
 	1. Content Line 1: 
 		1. Text: `Take it from Erin`
 		2. Color: `Black`
@@ -1551,7 +1552,7 @@ By default, the home page content is contained within blocks which are then plac
 	1. Background Image: `hp-girl-right.jpg`
 	2. Advanced > Alignment: `Right`
 
-20. **Row 2 > Right Column > Textarea:**
+20. **Row 2 > Right Column > Text:**
 	1. Content Line 1: 
 		1. Text: `All Shirts`
 		2. Color: `Black`
@@ -1566,14 +1567,15 @@ By default, the home page content is contained within blocks which are then plac
 	2. Advanced > Margins and Padding:
 		1. Top Margin: `10px`
 
-23. **Row 3 > Right Column > Textarea:**
+23. **Row 3 > Right Column > Text:**
 	1. Content Line 1: 
 		1. Text: `Twice around, twice as nice`
 	2. Content Line 2:
 		1. Text: `Find conscientious, comfy clothing in our eco-friendly collection`
 
 24. **Row 3 > Right Column > Buttons > Button:** 
-	1. Content > Text: `Shop the Collection`
+	1. Content
+		1. Text: `Shop the Collection`
 
 25. **Row 4**
 	1. Appearance: `Full Width`
@@ -1820,7 +1822,7 @@ In the *Additional CSS* section, paste the following CSS:
 .navigation .level0 .submenu .active>a,
 .block-collapsible-nav .item.current a,
 .block-collapsible-nav .item.current>strong.fotorama__thumb-border { 
-    border-color:;
+    border-color: #ff5501;
 }
 /* Main Nav Bar (Navigation Container - Outside Edges) */
 .nav-sections, 
@@ -1899,30 +1901,50 @@ ul.footer.links > li > a,
 .page-footer .switcher .options ul.dropdown a:visited { 
     color: #575757 !important;
 }
+
+/* Product Detail Page */
+
 /* Photo Gallery Outlines */
 .fotorama__thumb-border { 
-    border-color:;
+    border-color: #ff5501;
 }
 /* Swatch Borders */
 .swatch-option.image:not(.disabled):hover,
 .swatch-option.color:not(.disabled):hover,
 .swatch-option.selected { 
-    outline:; 
+    outline: #ff5501; 
 }
+/* Add to Wishlist */
+.bundle-options-container .block-bundle-summary .product-addto-links>.action, .product-item-actions .actions-secondary>.action, .product-social-links .action.tocompare, .wishlist.split.button>.action.split, .product-social-links .action.mailto.friend, .product-social-links .action.towishlist, .block-bundle-summary .action.towishlist, .product-item .action.towishlist, .table-comparison .action.towishlist {
+	color: #006bb4;
+}
+
+/* Shopping Cart Styles */
+.cart.table-wrapper .wishlist.split.button>.action.split, .cart.table-wrapper .wishlist.split.button>.action.toggle,
+.gift-item-block .title,
+.paypal-review-discount .block>.title strong, .cart-discount .block>.title strong {
+	color: #006bb4;	
+}
+.gift-options .actions-toolbar .secondary .action-cancel {
+	background-color: white !important;
+        color: #575757 !important;
+}
+
 /* Checkout Styles  - Orange Progress Bars, etc */
 .opc-progress-bar-item._active:before,
 .opc-progress-bar-item._active>span:before {
-	background:;
-	border-color:;
+	background: #ff5501;
+	border-color: #ff5501;
 }
 .opc-progress-bar-item._active>span:after,
 .opc-wrapper .shipping-address-item.selected-item {
-	border-color:;
+	border-color: #ff5501;
 }
 .opc-wrapper .shipping-address-item.selected-item:after {
-	background:;
+	background: #ff5501;
 	color:;
 }
+
 
 /* Page Builder Styles */
 
@@ -1983,11 +2005,27 @@ div.pagebuilder-button-link:hover {
 ```
 <a id="add-additional-language-packs"></a>
 #### Add Additional Language Packs
-At this point, the code base contains language packs for US English and German.  Since our SC colleagues are dispersed throughout the world, we'll include some additional language packs so that our colleagues can use them in their custom demos.  For now, we'll include Brazilian Portuguese, Argentine Spanish, Hindi, and Japanese:
+At this point, the code base contains language packs for US English and German.  Since our SC colleagues are dispersed throughout the world, we'll include some additional language packs so that our colleagues can use them in their custom demos.  For now, we'll include:
 
-1. From a terminal, we can use `add-key && composer require magento2translations/language_pt_br:dev-master magento2translations/language_es_ar:dev-master magento2translations/language_hi_in:dev-master magento2translations/language_ja_jp:dev-master
-` to download the language packs
-2. 
+1. Brazilian Portuguese
+2. Argentine Spanish
+3. Hindi
+4. Japanese
+5. Korean
+6. Traditional Chinese
+
+1. Add the following lines to the `require` section of `composer.json`:
+
+```
+"magento2translations/language_es_ar": "dev-master",
+"magento2translations/language_hi_in": "dev-master",
+"magento2translations/language_ja_jp": "dev-master",
+"magento2translations/language_ko_kr": "dev-master",
+"magento2translations/language_pt_br": "dev-master",
+"magento2translations/language_zh_cn": "dev-master"
+```
+
+2. Since these are just language packs, we can use: `add-key && composer update && clean`
 
 <a id="products"></a>
 ### Products
@@ -2664,10 +2702,23 @@ Navigate to `Content > Elements > Dynamic Blocks`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `LUMA Guest Customers`
 
-Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
+Content will consist of one row containing some headings and a products list element which refers to the `Featured Products` category.  We'll also show off the *hide* feature by including a hidden HTML element containing a different appearance for the headings.
 
-1. Duplicate the first row
-2. Drag an `HTML Code` element into the top row
+1. Drag a `text` element into the first row
+	1. Content Line 1:
+		1. Format: `Heading 2`
+		2. Font Size: `36px`
+		3. Line Height: `Line Height`
+		4. Text: `Hot Sellers`
+		5. Color: `Black`
+	2. Content Line 2:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `Line Height`
+		4. Text: `Here's what's trending on Luma right now`
+		5. Color: `Black`
+
+2. Drag an `HTML Code` element into the row beneath the text element
 3. Paste the following
 
 ```
@@ -2677,17 +2728,18 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
-5. Add a `Products List` element and use the following settings:
+4. Hide the HTML element
+5. Drag products list element into the row beneath the hidden HTML element
+6. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
+7. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. Category **is** **62**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
-
-6. Save the Dynamic Block.
-7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block.
+9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
 
 **Note:** Creating the dynamic block using `All Store Views` first is mandatory.  For some reason, Magento doesn't render store view specific dynamic blocks which are nested inside of static blocks, but it *does* render the content assigned to *All Store Views*.  By assigning the block to *All Store Views*, we ensure we can see it render in the home page content block which we'll use to demo most often.
 
@@ -2695,13 +2747,24 @@ Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. De-tick `Use Default Value`
-3. Update the HTML heading to:
+
+1. Drag a `text` element into the first row
+	1. Content Line 1:
+		1. Text: `Hot Sellers`
+	2. Content Line 2:
+		1. Text: `Here's what's trending on Luma right now`
+
+2. Drag an `HTML Code` element into the row beneath the text element
+3. Update the HTML to:
 ```
 <div class="content-heading">
    <h2 class="title">Heiße Angebote</h2>
    <p class="info">Favoriten von Luma Shoppers</p>
 </div>
 ```
+4. Hide the HTML element
+5. Drag products list element into the row beneath the hidden HTML element
+
 Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
@@ -2727,19 +2790,34 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
 
-1. Duplicate the first row
-2. Drag an `HTML Code` element into the top row
+1. Drag a `text` element into the first row
+	1. Content Line 1:
+		1. Format: `Heading 2`
+		2. Font Size: `36px`
+		3. Line Height: `Line Height`
+		4. Text: `Because You Love Running`
+		5. Color: `Black`
+	2. Content Line 2:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `Line Height`
+		4. Text: `#RunnerLife`
+		5. Color: `Black`
+
+2. Drag an `HTML Code` element into the row beneath the text element
 3. Paste the following
 
 ```
 <div class="content-heading">
     <h2 class="title">Because You Love Running</h2>
-    <p class="info">#RunnersLife</p>
+    <p class="info">#RunningIsLife</p>
 </div>
 ```
 
-4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
-5. Add a `Products List` element and use the following settings:
+4. Hide the HTML element
+5. Drag products list element into the row beneath the hidden HTML element
+6. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
+7. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. Activity **contains** **Running**
@@ -2747,19 +2825,19 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
 
-6. Save the Dynamic Block.
-7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block.
+9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. De-tick `Use Default Value`
-3. Update the HTML heading to:
+3. Update the HTML to:
 ```
 <div class="content-heading">
     <h2 class="title">Weil Du Gerne Rennst</h2>
-    <p class="info">#LäuferLeben
+    <p class="info">#LäufenIstLeben
 </p>
 </div>
 ```
@@ -2786,8 +2864,21 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
 
-1. Duplicate the first row
-2. Drag an `HTML Code` element into the top row
+1. Drag a `text` element into the first row
+	1. Content Line 1:
+		1. Format: `Heading 2`
+		2. Font Size: `36px`
+		3. Line Height: `Line Height`
+		4. Text: `Just For You`
+		5. Color: `Black`
+	2. Content Line 2:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `Line Height`
+		4. Text: `Here are some items to go with your new jacket!`
+		5. Color: `Black`
+
+2. Drag an `HTML Code` element into the row beneath the text element
 3. Paste the following
 
 ```
@@ -2797,8 +2888,10 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
-5. Add a `Products List` element and use the following settings:
+4. Hide the HTML element
+5. Drag products list element into the row beneath the hidden HTML element
+6. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
+7. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ANY** of these conditions are **TRUE**
 			1. **SKU** **contains** **WH08**
@@ -2808,16 +2901,16 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 			5. **SKU** **contains** **MS08**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
-
-6. Save the Dynamic Block.
-7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block.
+9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. De-tick `Use Default Value`
-3. Update the HTML heading to:
+3. Update the HTML to:
+
 ```
 <div class="content-heading">
     <h2 class="title">Nur für Dich</h2>
@@ -2847,8 +2940,21 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
 
-1. Duplicate the first row
-2. Drag an `HTML Code` element into the top row
+1. Drag a `text` element into the first row
+	1. Content Line 1:
+		1. Format: `Heading 2`
+		2. Font Size: `36px`
+		3. Line Height: `Line Height`
+		4. Text: `For Your Eyes Only, VIP`
+		5. Color: `Black`
+	2. Content Line 2:
+		1. Format: `Heading 2`
+		2. Font Size: `26px`
+		3. Line Height: `Line Height`
+		4. Text: `Here are some of our newest products`
+		5. Color: `Black`
+
+2. Drag an `HTML Code` element into the row beneath the text element
 3. Paste the following
 
 ```
@@ -2858,23 +2964,25 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 </div>
 ```
 
-4. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
-5. Add a `Products List` element and use the following settings:
+4. Hide the HTML element
+5. Drag products list element into the row beneath the hidden HTML element
+6. Advanced > Alignment: `Center` (Optional, but useful to illustrate the expected result)
+7. Add a `Products List` element and use the following settings:
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. New **is** **Yes**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
 
-6. Save the Dynamic Block.
-7. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-8. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block.
+9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
+10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. De-tick `Use Default Value`
-3. Update the HTML heading to:
+3. Update the HTML to:
 ```
 <div class="content-heading">
     <h2 class="title">Nur für Deine Augen, VIP</h2>
