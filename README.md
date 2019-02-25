@@ -265,8 +265,8 @@ To Install VMWare Fusion:
 
 	1. With VMWare Fusion open, double-click on *Install from disc or image*.
 	2. Drag and drop the downloaded disc image where indicated and then click *Continue*.
-	3. De-select *Use Easy Install* and then click *Continue*.
-	4. Choose *UEFI* but leave *UEFI Secure Boot* de-selected.
+	3. Deselect *Use Easy Install* and then click *Continue*.
+	4. Choose *UEFI* but leave *UEFI Secure Boot* deselected.
 	5. Before finishing, we'll customize some machine settings.  Click the *Customize Settings* button to do so.
 	6. As each new VM you create will require an actual file to be created on your hard drive, you'll now be prompted to save the file into a *Virtual Machines* directory.  VMWare creates this directory for you in your your home folder when it's installed.  Choose a name for the file and save it.
 	7. Use the Settings dialog window which appears now to configure the machine to the settings above in [VM Set Up](#vm-set-up)
@@ -2739,14 +2739,14 @@ Content will consist of one row containing some headings and a products list ele
 	3. Advanced > Alignment: `Center`
 8. Save the Dynamic Block.
 9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
 
 **Note:** Creating the dynamic block using `All Store Views` first is mandatory.  For some reason, Magento doesn't render store view specific dynamic blocks which are nested inside of static blocks, but it *does* render the content assigned to *All Store Views*.  By assigning the block to *All Store Views*, we ensure we can see it render in the home page content block which we'll use to demo most often.
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
-2. De-tick `Use Default Value`
+2. Deselect `Use Default Value`
 
 1. Drag a `text` element into the first row
 	1. Content Line 1:
@@ -2827,12 +2827,12 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 
 8. Save the Dynamic Block.
 9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
-2. De-tick `Use Default Value`
+2. Deselect `Use Default Value`
 3. Update the HTML to:
 ```
 <div class="content-heading">
@@ -2903,12 +2903,12 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 	3. Advanced > Alignment: `Center`
 8. Save the Dynamic Block.
 9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
-2. De-tick `Use Default Value`
+2. Deselect `Use Default Value`
 3. Update the HTML to:
 
 ```
@@ -2976,12 +2976,12 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 
 8. Save the Dynamic Block.
 9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is de-ticked. (This ensures that the US English store view is included in the grid and may demo better)
+10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
-2. De-tick `Use Default Value`
+2. Deselect `Use Default Value`
 3. Update the HTML to:
 ```
 <div class="content-heading">
@@ -3046,6 +3046,25 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `0`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
+
+Next, we'll translate this block for the German store view.  
+
+1. Switch the store view scope to `Luma > Luma Store > US English`
+2. Deselect `Use Default Value`
+3. `Save and continue`
+4. Switch the store view scope to `Luma > Luma Store > Deutsch`
+5. Deselect `Use Default Value`
+6. `Save and continue`
+7. Update the text element:
+	1. Content Line 1:
+		1. Text: `Sie sind fast da!` 
+	2. Content Line 2:
+		1. Text: `Geben Sie 100 € oder mehr aus, um` (`Shift+Enter`)
+	3. Content Line 3:
+		1. Text: `KOSTENLOSEN VERSAND` (`Shift+Enter`)
+	4. Content Line 4:
+		1. Text: `zu erhalten`
+8. Save the dynamic block
 
 Next, we need to create a new Dynamic Block Rotator widget we'll use to display the Free Shipping advertisement:
 
@@ -3123,6 +3142,19 @@ Navigate to `Content > Elements > Dynamic Blocks`
 4. Save the Dynamic Block
 
 **Note:** The reason for the -45px top margin above has to do with how Magento displays Dynamic Block rotator widgets. In our example, we'll be displaying two separate dynamic block rotator widgets on the same shopping cart page.  Each of these rotators is contained within its own `div` element which is still *visible* on the page (only its *content* is hidden and displayed based on segmentation). Therefore, each Dynamic Block Rotator widget's containing `div` is still affected by padding and margin.
+
+Next, we'll translate this block for the German store view.  
+
+1. Switch the store view scope to `Luma > Luma Store > US English`
+2. Deselect `Use Default Value`
+3. `Save and continue`
+4. Switch the store view scope to `Luma > Luma Store > Deutsch`
+5. Deselect `Use Default Value`
+6. `Save and continue`
+7. Update the text element:
+	1. Content Line 1:
+		1. Text: `Kostenloser Versand beantragt!` 
+8. Save the dynamic block
 
 Next, we need to create a new Dynamic Block Rotator widget we'll use to display the :
 
@@ -3309,7 +3341,7 @@ Filter on the following:
 1. Set the `Sale` attribute to be filterable and able to be used in column arrangement
 2. Filter on Sale = Yes (33)
 3. Select all items
-4. De-tick `Strive Shoulder Pack`, `Savvy Shoulder Tote`, `Endeavor Daytrip Backpack`, `Dual Handle Cardio Ball`
+4. Deselect `Strive Shoulder Pack`, `Savvy Shoulder Tote`, `Endeavor Daytrip Backpack`, `Dual Handle Cardio Ball`
 5. Use Mass Actions to set all *other* items Sale = `No`
 6. Add the following items on sale:
 	1. Zing Jump Rope
