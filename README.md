@@ -196,6 +196,14 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Fix the Venia Tops Category](#fix-the-venia-tops-category)
 		- [Email "From" Doesn't Show Properly](#email-from-doesnt-show-properly)
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
+		- [VM Snapshots Failed Cloud Tokens](#vm-snapshots-failed-cloud-tokens)
+	- [How Do I...](#how-do-i)
+		- [Install New Extensions](#install-new-extensions)
+			- [Composer and What It Does](#composer-and-what-it-does)
+			- [From the Solution Innovation Team](#from-the-solution-innovation-team)
+			- [From a Third Party](#from-a-third-party)
+		- [Add a New Language](#add-a-new-language)
+		- [Use the VM in Offline Mode](#use-the-vm-in-offline-mode)
 
 <!-- /MarkdownTOC -->
 
@@ -1468,6 +1476,8 @@ By default, the home page content is contained within blocks which are then plac
 	3. Content > Button Link: `Category` -- `What's New` (Do not open in a new tab)
 	4. Advanced > Alignment: `Center`
 
+**Note:** You *could* use a `banner` element instead of the multi-column approach; however, I find that the responsive look-and-feel is a bit more attractive with the approach we've taken here.
+
 10. Duplicate the first row and remove right column.
 
 11. **Row 2:**
@@ -1600,7 +1610,7 @@ By default, the home page content is contained within blocks which are then plac
 		7. Bottom Padding: `10px`
 		8. Left Padding: `10px`
 
-26. Save the block (we'll add more to it later).
+26. Save the page (we'll add more to it later).
 
 <a id="luma-home-page-de"></a>
 #### Luma Home Page (DE)
@@ -2193,11 +2203,37 @@ Navigate to `Catalog > Categories > Luma Catalog > Promotions > Featured Product
 		2. Operator: `Equal`
 		3. Value: `Yes`
 2. Save the category
+3. In order to demo the rearrangement of products via drag-and-drop, we can't have rules active (for some odd reason), so be sure to turn the rule off after the category is populated.  (This will collapse the rule interface, but if you re-enable the rule during a demo, the rule is still present and shows well.)
 
 Once saved, verify the products have been added to the category as shown above.
 
 <a id="sale-category"></a>
 #### Sale Category
+*Populating the Category*
+We'll use a similar approach to the Featured Products category to populate the sale category:
+
+Navigate to `Stores > Settings > Configuration > Catalog > Visual Merchandiser`
+
+1. Find the `Sale` attribute in the `Visible Attributes for Category Rules` multi-select
+2. Hold `Command` (Mac) to maintain the attributes which are already selected and click the `Sale` attribute to add it
+3. Save the change
+
+Next, we'll populate our Featured Products category using a Visual Merchandiser rule:
+
+Navigate to `Catalog > Categories > Luma Catalog > Promotions > Featured Products`
+
+1. Products in Category:
+	1. Match products by rule: `Yes`
+	2. Click `Add Condition`
+		1. Attribute: `Sale`
+		2. Operator: `Equal`
+		3. Value: `Yes`
+2. Save the category
+3. In order to demo the rearrangement of products via drag-and-drop, we can't have rules active (for some odd reason), so be sure to turn the rule off after the category is populated.  (This will collapse the rule interface, but if you re-enable the rule during a demo, the rule is still present and shows well.)
+
+Once saved, verify the products have been added to the category as shown above.
+
+*Setting Up Category Permissions*
 In an ideal world, category permissions and staging and preview would work well together.  In reality (as of 2.3.0), they don't.  As soon as Category Permissions are enabled, the top navigation disappears from all staging previews.  This is slated to be fixed in 2.3.1, so we'll include instructions here on how to show a *B2C* example of a custom catalog.  Our goal here is to only show the Sale category to our VIP customers.
 
 By default, category permissions are disabled, so we'll start by enabling them.
@@ -2770,10 +2806,8 @@ Once the dynamic block is created, we need to add it to the Home Page blocks for
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. Add a second row to the content - use the default `Contained` row template
-2. Update the row properties and zero out the top and bottom padding
-3. Add the `Featured Products (Guest Customers)` dynamic block to the second row
-4. Save
+1. Add the `Featured Products (Guest Customers)` dynamic block to the empty fourth row in the page we created earlier
+2. Save
 
 Repeat this process for the `Home Page Block - DE` content block.
 
@@ -2846,7 +2880,8 @@ Once the dynamic block is created, we need to add it to the Home Page blocks for
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. Duplicate the `Featured Products (Guest Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Runners)` block, and then drag the `Featured Products (Runners)` block *above* the `Featured Products (Guest Customers)` block.
+1. Duplicate the `Featured Products (Guest Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Runners)` block, and then drag the `Featured Products (Runners)` block into the *second* row, beneath the three columns
+2. Add 10px top margin to the Dynamic Block element
 2. Save
 
 Repeat this process for the `Home Page Block - DE` content block.
@@ -3810,6 +3845,7 @@ When done, refresh the cache.
 
 <a id="email-from-doesnt-show-properly"></a>
 #### Email "From" Doesn't Show Properly
+At the moment, there's a known issue which causes emails sent from Magento to use the wrong email sender value.  The source thread below explains how we might look at fixing this by modifying the core code.  
 
 Sources: [Confirmation emails have no FROM or FROM email address 2.2.4 #14952](https://github.com/magento/magento2/issues/14952)
 
@@ -3817,4 +3853,40 @@ Sources: [Confirmation emails have no FROM or FROM email address 2.2.4 #14952](h
 ### Notes on Updating the Codebase
 As of this writing (2/25/19), there have been changes made to the Solution Innovations team's gitlab account which have placed it behind a firewall.  This change makes it a bit more tedious to add new code to the VM for the moment, so the following are some details on what to expect:
 
-1.
+In an ideal world, when you use composer to download and install new code, an SSH tunnel should be created via a cloud environment, and the private repositories refreshed.  Sometimes, for whatever reason, this gets a little weird.  The primary symptom of weirdness is that external repositories like `repo.magento.com` don't allow code to be downloaded.  You can tell this is happening because you'll get several error messages (one for each failed download request) via composer.
+
+If this happens, you should be to simply exit the currently-running composer command using `Ctrl+c` and then re-run `upgrade`.
+
+<a id="vm-snapshots-failed-cloud-tokens"></a>
+#### VM Snapshots Failed Cloud Tokens
+Whenever you restore a snapshot and then try to upgrade or add new code via composer, the cloud login token will become invalid.  Unforunately, there's no way to *prevent* this at present; however, there *is* a pretty simple work-around.  If the cloud token is invalid, simply use the `cloud-login` command and re-authenticate with your cloud username and password.  Then you should be able to proceed with composer activities as expected.
+
+<a id="how-do-i"></a>
+### How Do I...
+<a id="install-new-extensions"></a>
+#### Install New Extensions
+One of the primary benefits to using the VM is that new functionality can be added and removed as you, the SC, see fit.  Depending on the extension you're adding (whether it comes from the Solution Innovation team or a third-party), the process is still relatively simple.
+
+<a id="composer-and-what-it-does"></a>
+##### Composer and What It Does
+Before we get into installing extensions, it would be beneficial to understand how composer and Magento work together, since composer is the primary tool we use for downloading new modules for the platform.
+
+Modern software platforms like Magento 2 are built in a modular fashion -- each feature of the platform is, essentially, self-contained in its own module.  The module has all the necessary components it needs to hook into the admin panel and display on the storefront, etc.  When developers ship their applications, they often store them in a collection of git repositories.  When merchants install and deploy the applications, they'll use a "package manager" -- a tool which receives instructions about where to find an application's packages (or modules), instructions about which modules are required by other modules and so on.
+
+Composer is a PHP package manager. PHP application developers use it to deploy their applications and define dependencies between their applications' modules.  Each application written for deployment and management via composer uses a "master" file to define which modules are to be included, their versions, their dependencies, and so on.  Further, each module used in the application has its *own* `composer.json` file which is responsible for defining specific details about that module and how it should behave with other modules in the application as a whole.
+
+In our case, when installing new modules, we'll work with the 
+
+<a id="from-the-solution-innovation-team"></a>
+##### From the Solution Innovation Team
+The Solution Innovation team (and Steve) store their modules in git repositories on github and gitlab respectively.  In order to download and install those modules, we'll need to add the repository source definition to our `composer.json` file.  Once the source is added, we then require the module we want to add to the codebase.  Composer will use the repository source definition to 
+
+<a id="from-a-third-party"></a>
+##### From a Third Party
+
+
+<a id="add-a-new-language"></a>
+#### Add a New Language
+
+<a id="use-the-vm-in-offline-mode"></a>
+#### Use the VM in Offline Mode
