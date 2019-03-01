@@ -90,12 +90,14 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [General Content Updates](#general-content-updates)
 		- [Luma Home Page \(US\)](#luma-home-page-us)
 			- [Page Setup](#page-setup)
-			- [Page Builder Content](#page-builder-content)
+			- [Remove Home Page Block](#remove-home-page-block)
+			- [Create Page Builder Content](#create-page-builder-content)
 		- [Luma Home Page \(DE\)](#luma-home-page-de)
 			- [Page Setup](#page-setup-1)
-			- [Page Builder Content](#page-builder-content-1)
+			- [Page Builder Content](#page-builder-content)
 		- [Venia Home Page](#venia-home-page)
 			- [Page Setup](#page-setup-2)
+			- [Page Builder Content](#page-builder-content-1)
 	- [Attribute Set Updates](#attribute-set-updates)
 		- [Short Description and Description Arrangement](#short-description-and-description-arrangement)
 		- [Sale and New Attributes](#sale-and-new-attributes)
@@ -144,10 +146,10 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Venia Up-sells](#venia-up-sells)
 			- [Bags to Hoodies and Fitness Equipment \(Cross-sells\)](#bags-to-hoodies-and-fitness-equipment-cross-sells)
 		- [Promotions \(Cart Price Rules\)](#promotions-cart-price-rules)
-			- [Deactivate Unwanted Rules](#deactivate-unwanted-rules)
+			- [20% Off Every $200-plus Purchase \(3000 Reward points\)](#20-off-every-200-plus-purchase-3000-reward-points)
 			- [Free Shipping](#free-shipping)
 		- [Targeted Content \(Dynamic Blocks\)](#targeted-content-dynamic-blocks)
-			- [Featured Products \(Guest Customers\)](#featured-products-guest-customers)
+			- [Featured Products \(All Customers\)](#featured-products-all-customers)
 			- [Featured Products \(Runners\)](#featured-products-runners)
 			- [Featured Products \(Women Who Purchased NSDJ\)](#featured-products-women-who-purchased-nsdj)
 			- [Featured Products \(VIP\)](#featured-products-vip)
@@ -1376,9 +1378,28 @@ Navigate to `Content > Elements > Pages > Home Page`
 3. Page in Websites: `Luma Website > Luma Store > US English`
 4. Layout: `Page -- Full Width`
 
-<a id="page-builder-content"></a>
-##### Page Builder Content
-By default, the home page content is contained within blocks which are then placed onto the home page itself using a widget.  This approach has pros and cons, but in general, it violates the reason content is generally split into blocks: easy reuse.  The content is not reused anywhere else and so, ought not to need block approach; however, the CSS has been written specifically to refer to a widget and thus, it would take more effort than I want to spend to "fix" it properly.  Thus, we'll continue to use the block content method and use page builder to drive the content.
+<a id="remove-home-page-block"></a>
+##### Remove Home Page Block
+By default, the home page content is contained within blocks which are then placed onto the home page itself using a widget.  This approach has pros and cons, but in general, it violates the reason content is generally split into blocks: easy reuse.  The content is not reused anywhere else and so, ought not to need block approach.  We'll use a CMS page for our home page and thus, we need to de-activate our Home Page CMS Block widget.
+
+Navigate to `Content > Elements > Widgets > Home Page`
+
+1. Layout Updates: `Delete Layout Update`
+2. Save
+
+Next, we'll also deactivate the Home Page CMS block.
+
+Navigate to `Content > Elements > Blocks > Home Page Block`
+
+1. Enable Block: `No`
+2. Save
+
+Clear the cache when done
+
+<a id="create-page-builder-content"></a>
+##### Create Page Builder Content
+
+Navigate to `Content > Elements > Pages > Luma Home Page - US`
 
 1. **Row 1:**
 	1. Appearance: `Full Width`
@@ -1393,107 +1414,65 @@ By default, the home page content is contained within blocks which are then plac
 	10. Layout > Vertical Alignment: `Top`
 	11. Advanced > Alignment: `Default`
 	12. Margins and Padding:
-		1. Top Margin: `0`
+		1. Top Margin: `10px`
 		2. Right Margin: `0`
-		3. Bottom Margin: `10px`
+		3. Bottom Margin: `0`
 		4. Left Margin: `0`
 		5. Top Padding: `10px`
 		6. Right Padding: `10px`
 		7. Bottom Padding: `10px`
 		8. Left Padding: `10px`
 
-2. Next, add a column to the top row so that the row splits into two columns.
+2. Next, add a banner to the top row so that the row has a perceived second column.
 
-3. **Row 1 > Right Column:**
-	1. Grid Size: `6/12`
-	2. Appearance: `Centered`
-	3. Background > Background Color: `rgba(255, 255, 255, 0.9)`
+3. **Row 1 > Banner:**
+	1. Appearance: `Collage Right`
+	2. Minimum Height: `300px`
+	3. Background > Background Color: `rgba(255, 255, 255, 0)` (This makes the banner transparent)
 	4. Background > Background Image: `None`
 	5. Background > Background Size: `Cover`
 	6. Background > Background Position: `Top Left`
 	7. Background > Background Attachment: `Scroll`
 	8. Background > Background Repeat: `No`
-	9. Paralax > Enable Paralax Background: `No`
-	10. Layout > Minimum Height: `None`
-	11. Layout > Vertical Alignment: `Top`
-	12. Advanced > Alignment: `Default`
-	13. Margins and Padding:
-		1. Top Margin: `20px`
-		2. Right Margin: `20px`
-		3. Bottom Margin: `0`
-		4. Left Margin: `0`
-		5. Top Padding: `10px`
-		6. Right Padding: `20px`
-		7. Bottom Padding: `10px`
-		8. Left Padding: `20px`
-
-4. Inside the right column, add a text element.
-
-5. **Row 1 > Right Column > Text:**
-	1. Content Line 1:
-		1. Format: `Heading 2`
-		2. Font Size: `26px`
-		3. Line Height: `Line Height`
-		4. Text: `New Luma Yoga Collection`
-	2. Content Line 2:
-		1. Format: `Heading 2`
-		2. Font Size: `36px`
-		3. Line Height: `Line Height`
-		4. Text: `Get fit and look fabulous in new seasonal styles`
-	3. Advanced > Alignment: `Default`
-	4. Advanced > Margins and Padding:
+	9. Content > Message Text:
+		1. Content Line 1:
+			1. Format: `Heading 2`
+			2. Font Size: `26px`
+			3. Line Height: `Line Height`
+			4. Text: `New Luma Yoga Collection`
+		2. Content Line 2:
+			1. Format: `Heading 2`
+			2. Font Size: `36px`
+			3. Line Height: `Line Height`
+			4. Text: `Get fit and look fabulous in new seasonal styles`
+	10. Content > Link: `Category` > `What's New`
+	11. Content > Link > Open in new tab: `Deselected`
+	12. Content > Show Button: `Always` 
+	13. Content > Button Text: `Shop New Yoga`
+	14. Content > Button Type: `Primary`
+	15. Content > Show Overlay: `Always`
+	16. Content > Overlay Color: `rgba(255, 255, 255, 0.9)`
+	17. Advanced > Alignment: `Default`
+	18. Margins and Padding:
 		1. Top Margin: `0`
 		2. Right Margin: `0`
 		3. Bottom Margin: `0`
 		4. Left Margin: `0`
-		5. Top Padding: `0`
-		6. Right Padding: `0`
-		7. Bottom Padding: `0`
-		8. Left Padding: `0`
+		5. Top Padding: `40px`
+		6. Right Padding: `40px`
+		7. Bottom Padding: `40px`
+		8. Left Padding: `40px`
 
-6. Next, inside the right column, add a button element.
 
-**Note:** Individual buttons are wrapped in a `Buttons` element -- think of it like settings for the group of buttons as whole.
+**Note:** You *could* use a two-column approach; however, I find that banner element shows nicely given the appearance modes are built for this use case.
 
-7. **Row 1 > Right Column > Buttons:**
-	1. Appearance: `Inline`
-	2. Appearance > All Buttons are same size: `No`
-	3. Advanced > Alignment: `Default`
-	4. Advanced > Margins and Padding:
-		1. Top Margin: `0`
-		2. Right Margin: `0`
-		3. Bottom Margin: `0`
-		4. Left Margin: `0`
-		5. Top Padding: `10px`
-		6. Right Padding: `10px`
-		7. Bottom Padding: `0`
-		8. Left Padding: `0`
+4. Duplicate the first row and remove the banner.
 
-8. **Row 1 > Right Column > Buttons > Button:** 
-	1. Content
-		1. Text: `Shop New Yoga`
-	2. Content > Button Type: `Primary`
-	3. Content > Button Link: `Category` -- `What's New` (Do not open in a new tab)
-	4. Advanced > Alignment: `Center`
-
-**Note:** You *could* use a `banner` element instead of the multi-column approach; however, I find that the responsive look-and-feel is a bit more attractive with the approach we've taken here.
-
-10. Duplicate the first row and remove right column.
-
-11. **Row 2:**
+5. **Row 2:**
 	1. Background Image: `None`
 	2. Layout > Minimum Height: `None`
-	3. Advanced > Margins and Padding:
-		1. Top Margin: `10px`
-		2. Right Margin: `0`
-		3. Bottom Margin: `10px`
-		4. Left Margin: `0`
-		5. Top Padding: `10px`
-		6. Right Padding: `10px`
-		7. Bottom Padding: `10px`
-		8. Left Padding: `10px`
 
-12. **Row 2 > Left Column:**
+6. **Row 2 > Left Column:**
 	1. Grid Size: `4/12`
 	2. Appearance: `Centered`
 	3. Background Color: `None`
@@ -1516,9 +1495,9 @@ By default, the home page content is contained within blocks which are then plac
 		7. Bottom Padding: `20px`
 		8. Left Padding: `20px`
 
-13. Inside the Left Column, add a text element.
+7. Inside the Left Column, add a text element.
 
-14. **Row 2 > Left Column > Text:**
+8. **Row 2 > Left Column > Text:**
 	1. Content Line 1:
 		1. Format: `Heading 2`
 		2. Font Size: `36px`
@@ -1542,13 +1521,13 @@ By default, the home page content is contained within blocks which are then plac
 		7. Bottom Padding: `0`
 		8. Left Padding: `0`
 
-15. Duplicate the left column.
+8. Duplicate the left column.
 
-16. **Row 2 > Center Column:**
+9. **Row 2 > Center Column:**
 	1. Background Image: `hp-erin-center.jpg`
 	2. Advanced > Alignment: `Left`
 
-17. **Row 2 > Center Column > Text:**
+10. **Row 2 > Center Column > Text:**
 	1. Content Line 1: 
 		1. Text: `Take it from Erin`
 		2. Color: `Black`
@@ -1556,14 +1535,13 @@ By default, the home page content is contained within blocks which are then plac
 		1. Text: `Luma founder Erin Renney shares her favorites`
 		2. Color: `Black`
 
-18. Duplicate the center column.
+11. Duplicate the center column.
 
-19. **Row 2 > Right Column:**
-
+12. **Row 2 > Right Column:**
 	1. Background Image: `hp-girl-right.jpg`
 	2. Advanced > Alignment: `Right`
 
-20. **Row 2 > Right Column > Text:**
+13. **Row 2 > Right Column > Text:**
 	1. Content Line 1: 
 		1. Text: `All Shirts`
 		2. Color: `Black`
@@ -1571,22 +1549,17 @@ By default, the home page content is contained within blocks which are then plac
 		1. Text: `Buy 3 Luma tees and get a 4th free`
 		2. Color: `Black`
 
-21. Duplicate the first row and drag it beneath the second row.
+14. Duplicate the first row and drag it beneath the second row.
 
-22. **Row 3:**
+15. **Row 3:**
 	1. Background Image: `hp-woman-on-fence.jpg`
-	2. Advanced > Margins and Padding:
-		1. Top Margin: `10px`
 
-23. **Row 3 > Right Column > Text:**
-	1. Content Line 1: 
-		1. Text: `Twice around, twice as nice`
-	2. Content Line 2:
-		1. Text: `Find conscientious, comfy clothing in our eco-friendly collection`
+16. **Row 3 > Banner:**
+	1. Content > Message Text > Line 1: `Twice around, twice as nice`	
+	2. Content > Message Text > Line 2: `Find conscientious, comfy clothing in our eco-friendly collection`
+	3. Content > Link: `Category` > `Collections > Eco Friendly`
+	4. Content > Button Text: `Shop the Collection`
 
-24. **Row 3 > Right Column > Buttons > Button:** 
-	1. Content
-		1. Text: `Shop the Collection`
 
 25. **Row 4**
 	1. Appearance: `Full Width`
@@ -1603,7 +1576,7 @@ By default, the home page content is contained within blocks which are then plac
 	12. Advanced > Margins and Padding:
 		1. Top Margin: `10px`
 		2. Right Margin: `0`
-		3. Bottom Margin: `10px`
+		3. Bottom Margin: `0`
 		4. Left Margin: `0`
 		5. Top Padding: `10px`
 		6. Right Padding: `10px`
@@ -1627,45 +1600,31 @@ Navigate to `Content > Elements > Pages > Home Page`
 	4. Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
 3. Page in Websites: `Luma Website > Luma Store > Deutsch`
 
-<a id="page-builder-content-1"></a>
+<a id="page-builder-content"></a>
 ##### Page Builder Content
 Next, re-create the `Luma Home Page (US)` above (or delete the existing DE block and duplicate `Luma Home Page (US)`) and make the following updates:
 
-1. **Row 1 > Right Column > Textarea:**
-	1. Content Line 1:
-		1. Text: `Neue Yoga Kollektion`
-	2. Content Line 2:
-		1. Text: `Ab jetzt bedeutet Mode immer auch Komfort`
+1. **Row 1 > Banner:**
+	1. Content > Message Text > Line 1: `Neue Yoga Kollektion`	
+	2. Content > Message Text > Line 2: `Get fit and look fabulous mit unseren neuen seasonal Styles`
+	3. Content > Button Text: `Jetzt Yoga shoppen`
 
-2. **Row 1 > Right Column > Buttons > Button:** 
-	1. Content > Text: `In Neue Yoga Stöbern`
+3. **Row 2 > Left Column > Text Element:**
+	1. Content Line 1: `20% Rabatt`
+	2. Content Line 2: `auf unsere Luma Hoodies, wenn Sie heute bestellen`
 
-3. **Row 2 > Left Column > Textarea:**
-	1. Content Line 1:
-		1. Text: `20% Rabatt`
-	2. Content Line 2:
-		2. Text: `Luma Hoodies, wenn Sie heute einkaufen`
+4. **Row 2 > Center Column > Text Element:**
+	1. Content Line 1: `Hören Sie von Erin`
+	2. Content Line 2: `Luma-Gründerin Erin Renney teilt ihre Favoriten`
 
-4. **Row 2 > Center Column > Textarea:**
-	1. Content Line 1: 
-		1. Text: `Hören Sie von Erin`
-	2. Content Line 2:
-		1. Text: `Luma-Gründerin Erin Renney teilt ihre Favoriten`
+5. **Row 2 > Right Column > Text Element:**
+	1. Content Line 1: `Alle Hemden`
+	2. Content Line 2: `Kaufe 3 T-Shirts und erhalte eine Viertes gratis dazu`
 
-5. **Row 2 > Right Column > Textarea:**
-	1. Content Line 1: 
-		1. Text: `Alle Hemden`
-	2. Content Line 2:
-		1. Text: `Kaufe 3 Tees und erhalte einen vierten gratis`
-
-6. **Row 3 > Right Column > Textarea:**
-	1. Content Line 1: 
-		1. Text: `Zweimal herum, doppelt so schön`
-	2. Content Line 2:
-		1. Text: `Schauen Sie sich unsere gewissenhafte, komfortable und umweltfreundliche Kollektion an`
-
-7. **Row 3 > Right Column > Buttons > Button:** 
-	1. Content > Text: `Kaufen Sie die Kollektion`
+6. **Row 3 > Banner**
+	1. Content > Message Text > Line 1: `Zweimal herum, doppelt so schön`	
+	2. Content > Message Text > Line 2: `Schauen Sie sich unsere nachhaltige, komfortable und umweltfreundliche Kollektion an`
+	3. Content > Button Text: `Shop the Collection`
 
 <a id="venia-home-page"></a>
 #### Venia Home Page
@@ -1681,6 +1640,10 @@ Navigate to `Content > Elements > Pages > Home Page - Venia`
 	3. Meta Keywords: `fashion,women,blouse,top,pant,dress,venia`
 	4. Meta Description: `With 50 stores spanning 40 states and growing, Venia is a nationally recognized high fashion retailer for women. We’re passionate about helping you look your best.`
 3. Page in Websites: `Luma Website > Luma Store > US English` 
+
+<a id="page-builder-content-1"></a>
+##### Page Builder Content
+TBD
 
 <a id="attribute-set-updates"></a>
 ### Attribute Set Updates
@@ -1955,7 +1918,6 @@ ul.footer.links > li > a,
 	background: #ff5501;
 	color:;
 }
-
 
 /* Page Builder Styles */
 
@@ -2270,7 +2232,6 @@ Save the category and then reindex and refresh the cache with the `clean` comman
 
 <a id="customer-segments"></a>
 #### Customer Segments
-
 <a id="luma-guest-customers"></a>
 ##### Luma Guest Customers
 We'll use this segment to show targeted content to guest customers as opposed to those with accounts.
@@ -2366,6 +2327,7 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 6. Conditions:
 	1. If **ALL** of these conditions are **TRUE**:
 		1. **Total** Sales Amount **equals or greater than** **2000** while **ALL** of these Conditions match:
+	2. Customer Group **is** **VIP**
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -2699,15 +2661,31 @@ Navigate to `Marketing > Related Products Rules`
 <a id="promotions-cart-price-rules"></a>
 #### Promotions (Cart Price Rules)
 
-<a id="deactivate-unwanted-rules"></a>
-##### Deactivate Unwanted Rules
-For the most part, all of the included cart rules can help tell an effective demo story.  The only one which *may* conflict, or make things more complicated, is: `20% OFF Ever $200-plus purchase!*`.  We'll deactivate this one and take care of a couple other things.
-
+<a id="20-off-every-200-plus-purchase-3000-reward-points"></a>
+##### 20% Off Every $200-plus Purchase (3000 Reward points)
 Navigate to `Marketing > Promotions > Cart Price Rules`
 
 1. By default, the grid is strangely sorted.  Sort it by ID
-2. By chance, I found that the description of `20% OFF Ever $200-plus purchase!*` has pretty bad English.  Update the description to: `Shopping cart price rule for the cart over $200. Does not apply to items in the Sale category.`
-3. Set the `20% OFF Ever $200-plus purchase!*` rule to `Inactive`
+2. Rename `20% OFF Ever $200-plus purchase!*` to `3000 Reward Points for $200-plus purchase of Women's Tops`
+3. Update the description: `Award 3,000 reward points for orders totaling $200 or more which contain products from the Women > Tops sub-categories. Do not apply to Platinum Reward Members or VIP Members. Do not apply to items in the Sale category.`
+4. Conditions:
+	1. If **ALL** of these conditions are **TRUE:**
+		1. Subtotal **equals or greater than** **200**
+		2. If Customer Segment **is not one of** **6, 9** (Don't offer to VIP customers or Platinum Reward members)
+5. Actions:
+	1. Apply: `Percent of product price discount`
+	2. Discount Amount: `0`
+	3. Maximum Qty Discount is Applied To: `0`
+	4. Discount Qty Step (Buy X): `0`
+	5. Apply to Shipping Amount: `No`
+	6. Discard subsequent rules: `No`
+	7. If **ALL** of these conditions are **TRUE:**
+		1. If **ALL** of these conditions are **FALSE:**
+			1. Category **is** **6**
+			2. Sale **is** **Yes**
+		2. Category **is one of** **24, 25, 26, 27**
+	8. Free Shipping: `No`
+	9. Add Reward Points: `3000`
 
 <a id="free-shipping"></a>
 ##### Free Shipping
@@ -2727,17 +2705,17 @@ Make the following updates:
 <a id="targeted-content-dynamic-blocks"></a>
 #### Targeted Content (Dynamic Blocks)
 
-<a id="featured-products-guest-customers"></a>
-##### Featured Products (Guest Customers)
-First, we'll create a featured products list for guest customers, starting with the US Market:
+<a id="featured-products-all-customers"></a>
+##### Featured Products (All Customers)
+First, we'll create a featured products list for guest and registered customers, starting with the US Market:
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
 1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
-	2. Dynamic Block Name: `Featured Products (Guest Customers)`
+	2. Dynamic Block Name: `Featured Products (All Customers)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
-	4. Customer Segment: `LUMA Guest Customers`
+	4. Customer Segment: `All Segements`
 
 Content will consist of one row containing some headings and a products list element which refers to the `Featured Products` category.  We'll also show off the *hide* feature by including a hidden HTML element containing a different appearance for the headings.
 
@@ -2784,29 +2762,25 @@ Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. Deselect `Use Default Value`
-
-1. Drag a `text` element into the first row
+3. Drag a `text` element into the first row
 	1. Content Line 1:
 		1. Text: `Hot Sellers`
 	2. Content Line 2:
-		1. Text: `Here's what's trending on Luma right now`
-
-2. Drag an `HTML Code` element into the row beneath the text element
-3. Update the HTML to:
+		1. Text: `Favoriten von Luma Shoppers`
+4. Update the HTML to:
 ```
 <div class="content-heading">
-   <h2 class="title">Heiße Angebote</h2>
+   <h2 class="title">Hot Sellers</h2>
    <p class="info">Favoriten von Luma Shoppers</p>
 </div>
 ```
-4. Hide the HTML element
-5. Drag products list element into the row beneath the hidden HTML element
+5. Hide the HTML element
 
 Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. Add the `Featured Products (Guest Customers)` dynamic block to the empty fourth row in the page we created earlier
+1. Add the `Featured Products (All Customers)` dynamic block to the empty fourth row in the page we created earlier
 2. Save
 
 Repeat this process for the `Home Page Block - DE` content block.
@@ -2836,7 +2810,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 		1. Format: `Heading 2`
 		2. Font Size: `26px`
 		3. Line Height: `Line Height`
-		4. Text: `#RunnerLife`
+		4. Text: `#RunningIsLife`
 		5. Color: `Black`
 
 2. Drag an `HTML Code` element into the row beneath the text element
@@ -2868,11 +2842,16 @@ Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. Deselect `Use Default Value`
-3. Update the HTML to:
+3. Update the content to:
+	1. Content Line 1:
+		1. Text: `Weil Du Gerne Läufst`
+	2. Content Line 2:
+		1. Text: `#LaufenIstLeben`
+4. Update the HTML to:
 ```
 <div class="content-heading">
-    <h2 class="title">Weil Du Gerne Rennst</h2>
-    <p class="info">#LäufenIstLeben
+    <h2 class="title">Weil Du Gerne Läufst</h2>
+    <p class="info">#LaufenIstLeben
 </p>
 </div>
 ```
@@ -2880,7 +2859,7 @@ Once the dynamic block is created, we need to add it to the Home Page blocks for
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. Duplicate the `Featured Products (Guest Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Runners)` block, and then drag the `Featured Products (Runners)` block into the *second* row, beneath the three columns
+1. Duplicate the `Featured Products (All Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Runners)` block, and then drag the `Featured Products (Runners)` block into the *second* row, beneath the three columns
 2. Add 10px top margin to the Dynamic Block element
 2. Save
 
@@ -2945,12 +2924,17 @@ Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. Deselect `Use Default Value`
-3. Update the HTML to:
+3. Update the content to:
+	1. Content Line 1:
+		1. Text: `Nur Für Dich`
+	2. Content Line 2:
+		1. Text: `Hier sind einige passende Artikel zu Ihrer neuen Jacke!`
+4. Update the HTML to:
 
 ```
 <div class="content-heading">
-    <h2 class="title">Nur für Dich</h2>
-    <p class="info">Hier sind einige Artikel zu Ihrer neuen Jacke!</p>
+    <h2 class="title">Nur Für Dich</h2>
+    <p class="info">Hier sind einige passende Artikel zu Ihrer neuen Jacke!</p>
 </div>
 ```
 Once the dynamic block is created, we need to add it to the Home Page blocks for the US and German store views:
@@ -3018,7 +3002,12 @@ Next, open the same Dynamic Block and repeat for the German store view:
 
 1. Switch the store view scope to `Luma > Luma Store > Deutsch`
 2. Deselect `Use Default Value`
-3. Update the HTML to:
+3. Update the content to:
+	1. Content Line 1:
+		1. Text: `Nur Für Deine Augen, VIP`
+	2. Content Line 2:
+		1. Text: `Hier sind einige unserer neuesten Produkte`
+4. Update the HTML to:
 ```
 <div class="content-heading">
     <h2 class="title">Nur für Deine Augen, VIP</h2>
@@ -3095,7 +3084,7 @@ Next, we'll translate this block for the German store view.
 	1. Content Line 1:
 		1. Text: `Sie sind fast da!` 
 	2. Content Line 2:
-		1. Text: `Geben Sie 100 € oder mehr aus, um` (`Shift+Enter`)
+		1. Text: `Shoppen Sie für 100 € oder mehr, um` (`Shift+Enter`)
 	3. Content Line 3:
 		1. Text: `KOSTENLOSEN VERSAND` (`Shift+Enter`)
 	4. Content Line 4:
@@ -3156,14 +3145,13 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `0`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
-
 2. Add a `Text` element:
 	1. Content Line 1:
 		1. Format: `Paragraph`
 		2. Font Size: `18px`
 		3. Line Height: `Line Height`
 		4. Text Color: `#006400`
-		4. Text: `Free Shipping Applied!`
+		4. Text: `Free Shipping applied!`
 	2. Advanced > Margins and Padding: 
 		1. Top Margin: `0`
 		2. Left Margin: `0`
@@ -3173,7 +3161,6 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `65px`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
-
 3. Related Promotions > Add Cart Price Rules > `Spend $100 or more - shipping is free!`
 4. Save the Dynamic Block
 
@@ -3288,6 +3275,11 @@ Once saved, clear the cache
 
 <a id="valentines-day"></a>
 ##### Valentine's Day
+1. Change the top row background image to `promotions/valentineshero.png`
+2. Text:
+	1. Line 1: `From LUMA with Love`
+	2. Line 2: `New for Valentine's Day!`
+	3. Button: `Shop New Yoga`
 
 <a id="summer-sale-lead-in"></a>
 ##### Summer Sale Lead-in
@@ -3295,14 +3287,16 @@ Once saved, clear the cache
 2. Text:
 	1. Line 1: `Summer's Here`
 	2. Line 2: `Wow your friends and hit the beach in style!`
+	3. Button: `Shop New Yoga`
 
 
 <a id="fourth-of-july-sale"></a>
 ##### Fourth of July Sale
-1. Change the top row background image to `promotions/summersunset.jpg`
+1. Change the top row background image to `promotions/fireworks.jpg`
 2. Text:
-	1. Line 1: `Summer's Here`
-	2. Line 2: `Wow your friends and hit the beach in style!`
+	1. Line 1: `Fourth of July Sale`
+	2. Line 2: `Today only, get 25% off every one of our world-class bags!`
+	3. Button: `Shop Bags`
 
 <a id="summer-sale-lead-out"></a>
 ##### Summer Sale Lead-out
@@ -3310,27 +3304,31 @@ Once saved, clear the cache
 2. Text:
 	1. Line 1: `Summer's Here`
 	2. Line 2: `Wow your friends and hit the beach in style!`
+	3. Button: `Shop New Yoga`
 
 <a id="black-friday-lead-in"></a>
 ##### Black Friday Lead-in
-1. Change the top row background image to `promotions/summersunset.jpg`
+1. Change the top row background image to `promotions/blackfridayleadinhero.jpg`
 2. Text:
-	1. Line 1: `Summer's Here`
-	2. Line 2: `Wow your friends and hit the beach in style!`
+	1. Line 1: `It's Almost Here`
+	2. Line 2: `We've got your covered for Black Friday!`
+	3. Button: `Shop New Yoga`
 
 <a id="black-friday-sale"></a>
 ##### Black Friday Sale
-1. Change the top row background image to `promotions/summersunset.jpg`
+1. Change the top row background image to `promotions/blackfridayweekendhero.jpg`
 2. Text:
-	1. Line 1: `Summer's Here`
-	2. Line 2: `Wow your friends and hit the beach in style!`
+	1. Line 1: `Today Only`
+	2. Line 2: `Get 30% off ALL THE THINGS for Black Friday!`
+	3. Button: `Shop Now`
 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
-1. Change the top row background image to `promotions/summersunset.jpg`
+1. Change the top row background image to `promotions/holidayhero.png`
 2. Text:
-	1. Line 1: `Summer's Here`
-	2. Line 2: `Wow your friends and hit the beach in style!`
+	1. Line 1: `Welcome the season in style`
+	2. Line 2: `Happy Holidays from LUMA!`
+	3. Button: `Shop New Yoga`
 
 <a id="content-with-page-builder"></a>
 ### Content with Page Builder
