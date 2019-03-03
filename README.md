@@ -138,6 +138,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 				- [Runners](#runners)
 			- [Shopping Cart](#shopping-cart)
 				- [Free Shipping Threshold \($75 - $99\)](#free-shipping-threshold-75---99)
+		- [B2B](#b2b)
+			- [Company User Segments](#company-user-segments)
 		- [Related Products Rules](#related-products-rules)
 			- [Remove Unwanted Rules and Configure Global Result Numbers](#remove-unwanted-rules-and-configure-global-result-numbers)
 			- [Women’s Hoodies to Women's Pants \(Related Products\)](#womens-hoodies-to-womens-pants-related-products)
@@ -164,7 +166,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 			- [Black Friday Lead-in](#black-friday-lead-in)
 			- [Black Friday Sale](#black-friday-sale)
 			- [Holiday Campaign](#holiday-campaign)
-	- [Content with Page Builder](#content-with-page-builder)
+	- [Additional Page Builder Content](#additional-page-builder-content)
+		- [Category Landing Page Template](#category-landing-page-template)
 		- [Gear Category Landing Page](#gear-category-landing-page)
 	- [Grid Views](#grid-views)
 		- [Product Grids](#product-grids)
@@ -183,6 +186,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Sales Representative Role and User](#sales-representative-role-and-user)
 		- [Companies](#companies)
 			- [Terra Outfitters](#terra-outfitters)
+			- [Terra Welcome Message](#terra-welcome-message)
 			- [Emily's Exercise Emporium](#emilys-exercise-emporium)
 		- [Buyer Users](#buyer-users)
 		- [Buyer Teams](#buyer-teams)
@@ -1396,6 +1400,8 @@ Navigate to `Content > Elements > Blocks > Home Page Block`
 
 Clear the cache when done
 
+Repeat this process for the `Home Page - DE` widget and `Home Page Block - DE`, respectively.
+
 <a id="create-page-builder-content"></a>
 ##### Create Page Builder Content
 
@@ -1771,20 +1777,29 @@ In the *Additional CSS* section, paste the following CSS:
 
 ```
 /* Buttons */
-.action.primary,
-.actions-toolbar>.primary .action:last-child, 
-.actions-toolbar>.secondary .action:last-child {
-    background-color:; 
-    border-color:; 
+.action.primary, {
+    background-color: #1F56A0; 
+    border-color: #1F56A0; 
     color: white !important;
 }
 .action.primary:hover,
 .action.primary:active,
 .action.primary:focus,
 .action.primary:visited {
-    background-color:; 
-    border-color:;
+    background-color: #1F56A0; 
+    border-color: #1F56A0;
     color: white !important;
+}
+.actions-toolbar>.primary .action:last-child, 
+.actions-toolbar>.secondary .action:last-child {
+    background-color: #1F56A0; 
+    border-color: #1F56A0;
+    color: white !important;
+}
+/* Forgot Password Link */
+a.action.remind span {
+    color: #1F56A0 !important;
+    background-color: white;
 }
 /* Nav Links */
 .navigation ul li a, 
@@ -2535,6 +2550,16 @@ Next we'll set up **Lisa Firery** so that she fits this segment:
 	2. `Affirm Water Bottle x 1`
 	3. `Joust Duffel Bag x 1`
 3. Refresh the above segment
+
+<a id="b2b"></a>
+#### B2B
+<a id="company-user-segments"></a>
+##### Company User Segments
+Next, we'll segment our Terra Outfitters users and our Emily's Exercise Emporium users so we can create differentiation in their My Account area.
+
+Navigate to: `Customers > Customer Segments > Add Segment`
+
+1. 
 
 <a id="related-products-rules"></a>
 #### Related Products Rules
@@ -3330,16 +3355,15 @@ Once saved, clear the cache
 	2. Line 2: `Happy Holidays from LUMA!`
 	3. Button: `Shop New Yoga`
 
-<a id="content-with-page-builder"></a>
-### Content with Page Builder
+<a id="additional-page-builder-content"></a>
+### Additional Page Builder Content
+
+<a id="category-landing-page-template"></a>
+#### Category Landing Page Template
 
 <a id="gear-category-landing-page"></a>
 #### Gear Category Landing Page
 Initially, the Gear category is set to show a static block of content via a Static Block widget, and the category's display mode is set to *Static Block Only*.  We'll change the display to show *Products Only* so that the SC can use it as part of a landing page creation use case.
-
-Navigate to `Catalog > Categories > Gear`
-
-1. Display Settings > Display Mode: `Products only`
 
 Navigate to `Content > Elements > Widgets > Gear Category Content`
 
@@ -3354,6 +3378,19 @@ Navigate to `Content > Elements > Widgets > Gear Left Menu`
 2. Save
 
 When done, clear cache
+
+Navigate to `Catalog > Categories > Gear`
+
+1. Display Settings > Display Mode: `Products only`
+2. Layout Updates:
+
+```
+<referenceContainer name="catalog.leftnav" remove="true"/>
+<referenceBlock name="catalog.compare.sidebar" remove="true"/>
+<referenceBlock name="view.addto.compare" remove="true" />
+<referenceBlock name="view.addto.wishlist" remove="true" />
+<referenceBlock name="multiple-wishlist_sidebar" remove="true" />
+```
 
 <a id="grid-views"></a>
 ### Grid Views
@@ -3584,6 +3621,72 @@ Navigate to `Customers > Companies`
 27. Company Credit > Reason For Change: `Initial allotment`
 28. Company Credit > Allow to Exceed Credit Limit: `No`
 29. Advanced Settings > Allow Quotes: `Yes`
+
+<a id="terra-welcome-message"></a>
+##### Terra Welcome Message
+Next, let's add a custom welcome message to personalize the My Account area for our Terra Outfitters buyers.
+
+Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
+
+1. Enable Dynamic Block: `Yes`
+2. Dynamic Block Name: `Terra Outfitters Welcome Message`
+3. Dynamic Block Type: `Any Dynamic Block Type`
+4. Customer Segment: `Company - Terra Outfitters Users`
+
+*Row*
+
+5. Appearance: `Contained`
+6. Background > Background Color: `#f5f5f5`
+7. Background > Background Image: `None`
+8. Advanced > Margins and Padding:
+	1. Top Margin: `0`
+	2. Left Margin: `0`
+	3. Right Margin: `0`
+	4. Bottom Magin: `0`
+	5. Top Padding: `5px`
+	6. Left Padding: `0`
+	7. Right Padding: `5px`
+	8. Bottom Padding: `0`
+
+*Row > Column 1*
+
+9. Grid Size: `1/12`
+10. Appearance: `Top Aligned`
+11. Background > Background Color: `None`
+12. Background > Background Image:
+	1. Choose `Select from Gallery`
+	2. Upload the `terra-outfitters.png` image to the `wysiwyg/b2b` folder and select it
+	3. Background > Background Size: `Contain`
+	4. Background > Background Position: `Center`
+13. Layout > Minimum Height: `100px`
+14. Layout > Verical Alignment: `Centered`
+15. Advanced > Margins and Padding:
+	1. Top Margin: `20`
+	2. Left Margin: `0`
+	3. Right Margin: `7.5px`
+	4. Bottom Magin: `0`
+	5. Top Padding: `0`
+	6. Left Padding: `0`
+	7. Right Padding: `0`
+	8. Bottom Padding: `0`
+
+*Row > Column 2*
+
+16. Grid Size: `11/12`
+17. Appearance: `Top Aligned`
+18. Background > Background Color: `None`
+19. Background > Background Image: `None`
+20. Layout > Minimum Height: `100px`
+21. Layout > Verical Alignment: `Centered`
+22. Advanced > Margins and Padding:
+	1. Top Margin: `0`
+	2. Left Margin: `7.5px`
+	3. Right Margin: `0`
+	4. Bottom Magin: `0`
+	5. Top Padding: `5px`
+	6. Left Padding: `0`
+	7. Right Padding: `5px`
+	8. Bottom Padding: `0`
 
 <a id="emilys-exercise-emporium"></a>
 ##### Emily's Exercise Emporium
