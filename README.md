@@ -2559,7 +2559,15 @@ Next, we'll segment our Terra Outfitters users and our Emily's Exercise Emporium
 
 Navigate to: `Customers > Customer Segments > Add Segment`
 
-1. 
+1. General Properties > Segment Name: `Company - Terra Outfitters Users`
+2. General Properties > Assigned to Website: `Luma Website` (This will change to B2B-specific website)
+3. General Properties > Status: `Active`
+4. General Properties > Apply To: `Registered Customers`
+5. `Save and Continue Edit`
+6. Conditions:
+	1. If **ALL** of these conditions are **TRUE:**
+		1. Customer Email **contains** **terraoutfitters.com**
+7. Save the segment
 
 <a id="related-products-rules"></a>
 #### Related Products Rules
