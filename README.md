@@ -186,7 +186,8 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Sales Representative Role and User](#sales-representative-role-and-user)
 		- [Companies](#companies)
 			- [Terra Outfitters](#terra-outfitters)
-			- [Terra Welcome Message](#terra-welcome-message)
+			- [Terra Welcome Message Content](#terra-welcome-message-content)
+			- [Terra Welcome Message Widget](#terra-welcome-message-widget)
 			- [Emily's Exercise Emporium](#emilys-exercise-emporium)
 		- [Buyer Users](#buyer-users)
 		- [Buyer Teams](#buyer-teams)
@@ -3161,37 +3162,58 @@ Navigate to `Content > Elements > Dynamic Blocks`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `All Segments`
 	5. Appearance: `Contained`
-	6. Background > Background Color: `#e7eee6`
-	7. Background > Background Image:
-		1. Choose `Select from Gallery`
-		2. Upload the `checkmark` image to the `promotions` folder and select it
-	8. Background > Background Size: `Auto`
-	9. Background > Background Position: `Center Left`
-	10. Layout > Minimum Height: `75px`
-	11. Vertical Alignment: `Top`
-	12. Advanced > Margins and Padding:
+	6. Background > Background Color: `#327496`
+	7. Background Image: `None`
+	8. Layout > Minimum Height: `None`
+	9. Vertical Alignment: `Top`
+	10. Advanced > Margins and Padding:
 		1. Top Margin: `-45px`
 		2. Left Margin: `0`
 		3. Right Margin: `0`
 		4. Bottom Magin: `0`
-		5. Top Padding: `0`
-		6. Left Padding: `0`
-		7. Right Padding: `0`
-		8. Bottom Padding: `0`
-2. Add a `Text` element:
+		5. Top Padding: `15px`
+		6. Left Padding: `15px`
+		7. Right Padding: `15px`
+		8. Bottom Padding: `15px`
+
+2. Add two columns
+
+**Row 1 > Column 1**
+1. Grid Size: `12/12`
+2. Appearance: `Centered`
+3. Background > Background Color: `None`
+4. Background > Background Image:
+	1. Choose `Select from Gallery`
+	2. Create an `icons` folder in `wysiwyg`
+	2. Upload the `free-shipping-white-icon.png` image to the `wyiwyg/icons` folder and select it
+5. Background > Background Size: `Contain`
+6. Background > Background Position: `Center Left`
+9. Layout > Minimum Height: `None`
+10. Layout > Vertical Alignment: `Center`
+11. Advanced > Margins and Padding:
+	1. Top Margin: `0`
+	2. Left Margin: `0`
+	3. Right Margin: `0`
+	4. Bottom Magin: `0`
+	5. Top Padding: `10px`
+	6. Right Padding: `10px`
+	7. Bottom Padding: `10px`
+	8. Left Padding: `80px`
+
+2. Add a `Text` element to the right column
 	1. Content Line 1:
 		1. Format: `Paragraph`
 		2. Font Size: `18px`
 		3. Line Height: `Line Height`
-		4. Text Color: `#006400`
+		4. Text Color: `White`
 		4. Text: `Free Shipping applied!`
 	2. Advanced > Margins and Padding: 
 		1. Top Margin: `0`
 		2. Left Margin: `0`
 		3. Right Margin: `0`
 		4. Bottom Magin: `0`
-		5. Top Padding: `25px`
-		6. Left Padding: `65px`
+		5. Top Padding: `0`
+		6. Left Padding: `0`
 		7. Right Padding: `0`
 		8. Bottom Padding: `0`
 3. Related Promotions > Add Cart Price Rules > `Spend $100 or more - shipping is free!`
@@ -3630,8 +3652,8 @@ Navigate to `Customers > Companies`
 28. Company Credit > Allow to Exceed Credit Limit: `No`
 29. Advanced Settings > Allow Quotes: `Yes`
 
-<a id="terra-welcome-message"></a>
-##### Terra Welcome Message
+<a id="terra-welcome-message-content"></a>
+##### Terra Welcome Message Content
 Next, let's add a custom welcome message to personalize the My Account area for our Terra Outfitters buyers.
 
 Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
@@ -3651,50 +3673,70 @@ Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
 	2. Left Margin: `0`
 	3. Right Margin: `0`
 	4. Bottom Magin: `0`
-	5. Top Padding: `5px`
-	6. Left Padding: `0`
-	7. Right Padding: `5px`
-	8. Bottom Padding: `0`
+	5. Top Padding: `15px`
+	6. Left Padding: `15px`
+	7. Right Padding: `15px`
+	8. Bottom Padding: `15px`
 
-*Row > Column 1*
+9. Insert two columns into the row. Then, delete the right one so that the left one takes up the entire row.
 
-9. Grid Size: `1/12`
-10. Appearance: `Top Aligned`
-11. Background > Background Color: `None`
-12. Background > Background Image:
+*Row 1 > Column 1*
+
+10. Grid Size: `12/12`
+11. Appearance: `Centered`
+12. Background > Background Color: `None`
+13. Background > Background Image:
 	1. Choose `Select from Gallery`
 	2. Upload the `terra-outfitters.png` image to the `wysiwyg/b2b` folder and select it
 	3. Background > Background Size: `Contain`
-	4. Background > Background Position: `Center`
-13. Layout > Minimum Height: `100px`
-14. Layout > Verical Alignment: `Centered`
-15. Advanced > Margins and Padding:
-	1. Top Margin: `20`
+	4. Background > Background Position: `Center Left`
+14. Layout > Minimum Height: `85px`
+15. Layout > Verical Alignment: `Centered`
+16. Advanced > Margins and Padding:
+	1. Top Margin: `0`
 	2. Left Margin: `0`
 	3. Right Margin: `7.5px`
 	4. Bottom Magin: `0`
 	5. Top Padding: `0`
-	6. Left Padding: `0`
+	6. Left Padding: `100px`
 	7. Right Padding: `0`
 	8. Bottom Padding: `0`
 
-*Row > Column 2*
+24. Next, insert a text element into the column.
 
-16. Grid Size: `11/12`
-17. Appearance: `Top Aligned`
-18. Background > Background Color: `None`
-19. Background > Background Image: `None`
-20. Layout > Minimum Height: `100px`
-21. Layout > Verical Alignment: `Centered`
-22. Advanced > Margins and Padding:
-	1. Top Margin: `0`
-	2. Left Margin: `7.5px`
-	3. Right Margin: `0`
-	4. Bottom Magin: `0`
-	5. Top Padding: `5px`
-	6. Left Padding: `0`
-	7. Right Padding: `5px`
-	8. Bottom Padding: `0`
+*Text Element*
+
+25. Content Line 1:
+	1. Format: `Heading 2`
+	2. Font Size: `24px`
+	3. Line Height: `Line Height`
+	4. Text: `Welcome to the **Terra Outfitters** Buyer Portal` (The double-asterisk here denotes **bold** text)
+	5. Color: `Black`
+
+Finally, let's translate the welcome message into German:
+
+26. Content Line 1:
+	1. Text: `Willkommen auf dem **Terra Outfitters** Buyer Portal`
+<a id="terra-welcome-message-widget"></a>
+##### Terra Welcome Message Widget
+Next, we'll need to place the welcome message content on the My Account page at the top.
+
+Navigate to `Content > Elements > Widgets`
+
+1. Settings > Type: `Dynamic Blocks Rotator`
+2. Settings > Design Theme: `Magento Luma`
+3. `Continue`
+4. Storefront Properties > Widget Title: `My Account Welcome Message`
+5. Storefront Properties > Assign to Store Views: `Luma Website > Luma Store > US English, Deutsch`
+6. `Layout Updates > Add Layout Update`
+7. Layout Updates > Display on: `Specified Page`
+	1. Page: `Customer My Account`
+	2. Container: `After Page Header Top`
+	3. Template: `Dynamic Blocks Template`
+8. Widget Options > Dynamic Blocks to Display: `Specified Dynamic Blocks`
+9. Widget Options > Restrict by Dynamic Block Types: `None`
+10. Widget Options > Rotation Mode: `Display all instead of rotating`
+11. Widget Options > Specify Dynamic Blocks: `Reset Filter` > `Terra Outfitters Welcome Message`
 
 <a id="emilys-exercise-emporium"></a>
 ##### Emily's Exercise Emporium
