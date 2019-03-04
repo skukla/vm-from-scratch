@@ -179,7 +179,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 		- [Staging and Preview Grid](#staging-and-preview-grid)
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
-		- [Configuration](#configuration)
+		- [B2B Configuration](#b2b-configuration)
 			- [Enable B2B Modules](#enable-b2b-modules)
 			- [Payment on Account](#payment-on-account)
 		- [Customers](#customers)
@@ -1190,11 +1190,11 @@ By default, the Root Category for the Luma Catalog is called `Default Category` 
 In addition, the Website and Store names could also show better.  Let's use the following:
 
 1. Website:
-	Website Name: `Luma Website`
+	Website Name: `Luma B2C Website`
 	Website Code: `base`
 2. Store:
-	Store Name: `Luma Store`
-	Store Code: `luma_store`
+	Store Name: `Luma B2C Store`
+	Store Code: `luma_b2c_store`
 
 We can also update Venia to match:
 
@@ -1325,6 +1325,12 @@ Next, we'll translate that into German and apply it to the `Luma Store > Deutsch
 2. Default Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
 3. Default Meta Keywords: `yoga,sport,bekleidung,kleidung,training,fitness`
 
+Next, use the following for the `Custom Store > US English` store view:
+
+1. Default Page Title: `Custom Official Online Store`
+2. Default Meta Description: `Custom description goes here.`
+3. Default Meta Keywords: `custom,keywords`
+
 Next, use the following for the `Venia Store > US English` store view scope:
 
 1. Default Page Title: `VENIA Official Online Store`
@@ -1340,12 +1346,12 @@ Navigate to `Customers > Reward Points >  Actions for Acquiring Reward Points by
 1. Purchase: `Yes`
 2. Navigate to `Stores > Other Settings > Reward Exchange Rates`
 3. Add a new rate for points to currency:
-	1. Website: `Luma Website`
+	1. Website: `Luma B2C Website`
 	2. Customer Group: `All Customer Groups`
 	3. Direction: `Points to Currency`
 	4. Rate: `1 / 1`
 4. Add a new rate for currency to points:
-	1. Website: `Luma Website`
+	1. Website: `Luma B2C Website`
 	2. Customer Group: `All Customer Groups`
 	3. Direction: `Currency to Points`
 	4. Rate: `1 / 1`
@@ -1469,7 +1475,6 @@ Navigate to `Content > Elements > Pages > Luma Home Page - US`
 		6. Right Padding: `40px`
 		7. Bottom Padding: `40px`
 		8. Left Padding: `40px`
-
 
 **Note:** You *could* use a two-column approach; however, I find that banner element shows nicely given the appearance modes are built for this use case.
 
@@ -1778,29 +1783,20 @@ In the *Additional CSS* section, paste the following CSS:
 
 ```
 /* Buttons */
-.action.primary, {
-    background-color: #1F56A0; 
-    border-color: #1F56A0; 
+.action.primary,
+.actions-toolbar>.primary .action:last-child, 
+.actions-toolbar>.secondary .action:last-child {
+    background-color:; 
+    border-color:; 
     color: white !important;
 }
 .action.primary:hover,
 .action.primary:active,
 .action.primary:focus,
 .action.primary:visited {
-    background-color: #1F56A0; 
-    border-color: #1F56A0;
+    background-color:; 
+    border-color:;
     color: white !important;
-}
-.actions-toolbar>.primary .action:last-child, 
-.actions-toolbar>.secondary .action:last-child {
-    background-color: #1F56A0; 
-    border-color: #1F56A0;
-    color: white !important;
-}
-/* Forgot Password Link */
-a.action.remind span {
-    color: #1F56A0 !important;
-    background-color: white;
 }
 /* Nav Links */
 .navigation ul li a, 
@@ -1861,7 +1857,7 @@ ul.header.links {
 }
 /* Mini Cart Icon */
 .minicart-wrapper .action.showcart:before {
-    color: #757575 !important;
+    color: #575757 !important;
 }
 /* Mini Cart Items Count (Orange) */
 .minicart-wrapper .action.showcart .counter.qty {
@@ -1906,14 +1902,14 @@ ul.footer.links > li > a,
 }
 /* Add to Wishlist */
 .bundle-options-container .block-bundle-summary .product-addto-links>.action, .product-item-actions .actions-secondary>.action, .product-social-links .action.tocompare, .wishlist.split.button>.action.split, .product-social-links .action.mailto.friend, .product-social-links .action.towishlist, .block-bundle-summary .action.towishlist, .product-item .action.towishlist, .table-comparison .action.towishlist {
-	color: #006bb4;
+	color: #1979c3;
 }
 
 /* Shopping Cart Styles */
 .cart.table-wrapper .wishlist.split.button>.action.split, .cart.table-wrapper .wishlist.split.button>.action.toggle,
 .gift-item-block .title,
 .paypal-review-discount .block>.title strong, .cart-discount .block>.title strong {
-	color: #006bb4;	
+	color: #1979c3;	
 }
 .gift-options .actions-toolbar .secondary .action-cancel {
 	background-color: white !important;
@@ -1971,7 +1967,7 @@ div.pagebuilder-button-secondary:hover {
 a.pagebuilder-button-link,
 button.pagebuilder-button-link,
 div.pagebuilder-button-link { 
-	color: #006bb4 !important;
+	color: #1979c3 !important;
 	text-decoration:;
 }
 a.pagebuilder-button-link:hover,
@@ -1982,14 +1978,14 @@ div.pagebuilder-button-link:hover {
 }
 /* Page Builder Slider Dots */
 .slick-dots li.slick-active button { 
-	background: #006bb4 !important; 
+	background: #1979c3 !important; 
 }
 /* Page Builder Slider Arrows */
 .slick-prev:before,
 .slick-next:before,
 .slick-prev:after,
 .slick-next:after { 
-	color: #006bb4 !important; 
+	color: #1979c3 !important; 
 }
 ```
 <a id="add-additional-language-packs"></a>
@@ -3162,7 +3158,7 @@ Navigate to `Content > Elements > Dynamic Blocks`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
 	4. Customer Segment: `All Segments`
 	5. Appearance: `Contained`
-	6. Background > Background Color: `#327496`
+	6. Background > Background Color: `#006bb4`
 	7. Background Image: `None`
 	8. Layout > Minimum Height: `None`
 	9. Vertical Alignment: `Top`
@@ -3416,10 +3412,8 @@ Navigate to `Catalog > Categories > Gear`
 
 ```
 <referenceContainer name="catalog.leftnav" remove="true"/>
-<referenceBlock name="catalog.compare.sidebar" remove="true"/>
-<referenceBlock name="view.addto.compare" remove="true" />
-<referenceBlock name="view.addto.wishlist" remove="true" />
-<referenceBlock name="multiple-wishlist_sidebar" remove="true" />
+<referenceContainer name="sidebar.main" remove="true"/>
+<referenceContainer name="sidebar.additional" remove="true"/>
 ```
 
 <a id="grid-views"></a>
@@ -3523,14 +3517,16 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 <a id="b2b-demo-cases"></a>
 ### B2B Demo Cases
 
-<a id="configuration"></a>
-#### Configuration
+<a id="b2b-configuration"></a>
+#### B2B Configuration
 
 <a id="enable-b2b-modules"></a>
 ##### Enable B2B Modules
 To use the B2B features, we'll need to enable them first:
 
 Navigate to: `Stores > Settings > Configuration > General > B2B Features`
+
+**Note:** If you're using the multi-website approach, set these settings at the website scope level for the Luma B2B Website.
 
 1. Enable Company: `Yes`
 2. Enable Shared Catalog: `No` (We'll leave this disabled for now until the product team fixes it properly -- expected in 2.3.1)
@@ -3543,6 +3539,8 @@ Navigate to: `Stores > Settings > Configuration > General > B2B Features`
 By default, the Payment on Account method used to deduct a purchase amount from company credit is disabled and needs to be enabled before it can be used.  To enable it:
 
 Navigate to `Stores > Settings > Configuration > Sales > Payment Methods`
+
+**Note:** If you're using the multi-website approach, set these settings at the website scope level for the Luma B2B Website.
 
 1. Payment on Account > Enabled: `Yes`
 2. Save the payment method
@@ -3727,7 +3725,7 @@ Navigate to `Content > Elements > Widgets`
 2. Settings > Design Theme: `Magento Luma`
 3. `Continue`
 4. Storefront Properties > Widget Title: `My Account Welcome Message`
-5. Storefront Properties > Assign to Store Views: `Luma Website > Luma Store > US English, Deutsch`
+5. Storefront Properties > Assign to Store Views: `Luma B2C Website > Luma Store > US English, Deutsch`
 6. `Layout Updates > Add Layout Update`
 7. Layout Updates > Display on: `Specified Page`
 	1. Page: `Customer My Account`
