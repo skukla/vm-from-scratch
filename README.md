@@ -2785,9 +2785,7 @@ Content will consist of one row containing some headings and a products list ele
 			1. Category **is** **62**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
-8. Save the Dynamic Block.
-9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block
 
 **Note:** Creating the dynamic block using `All Store Views` first is mandatory.  For some reason, Magento doesn't render store view specific dynamic blocks which are nested inside of static blocks, but it *does* render the content assigned to *All Store Views*.  By assigning the block to *All Store Views*, we ensure we can see it render in the home page content block which we'll use to demo most often.
 
@@ -2866,10 +2864,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 			2. Visibility **is** **Catalog, Search**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
-
-8. Save the Dynamic Block.
-9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
@@ -2949,9 +2944,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 			5. **SKU** **contains** **MS08**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
-8. Save the Dynamic Block.
-9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
@@ -3026,10 +3019,7 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 			1. New **is** **Yes**
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
-
-8. Save the Dynamic Block.
-9. Once saved, re-open the new block and switch from `All Store Views` to the `Luma > Luma Store > US English` store view.
-10. Make sure `Use default` is deselected. (This ensures that the US English store view is included in the grid and may demo better)
+8. Save the Dynamic Block
 
 Next, open the same Dynamic Block and repeat for the German store view:
 
@@ -3083,7 +3073,6 @@ Navigate to `Content > Elements > Dynamic Blocks`
 		6. Left Padding: `10`
 		7. Right Padding: `10`
 		8. Bottom Padding: `10`
-
 2. Add a `Text` element:
 	1. Content Line 1:
 		1. Format: `Heading 2`
@@ -3107,13 +3096,10 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 Next, we'll translate this block for the German store view.  
 
-1. Switch the store view scope to `Luma > Luma Store > US English`
-2. Deselect `Use Default Value`
-3. `Save and continue`
-4. Switch the store view scope to `Luma > Luma Store > Deutsch`
-5. Deselect `Use Default Value`
-6. `Save and continue`
-7. Update the text element:
+2. Switch the store view scope to `Luma > Luma Store > Deutsch`
+3. Deselect `Use Default Value`
+4. `Save and continue`
+5. Update the text element:
 	1. Content Line 1:
 		1. Text: `Sie sind fast da!` 
 	2. Content Line 2:
@@ -3122,7 +3108,7 @@ Next, we'll translate this block for the German store view.
 		1. Text: `KOSTENLOSEN VERSAND` (`Shift+Enter`)
 	4. Content Line 4:
 		1. Text: `zu erhalten`
-8. Save the dynamic block
+6. Save the dynamic block
 
 Next, we need to create a new Dynamic Block Rotator widget we'll use to display the Free Shipping advertisement:
 
@@ -3198,7 +3184,6 @@ Navigate to `Content > Elements > Dynamic Blocks`
 	6. Right Padding: `10px`
 	7. Bottom Padding: `10px`
 	8. Left Padding: `80px`
-
 2. Add a `Text` element to the right column
 	1. Content Line 1:
 		1. Format: `Paragraph`
@@ -3222,16 +3207,13 @@ Navigate to `Content > Elements > Dynamic Blocks`
 
 Next, we'll translate this block for the German store view.  
 
-1. Switch the store view scope to `Luma > Luma Store > US English`
-2. Deselect `Use Default Value`
-3. `Save and continue`
-4. Switch the store view scope to `Luma > Luma Store > Deutsch`
-5. Deselect `Use Default Value`
-6. `Save and continue`
-7. Update the text element:
+5. Switch the store view scope to `Luma > Luma Store > Deutsch`
+6. Deselect `Use Default Value`
+7. `Save and continue`
+8. Update the text element:
 	1. Content Line 1:
 		1. Text: `Kostenloser Versand beantragt!` 
-8. Save the dynamic block
+9. Save the dynamic block
 
 Next, we need to create a new Dynamic Block Rotator widget we'll use to display the :
 
