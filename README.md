@@ -2289,6 +2289,7 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 	1. If **ALL** of these conditions are **TRUE**:
 		1. **Total** Sales Amount **equals or greater than** **250** while **ALL** of these Conditions match:
 		2. **Total** Sales Amount **equals or less than** **500** while **ALL** of these Conditions match:
+		3. Customer Group **is not** **VIP**
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -2306,6 +2307,7 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 	1. If **ALL** of these conditions are **TRUE**:
 		1. **Total** Sales Amount **equals or greater than** **500** while **ALL** of these Conditions match:
 		2. **Total** Sales Amount **equals or less than** **1000** while **ALL** of these Conditions match:
+		3. Customer Group **is not** **VIP**
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
@@ -2314,7 +2316,7 @@ Once saved, use the `clean` command to reindex and refresh cache.
 ###### Gold Tier
 Navigate to: `Customers > Customer Segments > Add Segment`
 
-1. General Properties > Segment Name: `LUMA Rewards - Bronze ($1000 - $2000)`
+1. General Properties > Segment Name: `LUMA Rewards - Gold ($1000 - $2000)`
 2. General Properties > Assigned to Website: `Luma Website`
 3. General Properties > Status: `Active`
 4. General Properties > Apply To: `Registered Customers`
@@ -2323,6 +2325,7 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 	1. If **ALL** of these conditions are **TRUE**:
 		1. **Total** Sales Amount **equals or greater than** **1000** while **ALL** of these Conditions match:
 		2. **Total** Sales Amount **equals or less than** **2000** while **ALL** of these Conditions match:
+		3. Customer Group **is not** **VIP**
 7. Save the segment
 
 Once saved, use the `clean` command to reindex and refresh cache.
