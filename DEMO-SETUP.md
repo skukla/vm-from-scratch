@@ -1,4 +1,4 @@
-# Using the VM
+# Demo Setup
 <!-- MarkdownTOC MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [Demo Environments Overview](#demo-environments-overview)
