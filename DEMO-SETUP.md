@@ -7,7 +7,8 @@
 - [How Do I...](HOW-TO.md)
 
 # Kukla VM Demo Setup
-<!-- MarkdownTOC MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
+
+<!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [Demo Environments Overview](#demo-environments-overview)
 - [The Hybrid VM](#the-hybrid-vm)

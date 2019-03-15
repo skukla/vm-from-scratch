@@ -8,78 +8,81 @@
 
 # Building the VM
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
-- What We'll Need
-	- Software
-	- VM Set Up
-	- Solution Components
-	- Helpful Additions
-- Installing VMWare Fusion
-- Creating the VM
-	- Initial Setup
-	- Installing Ubuntu
-	- Accessing via SSH
-	- Setting the Hostname
-		- Adding the Magento QA Server to the Hosts File
-	- Uninstalling Cloud-Init
-	- Applying Package Updates
-	- Adding the SSH Key
-	- Adding the Magento Cloud CLI
-	- Installing Helpful Additional Programs
-	- Setting the MoTD
-- Solution Components Installation
-	- PHP
-		- Installing PHP with the `ondrej/php` Repository
-		- Uninstalling the Apache Web Server
-		- Configuring PHP CLI and PHP-FPM
-	- Nginx
-		- Installing Nginx
-		- Configuring the Web Server User
-		- Configuring Nginx with PHP-FPM
-		- Create The Web Root
-		- Configure Magento Virtual Host
-	- Composer
-	- VM CLI
-	- MariaDB
-		- Adding A Database and A Database User
-		- Database Tuning
-	- Varnish
-	- Redis
-	- Elasticsearch
-		- Install Java With The JDK
-		- Installing Elasticsearch 5.6.x
-		- Configuring Elasticsearch
-		- Elasticsearch Plugins
-	- RabbitMQ
-		- Install Erlang/OTP
-		- Install RabbitMQ
-		- Configuring RabbitMQ To Respect Hostname Change
-		- Install RabbitMQ Management Dashboard
-	- Managing the VM with Webmin
-		- Installing and Configuring Webmin
-			- Configuring the Webmin Port
-			- Remove SSL Mode
-	- Handling Email with Mailhog
-		- Installing the Go Programming Language
-		- Downloading and Configuring Mailhog
-		- Creating the Mailhog Service
-- Magento
-	- Downloading The Codebase With Git and Composer
-	- Installing The Magento Application
-	- Installing Cron Tasks
-	- Configuring Magento and Varnish
-	- Configuring Magento For Multisite Operation
-	- How Magento Multisite Operation Works
+- [What We'll Need](#what-well-need)
+	- [Software](#software)
+	- [VM Set Up](#vm-set-up)
+	- [Solution Components](#solution-components)
+	- [Helpful Additions](#helpful-additions)
+- [Installing VMWare Fusion](#installing-vmware-fusion)
+- [Creating the VM](#creating-the-vm)
+	- [Initial Setup](#initial-setup)
+	- [Installing Ubuntu](#installing-ubuntu)
+	- [Accessing via SSH](#accessing-via-ssh)
+	- [Setting the Hostname](#setting-the-hostname)
+		- [Adding the Magento QA Server to the Hosts File](#adding-the-magento-qa-server-to-the-hosts-file)
+	- [Uninstalling Cloud-Init](#uninstalling-cloud-init)
+	- [Applying Package Updates](#applying-package-updates)
+	- [Adding the SSH Key](#adding-the-ssh-key)
+	- [Adding the Magento Cloud CLI](#adding-the-magento-cloud-cli)
+	- [Installing Helpful Additional Programs](#installing-helpful-additional-programs)
+	- [Setting the MoTD](#setting-the-motd)
+- [Solution Components Installation](#solution-components-installation)
+	- [PHP](#php)
+		- [Installing PHP with the `ondrej/php` Repository](#installing-php-with-the-ondrejphp-repository)
+		- [Uninstalling the Apache Web Server](#uninstalling-the-apache-web-server)
+		- [Configuring PHP CLI and PHP-FPM](#configuring-php-cli-and-php-fpm)
+	- [Nginx](#nginx)
+		- [Installing Nginx](#installing-nginx)
+		- [Configuring the Web Server User](#configuring-the-web-server-user)
+		- [Configuring Nginx with PHP-FPM](#configuring-nginx-with-php-fpm)
+		- [Create The Web Root](#create-the-web-root)
+		- [Configure Magento Virtual Host](#configure-magento-virtual-host)
+	- [Composer](#composer)
+	- [VM CLI](#vm-cli)
+	- [MariaDB](#mariadb)
+		- [Adding A Database and A Database User](#adding-a-database-and-a-database-user)
+		- [Database Tuning](#database-tuning)
+	- [Varnish](#varnish)
+	- [Redis](#redis)
+	- [Elasticsearch](#elasticsearch)
+		- [Install Java With The JDK](#install-java-with-the-jdk)
+		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
+		- [Configuring Elasticsearch](#configuring-elasticsearch)
+		- [Elasticsearch Plugins](#elasticsearch-plugins)
+	- [RabbitMQ](#rabbitmq)
+		- [Install Erlang/OTP](#install-erlangotp)
+		- [Install RabbitMQ](#install-rabbitmq)
+		- [Configuring RabbitMQ To Respect Hostname Change](#configuring-rabbitmq-to-respect-hostname-change)
+		- [Install RabbitMQ Management Dashboard](#install-rabbitmq-management-dashboard)
+	- [Managing the VM with Webmin](#managing-the-vm-with-webmin)
+		- [Installing and Configuring Webmin](#installing-and-configuring-webmin)
+			- [Configuring the Webmin Port](#configuring-the-webmin-port)
+			- [Remove SSL Mode](#remove-ssl-mode)
+	- [Handling Email with Mailhog](#handling-email-with-mailhog)
+		- [Installing the Go Programming Language](#installing-the-go-programming-language)
+		- [Downloading and Configuring Mailhog](#downloading-and-configuring-mailhog)
+		- [Creating the Mailhog Service](#creating-the-mailhog-service)
+- [Magento](#magento)
+	- [Downloading The Codebase With Git and Composer](#downloading-the-codebase-with-git-and-composer)
+	- [Installing The Magento Application](#installing-the-magento-application)
+	- [Installing Cron Tasks](#installing-cron-tasks)
+	- [Configuring Magento and Varnish](#configuring-magento-and-varnish)
+	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
+	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
 
 <!-- /MarkdownTOC -->
 
 
+<a id="what-well-need"></a>
 ## What We'll Need
 
+<a id="software"></a>
 ### Software
 All we'll need to use this solution is *VMWare Fusion*.  This is provided by Adobe via the *App Catalog*.
 
+<a id="vm-set-up"></a>
 ### VM Set Up
 The following are the settings for the machine in VMWare:
  1. ***Hard Disk:***
@@ -93,6 +96,7 @@ The following are the settings for the machine in VMWare:
 3. ***Network Adapter:***
 	1. *Internet Sharing:* Share with my Mac (Mac OS) 
 
+<a id="solution-components"></a>
 ### Solution Components
 The VM consists of the following elements:
  1. ***Operating System:*** Ubuntu Server 18.04 LTS
@@ -109,6 +113,7 @@ The VM consists of the following elements:
  12. ***Fileshare Server:***  Samba and Avahi
  13. ***Web-based Admin:*** Webmin
 
+<a id="helpful-additions"></a>
 ### Helpful Additions
 The VM will also consist of the following packages/programs to aid in command line tasks and machine usage:
  1. `zip` (Zip utility)
@@ -116,6 +121,7 @@ The VM will also consist of the following packages/programs to aid in command li
  3. `ag` (Super fast in-file search - similar to `grep`)
  4. `figlet` (Converts text to ascii art - used in our custom MoTD)
 
+<a id="installing-vmware-fusion"></a>
 ## Installing VMWare Fusion
 To Install VMWare Fusion: 
 1. Click on the App Catalog icon in the bottom right hand corner of your dock
@@ -126,7 +132,9 @@ To Install VMWare Fusion:
 6. Once it has been installed, launch it, choose `Check for Updates` from the `VMWare Fusion` Apple menu
 7. Install any updates found
 
+<a id="creating-the-vm"></a>
 ## Creating the VM
+<a id="initial-setup"></a>
 ### Initial Setup
 1. Before anything else, our VM will need an operating system.  As we've chosen to use Ubuntu, we'll download the OS disk image from the [Ubuntu website](https://www.ubuntu.com/download/server).
 
@@ -141,6 +149,7 @@ To Install VMWare Fusion:
 	7. Use the Settings dialog window which appears now to configure the machine to the settings above in [VM Set Up](#vm-set-up)
 	8. When done, close the settings dialog and start the VM.
 
+<a id="installing-ubuntu"></a>
 ### Installing Ubuntu
 3. When the VM starts, it will automatically boot into the .iso image you used to create it.  Choose *Install Ubuntu* and then use the following settings:
 
@@ -164,6 +173,7 @@ To Install VMWare Fusion:
 		8. When available, choose *Reboot Now*
 	11. During reboot, the system will ask you to remove the installation medium and press `Enter` (press `Enter` again to finish the reboot)
 
+<a id="accessing-via-ssh"></a>
 ### Accessing via SSH
 While VMWare gives you a window to use as a terminal, it can be rather limited in that the size of the window cannot be changed, and copy-paste is not supported.  To access the machine via SSH using a termimal, you have a couple options:
 
@@ -176,6 +186,7 @@ To use your own terminal application (such as iTerm, for example):
 2. Get the IP address of the machine from the Message of the Day (MoTD)
 3. Use ssh to tunnel in using your terminal application: `ssh magento@<YOUR_IP_HERE>`
 
+<a id="setting-the-hostname"></a>
 ### Setting the Hostname
 Next, we'll set a new hostname for the VM.  Since our initial url will be `luma.com`, let's use that as our hostname, too.  Once the hostname is changed, we also need to update our entry in the machine's `etc/hosts` file.  We'll use the VIM text editor to do this with the following commands:
 
@@ -188,6 +199,7 @@ Next, we'll set a new hostname for the VM.  Since our initial url will be `luma.
 
 Once those changes are saved, reboot the machine. Once the machine boots and loads the login prompt, you'll notice it now says `luma login` instead of `localhost login` which indicates our changes have taken effect.
 
+<a id="adding-the-magento-qa-server-to-the-hosts-file"></a>
 #### Adding the Magento QA Server to the Hosts File
 In order to stay ahead of the development curve, the Solutions Innovation team often pulls pre-release cod via the Magento QA server.  We can do the same using an ssh tunnel and one of our cloud projects as a proxy.  The Magento VM CLI takes care of most of this for us, but we do need to make one change to ensure it can happen.
 
@@ -198,6 +210,7 @@ In order to stay ahead of the development curve, the Solutions Innovation team o
 5. Press `x` and then `Enter` to save the changes
 
 
+<a id="uninstalling-cloud-init"></a>
 ### Uninstalling Cloud-Init
 As we're starting a cloud-init based Ubuntu VM (Ubuntu 18.04 Bionic Beaver ships with `cloud-init`), we may suffer long boot times and confusing output on the terminal. To get rid of it, we'll need to disable cloud-init:
 
@@ -207,11 +220,13 @@ When done, reboot the machine.
 
 (Source: [How to Remove cloud-init From Ubuntu](https://makandracards.com/operations/42688-how-to-remove-cloud-init-from-ubuntu))
 
+<a id="applying-package-updates"></a>
 ### Applying Package Updates
 In this section, we'll make sure the Operating System packages are up to date.
 
 Use the following: `sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
+<a id="adding-the-ssh-key"></a>
 ### Adding the SSH Key
 Certain items in our solution stack such as the VM CLI and the Magento code base will need special permissions which will be provided by an ssh key to which they've been granted.  Assuming you have the key in hand, to add it, use the following steps:
 
@@ -222,6 +237,7 @@ Certain items in our solution stack such as the VM CLI and the Magento code base
 4. Save the key file with `x` and then `Enter` 
 5. Change the key file permissions to 0400 with `sudo chmod 0400 /home/magento/Magento-Cloud`
 
+<a id="adding-the-magento-cloud-cli"></a>
 ### Adding the Magento Cloud CLI
 In order to access private modules provided by the Solution Innovations team, we'll be setting up proxies between a Magento cloud environment and the Innovations team's gitlab repositories.  To do this, we'll need to ssh into the VM and follow the Cloud CLI pre-requisites provided in the Innovations team's Cloud extension.  Execute the following inside the VM:
 
@@ -229,11 +245,13 @@ In order to access private modules provided by the Solution Innovations team, we
 2. Once the Cloud cli is installed, you'll need to log into your cloud account via the terminal.  To do this, try the login command provided by the CLI.  It will give you an incorrect URL; something like: `https://localhost:5000`.  Along with that, it will offer an option to login via terminal.  
 3. Use that command and supply your credentials when prompted
 
+<a id="installing-helpful-additional-programs"></a>
 ### Installing Helpful Additional Programs
 Next, we'll install the additional programs listedin the [Helpful Additions](#helpful-additions) section above. To install these programs and then check for package updates, upgrades and to remove unused packages, use the following commands:
 
 `sudo apt install zip silversearcher-ag figlet -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
+<a id="setting-the-motd"></a>
 ### Setting the MoTD
 When a user logs in to a Linux-based operating system, they're greeted with what's called the *Message of the Day* (or MoTD).  This message can be modified, to show whatever we like, so let's modify it now to show some helpful information to our users.  We'll show them the machine's IP and hostname and format it in such a way that they can easily grab it for use as an entry in their local `hosts` file.
 
@@ -306,12 +324,15 @@ This MoTD is much more useful; it tells the user what hosts entry to use for the
 
 **Note**: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.  If you happen to have the VM CLI installed already, you can recall the motd with `motd`.
 
+<a id="solution-components-installation"></a>
 ## Solution Components Installation
 Next, we'll install and configure our solution components listed in the [Solution Components](#solution-components) section.
 
+<a id="php"></a>
 ### PHP
 First we'll install PHP 7.2 on Ubuntu.
 
+<a id="installing-php-with-the-ondrejphp-repository"></a>
 #### Installing PHP with the `ondrej/php` Repository
 The main set of repositories for both PHP 5.6 and PHP 7.x are actively maintained by a fellow named Ondrej Sury. His repository is not part of the standard repository source list provided by Ubuntu, so we'll need to add it.  Once that's done, we'll check to see if the addition of that repository source requires updates for any of the other repositories on our system and then proceed to install PHP 7.2.x.  We'll also add the necessary PHP extensions/modules that Magento will need in order to run.  Copy and paste the below:
 
@@ -327,6 +348,7 @@ Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
 ```
 With PHP and relevant extensions installed, we next need to configure PHP to run via FPM.
 
+<a id="uninstalling-the-apache-web-server"></a>
 #### Uninstalling the Apache Web Server
 When we installed PHP, the Apache2 web server was inadvertantly installed.  Since our VM will use the Nginx web server, let's completely remove Apache to ensure there are no conflicts between the two.  To remove apache, use the following commands:
 
@@ -336,6 +358,7 @@ sudo systemctl stop apache2 && sudo apt-get purge apache2 apache2-utils -y && su
 
 (Source: [How to Uninstall and Remove Apache2 on Ubuntu or Debuian](http://xmodulo.com/how-to-uninstall-and-remove-apache2-on-ubuntu-debian.html))
 
+<a id="configuring-php-cli-and-php-fpm"></a>
 #### Configuring PHP CLI and PHP-FPM
 When PHP is installed, it can run PHP code immediately via the CLI. PHP-FPM (PHP (F)astCGI (P)rocess (M)anager) is alternative method of running PHP via a FastCGI interface.  This interface sits between the web server and the PHP CLI, and offers better performance for busier sites.  To configure PHP, we'll alter settings for both the CLI and the FPM so that they both use the same settings, and we'll configure the communication between PHP CLI and FPM.
 
@@ -363,8 +386,10 @@ Once the configurations are saved, we'll want to restart PHP-FPM so they take ef
 
 (Sources: [Magento Dev Docs : Required PHP Settings](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/php-centos-ubuntu.html#instgde-prereq-php71-ubuntu) and [Magento Dev Docs : Install and configure php-fpm](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html#install-and-configure-php-fpm))
 
+<a id="nginx"></a>
 ### Nginx
 
+<a id="installing-nginx"></a>
 #### Installing Nginx
 
 Use the following commands to install Nginx:
@@ -372,6 +397,7 @@ Use the following commands to install Nginx:
 ```
 sudo apt-get -y install nginx && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove
 ```
+<a id="configuring-the-web-server-user"></a>
 #### Configuring the Web Server User
 When nginx is installed, it includes a user group called `www-data` which can be used to give users permissions to execute scripts and web server commands.  We'll need to configure our `magento` user to be a part of the `www-data` group. To do this, use:
 
@@ -379,6 +405,7 @@ When nginx is installed, it includes a user group called `www-data` which can be
 
 Using the `-G` flag makes the `www-data` group a *supplemental* group for the `magento` user.  This means that the `magento` user will have access to the `www-data` group files, but that new files created by that user will not have the `www-data` group label by default.  The `-a` flag makes sure that other groups the user belongs to are not lost.  This is important in our case because we happen to be a part of the `sudo` group, and if we lost that assignment, we'd be unable to continue.
 
+<a id="configuring-nginx-with-php-fpm"></a>
 #### Configuring Nginx with PHP-FPM
 Next, we'll need to configure Nginx to talk to PHP-FPM.  This connection is managed in `/etc/php/7.2/fpm/pool.d/www.conf`.  Using `sudo` and `vim` open the `www.conf` file and make the following changes:
 
@@ -410,6 +437,7 @@ Once this is done and the systems are started, you can verify everything is runn
 
 (Source: [Magento Dev Docs : Install and configure php-fpm](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html#install-and-configure-php-fpm-1)) -- Note that the settings were taken from a section dealing with CentOS rather than Ubuntu, and the approach was modified to use the `magento` user instead of the web server user and a localhost and port directive instead of the php socket.)
 
+<a id="create-the-web-root"></a>
 #### Create The Web Root
 Since we'll need the web root in order to make installing the Composer package manager easier, let's create it as `magento` inside of `/var/www`.  To do this, we need to give either the magento user or the web server user ownership of `var/www`.  (Since we've overridden the web server user in favor of `magento` in our PHP-FPM configuration, we'll use `magento`):
 
@@ -419,6 +447,7 @@ Once that's done, we can create the web root with:
 
 `mkdir /var/www/magento`
 
+<a id="configure-magento-virtual-host"></a>
 #### Configure Magento Virtual Host
 Similar to apache, nginx uses virtual host (vhost) files to designate different websites that are hosted by the server. These vhost files are enabled and/or disabled by creating symlinks from the `/etc/sites-available` to the `/etc/sites-enabled` folder. By default, it ships with a default vhost: `/etc/nginx/sites-available/default`. Next, we'll disable the default vhost, set up a configuration file which will allow for easier configuration of multiple sites, and then set up the magento vhost for luma.com:
 
@@ -464,6 +493,7 @@ Note the fact that the `nginx-magento.conf` file is commented out.  This is inte
 
 8. Test the site in a browser.  You should see the default nginx landing page
 
+<a id="composer"></a>
 ### Composer
 In order to download the Magento code base (and to work with Magento code in general), we'll use Composer, the PHP package manager.  Let's navigate to our web root and then install Composer globally.  Since we have to use `sudo` to install composer globally, we'll also need to change ownership of our Magento user's `.composer` directory so that it's owned by the `magento` user: with:
 
@@ -473,6 +503,7 @@ Once Composer is installed, you can test it with: `composer list`.
 
 (Source: [Magento Dev Docs : Install Composer Globally](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html))
 
+<a id="vm-cli"></a>
 ### VM CLI
 Next, we'll install the VM CLI.  This is done by cloning a git repository. 
 
@@ -482,6 +513,7 @@ In order to clone the repository, we'll need to make sure the key we inserted ea
 
 Once that's done, the VM CLI should work as expected.  You can test it by moving into the web root with: `www`.
 
+<a id="mariadb"></a>
 ### MariaDB
 Next, we'll install and configure our database, MariaDB.  As with PHP before, we'll need to add the MariaDB repository to Ubuntu 18.04. This consists of adding a repository key and the repository itself.  Here are the commands to add both to the system and then install MariaDB:
 
@@ -489,6 +521,7 @@ Next, we'll install and configure our database, MariaDB.  As with PHP before, we
 
 During installation, you'll be prompted to configure a new password for the root user.  We'll use `password` for ours when prompted.
 
+<a id="adding-a-database-and-a-database-user"></a>
 #### Adding A Database and A Database User
 Now, we'll add a database to be used with the Magento installation as well as a database user for that database.
 
@@ -508,6 +541,7 @@ Now, test the new user by logging in. You can check for the new database with `S
 
 (Source: [How to create a user in MySQL/MariaDB and grant permissions on a specific database](http://www.daniloaz.com/en/how-to-create-a-user-in-mysql-mariadb-and-grant-permissions-on-a-specific-database/))
 
+<a id="database-tuning"></a>
 #### Database Tuning
 Next, we'll tune our database to help it perform well:
 
@@ -530,6 +564,7 @@ max_heap_table_size             = 64M
 
 (Source: See Step 7 at [Magento Dev Docs: Configuring the Magento Database Instance](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/mysql.html#instgde-prereq-mysql-config))
 
+<a id="varnish"></a>
 ### Varnish
 Now we'll install Varnish.  Use the following command:
 
@@ -541,6 +576,7 @@ For now, let's stop Varnish with `sudo systemctl stop varnish`.
 
 (Source: [Set up Magento 2 with Redis, Varnish and Nginx as SSL termination : Install and configure Nginx](https://www.rosehosting.com/blog/magento-2-with-redis-varnish-and-nginx-as-ssl-termination/))
 
+<a id="redis"></a>
 ### Redis
 Next, let's install Redis.  Use the following commands:
 
@@ -550,9 +586,11 @@ As with Varnish, we'll configure Redis after we install Magento.
 
 (Source: [Set up Magento 2 with Redis, Varnish and Nginx as SSL termination : Install and configure Redis caching](https://www.rosehosting.com/blog/magento-2-with-redis-varnish-and-nginx-as-ssl-termination/))
 
+<a id="elasticsearch"></a>
 ### Elasticsearch
 Next, let's install Elasticsearch.  Elasticsearch runs on Java, so the first thing we'll need to do is install the Java Software Development Kit (JDK).
 
+<a id="install-java-with-the-jdk"></a>
 #### Install Java With The JDK
 
 Use the following commands to add the JDK repository and install Java:
@@ -563,11 +601,13 @@ Accept the Oracle License Agreement during installation.
 
 (Source: [Magento Dev Docs: Install the Latest JDK on Ubuntu](https://devdocs.magento.com/guides/v2.3/config-guide/elasticsearch/es-overview.html#prereq-java))
 
+<a id="installing-elasticsearch-56x"></a>
 #### Installing Elasticsearch 5.6.x
 In the event that Magento eventually supports a more up-to-date version of Elasticsearch, here are the instructions for installing it:
 
 `sudo wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - && sudo echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list && sudo apt update && sudo apt install elasticsearch -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
+<a id="configuring-elasticsearch"></a>
 #### Configuring Elasticsearch
 After the installation, a default configuration file will be populated to `/etc/elasticsearch/elasticsearch.yml`. Most lines are commented out, edit the file to tweak and tune the configuration. We'll update it to change our clustername, for example.
 
@@ -589,17 +629,21 @@ Check the status of Elasticseatch with `systemctl status elasticsearch` (Use `Ct
 
 (Configuration and installation: [How to Install Elasticsearch 5.x on Ubuntu 18.04 LTS (Bionic Beaver) Linux](https://computingforgeeks.com/how-to-install-elasticsearch-5-x-on-ubuntu-18-04-lts-bionic-beaver-linux/))
 
+<a id="elasticsearch-plugins"></a>
 #### Elasticsearch Plugins
 *TODO*
 
+<a id="rabbitmq"></a>
 ### RabbitMQ
 Next, we'll install RabbitMQ.
 
+<a id="install-erlangotp"></a>
 #### Install Erlang/OTP
 RabbitMQ depends on the Erlang language before it can run.  As with many other parts of the stack, we'll need to add a repository to our sources list, install, check for updates and upgrades, and then remove any unneded packages:
 
 `sudo wget -O - "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc" | sudo apt-key add - && echo "deb http://dl.bintray.com/rabbitmq-erlang/debian bionic erlang" | sudo tee /etc/apt/sources.list.d/bintray.erlang.list && sudo apt install erlang-nox -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
+<a id="install-rabbitmq"></a>
 #### Install RabbitMQ
 Next, we'll import the RabbitMQ repository keys, add the repository, and install RabbitMQ:
 
@@ -609,6 +653,7 @@ Once this is done, you can confirm RabbitMQ is running with `sudo netstat -tulpn
 
 (Source: [Installing RabbitMQ on Debian and Ubuntu](https://www.rabbitmq.com/install-debian.html))
 
+<a id="configuring-rabbitmq-to-respect-hostname-change"></a>
 #### Configuring RabbitMQ To Respect Hostname Change
 RabbitMQ doesn't work well when the VM's hostname is changed.  Since this is important for us, we'll implement a work-around for it.
 
@@ -631,6 +676,7 @@ Finally, restart RabbitMQ with `sudo systemctl restart rabbitmq-server`.
 
 (Source: [rabbitmq-server fails to start after hostname has changed for the first time](https://stackoverflow.com/questions/14659335/rabbitmq-server-fails-to-start-after-hostname-has-changed-for-first-time) -- The accepted answer is incorrect; see the answer from James Oravec.)
 
+<a id="install-rabbitmq-management-dashboard"></a>
 #### Install RabbitMQ Management Dashboard
 It can be helpful to have a GUI to manage RabbitMQ, so we'll install and configure one next.
 
@@ -646,10 +692,13 @@ Now, log in to the dashboard at the url above.
 
 (Source: [Enable the RabbitMQ Management Dashboard](https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-18-04-lts/))
 
+<a id="managing-the-vm-with-webmin"></a>
 ### Managing the VM with Webmin
 
+<a id="installing-and-configuring-webmin"></a>
 #### Installing and Configuring Webmin
 
+<a id="configuring-the-webmin-port"></a>
 ##### Configuring the Webmin Port
 Next, we'll configure webmin to use port 20000:
 
@@ -659,6 +708,7 @@ Next, we'll configure webmin to use port 20000:
 
 (Source: [How to change webmin port using terminal?](https://www.iodocs.com/change-webmin-port-using-terminal/))
 
+<a id="remove-ssl-mode"></a>
 ##### Remove SSL Mode
 Next, let's remove SSL authentication from Webmin
 
@@ -670,14 +720,17 @@ Source: ([Webmin Error: The Web Server is running in SSL mode](http://eitwebguru
 
 Restart the `webmin` service using `sudo systemctl restart webmin`
 
+<a id="handling-email-with-mailhog"></a>
 ### Handling Email with Mailhog
 Next, we'll install and configure Mailhog, a tool that catches outgoing email and presents it for viewing via a web interface.
 
+<a id="installing-the-go-programming-language"></a>
 #### Installing the Go Programming Language
 Mailhog is written in the Go programming language which is not included with Ubuntu 18.04.  So, we'll start by installing it.  Then, we'll create a directory which will serve as our "home" directory for our Go code and then designate this directory as our HOME path for all Go code execution in our bash `.profile`.  This makes it so that whenever we open an ssh or terminal session on the VM and run go code, it knows where the go packages are.  Next, we'll source our shell which will force the terminal to use the new settings, and finally, we'll copy our binaries to a location on the VM where they can be run from everywhere.
 
 `sudo apt install golang-go -y && sudo apt update -y && sudo apt upgrade -y && mkdir /home/vagrant/gocode && echo "export GOPATH=$HOME/gocode" >> ~/.profile && source ~/.profile`
 
+<a id="downloading-and-configuring-mailhog"></a>
 #### Downloading and Configuring Mailhog
 Now that we have the Go language installed, let’s download MailHog (the SMTP server) plus mhsendmail, which is the mail handler that forwards PHP’s outgoing email to MailHog.  Then, we'll copy the Mailhog and MHSendmail binaries to a location where they can be accessed globally on the system:
 
@@ -692,6 +745,7 @@ For both `/etc/php/7.2/cli` and `/etc/php/7.2/fpm`:
 3. Use `Esc`, then `x`, and `Enter` to save and close
 4. Restart `php-fpm` with `sudo systemctl restart php7.2-fpm`
 
+<a id="creating-the-mailhog-service"></a>
 #### Creating the Mailhog Service
 In order to make it easier to use Mailhog and to be able to start it as a service when the VM boots, we need to create a service file:
 
@@ -721,8 +775,10 @@ With Mailhog configured, you should be able to send transactional emails from Ma
 
 Source: [Installing MailHog for Ubuntu 16.04](https://www.lullabot.com/articles/installing-mailhog-for-ubuntu-1604)
 
+<a id="magento"></a>
 ## Magento
 
+<a id="downloading-the-codebase-with-git-and-composer"></a>
 ### Downloading The Codebase With Git and Composer
 Note that before we can download the Commerce Edition code base, we'll need credentials with the correct access to the Magento code base repository.
 
@@ -732,6 +788,7 @@ Normally, we'd use Composer to download the Magento codebase.  However, to keep 
 
 When prompted, enter your Magento code base repository credentials and then store the credentials in `home/magento/.composer/auth.json` when prompted.
 
+<a id="installing-the-magento-application"></a>
 ### Installing The Magento Application
 Use the following comamnd to install the Magento application (change your values where applicable):
 
@@ -745,15 +802,18 @@ TODO: Test installation with Redis... `session-save=db`.
 
 `./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=admin4tls --use-rewrites=1 --amqp-host="luma.com" --amqp-port=5672 --amqp-user="guest" --amqp-password="guest" --amqp-virtualhost="/" --cleanup-database`
 
+<a id="installing-cron-tasks"></a>
 ### Installing Cron Tasks
 Magento operates using loads of cron jobs -- everything from reindexing to staging updates requires cron jobs to run.  Luckily for us, the Magento CLI includes an easy-to-use command which allows us to create the required `crontab` to run application cron jobs.  To install it, we'll navigate to the web root and execute the CLI command with:
 
 `www && ./bin/magento cron:install`
 
 
+<a id="configuring-magento-and-varnish"></a>
 ### Configuring Magento and Varnish
 *TODO*
 
+<a id="configuring-magento-for-multisite-operation"></a>
 ### Configuring Magento For Multisite Operation
 Magento ships with a sample nginx configuration file  `nginx.conf.sample`.  In order to support multisite directives, we'll copy this file and then add some configurations to it. We'll store it away from the code base in case the native `nginx.conf.sample` file changes in a future release.
 
@@ -773,5 +833,6 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 
 3. Now, restart the web server with `sudo systemctl restart nginx`
 
+<a id="how-magento-multisite-operation-works"></a>
 ### How Magento Multisite Operation Works
 *TODO*
