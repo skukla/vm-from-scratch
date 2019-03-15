@@ -64,6 +64,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 	- [Configuring Magento and Varnish](#configuring-magento-and-varnish)
 	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
+- [Demo Setup](#demo-setup)
 
 <!-- /MarkdownTOC -->
 
@@ -828,3 +829,7 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 <a id="how-magento-multisite-operation-works"></a>
 ### How Magento Multisite Operation Works
 *TODO*
+
+<a id="demo-setup"></a>
+## Demo Setup
+See the following: [Kukla VM and B2B](DEMO-SETUP.md)
