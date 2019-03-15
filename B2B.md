@@ -1,6 +1,12 @@
-# Kukla VM and B2B
+# Magento Demo VM From Scratch
 
-*Looking for General B2C Demo Setup?  Check here: [Kukla VM Demo Setup](DEMO-SETUP.md)*
+## Table of Contents
+- [Building the VM](BUILDING-THE-VM.md)
+- [Kukla VM Demo Setup](DEMO-SETUP.md)
+- [Kukla VM and B2B](B2B.md)
+- [How Do I...](HOW-TO.md)
+
+# Kukla VM and B2B
 
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 

@@ -6,7 +6,7 @@
 - [Kukla VM and B2B](B2B.md)
 - [How Do I...](HOW-TO.md)
 
-# Demo Setup
+# Kukla VM Demo Setup
 <!-- MarkdownTOC MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [Demo Environments Overview](#demo-environments-overview)
