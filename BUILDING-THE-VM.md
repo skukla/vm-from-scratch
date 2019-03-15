@@ -1,3 +1,11 @@
+# Magento Demo VM From Scratch
+
+## Table of Contents
+- [Building the VM](BUILDING-THE-VM.md)
+- [Kukla VM Demo Setup](DEMO-SETUP.md)
+- [Kukla VM and B2B](B2B.md)
+- [How Do I...](HOW-TO.md)
+
 # Building the VM
 
 <!-- MarkdownTOC -->
@@ -63,7 +71,6 @@
 	- Configuring Magento and Varnish
 	- Configuring Magento For Multisite Operation
 	- How Magento Multisite Operation Works
-- Demo Setup
 
 <!-- /MarkdownTOC -->
 
@@ -768,6 +775,3 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 
 ### How Magento Multisite Operation Works
 *TODO*
-
-## Demo Setup
-See the following: [Kukla VM Demo Setup](DEMO-SETUP.md)

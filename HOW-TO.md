@@ -1,3 +1,11 @@
+# Magento Demo VM From Scratch
+
+## Table of Contents
+- [Building the VM](BUILDING-THE-VM.md)
+- [Kukla VM Demo Setup](DEMO-SETUP.md)
+- [Kukla VM and B2B](B2B.md)
+- [How Do I...](HOW-TO.md)
+
 # How Do I...
 
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->

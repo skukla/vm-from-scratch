@@ -1,5 +1,4 @@
 # Magento Demo VM From Scratch
-The following guide covers how to set up a virtual machine running Ubuntu 18.04 via VMWare Fusion.
 
 ## Table of Contents
 - [Building the VM](BUILDING-THE-VM.md)
