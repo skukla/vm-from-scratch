@@ -926,7 +926,7 @@ Navigate to `Marketing > SEO and Search > Site Map` and create the following:
 
 <a id="custom-theme-skin-via-sc-theme-customizer"></a>
 #### Custom Theme Skin via SC Theme Customizer
-The theme customizer is an extension that attaches a CSS-based skin to an existing theme.  It ships with a collection of base skins that an SC can duplicate, customize, and then apply to a custom theme in order to apply a custom look and feel.  The VM ships with a Custom theme specifically for this purpose.  Unfortunately, the "Luma" skin does not fully map to all the necessary styles in the theme and requires the SC to add additional CSS hooks to control the look and feel.
+The theme customizer is an extension that attaches a CSS-based skin to an existing theme.  It ships with a collection of base skins that an SC can duplicate, customize, and then apply to a custom theme in order to apply a custom look and feel.  The VM ships with a Custom theme specifically for this purpose.  Unfortunately, the "Luma" skin does not fully map to all the necessary styles in the theme and requires the SC to add additional CSS styles to control the look and feel.
 
 Next, let's create a Luma skin based on the included one and update it with the right CSS to be more complete.  Then, we'll attach it to the included custom theme which is assigned to our custom store view.
 
