@@ -1,7 +1,10 @@
-# B2B
+# Kukla VM and B2B
 
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
+- [B2B Configuration](#b2b-configuration)
+	- [Enable B2B Modules](#enable-b2b-modules)
+	- [Payment on Account](#payment-on-account)
 - [Creating the Luma B2B Website](#creating-the-luma-b2b-website)
 	- [Adding the Luma B2B Website](#adding-the-luma-b2b-website)
 	- [Configuring the Luma B2B Website](#configuring-the-luma-b2b-website)
@@ -11,9 +14,6 @@
 		- [Adding the Virtual Host](#adding-the-virtual-host)
 		- [Configuring the Virtual Host](#configuring-the-virtual-host)
 - [B2B Demo Cases](#b2b-demo-cases)
-	- [B2B Configuration](#b2b-configuration)
-		- [Enable B2B Modules](#enable-b2b-modules)
-		- [Payment on Account](#payment-on-account)
 	- [Customers](#customers)
 	- [Sales Representative Role and User](#sales-representative-role-and-user)
 	- [Companies](#companies)
@@ -29,6 +29,36 @@
 	- [Catalogs](#catalogs)
 
 <!-- /MarkdownTOC -->
+
+<a id="b2b-configuration"></a>
+## B2B Configuration
+
+<a id="enable-b2b-modules"></a>
+### Enable B2B Modules
+To use the B2B features, we'll need to enable them first:
+
+Navigate to: `Stores > Settings > Configuration > General > B2B Features`
+
+**Note:** If you're using the multi-website approach, set these settings at the website scope level for the Luma B2B Website.
+
+1. Enable Company: `Yes`
+2. Enable Shared Catalog: `No` (We'll leave this disabled for now until the product team fixes it properly -- expected in 2.3.1)
+3. Enable B2B Quote: `Yes`
+4. Enable Quick Order: `Yes`
+5. Enable Requisition List: `Yes`
+
+<a id="payment-on-account"></a>
+### Payment on Account
+By default, the Payment on Account method used to deduct a purchase amount from company credit is disabled and needs to be enabled before it can be used.  To enable it:
+
+Navigate to `Stores > Settings > Configuration > Sales > Payment Methods`
+
+**Note:** If you're using the multi-website approach, set these settings at the website scope level for the Luma B2B Website.
+
+1. Payment on Account > Enabled: `Yes`
+2. Save the payment method
+
+When saved, clear the cache
 
 <a id="creating-the-luma-b2b-website"></a>
 ## Creating the Luma B2B Website
@@ -237,35 +267,6 @@ To be able to use the B2B website, we'll need to add it to our hosts file.
 <a id="b2b-demo-cases"></a>
 ## B2B Demo Cases
 
-<a id="b2b-configuration"></a>
-### B2B Configuration
-
-<a id="enable-b2b-modules"></a>
-#### Enable B2B Modules
-To use the B2B features, we'll need to enable them first:
-
-Navigate to: `Stores > Settings > Configuration > General > B2B Features`
-
-**Note:** If you're using the multi-website approach, set these settings at the website scope level for the Luma B2B Website.
-
-1. Enable Company: `Yes`
-2. Enable Shared Catalog: `No` (We'll leave this disabled for now until the product team fixes it properly -- expected in 2.3.1)
-3. Enable B2B Quote: `Yes`
-4. Enable Quick Order: `Yes`
-5. Enable Requisition List: `Yes`
-
-<a id="payment-on-account"></a>
-#### Payment on Account
-By default, the Payment on Account method used to deduct a purchase amount from company credit is disabled and needs to be enabled before it can be used.  To enable it:
-
-Navigate to `Stores > Settings > Configuration > Sales > Payment Methods`
-
-**Note:** If you're using the multi-website approach, set these settings at the website scope level for the Luma B2B Website.
-
-1. Payment on Account > Enabled: `Yes`
-2. Save the payment method
-
-When saved, clear the cache
 
 <a id="customers"></a>
 ### Customers
