@@ -832,4 +832,4 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 
 <a id="demo-setup"></a>
 ## Demo Setup
-See the following: [Kukla VM and B2B](DEMO-SETUP.md)
+See the following: [Kukla VM Demo Setup](DEMO-SETUP.md)
