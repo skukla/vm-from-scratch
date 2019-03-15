@@ -1,5 +1,7 @@
 # Kukla VM and B2B
 
+*Looking for General B2C Demo Setup?  Check here: [Kukla VM Demo Setup](DEMO-SETUP.md)*
+
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [B2B Configuration](#b2b-configuration)
