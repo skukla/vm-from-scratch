@@ -18,13 +18,13 @@
 	- [Sales Representative Role and User](#sales-representative-role-and-user)
 	- [Companies](#companies)
 		- [Terra Outfitters](#terra-outfitters)
-		- [Terra Welcome Message Content](#terra-welcome-message-content)
-			- [Terra Welcome Message Widget](#terra-welcome-message-widget)
 		- [Emily's Exercise Emporium](#emilys-exercise-emporium)
 	- [Buyer Users](#buyer-users)
 	- [Buyer Teams](#buyer-teams)
 	- [Buyer Roles and Permissions](#buyer-roles-and-permissions)
 	- [B2B Autofill](#b2b-autofill)
+	- [Company Content](#company-content)
+		- [Terra Welcome Message Widget](#terra-welcome-message-widget)
 	- [Company User Segments](#company-user-segments)
 	- [Catalogs](#catalogs)
 
@@ -371,92 +371,6 @@ Navigate to `Customers > Companies`
 28. Company Credit > Allow to Exceed Credit Limit: `No`
 29. Advanced Settings > Allow Quotes: `Yes`
 
-<a id="terra-welcome-message-content"></a>
-#### Terra Welcome Message Content
-Next, let's add a custom welcome message to personalize the My Account area for our Terra Outfitters buyers.
-
-Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
-
-1. Enable Dynamic Block: `Yes`
-2. Dynamic Block Name: `Terra Outfitters Welcome Message`
-3. Dynamic Block Type: `Any Dynamic Block Type`
-4. Customer Segment: `Company - Terra Outfitters Users`
-
-*Row*
-
-5. Appearance: `Contained`
-6. Background > Background Color: `#f5f5f5`
-7. Background > Background Image: `None`
-8. Advanced > Margins and Padding:
-	1. Top Margin: `0`
-	2. Left Margin: `0`
-	3. Right Margin: `0`
-	4. Bottom Magin: `0`
-	5. Top Padding: `15px`
-	6. Left Padding: `15px`
-	7. Right Padding: `15px`
-	8. Bottom Padding: `15px`
-
-9. Insert two columns into the row. Then, delete the right one so that the left one takes up the entire row.
-
-*Row 1 > Column 1*
-
-10. Grid Size: `12/12`
-11. Appearance: `Centered`
-12. Background > Background Color: `None`
-13. Background > Background Image:
-	1. Choose `Select from Gallery`
-	2. Upload the `terra-outfitters.png` image to the `wysiwyg/b2b` folder and select it
-	3. Background > Background Size: `Contain`
-	4. Background > Background Position: `Center Left`
-14. Layout > Minimum Height: `85px`
-15. Layout > Verical Alignment: `Centered`
-16. Advanced > Margins and Padding:
-	1. Top Margin: `0`
-	2. Left Margin: `0`
-	3. Right Margin: `7.5px`
-	4. Bottom Magin: `0`
-	5. Top Padding: `0`
-	6. Left Padding: `100px`
-	7. Right Padding: `0`
-	8. Bottom Padding: `0`
-
-24. Next, insert a text element into the column.
-
-*Text Element*
-
-25. Content Line 1:
-	1. Format: `Heading 2`
-	2. Font Size: `24px`
-	3. Line Height: `Line Height`
-	4. Text: `Welcome to the **Terra Outfitters** Buyer Portal` (The double-asterisk here denotes **bold** text)
-	5. Color: `Black`
-
-Finally, let's translate the welcome message into German:
-
-26. Content Line 1:
-	1. Text: `Willkommen auf dem **Terra Outfitters** Buyer Portal`
-<a id="terra-welcome-message-widget"></a>
-##### Terra Welcome Message Widget
-Next, we'll need to place the welcome message content on the My Account page at the top.
-
-Navigate to `Content > Elements > Widgets`
-
-1. Settings > Type: `Dynamic Blocks Rotator`
-2. Settings > Design Theme: `Magento Luma`
-3. `Continue`
-4. Storefront Properties > Widget Title: `My Account Welcome Message`
-5. Storefront Properties > Assign to Store Views: `Luma B2C Website > Luma Store > US English, Deutsch`
-6. `Layout Updates > Add Layout Update`
-7. Layout Updates > Display on: `Specified Page`
-	1. Page: `Customer My Account`
-	2. Container: `After Page Header Top`
-	3. Template: `Dynamic Blocks Template`
-8. Widget Options > Dynamic Blocks to Display: `Specified Dynamic Blocks`
-9. Widget Options > Restrict by Dynamic Block Types: `None`
-10. Widget Options > Rotation Mode: `Display all instead of rotating`
-11. Widget Options > Specify Dynamic Blocks: `Reset Filter` > `Terra Outfitters Welcome Message`
-
 <a id="emilys-exercise-emporium"></a>
 #### Emily's Exercise Emporium
 
@@ -632,6 +546,93 @@ Clear cache once the personas are saved
 **Note:** Do *not* use apostrophes in the Persona Labels or the Company names.  For some reason those cause errors.
 
 **Note:** It's a good idea to disable the B2B personas by default once they're set up and tested.
+
+<a id="company-content"></a>
+### Company Content
+Next, let's add a custom welcome message to personalize the My Account area for our Terra Outfitters buyers.
+
+Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
+
+1. Enable Dynamic Block: `Yes`
+2. Dynamic Block Name: `Terra Outfitters Welcome Message`
+3. Dynamic Block Type: `Any Dynamic Block Type`
+4. Customer Segment: `Company - Terra Outfitters Users`
+
+*Row*
+
+5. Appearance: `Contained`
+6. Background > Background Color: `#f5f5f5`
+7. Background > Background Image: `None`
+8. Advanced > Margins and Padding:
+	1. Top Margin: `0`
+	2. Left Margin: `0`
+	3. Right Margin: `0`
+	4. Bottom Magin: `0`
+	5. Top Padding: `15px`
+	6. Left Padding: `15px`
+	7. Right Padding: `15px`
+	8. Bottom Padding: `15px`
+
+9. Insert two columns into the row. Then, delete the right one so that the left one takes up the entire row.
+
+*Row 1 > Column 1*
+
+10. Grid Size: `12/12`
+11. Appearance: `Centered`
+12. Background > Background Color: `None`
+13. Background > Background Image:
+	1. Choose `Select from Gallery`
+	2. Upload the `terra-outfitters.png` image to the `wysiwyg/b2b` folder and select it
+	3. Background > Background Size: `Contain`
+	4. Background > Background Position: `Center Left`
+14. Layout > Minimum Height: `85px`
+15. Layout > Verical Alignment: `Centered`
+16. Advanced > Margins and Padding:
+	1. Top Margin: `0`
+	2. Left Margin: `0`
+	3. Right Margin: `7.5px`
+	4. Bottom Magin: `0`
+	5. Top Padding: `0`
+	6. Left Padding: `100px`
+	7. Right Padding: `0`
+	8. Bottom Padding: `0`
+
+24. Next, insert a text element into the column.
+
+*Text Element*
+
+25. Content Line 1:
+	1. Format: `Heading 2`
+	2. Font Size: `24px`
+	3. Line Height: `Line Height`
+	4. Text: `Welcome to the **Terra Outfitters** Buyer Portal` (The double-asterisk here denotes **bold** text)
+	5. Color: `Black`
+
+Finally, let's translate the welcome message into German:
+
+26. Content Line 1:
+	1. Text: `Willkommen auf dem **Terra Outfitters** Buyer Portal`
+
+<a id="terra-welcome-message-widget"></a>
+#### Terra Welcome Message Widget
+Next, we'll need to place the welcome message content on the My Account page at the top.
+
+Navigate to `Content > Elements > Widgets`
+
+1. Settings > Type: `Dynamic Blocks Rotator`
+2. Settings > Design Theme: `Magento Luma`
+3. `Continue`
+4. Storefront Properties > Widget Title: `My Account Welcome Message`
+5. Storefront Properties > Assign to Store Views: `Luma B2C Website > Luma Store > US English, Deutsch`
+6. `Layout Updates > Add Layout Update`
+7. Layout Updates > Display on: `Specified Page`
+	1. Page: `Customer My Account`
+	2. Container: `After Page Header Top`
+	3. Template: `Dynamic Blocks Template`
+8. Widget Options > Dynamic Blocks to Display: `Specified Dynamic Blocks`
+9. Widget Options > Restrict by Dynamic Block Types: `None`
+10. Widget Options > Rotation Mode: `Display all instead of rotating`
+11. Widget Options > Specify Dynamic Blocks: `Reset Filter` > `Terra Outfitters Welcome Message`
 
 <a id="company-user-segments"></a>
 ### Company User Segments
