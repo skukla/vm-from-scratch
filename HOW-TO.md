@@ -13,7 +13,7 @@
 - [Install New Extensions](#install-new-extensions)
 	- [Composer and What It Does](#composer-and-what-it-does)
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
-		- [VM Snapshots Failed Cloud Tokens](#vm-snapshots-failed-cloud-tokens)
+		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
 	- [Installing Extensions From a Third Party](#installing-extensions-from-a-third-party)
 - [Add a New Language](#add-a-new-language)
@@ -44,8 +44,8 @@ In an ideal world, when you use composer to download and install new code, an SS
 
 If this happens, you should be to simply exit the currently-running composer command using `Ctrl+c` and then re-run `upgrade`.
 
-<a id="vm-snapshots-failed-cloud-tokens"></a>
-#### VM Snapshots Failed Cloud Tokens
+<a id="vm-snapshots-and-failed-cloud-tokens"></a>
+#### VM Snapshots and Failed Cloud Tokens
 Whenever you restore a snapshot and then try to upgrade or add new code via composer, the cloud login token will become invalid.  Unforunately, there's no way to *prevent* this at present; however, there *is* a pretty simple work-around.  If the cloud token is invalid, simply use the `cloud-login` command and re-authenticate with your cloud username and password.  Then you should be able to proceed with composer activities as expected.
 
 <a id="installing-extensions-from-the-solution-innovation-team"></a>
