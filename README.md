@@ -13,7 +13,7 @@ The following guide covers how to set up a virtual machine running Ubuntu 18.04 
 
 <a id="building-the-vm"></a>
 ## Building the VM
-See the following to build the VM from scratch using VMWare Fusion: [Building the VM](BUILDING-THE-VM.md)
+See the following: [Building the VM](BUILDING-THE-VM.md)
 
 <a id="vm-usage"></a>
 ## VM Usage
