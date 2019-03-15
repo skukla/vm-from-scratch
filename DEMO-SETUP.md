@@ -942,7 +942,7 @@ Next, use the following settings:
 4. Primary Link Color: `#006bb4`
 5. Nav Background Color: `#f0f0f0`
 6. Nav Link Color: `#f0f0f0`
-7. Button Background Color:`#eeeeee`
+7. Button Background Color:`#ffffff`
 
 In the *Additional CSS* section, paste the following CSS:
 
