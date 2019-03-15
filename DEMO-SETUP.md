@@ -2658,7 +2658,7 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 <a id="b2b-demo-cases"></a>
 ### B2B Demo Cases
 
-See the following: [Kukla VM and B2B](B2B.md)
+*See the following: [Kukla VM and B2B](B2B.md)*
 
 <a id="fixes"></a>
 ### Fixes
