@@ -1,35 +1,35 @@
+# B2B
+
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
-- [B2B](#b2b)
-	- [Creating the Luma B2B Website](#creating-the-luma-b2b-website)
-		- [Adding the Luma B2B Website](#adding-the-luma-b2b-website)
-		- [Configuring the Luma B2B Website](#configuring-the-luma-b2b-website)
-			- [Updating the Luma Website for B2C](#updating-the-luma-website-for-b2c)
-			- [Configuring CMS Content for Luma B2B](#configuring-cms-content-for-luma-b2b)
-			- [Configuring the URLs](#configuring-the-urls)
-			- [Adding the Virtual Host](#adding-the-virtual-host)
-			- [Configuring the Virtual Host](#configuring-the-virtual-host)
-	- [B2B Demo Cases](#b2b-demo-cases)
-		- [B2B Configuration](#b2b-configuration)
-			- [Enable B2B Modules](#enable-b2b-modules)
-			- [Payment on Account](#payment-on-account)
-		- [Customers](#customers)
-		- [Sales Representative Role and User](#sales-representative-role-and-user)
-		- [Companies](#companies)
-			- [Terra Outfitters](#terra-outfitters)
-			- [Terra Welcome Message Content](#terra-welcome-message-content)
-				- [Terra Welcome Message Widget](#terra-welcome-message-widget)
-			- [Emily's Exercise Emporium](#emilys-exercise-emporium)
-		- [Buyer Users](#buyer-users)
-		- [Buyer Teams](#buyer-teams)
-		- [Buyer Roles and Permissions](#buyer-roles-and-permissions)
-		- [B2B Autofill](#b2b-autofill)
-		- [Company User Segments](#company-user-segments)
-		- [Catalogs](#catalogs)
+- [Creating the Luma B2B Website](#creating-the-luma-b2b-website)
+	- [Adding the Luma B2B Website](#adding-the-luma-b2b-website)
+	- [Configuring the Luma B2B Website](#configuring-the-luma-b2b-website)
+		- [Updating the Luma Website for B2C](#updating-the-luma-website-for-b2c)
+		- [Configuring CMS Content for Luma B2B](#configuring-cms-content-for-luma-b2b)
+		- [Configuring the URLs](#configuring-the-urls)
+		- [Adding the Virtual Host](#adding-the-virtual-host)
+		- [Configuring the Virtual Host](#configuring-the-virtual-host)
+- [B2B Demo Cases](#b2b-demo-cases)
+	- [B2B Configuration](#b2b-configuration)
+		- [Enable B2B Modules](#enable-b2b-modules)
+		- [Payment on Account](#payment-on-account)
+	- [Customers](#customers)
+	- [Sales Representative Role and User](#sales-representative-role-and-user)
+	- [Companies](#companies)
+		- [Terra Outfitters](#terra-outfitters)
+		- [Terra Welcome Message Content](#terra-welcome-message-content)
+			- [Terra Welcome Message Widget](#terra-welcome-message-widget)
+		- [Emily's Exercise Emporium](#emilys-exercise-emporium)
+	- [Buyer Users](#buyer-users)
+	- [Buyer Teams](#buyer-teams)
+	- [Buyer Roles and Permissions](#buyer-roles-and-permissions)
+	- [B2B Autofill](#b2b-autofill)
+	- [Company User Segments](#company-user-segments)
+	- [Catalogs](#catalogs)
 
 <!-- /MarkdownTOC -->
-<a id="b2b"></a>
-# B2B
+
 <a id="creating-the-luma-b2b-website"></a>
 ## Creating the Luma B2B Website
 In order to realistically and effectively show Magento's B2B capabilities, we'll convert Luma into a B2C and B2B merchant by adding a B2B website.  This helps with a few things -- first, it elegantly demonstrates multi-site capabilities beyond the shared cart scenario that Venia provides.  Second, it helps us get around the need to avoid shared catalogs; we can simply apply those cases to the separated website.  And third, it allows us to tell a B2B story without using a copy or snapshot of the VM.
