@@ -332,11 +332,11 @@ Navigate to `System > Permissions > All Users`
 3. User Info > Account Information > First Name: `Mark`
 4. User Info > Account Information > Last Name: `Jones`
 5. User Info > Account Information > Email: `mjones@luma.com`
-6. User Info > Account Information > Password: `admin4tls`
-7. User Info > Account Information > Password Confirmation: `admin4tls`
+6. User Info > Account Information > Password: `<PASSWORD>`
+7. User Info > Account Information > Password Confirmation: `<PASSWORD>`
 8. User Info > Account Information > Interface Locale: `English (United States)`
 9. User Info > Account Information > This account is: `Active`
-10. User Info > Current User Identity Verification > Your Password: `admin4tls`
+10. User Info > Current User Identity Verification > Your Password: `<PASSWORD>`
 11. User Role: `Sales Representative`
 12. Save the user
 
