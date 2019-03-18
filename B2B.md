@@ -318,7 +318,7 @@ Navigate to `System > Permissions > User Roles`
 
 1. Add a new role
 2. Role Info > Role Name: `Sales Representative`
-3. Role Info > Your Password: `admin4tls`
+3. Role Info > Your Password: `<PASSWORD>`
 4. Role Resources > Role Scopes: `All`
 5. Role Resources > Role Resources > Resource Access > `All` 
 6. Save the role
