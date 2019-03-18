@@ -796,11 +796,11 @@ TODO: Test installation with Redis... `session-save=db`.
 
 **Without RabbitMQ**
 
-`./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=admin4tls --use-rewrites=1 --cleanup-database`
+`./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=<PASSWORD> --use-rewrites=1 --cleanup-database`
 
 **With RabbitMQ**
 
-`./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=admin4tls --use-rewrites=1 --amqp-host="luma.com" --amqp-port=5672 --amqp-user="guest" --amqp-password="guest" --amqp-virtualhost="/" --cleanup-database`
+`./bin/magento setup:install --db-host=localhost --db-name=magento --db-user=magento --db-password=password --backend-frontname=admin --base-url=http://luma.com/ --language=en_US --timezone=America/Los_Angeles --currency=USD --admin-lastname=Admin --admin-firstname=Admin --admin-email=admin@luma.com --admin-user=admin --admin-password=<PASSWORD> --use-rewrites=1 --amqp-host="luma.com" --amqp-port=5672 --amqp-user="guest" --amqp-password="guest" --amqp-virtualhost="/" --cleanup-database`
 
 <a id="installing-cron-tasks"></a>
 ### Installing Cron Tasks
