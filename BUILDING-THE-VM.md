@@ -131,6 +131,7 @@ To Install VMWare Fusion:
 5. After some time, check your Applications folder to see if VMWare Fusion has been installed
 6. Once it has been installed, launch it, choose `Check for Updates` from the `VMWare Fusion` Apple menu
 7. Install any updates found
+8. After installing, restart your machine before continuing
 
 <a id="creating-the-vm"></a>
 ## Creating the VM
