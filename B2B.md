@@ -35,6 +35,10 @@
 		- [Terra Welcome Message Widget](#terra-welcome-message-widget)
 	- [Company User Segments](#company-user-segments)
 	- [Catalogs](#catalogs)
+	- [B2B Call-outs](#b2b-call-outs)
+	- [Home Page Updates](#home-page-updates)
+	- [B2B Staging Updates](#b2b-staging-updates)
+	- [B2B - B2C Menu Connection](#b2b---b2c-menu-connection)
 
 <!-- /MarkdownTOC -->
 
@@ -274,7 +278,6 @@ To be able to use the B2B website, we'll need to add it to our hosts file.
 
 <a id="b2b-demo-cases"></a>
 ## B2B Demo Cases
-
 
 <a id="customers"></a>
 ### Customers
@@ -616,10 +619,19 @@ Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
 	4. Text: `Welcome to the **Terra Outfitters** Buyer Portal` (The double-asterisk here denotes **bold** text)
 	5. Color: `Black`
 
+26. Content Line 2:
+	1. Format: `Paragraph`
+	2. Font Size: `18px`
+	3. Line Height: `26px`
+	4. Text: `Your sales representative, **Mark Jones**, is eager to work with you!  You can reach him at **(323) 934-3456** with any questions, or place a quote and he'll be in touch!`
+
 Finally, let's translate the welcome message into German:
 
 26. Content Line 1:
 	1. Text: `Willkommen auf dem **Terra Outfitters** Buyer Portal`
+
+27. Content Line 2:
+	1. Text: `Ihr Vertriebsmitarbeiter, **Mark Jones**, ist bestrebt, mit Ihnen zusammenzuarbeiten! Sie können ihn unter **(323) 934-3456** bei Fragen erreichen oder ein Angebot machen und er wird sich melden!`
 
 <a id="terra-welcome-message-widget"></a>
 #### Terra Welcome Message Widget
@@ -660,8 +672,132 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 
 <a id="catalogs"></a>
 ### Catalogs
+In order to use the shared catalog functionality to show pricing, we need to set our product prices at `Website` scope. Navigate to: `Stores > Settings > Configuration > Catalog > Catalog > Price` and change Catalog Price Scope to `Website`.
 
+<a id="b2b-call-outs"></a>
+### B2B Call-outs
+Next, we'll create some call-outs for guest B2C customers which advertise the B2B buyer portal.  We'll create two of them -- one red, the other, blue:
 
+Navigate to: `Content > Elements > Dynamic Blocks`
 
-2. Price scope per website
-2. Update B2B welcome message
+1. Add a new block
+2. Enable Dynamic Block: `Yes`
+3. Dynamic Block Name: `Luma B2B Call-out (Blue)`
+4. Dynamic Block Type: 	`Any Dynamic Block Type`
+5. Customer Segment: `LUMA B2C Guest Customers`
+
+*Row 1*
+1. Appearance: `Full Width`
+2. Background > Background Color: `#066bb4`
+3. Layout > Vertical Alignment: `Center`
+4. Advanced > Alignment: `Center`
+5. Advanced > Margins and Padding:
+	1. Top Margin: `0`
+	2. Right Margin: `0`
+	3. Bottom Margin: `0`
+	4. Left Margin: `0`
+	5. Top Padding: `10px`
+	6. Right Padding: `0`
+	7. Bottom Padding: `20px`
+	8. Left Padding: `0`
+
+*Text*
+1. Content Line 1:
+	1. Format: `Heading 2`
+	2. Font Size: `26px`
+	3. Text: `Looking for our **B2B Buyer Portal?**`
+	4. Color: `White`
+
+*Button*
+1. Button Text: `Log in`
+2. Button Type: `Secondary`
+3. Button Link: `URL`: `http://b2b.luma.com`
+4. Advanced > Alignment: `Center`
+
+Next, switch store views to the German store view and make the following edit:
+
+1. De-tick `Use Default Value`
+
+*Text*
+1. Content Line 1:
+	1. Text: `Suchen Sie nach unserem Käuferportal?`
+
+*Button*
+1. Button Text: `Anmeldung`
+
+Next, duplicate the blue call-out block and create a new, red one:
+
+1. Dynamic Block Name: `Luma B2B Call-out (Red)`
+
+*Row 1*
+1. Background > Background Color: `#c54050`
+
+<a id="home-page-updates"></a>
+### Home Page Updates
+Next, we need to add our B2B call-out to the B2B Home Page:
+
+Navigate to: `Content > Elements > Pages`
+
+1. Open `Luma B2C Home Page - US`
+
+*Row 1*
+1. Advanced > Margins and Padding:
+	1. Top Margin: `10px`
+	2. Right Margin: `0`
+	3. Bottom Margin: `10px`
+	4. Left Margin: `0`
+	5. Top Padding: `10px`
+	6. Right Padding: `10px`
+	7. Left Padding: `10px`
+	8. Bottom Padding: `10px`
+
+Insert a new row beneath Row 1 for the call out:
+
+*Call out Row*
+1. Appearance: `Full Bleed`
+2. Layout > Vertical Alignment: `Center`
+3. Advanced > Alignment: `Center`
+4. Advanced > Margins and Padding:
+	1. Top Margin: `10px`
+	2. Right Margin: `0`
+	3. Bottom Margin: `0`
+	4. Left Margin: `0`
+	5. Top Padding: `0`
+	6. Right Padding: `0`
+	7. Left Padding: `0`
+	8. Bottom Padding: `0`	
+
+Insert the `Luma B2B Call-out (Blue)` dynamic block into the row created for it.
+
+<a id="b2b-staging-updates"></a>
+### B2B Staging Updates
+Next, make the same call-out updates to each of the staging campaigns.  Add the `Luma B2B Call-out (Red)` dynamic block instead of the blue one in the Holiday campaign.
+
+<a id="b2b---b2c-menu-connection"></a>
+### B2B - B2C Menu Connection
+Next, let's create a connection back from our B2B Buyer Portal to our Retail site.
+
+Navigate to: `Content > Elements > Hierarchy`
+
+1. Switch scope to the `Luma B2B Website`
+2. De-tick: `Use the parent node hierarchy`
+3. Add a node:
+	1. Title : `LUMA Retail`
+	2. URL Key: `retail`
+	3. Main Navigation Menu Options > Show in navigation menu: `Yes`
+4. Save the node
+
+Refresh the cache when done.
+
+Next, we need to create a redirect for this node:
+
+Navigate to: `Marketing > SEO and Search > URL Rewrites`
+
+1. Add URL Rewrite
+2. Create URL Rewrite: `Custom`
+3. Store: `Luma B2C Store > US English`
+4. Request Path: `retail`
+5. Target Path: `http://luma.com`
+6. Redirect Type: `302 Temporary`
+
+Save the redirect.

@@ -16,6 +16,7 @@
 	- [Solution Components](#solution-components)
 	- [Helpful Additions](#helpful-additions)
 - [Installing VMWare Fusion](#installing-vmware-fusion)
+- [Updating the VM](#updating-the-vm)
 - [Creating the VM](#creating-the-vm)
 	- [Initial Setup](#initial-setup)
 	- [Installing Ubuntu](#installing-ubuntu)
@@ -132,6 +133,20 @@ To Install VMWare Fusion:
 6. Once it has been installed, launch it, choose `Check for Updates` from the `VMWare Fusion` Apple menu
 7. Install any updates found
 8. After installing, restart your machine before continuing
+
+<a id="updating-the-vm"></a>
+## Updating the VM
+From time to time, new versions of the VM will be released for the team.  These VMs will be packaged as `.ova` (Open Virtualization Archive) files.  These files are glorified `.zip` files that combine several files used by the VM into one.
+
+To import a new VM file:
+
+1. Open VMWare Fusion
+2. Choose `File > Import`
+3. Choose your .ova file and click `Continue`
+4. When the machine is imported, click `Continue`
+5. Start the VM.  If asked to upgrade, click `Upgrade`
+
+The new VM will have a new IP address which you'll need to add to your hosts file.  To find it, log in to the VM OS and note the new hosts entry line.  Update your hosts file, save it, and you should be all set.  Note that you may need or want to quit chrome and then open it in incognito mode to ensure everything is as it should be.
 
 <a id="creating-the-vm"></a>
 ## Creating the VM
