@@ -11,6 +11,8 @@
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [B2B Configuration](#b2b-configuration)
+	- [Add B2B URL to VM Hosts File](#add-b2b-url-to-vm-hosts-file)
+	- [Create A B2B Site Map](#create-a-b2b-site-map)
 	- [Enable B2B Modules](#enable-b2b-modules)
 	- [Payment on Account](#payment-on-account)
 - [Creating the Luma B2B Website](#creating-the-luma-b2b-website)
@@ -44,6 +46,18 @@
 
 <a id="b2b-configuration"></a>
 ## B2B Configuration
+
+<a id="add-b2b-url-to-vm-hosts-file"></a>
+### Add B2B URL to VM Hosts File
+In order for things like the cache warmer to work, we'll need to add the hostname we choose for the B2B Website to the `/etc/hosts` file.
+
+1. `sudo vim /etc/hosts`
+2. `Shift+A` to move to the end of the `luma.com` line
+3. Add a space and then `b2b.luma.com` to the end of the `luma.com` line
+
+<a id="create-a-b2b-site-map"></a>
+### Create A B2B Site Map
+TBD
 
 <a id="enable-b2b-modules"></a>
 ### Enable B2B Modules
@@ -85,7 +99,7 @@ Navigate to: `Stores > Settings > All Stores`
 1. `Create Website`
 2. Website Information:
 	1. Name: `Luma B2B Website`
-	2. Code: `luma_b2b`
+	2. Code: `base_b2b`
 	3. Sort Order: `5`
 3. Save the website
 4. `Create Store`
@@ -145,7 +159,7 @@ Reindex and clear the cache.
 
 Navigate to `Content > Design Configuration > Luma B2B Website > Luma B2B Store > US English`
 
-1. Default Page Title: `LUMA B2B Official Online Store`
+1. Default Page Title: `LUMA Official Online Buyer Portal`
 2. Default Meta Description: `With more than 230 stores spanning 43 states and growing, Luma is a nationally recognized active wear manufacturer and retailer. We’re passionate about active lifestyles – and it goes way beyond apparel.`
 3. Default Meta Keywords: `yoga,exercise,apparel,clothing,working out,fitness`
 
@@ -168,7 +182,7 @@ Next, we'll update the meta data and favicon for the B2B German store view:
 Navigate to `Content > Design Configuration > Luma B2B Website > Luma B2B Store > Deutsch`
 
 1. HTML Head > Favicon: Upload `favicon.png`
-2. HTML Head > Default Page Title: `Offizieller LUMA B2B Online-Shop`
+2. HTML Head > Default Page Title: `Offizieller LUMA Online Käuferportal`
 3. HTML Head > Default Meta Description: `Luma ist ein landesweit anerkannter Hersteller und Händler von Sportbekleidung mit über 230 Filialen in 43 Bundesstaaten. Ein aktiver Lebensstil ist unsere Leidenschaft – und das längst nicht nur in puncto Kleidung.`
 4. HTML Head > Default Meta Keywords: `yoga,sport,bekleidung,kleidung,training,fitness`
 
@@ -180,7 +194,7 @@ Navigate to: `Content > Design Configuration > Luma B2B Website > Luma B2B Store
 
 1. Applied Theme: `Blank Custom Theme`
 2. HTML Head > Favicon: Upload `favicon.png`
-3. HTML Head > Default Page Title: `Custom Official Online Store`
+3. HTML Head > Default Page Title: `Custom Official Online Buyer Portal`
 4. HTML Head > Default Meta Description: `Custom description goes here.`
 5. HTML Head > Default Meta Keywords: `custom,keywords`
 
@@ -628,7 +642,7 @@ Navigate to `Content > Elements > Dynamic Blocks > Add Dynamic Block`
 Finally, let's translate the welcome message into German:
 
 26. Content Line 1:
-	1. Text: `Willkommen auf dem **Terra Outfitters** Buyer Portal`
+	1. Text: `Willkommen auf dem **Terra Outfitters** Käuferportal`
 
 27. Content Line 2:
 	1. Text: `Ihr Vertriebsmitarbeiter, **Mark Jones**, ist bestrebt, mit Ihnen zusammenzuarbeiten! Sie können ihn unter **(323) 934-3456** bei Fragen erreichen oder ein Angebot machen und er wird sich melden!`
@@ -779,13 +793,13 @@ Next, let's create a connection back from our B2B Buyer Portal to our Retail sit
 
 Navigate to: `Content > Elements > Hierarchy`
 
-1. Switch scope to the `Luma B2B Website`
+1. Switch scope to the `Luma B2B Website > US English` store view
 2. De-tick: `Use the parent node hierarchy`
 3. Add a node:
 	1. Title : `LUMA Retail`
 	2. URL Key: `retail`
 	3. Main Navigation Menu Options > Show in navigation menu: `Yes`
-4. Save the node
+4. Click `Add to Tree`
 
 Refresh the cache when done.
 
