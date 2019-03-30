@@ -3,10 +3,10 @@
 ## Table of Contents
 - [Building the VM](BUILDING-THE-VM.md)
 - [Kukla VM Demo Setup](DEMO-SETUP.md)
-- [Kukla VM and B2B](B2B.md)
+- [Kukla VM and B2B, Multisite, and MSI](B2B.md)
 - [How Do I...](HOW-TO.md)
 
-# Kukla VM and B2B
+# Kukla VM and B2B, Multisite, and MSI
 
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
@@ -23,6 +23,9 @@
 		- [Configuring the URLs](#configuring-the-urls)
 		- [Adding the Virtual Host](#adding-the-virtual-host)
 		- [Configuring the Virtual Host](#configuring-the-virtual-host)
+	- [Adding Custom Websites](#adding-custom-websites)
+		- [Re-assigning Custom Stores to the Custom Websites](#re-assigning-custom-stores-to-the-custom-websites)
+		- [Creating Additional Site Definitions and Virtual Hosts](#creating-additional-site-definitions-and-virtual-hosts)
 - [B2B Demo Cases](#b2b-demo-cases)
 	- [Customers](#customers)
 	- [Sales Representative Role and User](#sales-representative-role-and-user)
@@ -41,6 +44,8 @@
 	- [Home Page Updates](#home-page-updates)
 	- [B2B Staging Updates](#b2b-staging-updates)
 	- [B2B - B2C Menu Connection](#b2b---b2c-menu-connection)
+- [Multi-source Inventory](#multi-source-inventory)
+	- [Creating Sources](#creating-sources)
 
 <!-- /MarkdownTOC -->
 
@@ -213,6 +218,8 @@ Navigate to: `Stores > Settings > All Stores`
 
 Make the following updates to the following entities:
 
+**NB:** Changes to website, store, and store view codes are optional.
+
 1. Luma Website:
 	1. Name: `Luma B2C Website`
 2. Luma Website > Luma Store:
@@ -289,6 +296,39 @@ Finally, we need to symlink the new Luma B2B website's virtual hosts file to act
 `sudo ln -s /etc/nginx/sites-available/b2b.luma.com /etc/nginx/sites-enabled/b2b.luma.com && sudo service nginx restart`
 
 To be able to use the B2B website, we'll need to add it to our hosts file. 
+
+<a id="adding-custom-websites"></a>
+### Adding Custom Websites
+In most cases, demoing a custom brand via a store associated with the Luma website(s) will be all we'll need.  However, there may be some cases where we want to separate the custom brand experience into its own websites.  To provide for that, we'll create a couple of custom websites (one for b2c and one for b2b).
+
+Navigate to: `Stores > Settings > All Stores`
+
+First, the Custom B2C site:
+
+1. `Create Website`
+2. Website Information:
+	1. Name: `Custom B2C Website`
+	2. Code: `custom_b2c`
+	3. Sort Order: `10`
+3. Save the website
+
+Next, the Custom B2B site:
+
+1. `Create Website`
+2. Website Information:
+	1. Name: `Custom B2B Website`
+	2. Code: `custom_b2b`
+	3. Sort Order: `10`
+3. Save the website
+
+We won't bother creating stores and store views for these; instead, since we already have custom stores and store views created for both B2B and B2C, we can simply re-assign those to their respective websites.
+
+<a id="re-assigning-custom-stores-to-the-custom-websites"></a>
+#### Re-assigning Custom Stores to the Custom Websites
+
+<a id="creating-additional-site-definitions-and-virtual-hosts"></a>
+#### Creating Additional Site Definitions and Virtual Hosts
+Since our optimal goal is to be able to show a connected B2C + B2B story, as well as to give SC's the ability to create as custom an experience as they might need to deliver a quality demo, we'll add some additional multi-site configuration to make that process easier.
 
 <a id="b2b-demo-cases"></a>
 ## B2B Demo Cases
@@ -815,3 +855,145 @@ Navigate to: `Marketing > SEO and Search > URL Rewrites`
 6. Redirect Type: `302 Temporary`
 
 Save the redirect.
+
+<a id="multi-source-inventory"></a>
+## Multi-source Inventory
+Next, we'll create some inventory sources and leave them disabled so that we can tell a convincing Multi-source Inventory story.
+
+<a id="creating-sources"></a>
+### Creating Sources
+
+Navigate to: `Stores > Inventory > Sources`
+
+1. Add New Source
+2. Source 1:
+	1. General > Name: `Luma US West Warehouse`
+	2. General > Code: `luma_us_west_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our west coast warehouse located in Commerce, CA.`
+	5. General > Latitude: `33.98205`
+	6. General > Longitude: `-118.13242`
+	7. Address Data > Country: `United States`
+	8. Address Data > State: `California`
+	9. Address Data > City: `Commerce`
+	10. Address Data > Street: `7250 Bandini Blvd`
+	11. Address Data > Postcode: `90040` 
+3. Source 2:
+	1. General > Name: `Luma US Midwest Warehouse`
+	2. General > Code: `luma_us_midwest_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our midwestern warehouse located in Springfield, MO.`
+	5. General > Latitude: `37.144958`
+	6. General > Longitude: `-93.330978`
+	7. Address Data > Country: `United States`
+	8. Address Data > State: `Missouri`
+	9. Address Data > City: `Springfield`
+	10. Address Data > Street: `2215 W Chesterfield St`
+	11. Address Data > Postcode: `65807`
+4. Source 3:
+	1. General > Name: `Luma US East Warehouse`
+	2. General > Code: `luma_us_east_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our east coast warehouse located in Hickory, NC.`
+	5. General > Latitude: `35.71474`
+	6. General > Longitude: `-81.38184`
+	7. Address Data > Country: `United States`
+	8. Address Data > State: `North Carolina`
+	9. Address Data > City: `Hickory`
+	10. Address Data > Street: `2349 SW 13TH Ave`
+	11. Address Data > Postcode: `28602`
+5. Source 4:
+	1. General > Name: `Luma UK Warehouse`
+	2. General > Code: `luma_eu_uk_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our UK warehouse in Enfield, UK.`
+	5. General > Latitude: `51.83518`
+	6. General > Longitude: `-2.51216`
+	7. Address Data > Country: `United Kingdom`
+	8. Address Data > City: `Enfield`
+	9. Address Data > Street: `Unit 1 Woodall Road, Redburn Industrial Estate`
+	10. Address Data > Postcode: `EN3 4LF`
+6. Source 5:
+	1. General > Name: `Luma DE Warehouse`
+	2. General > Code: `luma_eu_de_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our German warehouse located in Hamburg, Germany.`
+	5. General > Latitude: `53.514700`
+	6. General > Longitude: `9.907060`
+	7. Address Data > Country: `Germany`
+	8. Address Data > State: `Hamburg`
+	9. Address Data > City: `Hamburg`
+	10. Address Data > Street: `Genter Ufer 2`
+	11. Address Data > Postcode: `21129`
+7. Source 6:
+	1. General > Name: `Luma AU Warehouse`
+	2. General > Code: `luma_apac_au_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our Australian warehouse located in Miranda, New South Wales Australia.`
+	5. General > Latitude: `-34.027310`
+	6. General > Longitude: `151.105840`
+	7. Address Data > Country: `Australia`
+	8. Address Data > State: `New South Wales`
+	9. Address Data > City: `Miranda`
+	10. Address Data > Street: `215 Port Hacking Rd`
+	11. Address Data > Postcode: `2228`
+8. Source 7:
+	1. General > Name: `Luma JP Warehouse`
+	2. General > Code: `luma_apac_jp_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our Japanese warehouse located in Koga City, Ibaraki Prefecture, Japan.`
+	5. General > Latitude: `-34.027310`
+	6. General > Longitude: `151.105840`
+	7. Address Data > Country: `Japan`
+	8. Address Data > State: `Ibaraki Prefecture`
+	9. Address Data > City: `Koga City`
+	10. Address Data > Street: `Kitatone`
+	11. Address Data > Postcode: `306-0213`
+9. Source 8:
+	1. General > Name: `Luma BR Warehouse`
+	2. General > Code: `luma_sa_br_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our Brazilian warehouse located in Rio de Janeiro, Brazil.`
+	5. General > Latitude: `-2.484740`
+	6. General > Longitude: `-44.265600`
+	7. Address Data > Country: `Brazil`
+	8. Address Data > State: `Duque de Caxias`
+	9. Address Data > City: `Rio de Janeiro`
+	10. Address Data > Street: `Av. Litorânea, 2632 Bldg 200 - Vila São Luiz`
+	11. Address Data > Postcode: `25056-075`
+10. Source 9:
+	1. General > Name: `Luma AR Warehouse`
+	2. General > Code: `luma_sa_ar_wh`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our Argentine warehouse located in Buenos Aires, Argentina.`
+	5. General > Latitude: `-34.803470`
+	6. General > Longitude: `-58.378460`
+	7. Address Data > Country: `Brazil`
+	8. Address Data > State: `Buenos Aires`
+	9. Address Data > City: `Buenos Aires`
+	10. Address Data > Street: `San Martin`
+	11. Address Data > Postcode: `1672`
+11. Source 10:
+	1. General > Name: `Manhatten Mall Store`
+	2. General > Code: `luma_manhatten_mall_store`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our retail store in Manhatten, New York City, NY.`
+	5. General > Latitude: `40.748900`
+	6. General > Longitude: `-73.988660`
+	7. Address Data > Country: `United States`
+	8. Address Data > State: `New York`
+	9. Address Data > City: `New York`
+	10. Address Data > Street: `901 Avenue Of The Americas`
+	11. Address Data > Postcode: `10001`
+12. Source 11:
+	1. General > Name: `Broadway Soho Store`
+	2. General > Code: `luma_broadway_soho_store`
+	3. General > Is Enabled: `No`
+	4. General > Description: `Our retail store on Broadway in New York City, NY.`
+	5. General > Latitude: `40.748900`
+	6. General > Longitude: `-73.988660`
+	7. Address Data > Country: `United States`
+	8. Address Data > State: `New York`
+	9. Address Data > City: `New York`
+	10. Address Data > Street: `565 Broadway`
+	11. Address Data > Postcode: `10012`

@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Building the VM](BUILDING-THE-VM.md)
 - [Kukla VM Demo Setup](DEMO-SETUP.md)
-- [Kukla VM and B2B](B2B.md)
+- [Kukla VM and B2B, Multisite, and MSI](B2B.md)
 - [How Do I...](HOW-TO.md)
 
 # How Do I...

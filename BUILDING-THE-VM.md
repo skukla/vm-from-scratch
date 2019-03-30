@@ -3,7 +3,7 @@
 ## Table of Contents
 - [Building the VM](BUILDING-THE-VM.md)
 - [Kukla VM Demo Setup](DEMO-SETUP.md)
-- [Kukla VM and B2B](B2B.md)
+- [Kukla VM and B2B, Multisite, and MSI](B2B.md)
 - [How Do I...](HOW-TO.md)
 
 # Building the VM
@@ -309,7 +309,7 @@ printf "\n${BOLD}Welcome to the Kukla VM!${REG}\n\n"
 
 # Hosts Entry, Mailhog, and Webmin
 rulem "[ ${CYAN}Hosts Entry and Webmin${REG} ]"
-printf '\n%23s : %s %s\t%s\n' "${BOLD}Host Entry" "${REG}${IP}" "${HOSTNAME}"
+printf '\n%23s : %s %s\t%s\n' "${BOLD}Host Entry" "${REG}${IP}" "${HOSTNAME}" "b2b.${HOSTNAME}"
 printf '%23s : %s  \n' "${BOLD}Mailhog Inbox" "${REG}http://${HOSTNAME}:${MAILHOG_PORT}"
 printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:${WEBMIN_PORT}" "User" "${WEBMIN_USER}" "Password" "${WEBMIN_PASS}"
 printf "\n"
@@ -785,7 +785,7 @@ WantedBy=multi-user.target
 3. Start the service to verify that it works: `sudo systemctl start mailhog`
 4. Enable the service so it runs on bootup: `sudo systemctl enable mailhog`
 5. Optional: Restart the VM, login, and then use `sudo netstat -tulpn | grep "mailhog"` to confirm it's running
-6. Lastly, you can test it by loading `luma.com:20000` in a browser
+6. Lastly, you can test it by loading `luma.com:10000` in a browser
 
 With Mailhog configured, you should be able to send transactional emails from Magento and see them in the Mailhog interface.  We'll go over Magento-specific domain configuration in a later section.
 
