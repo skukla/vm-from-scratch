@@ -72,6 +72,7 @@
 	- [Configuring Magento and Varnish](#configuring-magento-and-varnish)
 	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
+	- [Configuring Magento For Easy Multisite Setup](#configuring-magento-for-easy-multisite-setup)
 
 <!-- /MarkdownTOC -->
 
@@ -852,3 +853,26 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 <a id="how-magento-multisite-operation-works"></a>
 ### How Magento Multisite Operation Works
 *TODO*
+
+<a id="configuring-magento-for-easy-multisite-setup"></a>
+### Configuring Magento For Easy Multisite Setup
+*TODO*
+
+```
+map $http_host $MAGE_RUN_CODE {
+    luma.com base;
+    #<site 1 url> <site 1 code;
+    #<site 2 url> <site 2 code>;
+}
+
+map $MAGE_RUN_CODE $MAGE_RUN_TYPE {
+    base website;
+    #<site 1 code> <site 1 scope>;
+    #<site 2 code> <site 2 scope>;
+}
+
+include /etc/nginx/sites-enabled/luma.com;
+include /etc/nginx/sites-enabled/b2b.luma.com;
+#include /etc/nginx/sites-enabled/site1.com;
+#include /etc/nginx/sites-enabled/site2.com;
+```

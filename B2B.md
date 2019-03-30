@@ -26,6 +26,7 @@
 	- [Adding Custom Websites](#adding-custom-websites)
 		- [Re-assigning Custom Stores to the Custom Websites](#re-assigning-custom-stores-to-the-custom-websites)
 		- [Creating Additional Site Definitions and Virtual Hosts](#creating-additional-site-definitions-and-virtual-hosts)
+		- [Adding Custom Sites to the Cache Warmer](#adding-custom-sites-to-the-cache-warmer)
 - [B2B Demo Cases](#b2b-demo-cases)
 	- [Customers](#customers)
 	- [Sales Representative Role and User](#sales-representative-role-and-user)
@@ -318,7 +319,7 @@ Next, the Custom B2B site:
 2. Website Information:
 	1. Name: `Custom B2B Website`
 	2. Code: `custom_b2b`
-	3. Sort Order: `10`
+	3. Sort Order: `15`
 3. Save the website
 
 We won't bother creating stores and store views for these; instead, since we already have custom stores and store views created for both B2B and B2C, we can simply re-assign those to their respective websites.
@@ -329,6 +330,142 @@ We won't bother creating stores and store views for these; instead, since we alr
 <a id="creating-additional-site-definitions-and-virtual-hosts"></a>
 #### Creating Additional Site Definitions and Virtual Hosts
 Since our optimal goal is to be able to show a connected B2C + B2B story, as well as to give SC's the ability to create as custom an experience as they might need to deliver a quality demo, we'll add some additional multi-site configuration to make that process easier.
+
+At the moment, provided you've followed along from the beginning and added the Luma B2B website above, we should have four virtual hosts created:
+
+1. b2b.luma.com
+2. luma.com
+3. site1.com
+4. site2.com
+
+While we could create new virtual hosts for our efforts, it'll be easier for us if we simply repurpose `site1.com` and `site2.com` as custom B2C and B2B sites.
+
+First, we'll rename the two virtual host files so we can easily see what their purpose will be.  This will break our symlinks for the virtual hosts in `/etc/nginx/sites-enabled`, so we'll need to delete the broken links and recreate those next.  After the symlinks are recreated, we'll then want to update the server names inside of each virtual host so it matches the name of the virtual host file.
+
+**NB:** The server name value we're going to use is just a placeholder -- `custom-demo.com`.  If you plan to use this approach for your demos, you'll likely want to update this value to something more relevant to your demo use case.  You don't have to rename the virtual host files to match, but it may help avoid confusion to do so.
+
+1. `sudo mv /etc/nginx/sites-available/site1.com /etc/nginx/sites-available/custom-demo.com && sudo mv /etc/nginx/sites-available/site2.com /etc/nginx/sites-available/b2b.custom-demo.com`
+2. `sudo rm -rf /etc/nginx/sites-enabled/site1.com /etc/nginx/sites-enabled/site2.com && sudo ln -s /etc/nginx/sites-available/custom-demo.com /etc/nginx/sites-enabled/custom-demo.com && sudo ln -s /etc/nginx/sites-available/b2b.custom-demo.com /etc/nginx/sites-enabled/b2b.custom-demo.com`
+3. `sudo vim /etc/nginx/sites-available/custom-demo.com`, then update `site1.com` to be `custom-demo.com` (or a value of your choosing if you're customizing this for your needs). Save and quit with `Esc`, then `:wq` and `Enter`.
+4. Repeat for the custom B2B site with: `sudo vim /etc/nginx/sites-available/b2b.custom-demo.com`
+
+Next, we'll need to update the web server mappings so that the sites can be loaded via URLs in the browser.  This is done in `/etc/nginx/sites-available/conf/01-multisite.conf`.  At this point in the flow, this file has two `map` statements with four lines each.  Two of those lines in each map statement are placeholders which we'll repurpose.  The bottom of the file has four `include` statements, two of which are commented out.  We'll repurpose those, too:
+
+````
+map $http_host $MAGE_RUN_CODE {
+    luma.com base;
+    b2b.luma.com luma_b2b;
+    #<site 1 url> <site 1 code;
+    #<site 2 url> <site 2 code>;
+}
+
+map $MAGE_RUN_CODE $MAGE_RUN_TYPE {
+    base website;
+    luma_b2b website;
+    #<site 1 code> <site 1 scope>;
+    #<site 2 code> <site 2 scope>;
+}
+
+include /etc/nginx/sites-enabled/luma.com;
+include /etc/nginx/sites-enabled/b2b.luma.com;
+#include /etc/nginx/sites-enabled/site1.com;
+#include /etc/nginx/sites-enabled/site2.com;
+````
+
+1. Edit `sudo vim /etc/nginx/sites-available/conf/01-multisite.conf` like so:
+
+```
+map $http_host $MAGE_RUN_CODE {
+    luma.com base;
+    b2b.luma.com luma_b2b;
+    luma-custom.com custom_b2c;
+    b2b.luma-custom.com custom_b2b;
+}
+
+map $MAGE_RUN_CODE $MAGE_RUN_TYPE {
+    base website;
+    luma_b2b website;
+    custom_b2c website;
+    custom_b2b website;
+}
+
+include /etc/nginx/sites-enabled/luma.com;
+include /etc/nginx/sites-enabled/b2b.luma.com;
+include /etc/nginx/sites-enabled/custom-demo.com;
+include /etc/nginx/sites-enabled/b2b.custom-demo.com;
+```
+
+2. Restart the web server.  If you've got the VM CLI installed, you can use `web-start`.  If not, it's `sudo systemctl start nginx`
+
+<a id="adding-custom-sites-to-the-cache-warmer"></a>
+#### Adding Custom Sites to the Cache Warmer
+Lastly, in case you want to generate a custom site map for your new custom websites, we'll need to update the cache warmer with the URLs we've chosen and also add them to the VM's `/etc/hosts` file:
+
+1. `sudo vim /etc/hosts`
+2. Replace the first line with `127.0.0.1       luma.com b2b.luma.com custom-demo.com b2b.custom-demo.com`
+
+Next, let's update the cache warmer.  Depending on when you follow this guide, you may have different versions of the script to consider.
+
+1. `vim ~/cli/scripts/cache-warmer.sh`
+2. Ensure the contents are as follows:
+
+```
+#!/bin/bash
+clear
+printf "Warming the Luma cache...\n"
+sleep 1
+wget --quiet "http://luma.com/pub/luma.xml" --no-cache --output-document - | egrep -o "http://luma.com[^<]+" | while read line; do
+    time curl -A 'Cache Warmer' -s -L $line > /dev/null 2>&1
+    echo $line
+done
+printf "done."
+sleep 1
+clear
+printf "Warming the Venia cache...\n"
+sleep 1
+wget --quiet "http://luma.com/pub/venia.xml" --no-cache --output-document - | egrep -o "http://luma.com[^<]+" | while read line; do
+    time curl -A 'Cache Warmer' -s -L $line > /dev/null 2>&1
+    echo $line
+done
+printf "done."
+sleep 1
+clear
+printf "Warming the Custom B2C cache...\n"
+sleep 1
+wget --quiet "http://luma.com/pub/custom_b2c.xml" --no-cache --output-document - | egrep -o "http://luma.com[^<]+" | while read line; do
+    time curl -A 'Cache Warmer' -s -L $line > /dev/null 2>&1
+    echo $line
+done
+sleep 1
+printf "done.\n"
+clear
+printf "Warming the Custom B2B cache...\n"
+sleep 1
+wget --quiet "http://b2b.luma.com/pub/custom_b2b.xml" --no-cache --output-document - | egrep -o "http://b2b.luma.com[^<]+" | while read line; do
+    time curl -A 'Cache Warmer' -s -L $line > /dev/null 2>&1
+    echo $line
+done
+sleep 1
+printf "done.\n"
+```
+
+If you want to use the multisite approach for your demo, you'll need to update the URLs in the `wget` statements under the `Warming the Custom B2C cache` and `Warming the Custom B2B cache` sections respectively. Following our placeholder approach, those would read:
+
+```
+wget --quiet "http://custom-demo.com/pub/custom_b2c.xml" --no-cache --output-document - | egrep -o "http://custom-demo.com[^<]+" |
+```
+
+and
+
+```
+wget --quiet "http://b2b.custom-demo.com/pub/custom_b2b.xml" --no-cache --output-document - | egrep -o "http://b2b.custom-demo.com[^<]+" |
+```
+
+**NB:** Remember that `custom-demo.com` here is a placeholder value meant to guide you through the configuration.  You'll need to make sure to use the value that's relevant to your demo use case.
+
+3. Save the cache warmer with `Esc`, then `:wq` and `Enter`
+
+**NB:** A final reminder: If you're updating the cache warmer, remember that it runs on site maps which will likely need to be regenerated to reflect the right website/store-view assignment and custom URL.  You can address this in the admin at: `Marketing > SEO & Search > Site Map`.
 
 <a id="b2b-demo-cases"></a>
 ## B2B Demo Cases
