@@ -951,7 +951,7 @@ Insert a new row beneath Row 1 for the call out:
 4. Advanced > Margins and Padding:
 	1. Top Margin: `10px`
 	2. Right Margin: `0`
-	3. Bottom Margin: `0`
+	3. Bottom Margin: `20px`
 	4. Left Margin: `0`
 	5. Top Padding: `0`
 	6. Right Padding: `0`
