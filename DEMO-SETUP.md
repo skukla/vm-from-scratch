@@ -124,6 +124,7 @@
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
 	- [Fixes](#fixes)
+		- [Staging and Preview "Preview" Link and Share URL Broken](#staging-and-preview-preview-link-and-share-url-broken)
 		- [Pickup In Store Quantity is Mis-Aligned](#pickup-in-store-quantity-is-mis-aligned)
 		- [Pickup In Store Extension Breaks B2B Checkout](#pickup-in-store-extension-breaks-b2b-checkout)
 		- [Image Gallery Uses Prepend Instead of Replace](#image-gallery-uses-prepend-instead-of-replace)
@@ -2665,6 +2666,26 @@ In order for the cache warmer(s) to function properly, we need to create an XML 
 *TODO: Convert the core file changes listed in the following sections to legitimate patches that can then be applied via composer.*
 
 Sources: [CWeagans Composer Patching Plugin](https://github.com/cweagans/composer-patches/)
+
+<a id="staging-and-preview-preview-link-and-share-url-broken"></a>
+#### Staging and Preview "Preview" Link and Share URL Broken
+A small break in javascript prevents an admin user from selecting a different date in the staging calendar and previewing it with the big orange "Preview" button.  The same issue also prevents the share URL from being shown where expected.  
+
+To fix:
+
+In `vendor/magento/module-staging/view/adminhtml/web/js/preview/preview.js`, on line 331, change:
+
+```
+return -store.baseUrl.length;
+```
+to
+``` 
+return -store.baseUrl;
+```
+
+Then, update permissions, recompile dependencies, and deploy german and other static content:
+
+`own && di-compile && deploy-content && deploy-content-de && clean`
 
 <a id="pickup-in-store-quantity-is-mis-aligned"></a>
 #### Pickup In Store Quantity is Mis-Aligned

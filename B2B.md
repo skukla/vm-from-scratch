@@ -1025,7 +1025,7 @@ Navigate to: `Stores > Inventory > Sources`
 	7. Address Data > Country: `United States`
 	8. Address Data > State: `Missouri`
 	9. Address Data > City: `Springfield`
-	10. Address Data > Street: `2215 W Chesterfield St`
+	10. Address Data > Street: `2215 W Chesterfield St.`
 	11. Address Data > Postcode: `65807`
 4. Source 3:
 	1. General > Name: `Luma US East Warehouse`
@@ -1037,7 +1037,7 @@ Navigate to: `Stores > Inventory > Sources`
 	7. Address Data > Country: `United States`
 	8. Address Data > State: `North Carolina`
 	9. Address Data > City: `Hickory`
-	10. Address Data > Street: `2349 SW 13TH Ave`
+	10. Address Data > Street: `2349 SW 13th Ave.`
 	11. Address Data > Postcode: `28602`
 5. Source 4:
 	1. General > Name: `Luma UK Warehouse`

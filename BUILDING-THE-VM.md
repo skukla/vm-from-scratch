@@ -20,6 +20,7 @@
 - [Creating the VM](#creating-the-vm)
 	- [Initial Setup](#initial-setup)
 	- [Installing Ubuntu](#installing-ubuntu)
+	- [Configuring SSH Forwarding](#configuring-ssh-forwarding)
 	- [Accessing via SSH](#accessing-via-ssh)
 	- [Setting the Hostname](#setting-the-hostname)
 		- [Adding the Magento QA Server to the Hosts File](#adding-the-magento-qa-server-to-the-hosts-file)
@@ -190,6 +191,24 @@ The new VM will have a new IP address which you'll need to add to your hosts fil
 		8. When available, choose *Reboot Now*
 	11. During reboot, the system will ask you to remove the installation medium and press `Enter` (press `Enter` again to finish the reboot)
 
+<a id="configuring-ssh-forwarding"></a>
+### Configuring SSH Forwarding
+Eventually, we'll need to be able to use some ssh keys from our host machine to access remote systems in order to gain access to some remote git repositories hosted by the Solutions Innovation team.  To allow for this, we need to enable SSH Agent Forwarding on the VM:
+
+1. Log in to the VM
+2. Switch to the root user: `sudo su -`
+3. Open the `sshd_config` file at: `vim /etc/ssh/sshd_config`
+4. Move to the bottom of the file in insert mode: `Shift+G`
+5. Add the following line:
+
+```
+AllowAgentForwarding yes
+```
+
+6. Save with `:wq` and then `Enter`
+7. Restart the `ssh` service with `service ssh restart`
+
+
 <a id="accessing-via-ssh"></a>
 ### Accessing via SSH
 While VMWare gives you a window to use as a terminal, it can be rather limited in that the size of the window cannot be changed, and copy-paste is not supported.  To access the machine via SSH using a termimal, you have a couple options:
@@ -202,6 +221,8 @@ To use your own terminal application (such as iTerm, for example):
 1. Log in to the machine
 2. Get the IP address of the machine from the Message of the Day (MoTD)
 3. Use ssh to tunnel in using your terminal application: `ssh magento@<YOUR_IP_HERE>`
+
+**Note:** To use SSH forwarding in order to install extensions, use the chrome extension provided by the Solutions Innovation team.  (This adds your cloud key to the ssh-agent on your Mac locally and then uses `ssh -A` to ssh into the VM.  If you've already added the key to the agent, you can just use the `ssh` command above but with the `-A` flag.)
 
 <a id="setting-the-hostname"></a>
 ### Setting the Hostname

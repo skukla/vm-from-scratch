@@ -12,6 +12,9 @@
 
 - [Install New Extensions](#install-new-extensions)
 	- [Composer and What It Does](#composer-and-what-it-does)
+	- [Custom Module Require Statements and Repositories](#custom-module-require-statements-and-repositories)
+		- [Require Statements](#require-statements)
+		- [Repositories](#repositories)
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
@@ -32,9 +35,57 @@ Before we get into installing extensions, it would be beneficial to understand h
 
 Modern software platforms like Magento 2 are built in a modular fashion -- each feature of the platform is, essentially, self-contained in its own module.  The module has all the necessary components it needs to hook into the admin panel and display on the storefront, etc.  When developers ship their applications, they often store them in a collection of git repositories.  When merchants install and deploy the applications, they'll use a "package manager" -- a tool which receives instructions about where to find an application's packages (or modules), instructions about which modules are required by other modules and so on.
 
-Composer is a PHP package manager. PHP application developers use it to deploy their applications and define dependencies between their applications' modules.  Each application written for deployment and management via composer uses a "master" file to define which modules are to be included, their versions, their dependencies, and so on.  Further, each module used in the application has its *own* `composer.json` file which is responsible for defining specific details about that module and how it should behave with other modules in the application as a whole.
+Composer is a PHP package manager. PHP application developers use it to deploy their applications and define dependencies between their applications' modules.  Each application written for deployment and management via composer uses a "master" file to define which modules are to be included, their versions, their dependencies, and so on.  Further, each module used in the application has its *own* `composer.json` file which is responsible for defining specific details about that module and how it should behave with other modules in the application as a whole. 
 
-In our case, when installing new modules, we'll work with the 
+<a id="custom-module-require-statements-and-repositories"></a>
+### Custom Module Require Statements and Repositories
+<a id="require-statements"></a>
+#### Require Statements
+```
+"amasty/base": "1.5.5.x-dev",
+"amasty/blog": "1.3.4.x-dev",
+"amasty/duplicatecategories": "1.0.4.x-dev",
+"amasty/geoip": "1.3.7.x-dev",
+"amasty/groupcat": "1.5.9.x-dev",
+"amasty/module-advanced-conditions":"1.3.10.x-dev",
+"amasty/module-banners-lite":"1.0.4.x-dev",
+"amasty/module-salesrulewizard": "dev-master",
+"amasty/module-special-promo": "2.7.3.x-dev",
+"amasty/module-special-promo-pro": "2.7.6.x-dev",
+"amasty/module-store-locator": "1.12.4.x-dev",
+"amasty/product-attachment": "1.3.3.x-dev",
+"amasty/promo": "2.4.0.x-dev",
+"amasty/rgrid": "1.0.7.x-dev",
+"paradoxlabs/authnetcim": "4.1.3.x-dev",
+"paradoxlabs/firstdata": "2.1.2.x-dev",
+"paradoxlabs/stripe": "2.1.3.x-dev",
+"paradoxlabs/subscriptions": "3.0.4.x-dev",
+"paradoxlabs/tokenbase": "4.1.5.x-dev"
+```
+<a id="repositories"></a>
+#### Repositories
+```
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-advanced-conditions.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-banners-lite.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-base.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-blog-pro.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-duplicate-categories.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-free-gift.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-geoip.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-groupcat.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-product-attachments.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-rules-grid.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-salesrulewizard.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-special-promotions-pro.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-special-promotions.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-store-locator.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-authnetcim.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-firstdata.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-stripe.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-subscriptions.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"}
+```
 
 <a id="notes-on-updating-the-codebase"></a>
 ### Notes on Updating the Codebase
