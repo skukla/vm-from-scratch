@@ -1177,12 +1177,12 @@ At this point, the code base contains language packs for US English and German. 
 1. Add the following lines to the `require` section of `composer.json`:
 
 ```
-"magento2translations/language_es_ar": "dev-master",
-"magento2translations/language_hi_in": "dev-master",
-"magento2translations/language_ja_jp": "dev-master",
-"magento2translations/language_ko_kr": "dev-master",
-"magento2translations/language_pt_br": "dev-master",
-"magento2translations/language_zh_cn": "dev-master"
+"community-engineering/language-es_ar": "dev-master",
+"community-engineering/language-hi_in": "dev-master",
+"community-engineering/language-ja_jp": "dev-master",
+"community-engineering/language-ko_kr": "dev-master",
+"community-engineering/language-pt_br": "dev-master",
+"community-engineering/language-zh_cn": "dev-master"
 ```
 
 2. Since these are just language packs, we can use: `add-key && composer update && clean`
