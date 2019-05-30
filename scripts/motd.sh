@@ -7,6 +7,10 @@ HOSTNAME=$(hostname)
 BOLD=$(tput bold)
 REG=$(tput sgr0)
 CYAN=$(tput setaf 6)
+WEBMIN_USER=magento
+WEBMIN_PASS=magento
+WEBMIN_PORT=$(netstat -tulpn | grep "LISTEN" | grep "perl" | awk '{print $4}' | sed -e 's/.*://')
+MAILHOG_PORT=$(netstat -tulpn | grep "LISTEN" | grep "mailhog" | awk '{print $4;exit;}' | sed -e 's/.*://')
 
 # Print a horizontal rule
 rule () {
@@ -23,12 +27,14 @@ rulem ()  {
 figlet BOOM.
 printf "\n${BOLD}Welcome to the Kukla VM!${REG}\n\n"
 
-# Hosts Entry and Webmin
+# Hosts Entry, Mailhog, and Webmin
 rulem "[ ${CYAN}Hosts Entry and Webmin${REG} ]"
-printf '\n%23s : %s %s\t%s\n' "${BOLD}Host Entry" "${REG}${IP}" "${HOSTNAME}"
-printf '%23s : %s  \n' "${BOLD}Mailhog Inbox" "${REG}http://${HOSTNAME}:20000"
-printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:10000" "User" "vagrant" "Password" "vagrant"
+printf '\n%23s : %s %s\t%s\n' "${BOLD}Host Entry" "${REG}${IP}" "${HOSTNAME}" "b2b.${HOSTNAME}"
+printf '%23s : %s  \n' "${BOLD}Mailhog Inbox" "${REG}http://${HOSTNAME}:${MAILHOG_PORT}"
+printf '%23s : %s  \n\t\t %7s : %s\n\t %15s : %s\n' "${BOLD}Webmin Console" "${REG}http://${HOSTNAME}:${WEBMIN_PORT}" "User" "${WEBMIN_USER}" "Password" "${WEBMIN_PASS}"
 printf "\n"
+
+# Useful Commands
 rulem "[ ${CYAN}Useful Commands${REG} ]"
 printf '\n%23s : %s' "${BOLD}set-url" "${REG}Set a new base url and hostname."
 printf '\n%23s : %s' "${BOLD}clean" "${REG}Re-indexes and clears cache."
@@ -42,6 +48,7 @@ printf '\n%23s : %s' "${BOLD}staging" "${REG}Refreshes the Staging Dashboard (Ru
 printf '\n%23s : %s' "${BOLD}disable-cms-cache" "${REG}Disables the block_html, layout, and full_page caches."
 printf '\n%23s : %s' "${BOLD}enable-cache" "${REG}Enables all caches."
 printf '\n%23s : %s' "${BOLD}cron" "${REG}Runs a single cron trigger."
+printf '\n%23s : %s' "${BOLD}upgrade" "${REG}Upgrade the codebase after adding a new module to your composer.json file."
 printf "\n\n"
 
 rule
