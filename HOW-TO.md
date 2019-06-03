@@ -58,11 +58,11 @@ _TODO: Finish this_
 "amasty/product-attachment": "1.3.3.x-dev",
 "amasty/promo": "2.4.0.x-dev",
 "amasty/rgrid": "1.0.7.x-dev",
+"paradoxlabs/tokenbase": "4.1.5.x-dev",
+"paradoxlabs/subscriptions": "3.0.4.x-dev",
 "paradoxlabs/authnetcim": "4.1.3.x-dev",
 "paradoxlabs/firstdata": "2.1.2.x-dev",
-"paradoxlabs/stripe": "2.1.3.x-dev",
-"paradoxlabs/tokenbase": "4.1.5.x-dev",
-"paradoxlabs/subscriptions": "3.0.4.x-dev"
+"paradoxlabs/stripe": "2.1.3.x-dev"
 ```
 <a id="repositories"></a>
 #### Repositories
