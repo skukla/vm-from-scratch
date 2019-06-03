@@ -111,7 +111,7 @@ Use the following steps to install extensions:
 For example, for the subscriptions module, you need these two require statements:
 ```
 "paradoxlabs/tokenbase": "4.1.5.x-dev",
-"paradoxlabs/subscriptions": "3.0.4.x-dev",
+"paradoxlabs/subscriptions": "3.0.4.x-dev"
 ```
 8. Save the file
 9. Use the chrome extension and find the single, VM-specific command `SSH into VM` and copy it
