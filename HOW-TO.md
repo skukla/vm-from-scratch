@@ -59,8 +59,8 @@ Composer is a PHP package manager. PHP application developers use it to deploy t
 "paradoxlabs/authnetcim": "4.1.3.x-dev",
 "paradoxlabs/firstdata": "2.1.2.x-dev",
 "paradoxlabs/stripe": "2.1.3.x-dev",
-"paradoxlabs/subscriptions": "3.0.4.x-dev",
-"paradoxlabs/tokenbase": "4.1.5.x-dev"
+"paradoxlabs/tokenbase": "4.1.5.x-dev",
+"paradoxlabs/subscriptions": "3.0.4.x-dev"
 ```
 <a id="repositories"></a>
 #### Repositories
@@ -89,19 +89,34 @@ Composer is a PHP package manager. PHP application developers use it to deploy t
 
 <a id="notes-on-updating-the-codebase"></a>
 ### Notes on Updating the Codebase
-As of this writing (2/25/19), there have been changes made to the Solution Innovations team's gitlab account which have placed it behind a firewall.  This change makes it a bit more tedious to add new code to the VM for the moment, so the following are some details on what to expect:
-
-In an ideal world, when you use composer to download and install new code, an SSH tunnel should be created via a cloud environment, and the private repositories refreshed.  Sometimes, for whatever reason, this gets a little weird.  The primary symptom of weirdness is that external repositories like `repo.magento.com` don't allow code to be downloaded.  You can tell this is happening because you'll get several error messages (one for each failed download request) via composer.
-
-If this happens, you should be to simply exit the currently-running composer command using `Ctrl+c` and then re-run `upgrade`.
+As of this writing (2/25/19), there have been changes made to the Solution Innovations team's gitlab account which have placed it behind a firewall.  As such, updates to the Cloud Extension have been added to aid SCs in accessing the Solution Innovations team's code. As a pre-requisite, make sure you have at least version `0.0.25` of the extension installed and `kukla-vm.0.0.2.ova` imported inthe VMWare.
 
 <a id="vm-snapshots-and-failed-cloud-tokens"></a>
 #### VM Snapshots and Failed Cloud Tokens
-Whenever you restore a snapshot and then try to upgrade or add new code via composer, the cloud login token will become invalid.  Unforunately, there's no way to *prevent* this at present; however, there *is* a pretty simple work-around.  If the cloud token is invalid, simply use the `cloud-login` command and re-authenticate with your cloud username and password.  Then you should be able to proceed with composer activities as expected.
+Whenever you restore a snapshot and then try to upgrade or add new code via composer, the cloud login token will become invalid.  Unforunately, there's no way to *prevent* this at present; however, there *is* a pretty simple work-around.  If the cloud token is invalid, simply use the `cloud-login` command and re-authenticate with your cloud username and password.  The login will **fail** the first time you do it -- _this is unfortunate but expected_. Log in a second time using the same command and you should be able to proceed with composer activities as expected.
 
 <a id="installing-extensions-from-the-solution-innovation-team"></a>
 ### Installing Extensions From the Solution Innovation Team
-*TODO*
+Use the following steps to install extensions:
+
+1. Find the require statement of the extension you want to install from this list: [Extensions List](https://github.com/skukla/vm-from-scratch/blob/master/HOW-TO.md#require-statements)
+2. Open a finder window
+3. Under _Locations_ on the left side, choose `luma`
+4. Double-click into the `web root` folder
+5. Right-click on `composer.json` and edit with Sublime (or your favorite code editor)
+6. Find the end of the Require block (mine goes from lines 12-85)
+7. Add a comma to the end of the last require statement, then add the lines of the extensions you want to add on new lines beneath.  The last line of the require block should not have a comma
+For example, for the subscriptions module, you need these two require statements:
+```
+"paradoxlabs/tokenbase": "4.1.5.x-dev",
+"paradoxlabs/subscriptions": "3.0.4.x-dev",
+```
+8. Save the file
+9. Use the chrome extension and find the single, VM-specific command `SSH into VM` and copy it
+10. Open a terminal window on your mac (`cmd+spacebar`, type `terminal`, press `Enter`)
+11. Paste in the command and press `Enter`. You should be ssh'd into the VM at this point
+12. Log in to the Magento Cloud CLI using `cloud-login` (Enter your username and password for Magento cloud at the prompts).  It will throw an error, but never fear.  Use the same `cloud-login` command again and repeat the process.  You should then be logged in.
+13. Run the `upgrade` command
 
 <a id="installing-extensions-from-a-third-party"></a>
 ### Installing Extensions From a Third Party
