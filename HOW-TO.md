@@ -35,7 +35,9 @@ Before we get into installing extensions, it would be beneficial to understand h
 
 Modern software platforms like Magento 2 are built in a modular fashion -- each feature of the platform is, essentially, self-contained in its own module.  The module has all the necessary components it needs to hook into the admin panel and display on the storefront, etc.  When developers ship their applications, they often store them in a collection of git repositories.  When merchants install and deploy the applications, they'll use a "package manager" -- a tool which receives instructions about where to find an application's packages (or modules), instructions about which modules are required by other modules and so on.
 
-Composer is a PHP package manager. PHP application developers use it to deploy their applications and define dependencies between their applications' modules.  Each application written for deployment and management via composer uses a "master" file to define which modules are to be included, their versions, their dependencies, and so on.  Further, each module used in the application has its *own* `composer.json` file which is responsible for defining specific details about that module and how it should behave with other modules in the application as a whole. 
+Composer is a PHP package manager. PHP application developers use it to deploy their applications and define dependencies between their applications' modules.  Each application written for deployment and management via composer uses a "master" file to define which modules are to be included, their versions, their dependencies, and so on.  Further, each module used in the application has its *own* `composer.json` file which is responsible for defining specific details about that module and how it should behave with other modules in the application as a whole.
+
+_TODO: Finish this_ 
 
 <a id="custom-module-require-statements-and-repositories"></a>
 ### Custom Module Require Statements and Repositories
