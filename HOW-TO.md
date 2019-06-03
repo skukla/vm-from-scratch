@@ -99,7 +99,7 @@ Whenever you restore a snapshot and then try to upgrade or add new code via comp
 ### Installing Extensions From the Solution Innovation Team
 Use the following steps to install extensions:
 
-1. Find the require statement of the extension you want to install from this list: [Extensions List](https://github.com/skukla/vm-from-scratch/blob/master/HOW-TO.md#require-statements)
+1. Find the require statement of the extension you want to install from the list of require statements above: [Extensions List](https://github.com/skukla/vm-from-scratch/blob/master/HOW-TO.md#require-statements)
 2. Open a finder window
 3. Under _Locations_ on the left side, choose `luma`
 4. Double-click into the `web root` folder
