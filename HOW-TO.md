@@ -65,7 +65,7 @@ _TODO: Finish this_
 "paradoxlabs/firstdata": "2.1.2.x-dev",
 "paradoxlabs/stripe": "2.1.3.x-dev"
 "accorin/module-orderapprovals": "dev-master",
-"accorin/module-customeraddressbook": "dev-master"
+"accorin/module-companyaddressbook": "dev-master"
 ```
 <a id="repositories"></a>
 #### Repositories
