@@ -18,6 +18,7 @@
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
+		- [Cannot Update Repo...](#cannot-update-repo)
 	- [Installing Extensions From a Third Party](#installing-extensions-from-a-third-party)
 - [Add a New Language](#add-a-new-language)
 - [Use the VM in Offline Mode](#use-the-vm-in-offline-mode)
@@ -63,6 +64,8 @@ _TODO: Finish this_
 "paradoxlabs/authnetcim": "4.1.3.x-dev",
 "paradoxlabs/firstdata": "2.1.2.x-dev",
 "paradoxlabs/stripe": "2.1.3.x-dev"
+"accorin/module-orderapprovals": "dev-master",
+"accorin/module-customeraddressbook": "dev-master"
 ```
 <a id="repositories"></a>
 #### Repositories
@@ -86,7 +89,9 @@ _TODO: Finish this_
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-stripe.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-subscriptions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"}
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
 ```
 
 <a id="notes-on-updating-the-codebase"></a>
@@ -119,6 +124,14 @@ For example, for the subscriptions module, you need these two require statements
 11. Paste in the command and press `Enter`. You should be ssh'd into the VM at this point
 12. Log in to the Magento Cloud CLI using `cloud-login` (Enter your username and password for Magento cloud at the prompts).  It will throw an error, but never fear.  Use the same `cloud-login` command again and repeat the process.  You should then be logged in.
 13. Run the `upgrade` command
+
+<a id="cannot-update-repo"></a>
+#### Cannot Update Repo...
+From time to time, even using the chrome extension, you _may_ run into a particular set of errors which indicate that certain gitlab repositories can't be updated and that some repositories may be outdated.  If this happens, it means that the gitlab SSH key needs to be re-added to the SSH agent. To achieve this, you can:
+
+1. Use `Ctrl-C` to stop the currently running command
+2. Use `add-key` to add SSH keys to the SSH agent
+3. Retry the `upgrade` command again
 
 <a id="installing-extensions-from-a-third-party"></a>
 ### Installing Extensions From a Third Party
