@@ -428,7 +428,7 @@ Once changed, refresh the cache.
 #### YouTube API Key
 To use YouTube for product videos, we need to enter a YouTube API key.  Navigate to: `Stores > Settings > Configuration > Catalog > Catalog Product Video` and use the following API key:
 
-`AIzaSyD4E-F8dCwzFp0OkOD1LdIiFFG8Q0wDy1o`
+`AIzaSyCeZ8dVvWraRuKMVDl1ISAcfuYHdp7ZBgE`
 
 Once saved, refresh the cache.
 
