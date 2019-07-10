@@ -14,13 +14,13 @@
 	- [Composer and What It Does](#composer-and-what-it-does)
 	- [Custom Module Require Statements and Repositories](#custom-module-require-statements-and-repositories)
 		- [Require Statements](#require-statements)
-			- [MSI Additions](#msi-additions)
+			- [MSI](#msi)
 			- [Accorin \(B2B\)](#accorin-b2b)
 			- [Amasty](#amasty)
 			- [Page Builder Additions](#page-builder-additions)
 			- [Paradox Labs](#paradox-labs)
 		- [Repositories](#repositories)
-			- [MSI](#msi)
+			- [MSI](#msi-1)
 			- [Accorin \(B2B\)](#accorin-b2b-1)
 			- [Amasty](#amasty-1)
 			- [Page Builder Additions](#page-builder-additions-1)
@@ -55,8 +55,8 @@ _TODO: Finish this_
 <a id="require-statements"></a>
 #### Require Statements
 
-<a id="msi-additions"></a>
-##### MSI Additions
+<a id="msi"></a>
+##### MSI
 ```
 "magento/module-msi-inventory-sample-data": "dev-master",
 "magento/module-msi-source-stock-sample-data": "dev-master",
@@ -114,7 +114,7 @@ _TODO: Finish this_
 <a id="repositories"></a>
 #### Repositories
 
-<a id="msi"></a>
+<a id="msi-1"></a>
 ##### MSI
 ```
 {"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data-demo.git"},
