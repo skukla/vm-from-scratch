@@ -14,7 +14,17 @@
 	- [Composer and What It Does](#composer-and-what-it-does)
 	- [Custom Module Require Statements and Repositories](#custom-module-require-statements-and-repositories)
 		- [Require Statements](#require-statements)
+			- [MSI Additions](#msi-additions)
+			- [Accorin \(B2B\)](#accorin-b2b)
+			- [Amasty](#amasty)
+			- [Page Builder Additions](#page-builder-additions)
+			- [Paradox Labs](#paradox-labs)
 		- [Repositories](#repositories)
+			- [MSI](#msi)
+			- [Accorin \(B2B\)](#accorin-b2b-1)
+			- [Amasty](#amasty-1)
+			- [Page Builder Additions](#page-builder-additions-1)
+			- [Paradox Labs](#paradox-labs-1)
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
@@ -44,6 +54,24 @@ _TODO: Finish this_
 ### Custom Module Require Statements and Repositories
 <a id="require-statements"></a>
 #### Require Statements
+
+<a id="msi-additions"></a>
+##### MSI Additions
+```
+"magento/module-msi-inventory-sample-data": "dev-master",
+"magento/module-msi-source-stock-sample-data": "dev-master",
+"magentoese/module-msi-inventory-sample-data-demo":  "dev-master",
+```
+
+<a id="accorin-b2b"></a>
+##### Accorin (B2B)
+```
+"accorin/module-orderapprovals": "dev-master",
+"accorin/module-companyaddressbook": "dev-master"
+```
+
+<a id="amasty"></a>
+##### Amasty
 ```
 "amasty/base": "1.5.5.x-dev",
 "amasty/blog": "1.3.4.x-dev",
@@ -59,16 +87,50 @@ _TODO: Finish this_
 "amasty/product-attachment": "1.3.3.x-dev",
 "amasty/promo": "2.4.0.x-dev",
 "amasty/rgrid": "1.0.7.x-dev",
+```
+
+<a id="page-builder-additions"></a>
+##### Page Builder Additions
+```
+"davemacaulay/module-page-builder-grid": "dev-master",
+"example/module-page-builder-faq": "dev-master",
+"example/module-page-builder-quote": "dev-master",
+"example/module-page-builder-extension-banner": "dev-master",
+"example/module-page-builder-extension-base-forms": "dev-master",
+"example/module-page-builder-extension-slider": "dev-master",
+"example/module-page-builder-extension-text": "dev-master",
+```
+
+<a id="paradox-labs"></a>
+##### Paradox Labs
+```
 "paradoxlabs/tokenbase": "4.1.5.x-dev",
 "paradoxlabs/subscriptions": "3.0.4.x-dev",
 "paradoxlabs/authnetcim": "4.1.3.x-dev",
 "paradoxlabs/firstdata": "2.1.2.x-dev",
 "paradoxlabs/stripe": "2.1.3.x-dev"
-"accorin/module-orderapprovals": "dev-master",
-"accorin/module-companyaddressbook": "dev-master"
 ```
+
 <a id="repositories"></a>
 #### Repositories
+
+<a id="msi"></a>
+##### MSI
+```
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data-demo.git"},
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data.git"},
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-source-stock-sample-data.git"},
+```
+
+<a id="accorin-b2b-1"></a>
+##### Accorin (B2B)
+```
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
+```
+
+<a id="amasty-1"></a>
+##### Amasty 
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-advanced-conditions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-banners-lite.git"},
@@ -84,14 +146,29 @@ _TODO: Finish this_
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-special-promotions-pro.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-special-promotions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-store-locator.git"},
+```
+
+<a id="page-builder-additions-1"></a>
+##### Page Builder Additions
+```
+{"type": "git","url": "git@github.com:bdenham/page-builder-quote.git"},
+{"type": "git","url": "git@github.com:davemacaulay/module-page-builder-grid.git"},
+{"type": "git","url": "https://github.com/PMET-public/module-page-builder-extension-banner.git"},
+{"type": "git","url": "https://github.com/PMET-public/module-page-builder-extension-base-forms.git"},
+{"type": "git","url": "https://github.com/PMET-public/module-page-builder-extension-slider.git"},
+{"type": "git","url": "https://github.com/PMET-public/module-page-builder-extension-text.git"},
+{"type": "git","url": "https://github.com/PMET-public/module-page-builder-faq.git"}
+```
+
+<a id="paradox-labs-1"></a>
+##### Paradox Labs
+```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-authnetcim.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-firstdata.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-stripe.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-subscriptions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
 ```
 
 <a id="notes-on-updating-the-codebase"></a>

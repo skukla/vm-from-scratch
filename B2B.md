@@ -47,6 +47,8 @@
 	- [B2B - B2C Menu Connection](#b2b---b2c-menu-connection)
 - [Multi-source Inventory](#multi-source-inventory)
 	- [Creating Sources](#creating-sources)
+- [B2B Fixes](#b2b-fixes)
+	- [Hiding Company/Company Structure Menu Options](#hiding-companycompany-structure-menu-options)
 
 <!-- /MarkdownTOC -->
 
@@ -1134,3 +1136,22 @@ Navigate to: `Stores > Inventory > Sources`
 	9. Address Data > City: `New York`
 	10. Address Data > Street: `565 Broadway`
 	11. Address Data > Postcode: `10012`
+
+<a id="b2b-fixes"></a>
+## B2B Fixes
+<a id="hiding-companycompany-structure-menu-options"></a>
+### Hiding Company/Company Structure Menu Options
+
+Since Shared Catalogs don't allow for website scope for catagory selection as they should, we are forced to enable companies globally in order to allow for creating shared catalogs at all.  As such, certain menu items will be shown to B2C customers which shouldn't be.  We'll use CSS to hide them from the B2C website.
+
+Navigate to: `Content > Design > Configuration > Luma B2C Website > HTML Head`
+
+Use the following style declaration to hide `Create Company Account` from B2C guest customers and `Company Structure` from logged-in B2C customers:
+
+```
+<style>
+    .login-container .block.block-new-company,
+    li.customer-register.links-container.active > div > ul > li:nth-child(2),
+    div.customer-menu > ul.header.links > li:nth-child(2) { display: none !important; }
+</style>
+```

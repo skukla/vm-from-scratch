@@ -346,11 +346,11 @@ printf '\n%23s : %s' "${BOLD}warm-cache" "${REG}Warms the Luma, Venia, and Custo
 printf '\n%23s : %s' "${BOLD}dev-mode" "${REG}Puts application into developer mode."
 printf '\n%23s : %s' "${BOLD}prod-mode" "${REG}Puts application into production mode."
 printf '\n%23s : %s' "${BOLD}process-catalogs" "${REG}Processes B2B Shared Catalogs (Runs \"clean\" and a single cron trigger)."
-printf '\n%23s : %s' "${BOLD}staging" "${REG}Refreshes the Staging Dashboard (Runs \"clean\" and two cron triggers)."
 printf '\n%23s : %s' "${BOLD}disable-cms-cache" "${REG}Disables the block_html, layout, and full_page caches."
 printf '\n%23s : %s' "${BOLD}enable-cache" "${REG}Enables all caches."
 printf '\n%23s : %s' "${BOLD}cron" "${REG}Runs a single cron trigger."
 printf '\n%23s : %s' "${BOLD}upgrade" "${REG}Upgrade the codebase after adding a new module to your composer.json file."
+printf '\n%23s : %s' "${BOLD}start-web" "${REG}Starts/Re-starts the web server."
 printf "\n\n"
 
 rule

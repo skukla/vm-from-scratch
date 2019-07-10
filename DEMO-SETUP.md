@@ -211,13 +211,14 @@ In your `composer.json`, use the following require section:
 
 	"magentoese/module-product-sample-data-update": "dev-master",
 	"magentoese/module-productbadge": "dev-master",
-	"magentoese/module-productbadge-sample-data": "2.3.x-dev",
+	"magentoese/module-productbadge-sample-data": "dev-master",
 	"magentoese/module-sctools": "dev-master",
 	"magentoese/module-switcherlogos": "dev-master",
 	"magentoese/module-themecustomizer": "dev-master",
 
 	"classyllama/module-owlcarousel":"dev-master",
 	"magentoese/module-lookbook": "dev-master",
+	"magentoese/module-product-image-switcher": "dev-master",
 	"magentoese/module-luma-de-attributes": "dev-master",
 	"magentoese/module-luma-de-categories": "dev-master",
 	"magentoese/module-luma-de-cms": "dev-master",
@@ -227,11 +228,11 @@ In your `composer.json`, use the following require section:
 	"splendidinternet/mage2-locale-de-de": "dev-master",
 
 	"magentoese/module-venia-setup": "dev-master",
-	"magentoese/theme-frontend-venia": "2.3.x-dev",
+	"magentoese/theme-frontend-venia": "dev-master",
 	"magentoese/module-venia-catalog-sample-data": "dev-master",
-	"magentoese/module-venia-cms-sample-data": "2.3.x-dev",
-	"magentoese/module-venia-media-sample-data": "2.3.x-dev",
-	"magentoese/module-vimeo": "2.2.x-dev",
+	"magentoese/module-venia-cms-sample-data": "dev-master",
+	"magentoese/module-venia-media-sample-data": "dev-master",
+	"magentoese/module-vimeo": "dev-master",
 	"magentoese/module-venia-video-sample-data": "dev-master",
 	"magentoese/magento-scripts": "2.2.5.x-dev",
 	"magentoese/ece-tools": "2002.0.14.x-dev",
@@ -2683,9 +2684,15 @@ to
 return -store.baseUrl;
 ```
 
-Then, update permissions, recompile dependencies, and deploy german and other static content:
+Then, remove the adminhtml area's deployed static content, update permissions, recompile dependencies, and deploy german and other static content:
 
-`own && di-compile && deploy-content && deploy-content-de && clean`
+```
+www
+rm -rf pub/static/*
+add-modules
+```
+
+Finally, clear your browser cache for good measure.
 
 <a id="pickup-in-store-quantity-is-mis-aligned"></a>
 #### Pickup In Store Quantity is Mis-Aligned
