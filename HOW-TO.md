@@ -192,7 +192,7 @@ From time to time, even using the chrome extension, you _may_ run into a particu
 1. Use `Ctrl-C` to stop the currently running command
 2. Exit the SSH session typing `exit`
 3. Re-paste the VM ssh command from the chrome extension
-4. Use `configure-proxy && composer update && add-modules && enable-cache && enable-cron` to install the modules, re-enable all cache, and re-enable cron
+4. Use `configure-proxy && clear-cron-schedule && composer update && add-modules && enable-cron` to proxy to gitlab, clear the cron schedule database table, install the modules, re-enable all cache, and re-enable cron
 
 <a id="installing-extensions-from-a-third-party"></a>
 ### Installing Extensions From a Third Party
