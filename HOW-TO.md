@@ -13,18 +13,21 @@
 - [Install New Extensions](#install-new-extensions)
 	- [Composer and What It Does](#composer-and-what-it-does)
 	- [Custom Module Require Statements and Repositories](#custom-module-require-statements-and-repositories)
-		- [Require Statements](#require-statements)
-			- [MSI](#msi)
-			- [Accorin \(B2B\)](#accorin-b2b)
-			- [Amasty](#amasty)
-			- [Page Builder Additions](#page-builder-additions)
-			- [Paradox Labs](#paradox-labs)
-		- [Repositories](#repositories)
-			- [MSI](#msi-1)
-			- [Accorin \(B2B\)](#accorin-b2b-1)
-			- [Amasty](#amasty-1)
-			- [Page Builder Additions](#page-builder-additions-1)
-			- [Paradox Labs](#paradox-labs-1)
+		- [Accorin \(B2B\)](#accorin-b2b)
+			- [Require Statements](#require-statements)
+			- [Repositories](#repositories)
+		- [MSI](#msi)
+			- [Require Statements](#require-statements-1)
+			- [Repositories](#repositories-1)
+		- [Amasty](#amasty)
+			- [Require Statements](#require-statements-2)
+			- [Repositories](#repositories-2)
+		- [Page Builder Additions](#page-builder-additions)
+			- [Require Statements](#require-statements-3)
+			- [Repositories](#repositories-3)
+		- [Paradox Labs](#paradox-labs)
+			- [Require Statements](#require-statements-4)
+			- [Repositories](#repositories-4)
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
@@ -52,26 +55,43 @@ _TODO: Finish this_
 
 <a id="custom-module-require-statements-and-repositories"></a>
 ### Custom Module Require Statements and Repositories
+
+<a id="accorin-b2b"></a>
+#### Accorin (B2B)
 <a id="require-statements"></a>
-#### Require Statements
+##### Require Statements
+```
+"accorin/module-orderapprovals": "dev-master",
+"accorin/module-companyaddressbook": "dev-master"
+```
+<a id="repositories"></a>
+##### Repositories
+```
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
+```
 
 <a id="msi"></a>
-##### MSI
+#### MSI
+<a id="require-statements-1"></a>
+##### Require Statements
 ```
 "magento/module-msi-inventory-sample-data": "dev-master",
 "magento/module-msi-source-stock-sample-data": "dev-master",
 "magentoese/module-msi-inventory-sample-data-demo":  "dev-master",
 ```
-
-<a id="accorin-b2b"></a>
-##### Accorin (B2B)
+<a id="repositories-1"></a>
+##### Repositories
 ```
-"accorin/module-orderapprovals": "dev-master",
-"accorin/module-companyaddressbook": "dev-master"
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data-demo.git"},
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data.git"},
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-source-stock-sample-data.git"},
 ```
 
 <a id="amasty"></a>
-##### Amasty
+#### Amasty
+<a id="require-statements-2"></a>
+##### Require Statements
 ```
 "amasty/base": "1.5.5.x-dev",
 "amasty/blog": "1.3.4.x-dev",
@@ -88,49 +108,8 @@ _TODO: Finish this_
 "amasty/promo": "2.4.0.x-dev",
 "amasty/rgrid": "1.0.7.x-dev",
 ```
-
-<a id="page-builder-additions"></a>
-##### Page Builder Additions
-```
-"davemacaulay/module-page-builder-grid": "dev-master",
-"example/module-page-builder-faq": "dev-master",
-"example/module-page-builder-quote": "dev-master",
-"example/module-page-builder-extension-banner": "dev-master",
-"example/module-page-builder-extension-base-forms": "dev-master",
-"example/module-page-builder-extension-slider": "dev-master",
-"example/module-page-builder-extension-text": "dev-master",
-```
-
-<a id="paradox-labs"></a>
-##### Paradox Labs
-```
-"paradoxlabs/tokenbase": "4.1.5.x-dev",
-"paradoxlabs/subscriptions": "3.0.4.x-dev",
-"paradoxlabs/authnetcim": "4.1.3.x-dev",
-"paradoxlabs/firstdata": "2.1.2.x-dev",
-"paradoxlabs/stripe": "2.1.3.x-dev"
-```
-
-<a id="repositories"></a>
-#### Repositories
-
-<a id="msi-1"></a>
-##### MSI
-```
-{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data-demo.git"},
-{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data.git"},
-{"type": "git", "url": "git@github.com:PMET-public/module-msi-source-stock-sample-data.git"},
-```
-
-<a id="accorin-b2b-1"></a>
-##### Accorin (B2B)
-```
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
-```
-
-<a id="amasty-1"></a>
-##### Amasty 
+<a id="repositories-2"></a>
+##### Repositories
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-advanced-conditions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-banners-lite.git"},
@@ -148,8 +127,21 @@ _TODO: Finish this_
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-store-locator.git"},
 ```
 
-<a id="page-builder-additions-1"></a>
-##### Page Builder Additions
+<a id="page-builder-additions"></a>
+#### Page Builder Additions
+<a id="require-statements-3"></a>
+##### Require Statements
+```
+"davemacaulay/module-page-builder-grid": "dev-master",
+"example/module-page-builder-faq": "dev-master",
+"example/module-page-builder-quote": "dev-master",
+"example/module-page-builder-extension-banner": "dev-master",
+"example/module-page-builder-extension-base-forms": "dev-master",
+"example/module-page-builder-extension-slider": "dev-master",
+"example/module-page-builder-extension-text": "dev-master",
+```
+<a id="repositories-3"></a>
+##### Repositories
 ```
 {"type": "git","url": "git@github.com:bdenham/page-builder-quote.git"},
 {"type": "git","url": "git@github.com:davemacaulay/module-page-builder-grid.git"},
@@ -160,8 +152,19 @@ _TODO: Finish this_
 {"type": "git","url": "https://github.com/PMET-public/module-page-builder-faq.git"}
 ```
 
-<a id="paradox-labs-1"></a>
-##### Paradox Labs
+<a id="paradox-labs"></a>
+#### Paradox Labs
+<a id="require-statements-4"></a>
+##### Require Statements
+```
+"paradoxlabs/tokenbase": "4.1.5.x-dev",
+"paradoxlabs/subscriptions": "3.0.4.x-dev",
+"paradoxlabs/authnetcim": "4.1.3.x-dev",
+"paradoxlabs/firstdata": "2.1.2.x-dev",
+"paradoxlabs/stripe": "2.1.3.x-dev"
+```
+<a id="repositories-4"></a>
+##### Repositories
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-authnetcim.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-firstdata.git"},
@@ -170,7 +173,6 @@ _TODO: Finish this_
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
 ```
-
 <a id="notes-on-updating-the-codebase"></a>
 ### Notes on Updating the Codebase
 As of this writing (2/25/19), there have been changes made to the Solution Innovations team's gitlab account which have placed it behind a firewall.  As such, updates to the Cloud Extension have been added to aid SCs in accessing the Solution Innovations team's code. As a pre-requisite, make sure you have at least version `0.0.25` of the extension installed and `kukla-vm.0.0.2.ova` imported inthe VMWare.
@@ -207,8 +209,9 @@ For example, for the subscriptions module, you need these two require statements
 From time to time, even using the chrome extension, you _may_ run into a particular set of errors which indicate that certain gitlab repositories can't be updated and that some repositories may be outdated.  If this happens, it means that the gitlab SSH key needs to be re-added to the SSH agent. To achieve this, you can:
 
 1. Use `Ctrl-C` to stop the currently running command
-2. Use `add-key` to add SSH keys to the SSH agent
-3. Retry the `upgrade` command again
+2. Exit the SSH session typing `exit`
+3. Re-paste the VM ssh command from the chrome extension
+4. Use `configure-proxy && composer update && add-modules && enable-cache && enable-cron` to install the modules, re-enable all cache, and re-enable cron
 
 <a id="installing-extensions-from-a-third-party"></a>
 ### Installing Extensions From a Third Party
