@@ -14,20 +14,10 @@
 	- [Composer and What It Does](#composer-and-what-it-does)
 	- [Custom Module Require Statements and Repositories](#custom-module-require-statements-and-repositories)
 		- [Accorin \(B2B\)](#accorin-b2b)
-			- [Require Statements](#require-statements)
-			- [Repositories](#repositories)
-		- [MSI](#msi)
-			- [Require Statements](#require-statements-1)
-			- [Repositories](#repositories-1)
 		- [Amasty](#amasty)
-			- [Require Statements](#require-statements-2)
-			- [Repositories](#repositories-2)
+		- [MSI](#msi)
 		- [Page Builder Additions](#page-builder-additions)
-			- [Require Statements](#require-statements-3)
-			- [Repositories](#repositories-3)
 		- [Paradox Labs](#paradox-labs)
-			- [Require Statements](#require-statements-4)
-			- [Repositories](#repositories-4)
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
@@ -58,40 +48,20 @@ _TODO: Finish this_
 
 <a id="accorin-b2b"></a>
 #### Accorin (B2B)
-<a id="require-statements"></a>
-##### Require Statements
+**Require Statements**
 ```
 "accorin/module-orderapprovals": "dev-master",
 "accorin/module-companyaddressbook": "dev-master"
 ```
-<a id="repositories"></a>
-##### Repositories
+**Repositories**
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
 ```
 
-<a id="msi"></a>
-#### MSI
-<a id="require-statements-1"></a>
-##### Require Statements
-```
-"magento/module-msi-inventory-sample-data": "dev-master",
-"magento/module-msi-source-stock-sample-data": "dev-master",
-"magentoese/module-msi-inventory-sample-data-demo":  "dev-master",
-```
-<a id="repositories-1"></a>
-##### Repositories
-```
-{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data-demo.git"},
-{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data.git"},
-{"type": "git", "url": "git@github.com:PMET-public/module-msi-source-stock-sample-data.git"},
-```
-
 <a id="amasty"></a>
 #### Amasty
-<a id="require-statements-2"></a>
-##### Require Statements
+**Require Statements**
 ```
 "amasty/base": "1.5.5.x-dev",
 "amasty/blog": "1.3.4.x-dev",
@@ -108,8 +78,7 @@ _TODO: Finish this_
 "amasty/promo": "2.4.0.x-dev",
 "amasty/rgrid": "1.0.7.x-dev",
 ```
-<a id="repositories-2"></a>
-##### Repositories
+**Repositories**
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-advanced-conditions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-banners-lite.git"},
@@ -127,10 +96,24 @@ _TODO: Finish this_
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-store-locator.git"},
 ```
 
+<a id="msi"></a>
+#### MSI
+**Require Statements**
+```
+"magento/module-msi-inventory-sample-data": "dev-master",
+"magento/module-msi-source-stock-sample-data": "dev-master",
+"magentoese/module-msi-inventory-sample-data-demo":  "dev-master",
+```
+**Repositories**
+```
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data-demo.git"},
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-inventory-sample-data.git"},
+{"type": "git", "url": "git@github.com:PMET-public/module-msi-source-stock-sample-data.git"},
+```
+
 <a id="page-builder-additions"></a>
 #### Page Builder Additions
-<a id="require-statements-3"></a>
-##### Require Statements
+**Require Statements**
 ```
 "davemacaulay/module-page-builder-grid": "dev-master",
 "example/module-page-builder-faq": "dev-master",
@@ -140,8 +123,7 @@ _TODO: Finish this_
 "example/module-page-builder-extension-slider": "dev-master",
 "example/module-page-builder-extension-text": "dev-master",
 ```
-<a id="repositories-3"></a>
-##### Repositories
+**Repositories**
 ```
 {"type": "git","url": "git@github.com:bdenham/page-builder-quote.git"},
 {"type": "git","url": "git@github.com:davemacaulay/module-page-builder-grid.git"},
@@ -154,8 +136,7 @@ _TODO: Finish this_
 
 <a id="paradox-labs"></a>
 #### Paradox Labs
-<a id="require-statements-4"></a>
-##### Require Statements
+**Require Statements**
 ```
 "paradoxlabs/tokenbase": "4.1.5.x-dev",
 "paradoxlabs/subscriptions": "3.0.4.x-dev",
@@ -163,8 +144,7 @@ _TODO: Finish this_
 "paradoxlabs/firstdata": "2.1.2.x-dev",
 "paradoxlabs/stripe": "2.1.3.x-dev"
 ```
-<a id="repositories-4"></a>
-##### Repositories
+**Repositories**
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-authnetcim.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-firstdata.git"},
@@ -173,6 +153,7 @@ _TODO: Finish this_
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
 ```
+
 <a id="notes-on-updating-the-codebase"></a>
 ### Notes on Updating the Codebase
 As of this writing (2/25/19), there have been changes made to the Solution Innovations team's gitlab account which have placed it behind a firewall.  As such, updates to the Cloud Extension have been added to aid SCs in accessing the Solution Innovations team's code. As a pre-requisite, make sure you have at least version `0.0.25` of the extension installed and `kukla-vm.0.0.2.ova` imported inthe VMWare.
