@@ -21,7 +21,7 @@
 	- [Notes on Updating the Codebase](#notes-on-updating-the-codebase)
 		- [VM Snapshots and Failed Cloud Tokens](#vm-snapshots-and-failed-cloud-tokens)
 	- [Installing Extensions From the Solution Innovation Team](#installing-extensions-from-the-solution-innovation-team)
-		- [Cannot Update Repo...](#cannot-update-repo)
+		- ['Cannot Update Repo' Error](#cannot-update-repo-error)
 	- [Installing Extensions From a Third Party](#installing-extensions-from-a-third-party)
 - [Add a New Language](#add-a-new-language)
 - [Use the VM in Offline Mode](#use-the-vm-in-offline-mode)
@@ -185,8 +185,8 @@ For example, for the subscriptions module, you need these two require statements
 12. Log in to the Magento Cloud CLI using `cloud-login` (Enter your username and password for Magento cloud at the prompts).  It will throw an error, but never fear.  Use the same `cloud-login` command again and repeat the process.  You should then be logged in.
 13. Run the `upgrade` command
 
-<a id="cannot-update-repo"></a>
-#### Cannot Update Repo...
+<a id="cannot-update-repo-error"></a>
+#### 'Cannot Update Repo' Error
 From time to time, even using the chrome extension, you _may_ run into a particular set of errors which indicate that certain gitlab repositories can't be updated and that some repositories may be outdated.  If this happens, it means that the gitlab SSH key needs to be re-added to the SSH agent. To achieve this, you can:
 
 1. Use `Ctrl-C` to stop the currently running command
