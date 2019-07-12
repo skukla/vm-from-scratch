@@ -338,7 +338,7 @@ printf "\n"
 
 # Useful Commands
 rulem "[ ${CYAN}Useful Commands${REG} ]"
-printf '\n%23s : %s' "${BOLD}set-url" "${REG}Set a new base url and hostname."
+printf '\n%23s : %s' "${BOLD}www" "${REG}Move into the web root."
 printf '\n%23s : %s' "${BOLD}clean" "${REG}Re-indexes and clears cache."
 printf '\n%23s : %s' "${BOLD}cache" "${REG}Clears cache."
 printf '\n%23s : %s' "${BOLD}reindex" "${REG}Reindexes all indexes."
@@ -350,9 +350,11 @@ printf '\n%23s : %s' "${BOLD}disable-cms-cache" "${REG}Disables the block_html, 
 printf '\n%23s : %s' "${BOLD}enable-cache" "${REG}Enables all caches."
 printf '\n%23s : %s' "${BOLD}cron" "${REG}Runs a single cron trigger."
 printf '\n%23s : %s' "${BOLD}upgrade" "${REG}Upgrade the codebase after adding a new module to your composer.json file."
-printf '\n%23s : %s' "${BOLD}start-web" "${REG}Starts/Re-starts the web server."
+printf '\n%23s : %s' "${BOLD}start-web" "${REG}Starts/restarts the web server."
+printf '\n%23s : %s' "${BOLD}set-url" "${REG}Set a new base url and hostname."
 printf "\n\n"
-
+printf "${REG}Use ${BOLD}show-help ${REG} to see a full list of CLI commands."
+printf "\n\n"
 rule
 ```
 
