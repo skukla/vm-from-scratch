@@ -25,7 +25,7 @@
 	- [Installing Extensions From a Third Party](#installing-extensions-from-a-third-party)
 - [Add a New Language](#add-a-new-language)
 - [Configure the VM With A Static IP](#configure-the-vm-with-a-static-ip)
-- [Renewing IP Leases](#renewing-ip-leases)
+- [Renew IP Leases](#renew-ip-leases)
 - [Use the VM in Offline Mode](#use-the-vm-in-offline-mode)
 
 <!-- /MarkdownTOC -->
@@ -258,8 +258,8 @@ host KuklaVM {
 
 Sources: [Assign Static IP Addresses in VMware Fusion](https://one.vg/static-ip-addresses-in-vmware-fusion/)
 
-<a id="renewing-ip-leases"></a>
-## Renewing IP Leases
+<a id="renew-ip-leases"></a>
+## Renew IP Leases
 If you're using dynamic IP assignment in VMWare Fusion, you'll notice that each new VM you create (whether a linked clone or an import of a new .ova file) updates your IP address -- usually incrementing it by one (e.g. if you have a VM with an IP address of `172.16.100.125` and you add a new clone or a new VM file, the new IP will likely be `172.16.100.126`). As you delete clones and VMs, these dynamically-assigned IP addresses should be released such that they are able to be recycled.  In the (very unlikely) event that they are not and/or some other conflict occurs, it _is_ possible to manually refresh the IP leases and effectively "reset" the IP list.  To do so:
 
 1. If VMWare Fusion is running, shut down any running VMs and then quit the program
