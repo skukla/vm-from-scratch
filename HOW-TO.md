@@ -24,6 +24,7 @@
 		- ['Cannot Update Repo' Error](#cannot-update-repo-error)
 	- [Installing Extensions From a Third Party](#installing-extensions-from-a-third-party)
 - [Add a New Language](#add-a-new-language)
+- [Configure the VM With A Static IP](#configure-the-vm-with-a-static-ip)
 - [Use the VM in Offline Mode](#use-the-vm-in-offline-mode)
 
 <!-- /MarkdownTOC -->
@@ -192,7 +193,7 @@ From time to time, even using the chrome extension, you _may_ run into a particu
 1. Use `Ctrl-C` to stop the currently running command
 2. Exit the SSH session typing `exit`
 3. Re-paste the VM ssh command from the chrome extension
-4. Use `configure-proxy && clear-cron-schedule && composer update && add-modules && enable-cron` to proxy to gitlab, clear the cron schedule database table, install the modules, re-enable all cache, and re-enable cron
+4. Use `configure-proxy && disable-cron && clear-cron-schedule && composer update && add-modules && enable-cron` to proxy to gitlab, clear the cron schedule database table, install the modules, re-enable all cache, and re-enable cron
 
 <a id="installing-extensions-from-a-third-party"></a>
 ### Installing Extensions From a Third Party
@@ -201,6 +202,58 @@ From time to time, even using the chrome extension, you _may_ run into a particu
 <a id="add-a-new-language"></a>
 ## Add a New Language
 *TODO*
+
+<a id="configure-the-vm-with-a-static-ip"></a>
+## Configure the VM With A Static IP
+As you continue to download and install new VM .ova files, you may run into the scenario whereby you run out of assignable IP addresses.  In addition, you may find it more advantageous and easier to manage your `hosts` file with a single, static IP rather than always checking for a dynamically-assigned one.  To use a static IP, you can:
+
+1. Open VMWare Fusion
+2. Select the VM from the VM list in the VM Library
+3. Navigate to: `Virtual Machine > Settings > System Settings > General` and taking note of the `Name` value.  **Note** Your VM name cannot use any spaces.  If it does, edit it and remove them
+4. Navigate to: `Virtual Machine > Network Adapter > Settings` (See the very bottom of the menu)
+5. `Share With My Mac` will be selected.  At the bottom of the list, expand the carrot next to `Advanced Options`
+6. Copy the VM's MAC Address.  (It will look something like this: `00:0C:29:C3:04:70`)
+7. Turn off your VM and quit the VMWare Fusion program entirely
+7. Open a new Finder window
+8. Navigate to `Go > Go To Folder`
+9. Enter the following path: `/Library/Preferences/VMware Fusion/vmnet8` and press `Enter`
+10. Edit the `dhcp.conf` file in Sublime Text (Drag the file onto the Sublime Text icon similarly to what's done to edit your `hosts` file)
+10. In this file, you will find a line defining a range of IPs this VM instance is configured to use dynamically:
+
+```
+range 172.16.100.128 172.16.100.254;
+```
+
+In this example, we can see that our dynamic range starts at `172.16.100.128` and goes up from there.  This means that we can assign any value from `172.16.100.1` to `172.16.100.127` as a static value for this VM.
+
+11. At the bottom of the file, find the following line:
+
+```
+####### VMNET DHCP Configuration. End of "DO NOT MODIFY SECTION" #######
+```
+
+Beneath it, we will add a directive to create a static IP which will follow this format
+
+```
+host <YOUR VM NAME> {
+    hardware ethernet <YOUR MAC ADDRESS>
+    fixed-address  <YOUR STATIC IP>;
+}
+```
+
+Use this format to add your own fixed IP address. As an example, supposing your machine was called `KuklaVM`, your MAC address was `00:0C:29:C3:04:70`, your dynamic IP range was between `172.16.100.127` and `172.16.100.254`, your host block might look like this:
+
+```
+host KuklaVM {
+    hardware ethernet 00:0C:29:C3:04:70
+    fixed-address  172.16.100.80;
+}
+```
+
+12. Save the file -- Sublime will prompt you for your Mac password
+13. Restart VMWare Fusion and your VM
+14. Log in to the VM and note that your `Hosts Entry` line should reflect the static IP you defined above
+15. Make sure you update your `/etc/hosts` file accordingly
 
 <a id="use-the-vm-in-offline-mode"></a>
 ## Use the VM in Offline Mode
