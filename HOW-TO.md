@@ -25,6 +25,7 @@
 	- [Installing Extensions From a Third Party](#installing-extensions-from-a-third-party)
 - [Add a New Language](#add-a-new-language)
 - [Configure the VM With A Static IP](#configure-the-vm-with-a-static-ip)
+- [Renewing IP Leases](#renewing-ip-leases)
 - [Use the VM in Offline Mode](#use-the-vm-in-offline-mode)
 
 <!-- /MarkdownTOC -->
@@ -254,6 +255,28 @@ host KuklaVM {
 13. Restart VMWare Fusion and your VM
 14. Log in to the VM and note that your `Hosts Entry` line should reflect the static IP you defined above
 15. Make sure you update your `/etc/hosts` file accordingly
+
+Sources: [Assign Static IP Addresses in VMware Fusion](https://one.vg/static-ip-addresses-in-vmware-fusion/)
+
+<a id="renewing-ip-leases"></a>
+## Renewing IP Leases
+If you're using dynamic IP assignment in VMWare Fusion, you'll notice that each new VM you create (whether a linked clone or an import of a new .ova file) updates your IP address -- usually incrementing it by one (e.g. if you have a VM with an IP address of `172.16.100.125` and you add a new clone or a new VM file, the new IP will likely be `172.16.100.126`). As you delete clones and VMs, these dynamically-assigned IP addresses should be released such that they are able to be recycled.  In the (very unlikely) event that they are not and/or some other conflict occurs, it _is_ possible to manually refresh the IP leases and effectively "reset" the IP list.  To do so:
+
+1. If VMWare Fusion is running, shut down any running VMs and then quit the program
+2. Open a new Finder window
+3. Navigate to `Go > Go To Folder` and paste in the following path: `/var/db/vmware/`
+5. Delete the following files: `vmnet-dhcpd-vmnet8.leases` and `vmnet-dhcpd-vmnet8.leases~` respectively (VMWare Fusion should recreate these)
+6. Navigate to `Go > Go To Folder` and paste in the following path: `/Library/Preferences/VMware Fusion/` and open the `networking` file using Sublime
+7. In this file, you should notice a line similar to this one:
+
+```
+answer VNET_8_DHCP_CFG_HASH 4FA179C6B5222481B3D0A97D6B0D49A555659324
+```
+
+8. Delete this line and save the file (**Note** `VMNET_8` here refers to the NAT network adapter.  You'll use a different, corresponding `VMNET` value if you're using a different adapter)
+9. Restart VMWare Fusion
+
+Sources: [Renewing IP Leases In VMWare Fusion](https://communities.vmware.com/message/2738585#2738585) (See the 3rd and 4th reponses)
 
 <a id="use-the-vm-in-offline-mode"></a>
 ## Use the VM in Offline Mode
