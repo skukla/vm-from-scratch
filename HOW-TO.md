@@ -140,11 +140,11 @@ _TODO: Finish this_
 #### Paradox Labs
 **Require Statements**
 ```
-"paradoxlabs/tokenbase": "4.1.5.x-dev",
-"paradoxlabs/subscriptions": "3.0.4.x-dev",
-"paradoxlabs/authnetcim": "4.1.3.x-dev",
-"paradoxlabs/firstdata": "2.1.2.x-dev",
-"paradoxlabs/stripe": "2.1.3.x-dev"
+"paradoxlabs/tokenbase": "4.2.1.x-dev",
+"paradoxlabs/subscriptions": "3.1.0.x-dev"
+"paradoxlabs/authnetcim": "4.2.1.x-dev",
+"paradoxlabs/firstdata": "2.2.0.x-dev",
+"paradoxlabs/stripe": "2.2.0.x-dev",       
 ```
 **Repositories**
 ```
