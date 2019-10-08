@@ -46,7 +46,11 @@ Before we begin with VM installation, there are some tools you should download f
 
 <a id="sublime-text-3"></a>
 ### Sublime Text 3 
-Text Editor which allows administrative access to system files which we'll need later.  This is required. The primary purpose for using Sublime Text will be to edit your system's `hosts` file.  In order to open the `hosts` file with Sublime, it is recommended that you take the following approach:
+Text Editor which allows administrative access to system files which we'll need later.  This is required. 
+
+[Download Sublime Text 3](https://www.sublimetext.com/3)
+
+The primary purpose for using Sublime Text will be to edit your system's `hosts` file.  In order to open the `hosts` file with Sublime, it is recommended that you take the following approach:
 
 1. Open Sublime Text 3
 2. Right-click the Sublime Text 3 icon in the dock, and select `Options > Keep In Dock`
@@ -54,6 +58,8 @@ Text Editor which allows administrative access to system files which we'll need 
 <a id="iterm-2"></a>
 ### iTerm 2
 Terminal replacement for MacOS.  This is optional.
+
+[Download iTerm 2](https://www.iterm2.com/downloads.html)
 
 <a id="git-via-xcode-command-line-tools"></a>
 ### Git (via Xcode Command Line Tools)
