@@ -46,7 +46,7 @@ Before we begin with VM installation, there are some tools you should download f
 
 <a id="sublime-text-3"></a>
 ### Sublime Text 3 
-Text Editor which allows administrative access to system files which we'll need later.  This is something you should get. The primary purpose for using Sublime Text will be to edit your system's `hosts` file.  In order to open the `hosts` file with Sublime, it is recommended that you take the following approach:
+Text Editor which allows administrative access to system files which we'll need later.  This is required. The primary purpose for using Sublime Text will be to edit your system's `hosts` file.  In order to open the `hosts` file with Sublime, it is recommended that you take the following approach:
 
 1. Open Sublime Text 3
 2. Right-click the Sublime Text 3 icon in the dock, and select Options > Keep In Dock
