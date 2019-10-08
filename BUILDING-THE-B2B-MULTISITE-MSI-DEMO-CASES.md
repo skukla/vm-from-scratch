@@ -7,7 +7,7 @@
 - [Building the B2C Demo Cases](BUILDING-THE-B2C-DEMO-CASES.md)
 - [Building the B2B, Multisite, and MSI Demo Cases](BUILDING-THE-B2B-MULTISITE-MSI-DEMO-CASES.md)
 
-# Kukla VM and B2B, Multisite, and MSI
+# Building the B2B, Multisite, and MSI Demo Cases
 
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
