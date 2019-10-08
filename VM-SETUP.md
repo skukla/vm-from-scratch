@@ -12,7 +12,9 @@
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [Getting Started](#getting-started)
-	- [Disk Space](#disk-space)
+	- [System Requirements](#system-requirements)
+		- [Operating System](#operating-system)
+		- [Disk Space](#disk-space)
 	- [Sublime Text 3](#sublime-text-3)
 	- [iTerm 2](#iterm-2)
 	- [Git \(via Xcode Command Line Tools\)](#git-via-xcode-command-line-tools)
@@ -46,8 +48,14 @@
 ## Getting Started
 Before we begin with VM installation, there are some things you should know and some tools you should download first:
 
+<a id="system-requirements"></a>
+### System Requirements
+<a id="operating-system"></a>
+#### Operating System
+The VM solution is designed to work on a Mac operating system, but should also run on Windows since it depends on a cross-platform VM hypervisor (VMWare).  This documentation document assumes a Mac operating system, however. 
+
 <a id="disk-space"></a>
-### Disk Space
+#### Disk Space
 The files used to run the VM are quite large.  It is recommended that you have more than 70 gigabytes of hard drive space available on your machine to support the VM.  If you don't, an external solid-state drive can be used to run the VM.
 
 <a id="sublime-text-3"></a>
