@@ -294,7 +294,7 @@ To access the inner workings of the VM from your terminal, we'll use something c
 3. Click the Magento Cloud extension icon in chrome to use the extension
 4. Click the *Commands* tab
 5. Find the grey box titled *VM specific cmds*
-6. Click the "copy" icon next to the SSH into VM" command
+6. Click the *copy* icon next to the SSH into VM" command
 7. Open a terminal on your system
 8. Open Spotlight with Cmd+Spacebar
 9. Search for Terminal and press Enter
