@@ -213,7 +213,7 @@ When done, save the hosts file and enter your computer password when prompted.
 
 <a id="testing-the-vm"></a>
 ### Testing the VM
-If the VM is running, you can test these changes by opening a browser and navigating to http://luma.com for the storefront and http://luma.com/admin for the admin panel.  Use the following credentials to log in to the admin panel:
+If the VM is running, you can test these changes by opening a browser and navigating to http://luma.com for the storefront and http://luma.com/admin for the admin panel.  Use the following credentials to log in to the admin panel:
 
 Username: admin
 Password: admin4tls
@@ -224,7 +224,7 @@ Note: Since the Magento application depends heavily on browser cache, you may wa
 ### Possible Hosts File Issues
 Issues with the hosts file are the most common source of VM-related problems.  The most tell-tale sign that you have a hosts file issue is the fact that when you attempt to open http://luma.com
 
-1. The browser loads the actual http://luma.com site
+1. The browser loads the actual http://luma.com site
 2. The browser "spins" and ultimately doesn't load.  (You can confirm this is the case by paying attention to the bottom left-hand corner of the browser window.  If you see "Connecting..." instead of "Waiting for luma.com...", you most likely have a hosts file issue.
 
 <a id="saving-the-base-state-snapshot"></a>
