@@ -27,7 +27,7 @@
 	- [Configuring the Hosts File](#configuring-the-hosts-file)
 		- [Creating A Hosts File Alias](#creating-a-hosts-file-alias)
 		- [Finding the Hosts Entry](#finding-the-hosts-entry)
-		- [Updating the Hosts File](#updating-the-hosts-file)
+	- [Updating the Hosts File](#updating-the-hosts-file)
 	- [Testing the VM](#testing-the-vm)
 	- [Possible Hosts File Issues](#possible-hosts-file-issues)
 - [Saving the Base State Snapshot](#saving-the-base-state-snapshot)
@@ -178,7 +178,7 @@ Here  we see the IP address of the VM and the various domains which should be r
 **Note:** Your IP address will be different than the one listed above.
 
 <a id="updating-the-hosts-file"></a>
-#### Updating the Hosts File
+### Updating the Hosts File
 Now that we have a hosts file alias, we'll use Sublime Text to update it:
 
 1. Find the hosts file alias on your Desktop
