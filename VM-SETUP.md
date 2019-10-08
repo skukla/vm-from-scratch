@@ -1,4 +1,4 @@
-# Magento Demo VM From Scratch
+# Magento Demo VM Documentation
 
 ## Table of Contents
 - [VM Setup and Usage](VM-SETUP.md)
