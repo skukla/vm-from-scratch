@@ -74,6 +74,7 @@ To install:
 The Cloud Extension is an extension for Google Chrome developed by Keith Bentrup. It is a helpful tool for demo preparation and management and is necessary for more advanced VM usage.  To install it, use the steps detailed here:
  
 [Magento Cloud Extension Information](https://github.com/PMET-public/magento-cloud-extension)
+
 [Magento Cloud Extension Download](https://github.com/PMET-public/magento-cloud-extension/releases)
 
 **Note:** Even though it's listed as an "Alpha" version, you'll need to install version 0.0.25 or higher of the extension in order to work with the VM.
