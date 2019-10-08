@@ -15,7 +15,7 @@
 	- [System Requirements](#system-requirements)
 		- [Operating System](#operating-system)
 		- [Disk Space](#disk-space)
-	- [Tools You'll Need](#tools-youll-need)
+	- [Recommended Tooling](#recommended-tooling)
 		- [Sublime Text 3](#sublime-text-3)
 		- [iTerm 2](#iterm-2)
 		- [Git \(via Xcode Command Line Tools\)](#git-via-xcode-command-line-tools)
@@ -59,8 +59,8 @@ The VM solution is designed to work on a Mac operating system, but should also r
 #### Disk Space
 The files used to run the VM are quite large.  It is recommended that you have more than 70 gigabytes of hard drive space available on your machine to support the VM.  If you don't, an external solid-state drive can be used to run the VM.
 
-<a id="tools-youll-need"></a>
-### Tools You'll Need
+<a id="recommended-tooling"></a>
+### Recommended Tooling
 <a id="sublime-text-3"></a>
 #### Sublime Text 3 
 Text Editor which allows administrative access to system files which we'll need later.  This is required. 
