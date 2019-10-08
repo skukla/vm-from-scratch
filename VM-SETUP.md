@@ -12,6 +12,7 @@
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
 - [Getting Started](#getting-started)
+	- [Disk Space](#disk-space)
 	- [Sublime Text 3](#sublime-text-3)
 	- [iTerm 2](#iterm-2)
 	- [Git \(via Xcode Command Line Tools\)](#git-via-xcode-command-line-tools)
@@ -22,6 +23,7 @@
 	- [Possible VMWare Issues](#possible-vmware-issues)
 		- [A "/dev/vmmon" Error](#a-devvmmonerror)
 - [Importing the VM File](#importing-the-vm-file)
+- [Updating the VM](#updating-the-vm)
 - [The Hosts File](#the-hosts-file)
 	- [Understanding the Hosts File](#understanding-the-hosts-file)
 	- [Configuring the Hosts File](#configuring-the-hosts-file)
@@ -42,7 +44,11 @@
 
 <a id="getting-started"></a>
 ## Getting Started
-Before we begin with VM installation, there are some tools you should download first:
+Before we begin with VM installation, there are some things you should know and some tools you should download first:
+
+<a id="disk-space"></a>
+### Disk Space
+The files used to run the VM are quite large.  It is recommended that you have more than 70 gigabytes of hard drive space available on your machine to support the VM.  If you don't, an external solid-state drive can be used to run the VM.
 
 <a id="sublime-text-3"></a>
 ### Sublime Text 3 
@@ -133,6 +139,24 @@ To import a new VM file:
 3. Choose your .ova file and click Continue
 4. When the machine is imported, click Continue
 5. Start the VM. If asked to upgrade, click *Upgrade*
+
+<a id="updating-the-vm"></a>
+## Updating the VM
+From time to time, new versions of the VM will be released for the team.
+
+To import a new VM file:
+
+1. Open VMWare Fusion
+2. Choose `File > Import`
+3. Choose your .ova file and click `Continue`
+4. When the machine is imported, click `Continue`
+5. Start the VM.  If asked to upgrade, click `Upgrade`
+
+The new VM will have a new IP address which you'll need to add to your hosts file.  (See: [Updating the Hosts File](#updating-the-hosts-file) for more information).  Note that you may need or want to quit chrome and then open it in incognito mode to ensure everything is as it should be.
+
+The files which are created after a VM is imported are quite large; therefore, after importing a new VM file, it's highly recommended that you remove any VMs created with that file from your VM Library in VMWare Fusion.  When you do, be sure to select the "Remove File" option.  
+
+**Note:** If you have any ongoing demos with these VM's, make sure you complete those before removing the VM file.
 
 <a id="the-hosts-file"></a>
 ## The Hosts File
@@ -281,10 +305,10 @@ From time to time, you may find that you're making the same configuration change
 1. Make sure the VM is powered off
 2. Restore the existing Base State snapshot
 3. Make the changes you want to add to the snapshot
-4. Take a new Snapshot with the camera icon and name it "Base State 2"
+4. Take a new Snapshot with the camera icon and name it *Base State 2*
 5. Delete the original Base State snapshot
-6. Right-click the "Base State 2" snapshot and choose "Get Info"
-7. Modify the name to "Base State" and save
+6. Right-click the *Base State 2* snapshot and choose *Get Info*
+7. Modify the name to *Base State* and save
 
 Now you should have a Base State snapshot with the changes you added ready to go.
 
