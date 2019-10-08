@@ -15,9 +15,10 @@
 	- [System Requirements](#system-requirements)
 		- [Operating System](#operating-system)
 		- [Disk Space](#disk-space)
-	- [Sublime Text 3](#sublime-text-3)
-	- [iTerm 2](#iterm-2)
-	- [Git \(via Xcode Command Line Tools\)](#git-via-xcode-command-line-tools)
+	- [Tools You'll Need](#tools-youll-need)
+		- [Sublime Text 3](#sublime-text-3)
+		- [iTerm 2](#iterm-2)
+		- [Git \(via Xcode Command Line Tools\)](#git-via-xcode-command-line-tools)
 - [The Cloud Extension](#the-cloud-extension)
 - [VMWare Fusion](#vmware-fusion)
 	- [Installing VMWare Fusion](#installing-vmware-fusion)
@@ -58,8 +59,10 @@ The VM solution is designed to work on a Mac operating system, but should also r
 #### Disk Space
 The files used to run the VM are quite large.  It is recommended that you have more than 70 gigabytes of hard drive space available on your machine to support the VM.  If you don't, an external solid-state drive can be used to run the VM.
 
+<a id="tools-youll-need"></a>
+### Tools You'll Need
 <a id="sublime-text-3"></a>
-### Sublime Text 3 
+#### Sublime Text 3 
 Text Editor which allows administrative access to system files which we'll need later.  This is required. 
 
 [Download Sublime Text 3](https://www.sublimetext.com/3)
@@ -70,13 +73,13 @@ The primary purpose for using Sublime Text will be to edit your system's `hosts`
 2. Right-click the Sublime Text 3 icon in the dock, and select `Options > Keep In Dock`
 
 <a id="iterm-2"></a>
-### iTerm 2
+#### iTerm 2
 Terminal replacement for MacOS.  This is optional.
 
 [Download iTerm 2](https://www.iterm2.com/downloads.html)
 
 <a id="git-via-xcode-command-line-tools"></a>
-### Git (via Xcode Command Line Tools)
+#### Git (via Xcode Command Line Tools)
 Version Control System.  This is optional.  
 
 To install:
