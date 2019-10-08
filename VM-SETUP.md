@@ -19,16 +19,17 @@
 - [VMWare Fusion](#vmware-fusion)
 	- [Installing VMWare Fusion](#installing-vmware-fusion)
 	- [Configuring VMWare Fusion](#configuring-vmware-fusion)
-	- [Possible VM Issues](#possible-vm-issues)
+	- [Possible VMWare Issues](#possible-vmware-issues)
 		- [A "/dev/vmmon" Error](#a-devvmmonerror)
 - [Importing the VM File](#importing-the-vm-file)
-- [Understanding the Hosts File](#understanding-the-hosts-file)
-- [Configuring the Hosts File](#configuring-the-hosts-file)
-	- [Creating A Hosts File Alias](#creating-a-hosts-file-alias)
-	- [Finding the Hosts Entry](#finding-the-hosts-entry)
-	- [Updating the Hosts File](#updating-the-hosts-file)
-- [Testing the VM](#testing-the-vm)
-- [Possible Hosts File Issues](#possible-hosts-file-issues)
+- [The Hosts File](#the-hosts-file)
+	- [Understanding the Hosts File](#understanding-the-hosts-file)
+	- [Configuring the Hosts File](#configuring-the-hosts-file)
+		- [Creating A Hosts File Alias](#creating-a-hosts-file-alias)
+		- [Finding the Hosts Entry](#finding-the-hosts-entry)
+		- [Updating the Hosts File](#updating-the-hosts-file)
+	- [Testing the VM](#testing-the-vm)
+	- [Possible Hosts File Issues](#possible-hosts-file-issues)
 - [Saving the Base State Snapshot](#saving-the-base-state-snapshot)
 - [Using Snapshots](#using-snapshots)
 	- [Using Snapshots As Branches](#using-snapshots-as-branches)
@@ -99,8 +100,8 @@ Here are some recommended preferences for VMWare that others have found helpful:
 
 **Note:** These settings do two important things.  The first change ensures that the VM will be powered off completely rather than suspended when it is closed.  The second change allows an SC to close the VM terminal without shutting down the VM itself.  To use, close the VM terminal and note the dialog which allows you to *Run in Background* or  *Power Off* as desired.
 
-<a id="possible-vm-issues"></a>
-### Possible VM Issues
+<a id="possible-vmware-issues"></a>
+### Possible VMWare Issues
 The installation process should run smoothly; however, there are some known issues that some folks have encountered and some solutions for them:
 
 <a id="a-devvmmonerror"></a>
@@ -126,8 +127,10 @@ To import a new VM file:
 4. When the machine is imported, click Continue
 5. Start the VM. If asked to upgrade, click *Upgrade*
 
+<a id="the-hosts-file"></a>
+## The Hosts File
 <a id="understanding-the-hosts-file"></a>
-## Understanding the Hosts File
+### Understanding the Hosts File
 As you may already know, when a person uses a web browser to access something on the web, they enter an address for what they're trying to find.  Typically, this address has been mapped to a user-friendly domain -- something like https://magento.com, for example.  Tied to the user-friendly domain is a machine-friendly Internet Protocol (IP) address -- in the case of https://magento.com, the IP address is: 34.203.65.223. Since the VM is essentially another computer (a "guest) which is using the resources of the computer on which its running (the "host"), the VM has its own IP address.  The web server inside the VM which powers the Magento application is mapped to a specific domain name by default which is http://luma.com. This is great for demo purposes as it helps with the illusion that Luma is an actual brand.  However, if we were to browse to http://luma.com, we'd see our challenge: http://luma.com is an actual domain on the internet which points to an IP of 208.91.197.128.  To use it for our demos, we'll need a way to tell our browser that we want to re-route the request for http://luma.com. We need to change the IP mapping from the actual IP of 208.91.197.128 to our VM's IP. 
  
 Enter the hosts file.
@@ -135,10 +138,10 @@ Enter the hosts file.
 The hosts file is a system file on our machine which can intercept requests from our browser and map them to IP addresses that we specify. We can even send a request for multiple domains (e.g. http://luma.com and http://b2b.luma.com) to the same IP address to be processed by the web server there.
 
 <a id="configuring-the-hosts-file"></a>
-## Configuring the Hosts File
+### Configuring the Hosts File
 
 <a id="creating-a-hosts-file-alias"></a>
-### Creating A Hosts File Alias
+#### Creating A Hosts File Alias
 First, we need to find our hosts file and create an alias for it which we can move to our Desktop.  This will make it easier to find and update in the future.
 
 1. Open a new Finder window
@@ -154,7 +157,7 @@ First, we need to find our hosts file and create an alias for it which we can mo
 11. Confirm the hosts alias file is on your Desktop
 
 <a id="finding-the-hosts-entry"></a>
-### Finding the Hosts Entry
+#### Finding the Hosts Entry
 Next, we need to find out what our VM's IP address is.
 
 1. Log in to the VM operating system using the VM terminal window provided by VMWare Fusion:
@@ -175,7 +178,7 @@ Here  we see the IP address of the VM and the various domains which should be r
 **Note:** Your IP address will be different than the one listed above.
 
 <a id="updating-the-hosts-file"></a>
-### Updating the Hosts File
+#### Updating the Hosts File
 Now that we have a hosts file alias, we'll use Sublime Text to update it:
 
 1. Find the hosts file alias on your Desktop
@@ -202,7 +205,7 @@ At the bottom of the file, add the Hosts Entry from the VM which should be forma
 When done, save the hosts file and enter your computer password when prompted.
 
 <a id="testing-the-vm"></a>
-## Testing the VM
+### Testing the VM
 If the VM is running, you can test these changes by opening a browser and navigating to http://luma.com for the storefront and http://luma.com/admin for the admin panel.  Use the following credentials to log in to the admin panel:
 
 Username: admin
@@ -211,7 +214,7 @@ Password: admin4tls
 Note: Since the Magento application depends heavily on browser cache, you may want or need to quit chrome and then open it in incognito mode to ensure everything is as it should be.
 
 <a id="possible-hosts-file-issues"></a>
-## Possible Hosts File Issues
+### Possible Hosts File Issues
 Issues with the hosts file are the most common source of VM-related problems.  The most tell-tale sign that you have a hosts file issue is the fact that when you attempt to open http://luma.com
 
 1. The browser loads the actual http://luma.com site
