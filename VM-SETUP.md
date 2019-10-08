@@ -27,8 +27,8 @@
 	- [Creating A Hosts File Alias](#creating-a-hosts-file-alias)
 	- [Finding the Hosts Entry](#finding-the-hosts-entry)
 	- [Updating the Hosts File](#updating-the-hosts-file)
-	- [Testing the VM](#testing-the-vm)
-	- [Possible Hosts File Issues](#possible-hosts-file-issues)
+- [Testing the VM](#testing-the-vm)
+- [Possible Hosts File Issues](#possible-hosts-file-issues)
 - [Saving the Base State Snapshot](#saving-the-base-state-snapshot)
 - [Using Snapshots](#using-snapshots)
 	- [Using Snapshots As Branches](#using-snapshots-as-branches)
@@ -202,7 +202,7 @@ At the bottom of the file, add the Hosts Entry from the VM which should be forma
 When done, save the hosts file and enter your computer password when prompted.
 
 <a id="testing-the-vm"></a>
-### Testing the VM
+## Testing the VM
 If the VM is running, you can test these changes by opening a browser and navigating to http://luma.com for the storefront and http://luma.com/admin for the admin panel.  Use the following credentials to log in to the admin panel:
 
 Username: admin
@@ -211,7 +211,7 @@ Password: admin4tls
 Note: Since the Magento application depends heavily on browser cache, you may want or need to quit chrome and then open it in incognito mode to ensure everything is as it should be.
 
 <a id="possible-hosts-file-issues"></a>
-### Possible Hosts File Issues
+## Possible Hosts File Issues
 Issues with the hosts file are the most common source of VM-related problems.  The most tell-tale sign that you have a hosts file issue is the fact that when you attempt to open http://luma.com
 
 1. The browser loads the actual http://luma.com site
