@@ -1,10 +1,11 @@
 # Magento Demo VM From Scratch
 
 ## Table of Contents
+- [VM Setup and Usage](VM-SETUP.md)
+- [How Do I...](HOW-DO-I.md)
 - [Building the VM](BUILDING-THE-VM.md)
-- [Kukla VM Demo Setup](DEMO-SETUP.md)
-- [Kukla VM and B2B, Multisite, and MSI](B2B.md)
-- [How Do I...](HOW-TO.md)
+- [Building the B2C Demo Cases](BUILDING-THE-B2C-DEMO-CASES.md)
+- [Building the B2B, Multisite, and MSI Demo Cases](BUILDING-THE-B2B-MULTISITE-MSI-DEMO-CASES.md)
 
 # Building the VM
 
@@ -23,7 +24,6 @@
 	- [Configuring SSH Forwarding](#configuring-ssh-forwarding)
 	- [Accessing via SSH](#accessing-via-ssh)
 	- [Setting the Hostname](#setting-the-hostname)
-		- [Adding the Magento QA Server to the Hosts File](#adding-the-magento-qa-server-to-the-hosts-file)
 	- [Uninstalling Cloud-Init](#uninstalling-cloud-init)
 	- [Applying Package Updates](#applying-package-updates)
 	- [Adding the SSH Key](#adding-the-ssh-key)
@@ -33,8 +33,8 @@
 - [Solution Components Installation](#solution-components-installation)
 	- [PHP](#php)
 		- [Installing PHP with the `ondrej/php` Repository](#installing-php-with-the-ondrejphp-repository)
-		- [Uninstalling the Apache Web Server](#uninstalling-the-apache-web-server)
 		- [Configuring PHP CLI and PHP-FPM](#configuring-php-cli-and-php-fpm)
+		- [Uninstalling the Apache Web Server](#uninstalling-the-apache-web-server)
 	- [Nginx](#nginx)
 		- [Installing Nginx](#installing-nginx)
 		- [Configuring the Web Server User](#configuring-the-web-server-user)
@@ -237,16 +237,6 @@ Next, we'll set a new hostname for the VM.  Since our initial url will be `luma.
 
 Once those changes are saved, reboot the machine. Once the machine boots and loads the login prompt, you'll notice it now says `luma login` instead of `localhost login` which indicates our changes have taken effect.
 
-<a id="adding-the-magento-qa-server-to-the-hosts-file"></a>
-#### Adding the Magento QA Server to the Hosts File
-In order to stay ahead of the development curve, the Solutions Innovation team often pulls pre-release cod via the Magento QA server.  We can do the same using an ssh tunnel and one of our cloud projects as a proxy.  The Magento VM CLI takes care of most of this for us, but we do need to make one change to ensure it can happen.
-
-1. `sudo vim /etc/hosts`
-3. Use `Shift + A` to move to the end of the line and switch to *Insert* mode
-3. Enter: `127.0.0.1 connect20-qa04.magedevteam.com`
-4. Press `Esc` to exit *Insert* mode
-5. Press `x` and then `Enter` to save the changes
-
 
 <a id="uninstalling-cloud-init"></a>
 ### Uninstalling Cloud-Init
@@ -388,16 +378,6 @@ Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
 ```
 With PHP and relevant extensions installed, we next need to configure PHP to run via FPM.
 
-<a id="uninstalling-the-apache-web-server"></a>
-#### Uninstalling the Apache Web Server
-When we installed PHP, the Apache2 web server was inadvertantly installed.  Since our VM will use the Nginx web server, let's completely remove Apache to ensure there are no conflicts between the two.  To remove apache, use the following commands:
-
-```
-sudo systemctl stop apache2 && sudo apt-get purge apache2 apache2-utils -y && sudo apt-get autoremove -y
-```
-
-(Source: [How to Uninstall and Remove Apache2 on Ubuntu or Debuian](http://xmodulo.com/how-to-uninstall-and-remove-apache2-on-ubuntu-debian.html))
-
 <a id="configuring-php-cli-and-php-fpm"></a>
 #### Configuring PHP CLI and PHP-FPM
 When PHP is installed, it can run PHP code immediately via the CLI. PHP-FPM (PHP (F)astCGI (P)rocess (M)anager) is alternative method of running PHP via a FastCGI interface.  This interface sits between the web server and the PHP CLI, and offers better performance for busier sites.  To configure PHP, we'll alter settings for both the CLI and the FPM so that they both use the same settings, and we'll configure the communication between PHP CLI and FPM.
@@ -425,6 +405,16 @@ To use the same settings for PHP via FPM, follow the same process with `sudo vim
 Once the configurations are saved, we'll want to restart PHP-FPM so they take effect.  Use `sudo systemctl restart php7.2-fpm`
 
 (Sources: [Magento Dev Docs : Required PHP Settings](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/php-centos-ubuntu.html#instgde-prereq-php71-ubuntu) and [Magento Dev Docs : Install and configure php-fpm](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html#install-and-configure-php-fpm))
+
+<a id="uninstalling-the-apache-web-server"></a>
+#### Uninstalling the Apache Web Server
+When we installed PHP, the Apache2 web server was inadvertantly installed.  Since our VM will use the Nginx web server, let's completely remove Apache to ensure there are no conflicts between the two.  To remove apache, use the following commands:
+
+```
+sudo systemctl stop apache2 && sudo apt-get purge apache2 apache2-utils -y && sudo apt-get autoremove -y
+```
+
+(Source: [How to Uninstall and Remove Apache2 on Ubuntu or Debuian](http://xmodulo.com/how-to-uninstall-and-remove-apache2-on-ubuntu-debian.html))
 
 <a id="nginx"></a>
 ### Nginx
