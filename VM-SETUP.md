@@ -270,9 +270,7 @@ To keep everything clear, we'll continue by creating two distinct branches from 
 3. Right-click on Base State and click *Restore Snapshot* When asked if you want to save, choose *Don't Save* (Note the switch that happens here)
 4. Repeat steps 1 and 2, but this time, name the snapshot "Prospect 2 Start"
 
-Now, you should have two distinct branches for two different prospects.
-
-Each prospect branch can now be further branched as many times as you'd like, allowing you to save your work as you go.
+Now, you should have two distinct branches for two different prospects and each prospect branch can now be further branched as many times as you'd like, allowing you to save your work as you go.
 
 When you finish with a particular prospect's demo, you can then delete the entire branch of snapshots (since each snapshot takes up space on your host machine).  To do this, click the first snapshot in the branch and then shift+click each subsequent branch you'd like to include for deletion.  When you've selected all of them, right click on any of the selected snapshots and click *Delete Snapshot*.  All selected snapshots should be deleted.
 
