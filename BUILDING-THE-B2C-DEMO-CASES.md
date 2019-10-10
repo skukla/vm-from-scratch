@@ -2714,7 +2714,7 @@ For some reason, the quantity statement in the Pick Up In Store Module overlay i
 <a id="image-gallery-uses-prepend-instead-of-replace"></a>
 #### Image Gallery Uses Prepend Instead of Replace
 
-1. `vim vendor/magento/theme-frontend-luma/etc/view.xml`, 
+1. `vim vendor/magento/theme-frontend-luma/etc/view.xml` 
 2. Use the `/` key and search for the word `prepend`.  
 3. Change it from `prepend` to `replace`
 4. Save with `Esc`, then `:wq` and `Enter`
