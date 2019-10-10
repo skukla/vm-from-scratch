@@ -2707,21 +2707,23 @@ For some reason, the quantity statement in the Pick Up In Store Module overlay i
 <a id="pickup-in-store-extension-breaks-b2b-checkout"></a>
 #### Pickup In Store Extension Breaks B2B Checkout
 
-1. In `vendor/magento/module-negotiable-quote/Block/Checkout/LayoutProcessor.php`, comment out line 56: `$cartItemsComponent['template'] = self::TEMPLATE_CART_ITEMS;`
-2. Recompile classes, deploy static content, reindex and clear cache with: `di-compile && deploy-content && deploy-content-de && clean`
+1. `vim vendor/magento/module-negotiable-quote/Block/Checkout/LayoutProcessor.php`
+2. Comment out line 56: `$cartItemsComponent['template'] = self::TEMPLATE_CART_ITEMS;`
+3. Recompile classes, deploy static content, reindex and clear cache with: `di-compile && deploy-content && deploy-content-de && clean`
 
 <a id="image-gallery-uses-prepend-instead-of-replace"></a>
 #### Image Gallery Uses Prepend Instead of Replace
 
-1. In `vendor/magento/theme-frontend-luma/etc/view.xml`, use the `/` key and search for the word `prepend`.  
-2. Change it from `prepend` to `replace`
-3. Save with `Esc`, then `:wq` and `Enter`
-4. Clear the cache with: `cache`
+1. `vim vendor/magento/theme-frontend-luma/etc/view.xml`, 
+2. Use the `/` key and search for the word `prepend`.  
+3. Change it from `prepend` to `replace`
+4. Save with `Esc`, then `:wq` and `Enter`
+5. Clear the cache with: `cache`
 
 <a id="find-your-local-store-string-isnt-translated"></a>
 #### "Find Your Local Store" String Isn't Translated
 
-1. `vim /vendor/magentoese/module-instorepickup/view/frontend/web/js/store_selector.js`
+1. `vim vendor/magentoese/module-instorepickup/view/frontend/web/js/store_selector.js`
 2. Use `set number` to view line numbers
 3. In the `translate_` function, on line 40, (after the comment), add: `var nothing = $.mage.__('Find your local store');`
 4. Save and exit with `:wq`
