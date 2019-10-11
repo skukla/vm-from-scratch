@@ -38,8 +38,8 @@
 - [The Base State Snapshot](#the-base-state-snapshot)
 - [Using Snapshots](#using-snapshots)
 	- [Using Snapshots As Branches](#using-snapshots-as-branches)
-		- [Everything Starts From the Base State](#everything-starts-from-the-base-state)
-		- [Create the Custom Demo Branches](#create-the-custom-demo-branches)
+		- [Starting with the Base State](#starting-with-the-base-state)
+		- [Creating Custom Demo Branches](#creating-custom-demo-branches)
 		- [Updating the Base State Snapshot](#updating-the-base-state-snapshot)
 - [Accessing the VM via SSH](#accessing-the-vm-via-ssh)
 
@@ -287,8 +287,8 @@ Snapshots are an incredibly useful feature provided by VMWare Fusion.  They all
 ### Using Snapshots As Branches
 Here's an example of how one might consider using snapshots to create two unique custom demos:
 
-<a id="everything-starts-from-the-base-state"></a>
-#### Everything Starts From the Base State
+<a id="starting-with-the-base-state"></a>
+#### Starting with the Base State
 Your Base State is meant to be your starting point for every demo you give. With that in mind, we'll make sure that our VM's current state is in line with our base state by restoring our base state snapshot.  To do this:
 
 1. Make sure that the VM is powered off
@@ -296,8 +296,8 @@ Your Base State is meant to be your starting point for every demo you give. With
 3. Choose *Restore Snapshot*
 4. Now we can be sure we're on our correct starting point.
 
-<a id="create-the-custom-demo-branches"></a>
-#### Create the Custom Demo Branches
+<a id="creating-custom-demo-branches"></a>
+#### Creating Custom Demo Branches
 To keep everything clear, we'll continue by creating two distinct branches from our Base State starting point -- one for each custom demo we want to build.  Let's say we have two prospects, *Prospect 1* and *Prospect 2*, respectively. We'll create a new snapshot from Base State for each of these:
 
 1. With Current State highlighted, click the camera icon to create a new snapshot
