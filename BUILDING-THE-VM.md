@@ -31,7 +31,7 @@
 	- [Installing Helpful Additional Programs](#installing-helpful-additional-programs)
 	- [Installing A Self-Signed SSL Certificate](#installing-a-self-signed-ssl-certificate)
 	- [Setting the MotD](#setting-the-motd)
-- [Solution Components Installation](#solution-components-installation)
+- [Installing the Solution Components](#installing-the-solution-components)
 	- [PHP](#php)
 		- [Installing PHP with the `ondrej/php` Repository](#installing-php-with-the-ondrejphp-repository)
 		- [Configuring PHP CLI and PHP-FPM](#configuring-php-cli-and-php-fpm)
@@ -359,8 +359,8 @@ This MoTD is much more useful; it tells the user what hosts entry to use for the
 
 **Note**: If you clear your screen and want to recall the MoTD, use: `cat /var/run/motd.dynamic`.  If you happen to have the VM CLI installed already, you can recall the motd with `motd`.
 
-<a id="solution-components-installation"></a>
-## Solution Components Installation
+<a id="installing-the-solution-components"></a>
+## Installing the Solution Components
 Next, we'll install and configure our solution components listed in the [Solution Components](#solution-components) section.
 
 <a id="php"></a>
