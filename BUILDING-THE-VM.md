@@ -62,7 +62,7 @@
 	- [Managing the VM with Webmin](#managing-the-vm-with-webmin)
 		- [Installing and Configuring Webmin](#installing-and-configuring-webmin)
 			- [Configuring the Webmin Port](#configuring-the-webmin-port)
-			- [Remove SSL Mode](#remove-ssl-mode)
+			- [Removing SSL Mode](#removing-ssl-mode)
 	- [Handling Email with Mailhog](#handling-email-with-mailhog)
 		- [Installing the Go Programming Language](#installing-the-go-programming-language)
 		- [Downloading and Configuring Mailhog](#downloading-and-configuring-mailhog)
@@ -743,8 +743,8 @@ Next, we'll configure webmin to use port 20000:
 
 (Source: [How to change webmin port using terminal?](https://www.iodocs.com/change-webmin-port-using-terminal/))
 
-<a id="remove-ssl-mode"></a>
-##### Remove SSL Mode
+<a id="removing-ssl-mode"></a>
+##### Removing SSL Mode
 Next, let's remove SSL authentication from Webmin
 
 1. `sudo vim /etc/webmin/miniserv.conf`
