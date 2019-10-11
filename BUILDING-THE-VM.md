@@ -50,15 +50,15 @@
 	- [Varnish](#varnish)
 	- [Redis](#redis)
 	- [Elasticsearch](#elasticsearch)
-		- [Installing Java With The JDK](#installing-java-with-the-jdk)
+		- [Installing Java with the JDK](#installing-java-with-the-jdk)
 		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
 		- [Configuring Elasticsearch](#configuring-elasticsearch)
-		- [Elasticsearch Plugins](#elasticsearch-plugins)
+		- [Installing Elasticsearch Plugins](#installing-elasticsearch-plugins)
 	- [RabbitMQ](#rabbitmq)
-		- [Install Erlang/OTP](#install-erlangotp)
-		- [Install RabbitMQ](#install-rabbitmq)
+		- [Installing Erlang/OTP](#installing-erlangotp)
+		- [Installing RabbitMQ](#installing-rabbitmq)
 		- [Configuring RabbitMQ To Respect Hostname Change](#configuring-rabbitmq-to-respect-hostname-change)
-		- [Install RabbitMQ Management Dashboard](#install-rabbitmq-management-dashboard)
+		- [Installing the RabbitMQ Management Dashboard](#installing-the-rabbitmq-management-dashboard)
 	- [Managing the VM with Webmin](#managing-the-vm-with-webmin)
 		- [Installing and Configuring Webmin](#installing-and-configuring-webmin)
 			- [Configuring the Webmin Port](#configuring-the-webmin-port)
@@ -626,7 +626,7 @@ As with Varnish, we'll configure Redis after we install Magento.
 Next, let's install Elasticsearch.  Elasticsearch runs on Java, so the first thing we'll need to do is install the Java Software Development Kit (JDK).
 
 <a id="installing-java-with-the-jdk"></a>
-#### Installing Java With The JDK
+#### Installing Java with the JDK
 
 Use the following commands to add the JDK repository and install Java:
 
@@ -664,22 +664,22 @@ Check the status of Elasticseatch with `systemctl status elasticsearch` (Use `Ct
 
 (Configuration and installation: [How to Install Elasticsearch 5.x on Ubuntu 18.04 LTS (Bionic Beaver) Linux](https://computingforgeeks.com/how-to-install-elasticsearch-5-x-on-ubuntu-18-04-lts-bionic-beaver-linux/))
 
-<a id="elasticsearch-plugins"></a>
-#### Elasticsearch Plugins
+<a id="installing-elasticsearch-plugins"></a>
+#### Installing Elasticsearch Plugins
 *TODO*
 
 <a id="rabbitmq"></a>
 ### RabbitMQ
 Next, we'll install RabbitMQ.
 
-<a id="install-erlangotp"></a>
-#### Install Erlang/OTP
+<a id="installing-erlangotp"></a>
+#### Installing Erlang/OTP
 RabbitMQ depends on the Erlang language before it can run.  As with many other parts of the stack, we'll need to add a repository to our sources list, install, check for updates and upgrades, and then remove any unneded packages:
 
 `sudo wget -O - "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc" | sudo apt-key add - && echo "deb http://dl.bintray.com/rabbitmq-erlang/debian bionic erlang" | sudo tee /etc/apt/sources.list.d/bintray.erlang.list && sudo apt install erlang-nox -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
-<a id="install-rabbitmq"></a>
-#### Install RabbitMQ
+<a id="installing-rabbitmq"></a>
+#### Installing RabbitMQ
 Next, we'll import the RabbitMQ repository keys, add the repository, and install RabbitMQ:
 
 `sudo wget -O - "https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc" | sudo apt-key add - && sudo echo "deb https://dl.bintray.com/rabbitmq/debian bionic main" | sudo tee /etc/apt/sources.list.d/bintray.rabbitmq.list && sudo apt update -y && sudo apt install rabbitmq-server -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
@@ -711,8 +711,8 @@ Finally, restart RabbitMQ with `sudo systemctl restart rabbitmq-server`.
 
 (Source: [rabbitmq-server fails to start after hostname has changed for the first time](https://stackoverflow.com/questions/14659335/rabbitmq-server-fails-to-start-after-hostname-has-changed-for-first-time) -- The accepted answer is incorrect; see the answer from James Oravec.)
 
-<a id="install-rabbitmq-management-dashboard"></a>
-#### Install RabbitMQ Management Dashboard
+<a id="installing-the-rabbitmq-management-dashboard"></a>
+#### Installing the RabbitMQ Management Dashboard
 It can be helpful to have a GUI to manage RabbitMQ, so we'll install and configure one next.
 
 To install it, use: `sudo rabbitmq-plugins enable rabbitmq_management` and then restart RabbitMQ with the RabbitMQ CLI: `rabbitmqctl start_app`.
