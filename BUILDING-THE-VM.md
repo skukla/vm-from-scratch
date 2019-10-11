@@ -11,10 +11,10 @@
 
 <!-- MarkdownTOC autolink="true" autoanchor="true" markdown_preview="github" -->
 
-- [What We'll Need](#what-well-need)
+- [Getting Started](#getting-started)
 	- [Software](#software)
 	- [VM Set Up](#vm-set-up)
-	- [Solution Components](#solution-components)
+	- [Solution Components Overview](#solution-components-overview)
 	- [Helpful Additions](#helpful-additions)
 - [Installing VMWare Fusion](#installing-vmware-fusion)
 - [Updating the VM](#updating-the-vm)
@@ -79,8 +79,8 @@
 <!-- /MarkdownTOC -->
 
 
-<a id="what-well-need"></a>
-## What We'll Need
+<a id="getting-started"></a>
+## Getting Started
 
 <a id="software"></a>
 ### Software
@@ -100,8 +100,8 @@ The following are the settings for the machine in VMWare:
 3. ***Network Adapter:***
 	1. *Internet Sharing:* Share with my Mac (Mac OS) 
 
-<a id="solution-components"></a>
-### Solution Components
+<a id="solution-components-overview"></a>
+### Solution Components Overview
 The VM consists of the following elements:
  1. ***Operating System:*** Ubuntu Server 18.04 LTS
  2. ***Web Server:*** Nginx
