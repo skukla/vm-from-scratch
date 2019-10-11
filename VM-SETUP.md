@@ -35,7 +35,7 @@
 	- [Updating the Hosts File](#updating-the-hosts-file)
 	- [Testing the VM](#testing-the-vm)
 	- [Possible Hosts File Issues](#possible-hosts-file-issues)
-- [Saving the Base State Snapshot](#saving-the-base-state-snapshot)
+- [The Base State Snapshot](#the-base-state-snapshot)
 - [Using Snapshots](#using-snapshots)
 	- [Using Snapshots As Branches](#using-snapshots-as-branches)
 		- [Everything Starts From the Base State](#everything-starts-from-the-base-state)
@@ -262,8 +262,8 @@ Issues with the hosts file are the most common source of VM-related problems.  
 1. The browser loads the actual http://luma.com site
 2. The browser "spins" and ultimately doesn't load.  (You can confirm this is the case by paying attention to the bottom left-hand corner of the browser window.  If you see "Connecting..." instead of "Waiting for luma.com...", you most likely have a hosts file issue.
 
-<a id="saving-the-base-state-snapshot"></a>
-## Saving the Base State Snapshot
+<a id="the-base-state-snapshot"></a>
+## The Base State Snapshot
 At this point, provided you can load both the storefront and admin panel successfully, you have completed the initial VM setup. Next, we'll use VMWare Fusion's "snapshot" functionality to save a snapshot of the working VM so that we can always return to this working version of what we've created.  We'll touch on using snapshots more in an uncoming section.  For now, let's create a "Base State" snapshot:
 
 1. Open VMWare Fusion
