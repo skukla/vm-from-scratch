@@ -1153,6 +1153,9 @@ Use the following style declaration to hide `Create Company Account` from B2C gu
 <style>
     .login-container .block.block-new-company,
     li.customer-register.links-container.active > div > ul > li:nth-child(2),
-    div.customer-menu > ul.header.links > li:nth-child(2) { display: none !important; }
+    div.customer-menu > ul.header.links > li:nth-child(2),
+    #block-collapsible-nav > ul > li:nth-child(13),
+    #block-collapsible-nav > ul > li:nth-child(14),
+    #block-collapsible-nav > ul > li:nth-child(15) { display: none !important; }
 </style>
 ```
