@@ -29,6 +29,7 @@
 	- [Adding the SSH Key](#adding-the-ssh-key)
 	- [Adding the Magento Cloud CLI](#adding-the-magento-cloud-cli)
 	- [Installing Helpful Additional Programs](#installing-helpful-additional-programs)
+	- [Installing A Self-Signed SSL Certificate](#installing-a-self-signed-ssl-certificate)
 	- [Setting the MoTD](#setting-the-motd)
 - [Solution Components Installation](#solution-components-installation)
 	- [PHP](#php)
@@ -66,7 +67,6 @@
 		- [Installing the Go Programming Language](#installing-the-go-programming-language)
 		- [Downloading and Configuring Mailhog](#downloading-and-configuring-mailhog)
 		- [Creating the Mailhog Service](#creating-the-mailhog-service)
-	- [Installing A Self-Signed SSL Certificate](#installing-a-self-signed-ssl-certificate)
 - [Magento](#magento)
 	- [Downloading The Codebase With Git and Composer](#downloading-the-codebase-with-git-and-composer)
 	- [Installing The Magento Application](#installing-the-magento-application)
@@ -279,6 +279,10 @@ In order to access private modules provided by the Solution Innovations team, we
 Next, we'll install the additional programs listedin the [Helpful Additions](#helpful-additions) section above. To install these programs and then check for package updates, upgrades and to remove unused packages, use the following commands:
 
 `sudo apt install zip silversearcher-ag figlet -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
+
+<a id="installing-a-self-signed-ssl-certificate"></a>
+### Installing A Self-Signed SSL Certificate
+*TODO*
 
 <a id="setting-the-motd"></a>
 ### Setting the MoTD
@@ -805,10 +809,6 @@ WantedBy=multi-user.target
 With Mailhog configured, you should be able to send transactional emails from Magento and see them in the Mailhog interface.  We'll go over Magento-specific domain configuration in a later section.
 
 Source: [Installing MailHog for Ubuntu 16.04](https://www.lullabot.com/articles/installing-mailhog-for-ubuntu-1604)
-
-<a id="installing-a-self-signed-ssl-certificate"></a>
-### Installing A Self-Signed SSL Certificate
-*TODO*
 
 <a id="magento"></a>
 ## Magento
