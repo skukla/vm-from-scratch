@@ -72,8 +72,8 @@
 	- [Installing The Magento Application](#installing-the-magento-application)
 	- [Installing Cron Tasks](#installing-cron-tasks)
 	- [Configuring Magento and Varnish](#configuring-magento-and-varnish)
-	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [How Magento Multisite Operation Works](#how-magento-multisite-operation-works)
+	- [Configuring Magento For Multisite Operation](#configuring-magento-for-multisite-operation)
 	- [Configuring Magento For Easy Multisite Setup](#configuring-magento-for-easy-multisite-setup)
 
 <!-- /MarkdownTOC -->
@@ -848,6 +848,10 @@ Magento operates using loads of cron jobs -- everything from reindexing to stagi
 ### Configuring Magento and Varnish
 *TODO*
 
+<a id="how-magento-multisite-operation-works"></a>
+### How Magento Multisite Operation Works
+*TODO*
+
 <a id="configuring-magento-for-multisite-operation"></a>
 ### Configuring Magento For Multisite Operation
 Magento ships with a sample nginx configuration file  `nginx.conf.sample`.  In order to support multisite directives, we'll copy this file and then add some configurations to it. We'll store it away from the code base in case the native `nginx.conf.sample` file changes in a future release.
@@ -867,10 +871,6 @@ fastcgi_param MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 ```
 
 3. Now, restart the web server with `sudo systemctl restart nginx`
-
-<a id="how-magento-multisite-operation-works"></a>
-### How Magento Multisite Operation Works
-*TODO*
 
 <a id="configuring-magento-for-easy-multisite-setup"></a>
 ### Configuring Magento For Easy Multisite Setup
