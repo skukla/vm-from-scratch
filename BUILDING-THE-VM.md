@@ -50,7 +50,7 @@
 	- [Varnish](#varnish)
 	- [Redis](#redis)
 	- [Elasticsearch](#elasticsearch)
-		- [Install Java With The JDK](#install-java-with-the-jdk)
+		- [Installing Java With The JDK](#installing-java-with-the-jdk)
 		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
 		- [Configuring Elasticsearch](#configuring-elasticsearch)
 		- [Elasticsearch Plugins](#elasticsearch-plugins)
@@ -625,8 +625,8 @@ As with Varnish, we'll configure Redis after we install Magento.
 ### Elasticsearch
 Next, let's install Elasticsearch.  Elasticsearch runs on Java, so the first thing we'll need to do is install the Java Software Development Kit (JDK).
 
-<a id="install-java-with-the-jdk"></a>
-#### Install Java With The JDK
+<a id="installing-java-with-the-jdk"></a>
+#### Installing Java With The JDK
 
 Use the following commands to add the JDK repository and install Java:
 
