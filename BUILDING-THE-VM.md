@@ -30,7 +30,7 @@
 	- [Adding the Magento Cloud CLI](#adding-the-magento-cloud-cli)
 	- [Installing Helpful Additional Programs](#installing-helpful-additional-programs)
 	- [Installing A Self-Signed SSL Certificate](#installing-a-self-signed-ssl-certificate)
-	- [Setting the MoTD](#setting-the-motd)
+	- [Setting the MotD](#setting-the-motd)
 - [Solution Components Installation](#solution-components-installation)
 	- [PHP](#php)
 		- [Installing PHP with the `ondrej/php` Repository](#installing-php-with-the-ondrejphp-repository)
@@ -285,7 +285,7 @@ Next, we'll install the additional programs listedin the [Helpful Additions](#he
 *TODO*
 
 <a id="setting-the-motd"></a>
-### Setting the MoTD
+### Setting the MotD
 When a user logs in to a Linux-based operating system, they're greeted with what's called the *Message of the Day* (or MoTD).  This message can be modified, to show whatever we like, so let's modify it now to show some helpful information to our users.  We'll show them the machine's IP and hostname and format it in such a way that they can easily grab it for use as an entry in their local `hosts` file.
 
 To set the MoTD, we must first *disable* the parts of the existing MoTD we don't want, and then add a script of our own.  To do this, run the following command: 
