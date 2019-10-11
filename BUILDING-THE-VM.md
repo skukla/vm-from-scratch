@@ -67,7 +67,7 @@
 		- [Installing the Go Programming Language](#installing-the-go-programming-language)
 		- [Downloading and Configuring Mailhog](#downloading-and-configuring-mailhog)
 		- [Creating the Mailhog Service](#creating-the-mailhog-service)
-- [Magento](#magento)
+- [Installing and Configuring Magento](#installing-and-configuring-magento)
 	- [Downloading The Codebase With Git and Composer](#downloading-the-codebase-with-git-and-composer)
 	- [Installing The Magento Application](#installing-the-magento-application)
 	- [Installing Cron Tasks](#installing-cron-tasks)
@@ -810,8 +810,8 @@ With Mailhog configured, you should be able to send transactional emails from Ma
 
 Source: [Installing MailHog for Ubuntu 16.04](https://www.lullabot.com/articles/installing-mailhog-for-ubuntu-1604)
 
-<a id="magento"></a>
-## Magento
+<a id="installing-and-configuring-magento"></a>
+## Installing and Configuring Magento
 
 <a id="downloading-the-codebase-with-git-and-composer"></a>
 ### Downloading The Codebase With Git and Composer
