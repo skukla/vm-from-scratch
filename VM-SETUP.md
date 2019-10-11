@@ -41,7 +41,7 @@
 		- [Everything Starts From the Base State](#everything-starts-from-the-base-state)
 		- [Create the Custom Demo Branches](#create-the-custom-demo-branches)
 		- [Updating the Base State Snapshot](#updating-the-base-state-snapshot)
-- [VM and SSH](#vm-and-ssh)
+- [Accessing the VM via SSH](#accessing-the-vm-via-ssh)
 
 <!-- /MarkdownTOC -->
 
@@ -323,8 +323,8 @@ From time to time, you may find that you're making the same configuration change
 
 Now you should have a Base State snapshot with the changes you added ready to go.
 
-<a id="vm-and-ssh"></a>
-## VM and SSH
+<a id="accessing-the-vm-via-ssh"></a>
+## Accessing the VM via SSH
 From time to time, it will be necessary to access the VM's operating system so that you can manage aspects of the Magento application which can only done from the command line.  These actions might include things like forcing a reindex to see a new category or product, clearing cache, running a cron job, or installing extensions for custom demos.
 
 To access the inner workings of the VM from your terminal, we'll use something called Secure Shell (SSH).  The Cloud Extension we installed earlier makes this process extremely easy and straightforward:
