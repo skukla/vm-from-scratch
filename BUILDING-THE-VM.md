@@ -41,7 +41,7 @@
 		- [Configuring the Web Server User](#configuring-the-web-server-user)
 		- [Configuring Nginx with PHP-FPM](#configuring-nginx-with-php-fpm)
 		- [Creatig the Web Root](#creatig-the-web-root)
-		- [Configure Magento Virtual Host](#configure-magento-virtual-host)
+		- [Configuring the Magento Virtual Host](#configuring-the-magento-virtual-host)
 	- [Composer](#composer)
 	- [VM CLI](#vm-cli)
 	- [MariaDB](#mariadb)
@@ -482,8 +482,8 @@ Once that's done, we can create the web root with:
 
 `mkdir /var/www/magento`
 
-<a id="configure-magento-virtual-host"></a>
-#### Configure Magento Virtual Host
+<a id="configuring-the-magento-virtual-host"></a>
+#### Configuring the Magento Virtual Host
 Similar to apache, nginx uses virtual host (vhost) files to designate different websites that are hosted by the server. These vhost files are enabled and/or disabled by creating symlinks from the `/etc/sites-available` to the `/etc/sites-enabled` folder. By default, it ships with a default vhost: `/etc/nginx/sites-available/default`. Next, we'll disable the default vhost, set up a configuration file which will allow for easier configuration of multiple sites, and then set up the magento vhost for luma.com:
 
 1. Remove the default site symlink and the default vhost file: `sudo rm -rf /etc/nginx/sites-enabled/default && sudo rm -rf /etc/nginx/sites-available/default`
