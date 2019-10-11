@@ -18,7 +18,7 @@
 	- [Helpful Additions](#helpful-additions)
 - [Installing VMWare Fusion](#installing-vmware-fusion)
 - [Updating the VM](#updating-the-vm)
-- [Creating the VM](#creating-the-vm)
+- [Creating the VM Shell](#creating-the-vm-shell)
 	- [Initial Setup](#initial-setup)
 	- [Installing Ubuntu](#installing-ubuntu)
 	- [Configuring SSH Forwarding](#configuring-ssh-forwarding)
@@ -151,8 +151,8 @@ To import a new VM file:
 
 The new VM will have a new IP address which you'll need to add to your hosts file.  To find it, log in to the VM OS and note the new hosts entry line.  Update your hosts file, save it, and you should be all set.  Note that you may need or want to quit chrome and then open it in incognito mode to ensure everything is as it should be.
 
-<a id="creating-the-vm"></a>
-## Creating the VM
+<a id="creating-the-vm-shell"></a>
+## Creating the VM Shell
 <a id="initial-setup"></a>
 ### Initial Setup
 1. Before anything else, our VM will need an operating system.  As we've chosen to use Ubuntu, we'll download the OS disk image from the [Ubuntu website](https://www.ubuntu.com/download/server).
