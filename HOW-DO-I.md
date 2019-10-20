@@ -246,8 +246,8 @@ host <YOUR VM NAME> {
 Use this format to add your own fixed IP address. As an example, supposing your machine was called `KuklaVM`, your MAC address was `00:0C:29:C3:04:70`, your dynamic IP range was between `172.16.100.127` and `172.16.100.254`, your host block might look like this:
 
 ```
-host KuklaVM {
-    hardware ethernet 00:0C:29:C3:04:70
+host kukla-vm.0.0.4 {
+    hardware ethernet 00:0C:29:C3:04:70;
     fixed-address  172.16.100.80;
 }
 ```
