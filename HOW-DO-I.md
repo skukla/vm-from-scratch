@@ -238,7 +238,7 @@ Beneath it, we will add a directive to create a static IP which will follow this
 
 ```
 host <YOUR VM NAME> {
-    hardware ethernet <YOUR MAC ADDRESS>
+    hardware ethernet <YOUR MAC ADDRESS>;
     fixed-address  <YOUR STATIC IP>;
 }
 ```
