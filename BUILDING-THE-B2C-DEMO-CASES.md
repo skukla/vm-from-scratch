@@ -61,7 +61,7 @@
 	- [Products](#products)
 		- [Re-arrange Gear > Bags Category](#re-arrange-gear--bags-category)
 		- [Re-arrange the Womens > Hoodies and Sweatshirts Category](#re-arrange-the-womens--hoodies-and-sweatshirts-category)
-		- [Add Running As An Attribute to Select Products](#add-running-as-an-attribute-to-select-products)
+		- [Add Running and Gender As Attributes to Select Products](#add-running-and-gender-as-attributes-to-select-products)
 		- [Add Stock for Mailed Gift Card](#add-stock-for-mailed-gift-card)
 		- [Remove Manual Up-sells from Cronus Yoga Pant](#remove-manual-up-sells-from-cronus-yoga-pant)
 		- [Add a Monogram as a Custom Option to the Strive Shoulder Pack](#add-a-monogram-as-a-custom-option-to-the-strive-shoulder-pack)
@@ -79,10 +79,10 @@
 			- [Purchase History](#purchase-history)
 				- [Apparel Purchased in the Last Week](#apparel-purchased-in-the-last-week)
 				- [Men Who Have Viewed Pants](#men-who-have-viewed-pants)
-				- [VIP Customers](#vip-customers)
+				- [Female VIP Customers](#female-vip-customers)
 				- [Female Repeat Customers \(Neve Studio Dance Jacket\)](#female-repeat-customers-neve-studio-dance-jacket)
 			- [Customer Preference](#customer-preference)
-				- [Runners](#runners)
+				- [Male Runners](#male-runners)
 			- [Shopping Cart](#shopping-cart)
 				- [Free Shipping Threshold \($75 - $99\)](#free-shipping-threshold-75---99)
 		- [Related Products Rules](#related-products-rules)
@@ -97,9 +97,9 @@
 			- [Free Shipping](#free-shipping)
 		- [Targeted Content \(Dynamic Blocks\)](#targeted-content-dynamic-blocks)
 			- [Featured Products \(All Customers\)](#featured-products-all-customers)
-			- [Featured Products \(Runners\)](#featured-products-runners)
+			- [Featured Products \(Male Runners\)](#featured-products-male-runners)
 			- [Featured Products \(Women Who Purchased NSDJ\)](#featured-products-women-who-purchased-nsdj)
-			- [Featured Products \(VIP\)](#featured-products-vip)
+			- [Featured Products \(Female VIP Customers\)](#featured-products-female-vip-customers)
 			- [Free Shipping Advertisement](#free-shipping-advertisement)
 			- [Free Shipping Applied Message](#free-shipping-applied-message)
 			- [Rewards Program Advertisements](#rewards-program-advertisements)
@@ -1219,32 +1219,53 @@ Navigate to `Catalog > Categories > Luma Catalog > Women > Tops > Hoodies & Swea
 
 Once saved, reindex and clear cache with `clean`
 
-<a id="add-running-as-an-attribute-to-select-products"></a>
-#### Add Running As An Attribute to Select Products
-Since one of our segments is for customers whose favorite activity is Running, we'll need to select some products and update their `Activity` attribute to contain a value of `Running`.  We'll do a combination of tops and bottoms. To do this:
+<a id="add-running-and-gender-as-attributes-to-select-products"></a>
+#### Add Running and Gender As Attributes to Select Products
+Since one of our segments is for men whose favorite activity is running, we'll need to select some products and update their `Gender` attribute to contain a value of `Men` and their `Activity` attribute to contain a value of `Running`.  We'll do a combination of tops and bottoms and a collection of Men's and Women's items. To do this, we need to make sure that both the `Gender` and `Activity` attributes are assigned to the `Top` and `Bottom` attribute set respectively, and then we'll need to assign the attributes to the right products:
+
+Navigate to `Stores > Attributes > Attribute Set`
+
+1. Open the `Bottom` attribute set
+2. Drag the `gender` attribute from the Unassigned Attributes column on the right to the Product Details attribute group in the Groups column.  Drop the `gender` attribute above the `activity` attribute
+3. Repeat this process for the `Top` attribute set
+
+Next, we'll add the `activity` and `gender` attributes to specific products:
 
 Navigate to `Catalog > Products`
 
-First, the tops:
+First, the tops for Men:
 
 1. Filter the grid for:
 	1. Keyword: `Running`
 	2. Type: `Configurable Product`
 	3. Attribute Set: `Top`
-2. Mass edit the `Atomic Endurance Running Tee (V-neck)` and the `Ingrid Running Jacket`
-3. Update the `Activity` attribute to include `Running`
+2. Mass edit the `Argus All-Weather Tank`, `Atomic Endurance Running Tee (V-neck)`, and the `Mars HeatTech Pullover`
+3. Update the `Activity` attribute to include `Running` and the `Gender` attribute to include `Men`
 4. Save
 
-Next, the bottoms:
+Next the tops for Women:
+
+1. Filter the grid as above
+2. Mass edit the `Antonia Racer Tank`, `Nora Practice Tank`, and the `Ingrid Running Jacket`
+3. Update the `Activity` attribute to include `Running` and the `Gender` attribute to include `Women`
+4. Save
+
+Next, the bottoms for Men:
 
 1. Filter the grid for:
 	1. Keyword: `Running`
 	2. Type: `Configurable Product`
 	3. Attribute Set: `Bottom`
-2. Mass edit the `Apollo Running Short`, `Cora Parachute Pant`, and the `Erika Running Short`
+2. Mass edit the `Apollo Running Short` and the `Livingston All-Purpose Tight`,
 3. Update the `Activity` attribute to include `Running`
 4. Save
 
+Now, the bottoms for Women:
+
+1. Filter the grid as above
+2. Mass edit the `Ana Running Short` and the `Fiona Fitness Short`
+3. Update the `Activity` attribute to include `Running` and the `Gender` attribute to include `Women`
+4. Save
 
 <a id="add-stock-for-mailed-gift-card"></a>
 #### Add Stock for Mailed Gift Card
@@ -1569,11 +1590,11 @@ Next, log in as **Mark Woodward** and view a pair of pants on the storefront.
 
 Finally, back in the segment, click `Refresh Segment Data` to populate the segment.
 
-<a id="vip-customers"></a>
-###### VIP Customers
+<a id="female-vip-customers"></a>
+###### Female VIP Customers
 Navigate to: `Customers > Customer Segments > Add Segment`
 
-1. General Properties > Segment Name: `Purchase History - VIP Customers`
+1. General Properties > Segment Name: `Purchase History - Female VIP Customers`
 2. General Properties > Assigned to Website: `Luma Website`
 3. General Properties > Status: `Active`
 4. General Properties > Apply To: `Registered Customers`
@@ -1646,8 +1667,8 @@ Finally, clear the notifications left by the Mageplaza extensions.
 
 <a id="customer-preference"></a>
 ##### Customer Preference
-<a id="runners"></a>
-###### Runners
+<a id="male-runners"></a>
+###### Male Runners
 For the Runners segment, we need to create a customer attribute.
 
 Navigate to `Stores > Attributes > Customer` and add a new attribute:
@@ -1975,9 +1996,9 @@ Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
 Repeat this process for the `Home Page Block - DE` content block.
 
-<a id="featured-products-runners"></a>
-##### Featured Products (Runners)
-Next, we'll create a featured products list for customers whose favorite activity is running, starting with the US Market:
+<a id="featured-products-male-runners"></a>
+##### Featured Products (Male Runners)
+Next, we'll create a featured products list for male customers whose favorite activity is running, starting with the US Market:
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
@@ -1985,7 +2006,7 @@ Navigate to `Content > Elements > Dynamic Blocks`
 	1. Enable Dynamic Block: `Yes`
 	2. Dynamic Block Name: `Featured Products (Runners)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
-	4. Customer Segment: `Customer Preference - Runners`
+	4. Customer Segment: `Customer Preference - Male Runners`
 
 Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
 
@@ -2020,7 +2041,9 @@ Content will consist of one row containing the HTML-driven heading we saved earl
 	1. Condition:
 		1. If **ALL** of these conditions are **TRUE**
 			1. Activity **contains** **Running**
-			2. Visibility **is** **Catalog, Search**
+			2. Gender **contains** **Men**
+			3. Visibility **is** **Catalog, Search**
+	2. Sort By `Newest products first`
 	2. Number of Products to Display: `5`
 	3. Advanced > Alignment: `Center`
 8. Save the Dynamic Block
@@ -2046,7 +2069,7 @@ Once the dynamic block is created, we need to add it to the Home Page blocks for
 
 Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
-1. Duplicate the `Featured Products (All Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Runners)` block, and then drag the `Featured Products (Runners)` block into the *second* row, beneath the three columns
+1. Duplicate the `Featured Products (All Customers)` dynamic block, change the newly-added dynamic block to the `Featured Products (Male Runners)` block, and then drag the `Featured Products (Runners)` block into the *second* row, beneath the three columns
 2. Add 10px top margin to the Dynamic Block element
 2. Save
 
@@ -2131,17 +2154,17 @@ Navigate to `Content > Elements > Blocks > Home Page Block - US`
 
 Repeat this process for the `Home Page Block - DE` content block.
 
-<a id="featured-products-vip"></a>
-##### Featured Products (VIP)
+<a id="featured-products-female-vip-customers"></a>
+##### Featured Products (Female VIP Customers)
 Next, we'll show our VIP customers a list of our newest products, starting with the US Market:
 
 Navigate to `Content > Elements > Dynamic Blocks`
 
 1. Add a new Dynamic Block and use the following settings:
 	1. Enable Dynamic Block: `Yes`
-	2. Dynamic Block Name: `Featured Products (VIP)`
+	2. Dynamic Block Name: `Featured Products (Female VIP Customers)`
 	3. Dynamic Block Type: `Any Dynamic Block Type`
-	4. Customer Segment: `Purchase History - VIP Customers`
+	4. Customer Segment: `Purchase History - Female VIP Customers`
 
 Content will consist of one row containing the HTML-driven heading we saved earlier and a products list element which refers to the `Featured Products` category.
 
