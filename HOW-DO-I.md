@@ -15,6 +15,7 @@
 	- [Composer and What It Does](#composer-and-what-it-does)
 	- [Custom Module Require Statements and Repositories](#custom-module-require-statements-and-repositories)
 		- [Accorin \(B2B\)](#accorin-b2b)
+		- [MageFan \(Login As Customer\)](#magefan-login-as-customer)
 		- [Amasty](#amasty)
 		- [MSI](#msi)
 		- [Page Builder Additions](#page-builder-additions)
@@ -53,13 +54,24 @@ _TODO: Finish this_
 #### Accorin (B2B)
 **Require Statements**
 ```
-"accorin/module-orderapprovals": "dev-master",
+"accorin/module-orderapprovals": "1.4.x-dev",
 "accorin/module-companyaddressbook": "dev-master"
 ```
 **Repositories**
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-orderapprovals.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/module-accorin-companyaddressbook.git"}
+```
+
+<a id="magefan-login-as-customer"></a>
+#### MageFan (Login As Customer)
+**Require Statements**
+```
+"magefan/module-login-as-customer": "dev-master"
+```
+**Repositories**
+```
+N/A
 ```
 
 <a id="amasty"></a>
@@ -238,7 +250,7 @@ Beneath it, we will add a directive to create a static IP which will follow this
 
 ```
 host <YOUR VM NAME> {
-    hardware ethernet <YOUR MAC ADDRESS>;
+    hardware ethernet <YOUR MAC ADDRESS>;	
     fixed-address  <YOUR STATIC IP>;
 }
 ```

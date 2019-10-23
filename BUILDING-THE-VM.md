@@ -54,6 +54,8 @@
 		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
 		- [Configuring Elasticsearch](#configuring-elasticsearch)
 		- [Installing Elasticsearch Plugins](#installing-elasticsearch-plugins)
+			- [Phonetic Analysis Plugin](#phonetic-analysis-plugin)
+			- [ICU Plugin](#icu-plugin)
 	- [RabbitMQ](#rabbitmq)
 		- [Installing Erlang/OTP](#installing-erlangotp)
 		- [Installing RabbitMQ](#installing-rabbitmq)
@@ -666,6 +668,13 @@ Check the status of Elasticseatch with `systemctl status elasticsearch` (Use `Ct
 
 <a id="installing-elasticsearch-plugins"></a>
 #### Installing Elasticsearch Plugins
+
+<a id="phonetic-analysis-plugin"></a>
+##### Phonetic Analysis Plugin
+*TODO*
+
+<a id="icu-plugin"></a>
+##### ICU Plugin
 *TODO*
 
 <a id="rabbitmq"></a>
