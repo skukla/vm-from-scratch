@@ -280,7 +280,7 @@ In order to access private modules provided by the Solution Innovations team, we
 ### Installing Helpful Additional Programs
 Next, we'll install the additional programs listedin the [Helpful Additions](#helpful-additions) section above. To install these programs and then check for package updates, upgrades and to remove unused packages, use the following commands:
 
-`sudo apt install zip silversearcher-ag figlet -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
+`sudo apt install zip silversearcher-ag figlet ppa-purge -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
 <a id="installing-a-self-signed-ssl-certificate"></a>
 ### Installing A Self-Signed SSL Certificate
