@@ -615,13 +615,46 @@ For now, let's stop Varnish with `sudo systemctl stop varnish`.
 
 <a id="redis"></a>
 ### Redis
-Next, let's install Redis.  Use the following commands:
+Next, let's install Redis and enable it as a service.  First, we need to install Redis:
 
-`sudo apt install php-redis redis-server -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
+`sudo sudo apt-get update -y && sudo apt-get install build-essential tcl -y && cd /tmp && curl -O http://download.redis.io/redis-stable.tar.gz && tar xzvf redis-stable.tar.gz && cd redis-stable && make && make test && sudo mkdir /etc/redis &&  sudo cp /tmp/redis-stable/redis.conf /etc/redis`
 
-As with Varnish, we'll configure Redis after we install Magento.
+Next, we need to configure Redis:
 
-(Source: [Set up Magento 2 with Redis, Varnish and Nginx as SSL termination : Install and configure Redis caching](https://www.rosehosting.com/blog/magento-2-with-redis-varnish-and-nginx-as-ssl-termination/))
+1. `sudo vim /etc/redis/redis.conf`
+2. Find the `supervised` directive which is set to `no` and change it to `systemd`
+3. Next, find the `dir` directive which denotes the working directory
+4. Update it to: `dir /var/lib/redis`
+5. Save and close with `wq` and `Enter`
+
+Next, we need to create a Redis service file so we can run Redis as a service:
+
+1. `sudo vim /etc/systemd/system/redis.service`
+2. Add the following:
+
+```
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+User=redis
+Group=redis
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+ExecStop=/usr/local/bin/redis-cli shutdown
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Next, we need to create a Redis user, group, and directories:
+
+`sudo adduser --system --group --no-create-home redis && sudo mkdir /var/lib/redis && sudo chown redis:redis /var/lib/redis && sudo chmod 770 /var/lib/redis`
+
+Next, we need to enable redis to run as a service with: `enable-redis`
+
+(Source: [How To Install and Configure Redis on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04))
 
 <a id="elasticsearch"></a>
 ### Elasticsearch
