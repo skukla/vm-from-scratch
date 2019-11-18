@@ -245,7 +245,7 @@ Now that we have a hosts file alias, we'll use Sublime Text to update it:
 ::1             localhost
 ```
 
-At the bottom of the file, add the Hosts Entry from the VM which should be formatted as referenced above. Specifically:
+At the bottom of the file, add a new line with the Hosts Entry from the VM which should be formatted as referenced above. Specifically:
 
 1. Use a tab between the IP address and the domain(s)
 2. Use spaces to separate multiple domains
