@@ -190,7 +190,7 @@ Use the following steps to install extensions:
 3. Open a finder window
 4. Under _Locations_ on the left side, choose `luma`  (Note: You may need to choose `Network` first)
 5. Double-click into the `web root` folder
-6. Right-click on `composer.json` and edit with Sublime (or your favorite code editor)
+6. Right-click on `composer.json` and open with Sublime (or your favorite code editor)
 7. Find the end of the Require block (mine goes from lines 12-85)
 8. Add a comma to the end of the last require statement, then add the lines of the extensions you want to add on new lines beneath.  The last line of the require block should not have a comma
 For example, for the subscriptions module, you need these two require statements:
@@ -201,7 +201,7 @@ For example, for the subscriptions module, you need these two require statements
 9. Save the file
 10. Use the chrome extension and find the single, VM-specific command `SSH into VM` and copy it
 11. Open a terminal window on your mac (`cmd+spacebar`, type `terminal`, press `Enter`)
-12. Paste in the command and press `Enter`. You should be ssh'd into the VM at this point
+12. Paste in the command and press `Enter`. You should be ssh'd into the VM at this point.  **Note:** Make sure you have followed the pre-requisites for using the Cloud Extension first).
 13. Log in to the Magento Cloud CLI using `cloud-login` (Enter your username and password for Magento cloud at the prompts).  It will throw an error, but never fear.  Use the same `cloud-login` command again and repeat the process.  You should then be logged in.
 14. Run the `upgrade` command
 
