@@ -122,6 +122,7 @@ Here are some recommended preferences for VMWare that others have found helpful:
 2. Navigate to: VMWare Fusion > Preferences
 3. For the "When closing a virtual machine" setting, select: Power off the virtual machine
 4. Tick the Confirm before closing checkbox
+5. Close the preferences window to save
 
 **Note:** These settings do two important things.  The first change ensures that the VM will be powered off completely rather than suspended when it is closed.  The second change allows an SC to close the VM terminal without shutting down the VM itself.  To use, close the VM terminal and note the dialog which allows you to *Run in Background* or  *Power Off* as desired.
 
