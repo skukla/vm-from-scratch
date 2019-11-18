@@ -223,7 +223,7 @@ In the first section, note the Host Entry line which should look something like:
 
 Here  we see the IP address of the VM and the various domains which should be re-routed to it when accessed via a browser.
 
-**Note:** Your IP address will be different than the one listed above.
+**Note:** Your IP address will most likely be different than the one listed above.
 
 <a id="updating-the-hosts-file"></a>
 ### Updating the Hosts File
