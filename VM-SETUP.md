@@ -111,7 +111,8 @@ To Install VMWare Fusion:
 5. After some time, check your Applications folder to see if VMWare Fusion has been installed
 6. Once you notice that it has been installed, reboot your system
 7. After rebooting, launch VMWare Fusion and choose "Check for Updates" from the VMWare Fusion Apple menu
-8. Install any updates found if the application allows you to do so.  If it provides a "Learn More" button instead, ignore the update step entirely.
+8. You may be prompted to allow VMWare Fusion to access your Mac via the Security and Privacy accessibiliy settings.  If so, follow the instructions provided.
+9. Install any updates found if the application allows you to do so.  If it provides a "Learn More" button instead, ignore the update step entirely.
 
 <a id="configuring-vmware-fusion"></a>
 ### Configuring VMWare Fusion
