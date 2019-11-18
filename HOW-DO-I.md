@@ -202,7 +202,7 @@ For example, for the subscriptions module, you need these two require statements
 10. Use the chrome extension and find the single, VM-specific command `SSH into VM` and copy it
 11. Open a terminal window on your mac (`cmd+spacebar`, type `terminal`, press `Enter`)
 12. Paste in the command and press `Enter`. You should be ssh'd into the VM at this point.  **Note:** Make sure you have followed the pre-requisites for using the Cloud Extension first).
-13. Log in to the Magento Cloud CLI using `cloud-login` (Enter your username and password for Magento cloud at the prompts).  It will throw an error, but never fear.  Use the same `cloud-login` command again and repeat the process.  You should then be logged in.
+13. Log in to the Magento Cloud CLI using `cloud-login` (Enter your username and password for Magento cloud at the prompts).  It may throw an error, but if it does, never fear.  Use the same `cloud-login` command again and repeat the process.  You should then be logged in.
 14. Run the `upgrade` command
 
 <a id="cannot-update-repo-error"></a>
