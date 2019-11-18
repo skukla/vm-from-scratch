@@ -145,6 +145,8 @@ This issue is ultimately caused by the fact that a particular VMWare Fusion comp
 ## Importing the VM File
 VMs are be packaged as .ova (Open Virtualization Archive) files. These files are glorified .zip files that combine several files used by the VM into one.
 
+You can download the latest .ova file in the VMs Google Drive folder which you should already have access to.  Look for the access link in your email.  If you can't find it, or you need to be added to the folder, contact the VM Administrator (Steve).
+
 To import a new VM file:
 
 1. Open VMWare Fusion
