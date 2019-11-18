@@ -165,8 +165,9 @@ To import a new VM file:
 1. Open VMWare Fusion
 2. Choose `File > Import`
 3. Choose your .ova file and click `Continue`
-4. When the machine is imported, click `Continue`
-5. Start the VM.  If asked to upgrade, click `Upgrade`
+4. When prompted, click Save to save the VM into the pre-selected "Virtual Machines" folder
+5. When the machine is imported, click `Continue`
+6. Start the VM.  If asked to upgrade, click `Upgrade`
 
 The new VM will have a new IP address which you'll need to add to your hosts file.  (See: [Updating the Hosts File](#updating-the-hosts-file) for more information).  Note that you may need or want to quit chrome and then open it in incognito mode to ensure everything is as it should be.
 
