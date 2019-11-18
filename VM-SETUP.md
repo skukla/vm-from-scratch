@@ -165,7 +165,7 @@ To import a new VM file:
 1. Open VMWare Fusion
 2. Choose `File > Import`
 3. Choose your .ova file and click `Continue`
-4. When prompted, click Save to save the VM into the pre-selected "Virtual Machines" folder
+4. When prompted, click Save to save the VM into the pre-selected `Virtual Machines` folder
 5. When the machine is imported, click `Finish`
 6. Start the VM.  If asked to upgrade, click `Upgrade`
 
@@ -195,10 +195,10 @@ First, we need to find our hosts file and create an alias for it which we can mo
 1. Open a new Finder window
 2. In the Finder's "File" menu bar at the absolute top of the screen, look for the "Go" menu
 3. Navigate to Go > Go To Folder
-4. In the dialog, enter: /etc and press Enter
-5. In the search bar, search for: hosts
-6. Change the search location from This Mac to /etc
-7. Right-click on the hosts file which should be the first item in the list and choose Make Alias
+4. In the dialog, enter: `/etc` and press Enter
+5. In the search bar, search for: `hosts`
+6. Change the search location from This Mac to `/etc`
+7. Right-click on the hosts file which should be the first item in the list and choose 	`Make Alias`
 8. Enter your computer password
 9. Drag the hosts alias file to your Desktop (the original hosts alias file will remain in the list, this is expected behavior)
 10. Click on the hosts alias file in the list and delete it by pressing Cmd+Delete. Enter your computer password when prompted.
