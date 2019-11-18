@@ -188,7 +188,7 @@ Use the following steps to install extensions:
 1. Find the require statement of the extension you want to install from the list of require statements above: [Extensions List](https://github.com/skukla/vm-from-scratch/blob/master/HOW-DO-I.md#custom-module-require-statements-and-repositories)
 2. Ensure the VM is running
 3. Open a finder window
-4. Under _Locations_ on the left side, choose `luma`
+4. Under _Locations_ on the left side, choose `luma`  (Note: You may need to choose `Network` first)
 5. Double-click into the `web root` folder
 6. Right-click on `composer.json` and edit with Sublime (or your favorite code editor)
 7. Find the end of the Require block (mine goes from lines 12-85)
