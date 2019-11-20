@@ -54,7 +54,7 @@ _TODO: Finish this_
 #### Accorin (B2B)
 **Require Statements**
 ```
-"accorin/module-orderapprovals": "^1.4.x-dev",
+"accorin/module-orderapprovals": "1.4.x-dev",
 "accorin/module-companyaddressbook": "dev-master"
 ```
 **Repositories**
@@ -82,20 +82,20 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 #### Amasty
 **Require Statements**
 ```
-"amasty/base": "^1.5.5.x-dev",
-"amasty/blog": "^1.3.4.x-dev",
-"amasty/duplicatecategories": "^1.0.4.x-dev",
-"amasty/geoip": "^1.3.7.x-dev",
-"amasty/groupcat": "^1.5.9.x-dev",
-"amasty/module-advanced-conditions":"^1.3.10.x-dev",
-"amasty/module-banners-lite":"^1.0.4.x-dev",
+"amasty/base": "1.5.5.x-dev",
+"amasty/blog": "1.3.4.x-dev",
+"amasty/duplicatecategories": "1.0.4.x-dev",
+"amasty/geoip": "1.3.7.x-dev",
+"amasty/groupcat": "1.5.9.x-dev",
+"amasty/module-advanced-conditions":"1.3.10.x-dev",
+"amasty/module-banners-lite":"1.0.4.x-dev",
 "amasty/module-salesrulewizard": "dev-master",
-"amasty/module-special-promo": "^2.7.3.x-dev",
-"amasty/module-special-promo-pro": "^2.7.6.x-dev",
-"amasty/module-store-locator": "^1.12.4.x-dev",
-"amasty/product-attachment": "^1.3.3.x-dev",
-"amasty/promo": "^2.4.0.x-dev",
-"amasty/rgrid": "^1.0.7.x-dev",
+"amasty/module-special-promo": "2.7.3.x-dev",
+"amasty/module-special-promo-pro": "2.7.6.x-dev",
+"amasty/module-store-locator": "1.12.4.x-dev",
+"amasty/product-attachment": "1.3.3.x-dev",
+"amasty/promo": "2.4.0.x-dev",
+"amasty/rgrid": "1.0.7.x-dev",
 ```
 **Repositories**
 ```
@@ -157,11 +157,11 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 #### Paradox Labs
 **Require Statements**
 ```
-"paradoxlabs/tokenbase": "^4.2.1.x-dev",
-"paradoxlabs/subscriptions": "^3.1.0.x-dev",
-"paradoxlabs/authnetcim": "^4.2.1.x-dev",
-"paradoxlabs/firstdata": "^2.2.0.x-dev",
-"paradoxlabs/stripe": "^2.2.0.x-dev",       
+"paradoxlabs/tokenbase": "4.2.1.x-dev",
+"paradoxlabs/subscriptions": "3.1.0.x-dev",
+"paradoxlabs/authnetcim": "4.2.1.x-dev",
+"paradoxlabs/firstdata": "2.2.0.x-dev",
+"paradoxlabs/stripe": "2.2.0.x-dev",       
 ```
 **Repositories**
 ```
@@ -195,8 +195,8 @@ Use the following steps to install extensions:
 8. Add a comma to the end of the last require statement, then add the lines of the extensions you want to add on new lines beneath.  The last line of the require block should not have a comma
 For example, for the subscriptions module, you need these two require statements:
 ```
-"paradoxlabs/tokenbase": "^4.2.1.x-dev",
-"paradoxlabs/subscriptions": "^3.1.0.x-dev"
+"paradoxlabs/tokenbase": "4.2.1.x-dev",
+"paradoxlabs/subscriptions": "3.1.0.x-dev"
 ```
 9. Save the file
 10. Use the chrome extension and find the single, VM-specific command `SSH into VM` and copy it
