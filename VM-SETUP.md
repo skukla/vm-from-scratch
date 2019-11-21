@@ -254,7 +254,9 @@ When done, save the hosts file and enter your computer password when prompted.
 
 <a id="testing-the-vm"></a>
 ### Testing the VM
-If the VM is running, you can test these changes by opening a browser and navigating to http://luma.com for the storefront and http://luma.com/admin for the admin panel.  Use the following credentials to log in to the admin panel:
+If the VM is running, you can test these changes by opening a browser and navigating to http://luma.com for the storefront and http://luma.com/admin for the admin panel.  **Note: The VM will not connect properly if you are connected to the Adobe VPN.**
+
+Use the following credentials to log in to the admin panel:
 
 Username: admin
 Password: admin4tls
