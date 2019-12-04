@@ -51,7 +51,7 @@
 	- [Redis](#redis)
 	- [Elasticsearch](#elasticsearch)
 		- [Installing Java with the JDK](#installing-java-with-the-jdk)
-		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
+		- [Installing Elasticsearch 6.8.x](#installing-elasticsearch-68x)
 		- [Configuring Elasticsearch](#configuring-elasticsearch)
 		- [Installing Elasticsearch Plugins](#installing-elasticsearch-plugins)
 	- [RabbitMQ](#rabbitmq)
@@ -669,11 +669,11 @@ Accept the Oracle License Agreement during installation.
 
 (Source: [Magento Dev Docs: Install the Latest JDK on Ubuntu](https://devdocs.magento.com/guides/v2.3/config-guide/elasticsearch/es-overview.html#prereq-java))
 
-<a id="installing-elasticsearch-56x"></a>
-#### Installing Elasticsearch 5.6.x
-In the event that Magento eventually supports a more up-to-date version of Elasticsearch, here are the instructions for installing it:
+<a id="installing-elasticsearch-68x"></a>
+#### Installing Elasticsearch 6.8.x
+Here are the instructions for installing Elasticsearch 6.8.5:
 
-`sudo wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - && sudo echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list && sudo apt update && sudo apt install elasticsearch -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
+`sudo wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - && sudo echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list && sudo apt update && sudo apt install elasticsearch -y && sudo apt update -y && sudo apt upgrade -y && sudo apt-get autoremove -y`
 
 <a id="configuring-elasticsearch"></a>
 #### Configuring Elasticsearch
