@@ -191,7 +191,7 @@ Use the following steps to install extensions:
 4. Under _Locations_ on the left side, choose `luma`  (Note: You may need to choose `Network` first)
 5. Double-click into the `web root` folder
 6. Right-click on `composer.json` and open with Sublime (or your favorite code editor)
-7. Find the end of the Require block (mine goes from lines 12-85)
+7. Find the end of the Require block (mine goes from lines 12-87)
 8. Add a comma to the end of the last require statement, then add the lines of the extensions you want to add on new lines beneath.  The last line of the require block should not have a comma
 For example, for the subscriptions module, you need these two require statements:
 ```

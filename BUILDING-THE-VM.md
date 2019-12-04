@@ -54,8 +54,6 @@
 		- [Installing Elasticsearch 5.6.x](#installing-elasticsearch-56x)
 		- [Configuring Elasticsearch](#configuring-elasticsearch)
 		- [Installing Elasticsearch Plugins](#installing-elasticsearch-plugins)
-			- [Phonetic Analysis Plugin](#phonetic-analysis-plugin)
-			- [ICU Plugin](#icu-plugin)
 	- [RabbitMQ](#rabbitmq)
 		- [Installing Erlang/OTP](#installing-erlangotp)
 		- [Installing RabbitMQ](#installing-rabbitmq)
@@ -701,14 +699,16 @@ Check the status of Elasticseatch with `systemctl status elasticsearch` (Use `Ct
 
 <a id="installing-elasticsearch-plugins"></a>
 #### Installing Elasticsearch Plugins
+In order for popular extensions like the Smile Elasticsuite to function properly, certain elasticsearch plugins need to be installed. In particular, we need the _Phonetic Analysis_ and the _ICU_ plugins:
 
-<a id="phonetic-analysis-plugin"></a>
-##### Phonetic Analysis Plugin
-*TODO*
+1. Move to the elasticsearch directory with `cd /usr/share/elasticsearch`
+2. Install the plugins with 
 
-<a id="icu-plugin"></a>
-##### ICU Plugin
-*TODO*
+```
+sudo bin/elasticsearch-plugin install analysis-phonetic && sudo bin/elasticsearch-plugin install analysis-icu
+```
+
+3. Restart elasticsearch using the VM CLI: `start-elasticsearch`
 
 <a id="rabbitmq"></a>
 ### RabbitMQ
