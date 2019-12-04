@@ -705,10 +705,15 @@ In order for popular extensions like the Smile Elasticsuite to function properly
 2. Install the plugins with 
 
 ```
-sudo bin/elasticsearch-plugin install analysis-phonetic && sudo bin/elasticsearch-plugin install analysis-icu
+sudo bin/elasticsearch-plugin install analysis-phonetic
+sudo bin/elasticsearch-plugin install analysis-icu
 ```
 
 3. Restart elasticsearch using the VM CLI: `start-elasticsearch`
+
+```
+cd /usr/share/elasticsearch && sudo bin/elasticsearch-plugin install analysis-phonetic && sudo bin/elasticsearch-plugin install analysis-icu && start-elasticsearch
+```
 
 <a id="rabbitmq"></a>
 ### RabbitMQ
