@@ -689,6 +689,18 @@ The default minimum memory allocation set for Elasticsearch to use is 2GB.  On m
 2. Enter *Insert* mode with `i` and change `-Xms2g` and `-Xmx2g` to values that make more sense for you (e.g. `-Xms512m` and `-Xmx512m` or `-Xms1g` and `-Xmx1g`, respectively.  (Let's use `1g` for now)
 3. Save and close with `Esc`, then `x` and press `Enter`
 
+Next, we need to configure the Java home path in the Elasticsearch configuration:
+
+1. Find the Java home path: `echo $JAVA_HOME`
+2. `sudo vim /etc/default/elasticsearch`
+3. Uncomment the `JAVA_HOME` setting and add the path to the line:
+
+```
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+```
+
+4. Save the file with `Esc`, then `x` and press `Enter`
+
 Next, we'll reload the Elasticsearch daemon, enable Elasticsearch to start on boot, and then restart Elasticsearch:
 
 `sudo systemctl daemon-reload && sudo systemctl enable elasticsearch.service && sudo systemctl restart elasticsearch.service`

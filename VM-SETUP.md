@@ -42,6 +42,8 @@
 		- [Creating Custom Demo Branches](#creating-custom-demo-branches)
 		- [Updating the Base State Snapshot](#updating-the-base-state-snapshot)
 - [Accessing the VM via SSH](#accessing-the-vm-via-ssh)
+- [Setting up the VM with Adobe Experience Manager](#setting-up-the-vm-with-adobe-experience-manager)
+	- [Installing and Configuring the Self-Signed SSL Certificate](#installing-and-configuring-the-self-signed-ssl-certificate)
 
 <!-- /MarkdownTOC -->
 
@@ -362,4 +364,22 @@ Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added ‘luma.com,172.16.234.128’ (ECDSA) to the list of known hosts.
 ```
 
-Once done, you'll be greeted with the VM's welcome screen which will offer you additional commands you can use. 
+Once done, you'll be greeted with the VM's welcome screen which will offer you additional commands you can use.
+
+<a id="setting-up-the-vm-with-adobe-experience-manager"></a>
+## Setting up the VM with Adobe Experience Manager
+<a id="installing-and-configuring-the-self-signed-ssl-certificate"></a>
+### Installing and Configuring the Self-Signed SSL Certificate
+In order to use chrome to work with the VM and AEM, we'll need to install and configure an SSL certificate for the VM's pre-configured URL, https://luma.com:
+
+1. Turn on the VM
+2. Access https://luma.com in the browser.  (Note that `https` is necessary).  Ignore the content displayed on the screen for now.
+3. To the left of the URL, you'll notice a clickable flag, `Not Secure`.  Click that, and then `Certificate`
+4. In the window that opens, you'll notice an image of a "certificate" to the left of the URL, luma.com.  **Click and drag** this image to your desktop to save the certificate to your machine.
+5. Open Chrome preferences, click on `Advanced > Privacy and Security > Manage Certificates`
+6. In the Keychain Access interface, click on `System` in the left-hand menu
+7. Click the `+` to the right of the full screen button to add a certificate and add the certificate from where you saved it.
+8. Right-click on the newly-added certificate in the list and choose `Get Info`
+9. Expand the `Trust` accordion and change the `When using this certificate` setting to `Always Trust`.  All of the subsequent dropdowns should switch to the same setting.
+10. Close the dialog and enter your password to save.
+11. Restart Chrome
