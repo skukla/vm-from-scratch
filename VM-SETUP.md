@@ -43,7 +43,7 @@
 		- [Updating the Base State Snapshot](#updating-the-base-state-snapshot)
 - [Accessing the VM via SSH](#accessing-the-vm-via-ssh)
 	- [Using The Cloud Extension](#using-the-cloud-extension)
-	- [Basic SSH](#basic-ssh)
+	- [Using Raw SSH](#using-raw-ssh)
 - [Setting up the VM with Adobe Experience Manager](#setting-up-the-vm-with-adobe-experience-manager)
 	- [Installing and Configuring the Self-Signed SSL Certificate](#installing-and-configuring-the-self-signed-ssl-certificate)
 
@@ -361,8 +361,8 @@ The Cloud Extension we installed earlier makes this process extremely easy and s
 bash -c "$(curl -sS https://raw.githubusercontent.com/PMET-public/magento-cloud-extension/0.0.25/sh-scripts/lib.sh        https://raw.githubusercontent.com/PMET-public/magento-cloud-extension/0.0.25/sh-scripts/ssh.sh | env ext_ver=0.0.25 tab_url=http://luma.com bash)"
 ```
 
-<a id="basic-ssh"></a>
-### Basic SSH
+<a id="using-raw-ssh"></a>
+### Using Raw SSH
 1. Power on the VM
 2. Open a terminal on your system
 3. Use: `ssh vagrant@luma.com` and press `Enter`
