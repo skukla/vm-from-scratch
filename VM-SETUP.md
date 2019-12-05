@@ -42,6 +42,8 @@
 		- [Creating Custom Demo Branches](#creating-custom-demo-branches)
 		- [Updating the Base State Snapshot](#updating-the-base-state-snapshot)
 - [Accessing the VM via SSH](#accessing-the-vm-via-ssh)
+	- [Using The Cloud Extension](#using-the-cloud-extension)
+	- [Basic SSH](#basic-ssh)
 - [Setting up the VM with Adobe Experience Manager](#setting-up-the-vm-with-adobe-experience-manager)
 	- [Installing and Configuring the Self-Signed SSL Certificate](#installing-and-configuring-the-self-signed-ssl-certificate)
 
@@ -337,7 +339,11 @@ Now you should have a Base State snapshot with the changes you added ready to go
 ## Accessing the VM via SSH
 From time to time, it will be necessary to access the VM's operating system so that you can manage aspects of the Magento application which can only done from the command line.  These actions might include things like forcing a reindex to see a new category or product, clearing cache, running a cron job, or installing extensions for custom demos.
 
-To access the inner workings of the VM from your terminal, we'll use something called Secure Shell (SSH).  The Cloud Extension we installed earlier makes this process extremely easy and straightforward:
+To access the inner workings of the VM from your terminal, we'll use something called Secure Shell (SSH).  
+
+<a id="using-the-cloud-extension"></a>
+### Using The Cloud Extension
+The Cloud Extension we installed earlier makes this process extremely easy and straightforward:
 
 1. Power on the VM
 2. Load the Magento storefront in your browser: http://luma.com
@@ -354,6 +360,13 @@ To access the inner workings of the VM from your terminal, we'll use something c
 ```
 bash -c "$(curl -sS https://raw.githubusercontent.com/PMET-public/magento-cloud-extension/0.0.25/sh-scripts/lib.sh        https://raw.githubusercontent.com/PMET-public/magento-cloud-extension/0.0.25/sh-scripts/ssh.sh | env ext_ver=0.0.25 tab_url=http://luma.com bash)"
 ```
+
+<a id="basic-ssh"></a>
+### Basic SSH
+1. Power on the VM
+2. Open a terminal on your system
+3. Use: `ssh vagrant@luma.com` and press `Enter`
+4. Enter the `vagrant` user's password and press `Enter`
 
 When you press `Enter`, upon into the VM for the first time, you will be prompted with:
 
