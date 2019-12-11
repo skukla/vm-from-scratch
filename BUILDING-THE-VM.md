@@ -830,9 +830,9 @@ Now that we have the Go language installed, let’s download MailHog (the SMTP s
 
 `go get github.com/mailhog/MailHog && go get github.com/mailhog/mhsendmail && sudo cp /home/vagrant/gocode/bin/MailHog /usr/local/bin/mailhog && sudo cp /home/vagrant/gocode/bin/mhsendmail /usr/local/bin/mhsendmail`
 
-Finally, let’s connect PHP with MailHog at php.ini:
+Finally, let’s connect PHP with MailHog at php.ini. (Note that for the PHP paths below, you'll need to replace `x` with your actual PHP version):
 
-For both `/etc/php/7.2/cli` and `/etc/php/7.2/fpm`:
+For both `/etc/php/7.x/cli` and `/etc/php/7.x/fpm`:
 
 1. Find the `sendmail_path` setting `sudo` and `vim` to set it as:
 2. `sendmail_path = /usr/local/bin/mhsendmail`
