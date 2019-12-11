@@ -837,7 +837,7 @@ For both `/etc/php/7.x/cli` and `/etc/php/7.x/fpm`:
 1. Find the `sendmail_path` setting `sudo` and `vim` to set it as:
 2. `sendmail_path = /usr/local/bin/mhsendmail`
 3. Use `Esc`, then `x`, and `Enter` to save and close
-4. Restart `php-fpm` with `sudo systemctl restart php7.2-fpm`
+4. Restart `php-fpm` with `sudo systemctl restart php7.x-fpm`
 
 <a id="creating-the-mailhog-service"></a>
 #### Creating the Mailhog Service
