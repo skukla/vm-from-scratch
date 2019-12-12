@@ -832,7 +832,7 @@ Now that we have the Go language installed, let’s download MailHog (the SMTP s
 
 Finally, let’s connect PHP with MailHog at php.ini. (Note that for the PHP paths below, you'll need to replace `x` with your actual PHP version):
 
-For both `/etc/php/7.x/cli` and `/etc/php/7.x/fpm`:
+For both `/etc/php/7.x/cli/php.ini` and `/etc/php/7.x/fpm/php.ini`:
 
 1. Find the `sendmail_path` setting `sudo` and `vim` to set it as:
 2. `sendmail_path = /usr/local/bin/mhsendmail`
