@@ -107,9 +107,13 @@
 			- [Valentine's Day](#valentines-day)
 			- [Summer Sale Lead-in](#summer-sale-lead-in)
 			- [Fourth of July Sale](#fourth-of-july-sale)
+				- [Staging Update](#staging-update)
+				- [Staging Promotion](#staging-promotion)
 			- [Summer Sale Lead-out](#summer-sale-lead-out)
 			- [Black Friday Lead-in](#black-friday-lead-in)
 			- [Black Friday Sale](#black-friday-sale)
+				- [Staging Update](#staging-update-1)
+				- [Staging Promotion](#staging-promotion-1)
 			- [Holiday Campaign](#holiday-campaign)
 	- [Additional Page Builder Content](#additional-page-builder-content)
 		- [Category Landing Page Template](#category-landing-page-template)
@@ -122,6 +126,10 @@
 		- [CMS Pages Grid](#cms-pages-grid)
 		- [Customers Grid](#customers-grid)
 		- [Staging and Preview Grid](#staging-and-preview-grid)
+			- [Marketing Plan](#marketing-plan)
+			- [Summer](#summer)
+			- [Black Friday](#black-friday)
+			- [Holiday](#holiday)
 	- [Cache Warmer \(Site Map\)](#cache-warmer-site-map)
 	- [B2B Demo Cases](#b2b-demo-cases)
 	- [Fixes](#fixes)
@@ -2493,60 +2501,163 @@ Once saved, clear the cache
 
 <a id="valentines-day"></a>
 ##### Valentine's Day
+**Update Details**
+1. Update Name: `2020 Valentine's Day Campaign`
+2. Description: `Our Valentine's Day marketing effort to feature new yoga items.`
+3. Start Date: `02/14/2020 12:00 AM`
+4. End Date: `02/14/2020 11:59 PM`
+
+**Update Content
 1. Change the top row background image to `promotions/valentineshero.png`
 2. Text:
 	1. Line 1: `From LUMA with Love`
 	2. Line 2: `New for Valentine's Day!`
 	3. Button: `Shop New Yoga`
+		1. Button Category: `What's New`
 
 <a id="summer-sale-lead-in"></a>
 ##### Summer Sale Lead-in
+**Update Details**
+1. Update Name: `2020 Summer Sale Lead-in`
+2. Description: `Our lead in to the summer season which runs up to our Fourth of July sale.`
+3. Start Date: `06/1/2020 12:00 AM`
+4. End Date: `07/3/2020 11:59 PM`
+
+**Update Content**
 1. Change the top row background image to `promotions/summersunset.jpg`
 2. Text:
 	1. Line 1: `Summer's Here`
 	2. Line 2: `Wow your friends and hit the beach in style!`
 	3. Button: `Shop New Yoga`
+		1. Button Category: `What's New`
 
 
 <a id="fourth-of-july-sale"></a>
 ##### Fourth of July Sale
+<a id="staging-update"></a>
+###### Staging Update
+**Update Details**
+1. Update Name: `2020 Fourth of July Sale`
+2. Description: `Our Fourth of July sale offering 25% off bags`
+3. Start Date: `07/4/2020 12:00 AM`
+4. End Date: `07/4/2020 11:59 PM`
+
+**Update Content**
 1. Change the top row background image to `promotions/fireworks.jpg`
 2. Text:
 	1. Line 1: `Fourth of July Sale`
 	2. Line 2: `Today only, get 25% off every one of our world-class bags!`
 	3. Button: `Shop Bags`
+		1. Button Category: `Gear > Bags`
+
+<a id="staging-promotion"></a>
+###### Staging Promotion
+1. Navigate  to `Marketing > Catalog Price Rule` and add a new rule:
+	1. Rule Name: `25% Off Bags (FoJ)`
+	2. Websites: `Luma B2C Website`
+	3. Customer Groups: `NOT LOGGED IN`, `Retailer`, `VIP`, `Wholesale`, `Default (General)`
+	4. Priority: `0`
+	5. Conditions:
+		1. If **ALL** of these conditions are **TRUE**:
+			1. **Category** **is** **4**
+	6. Actions:
+		1. Apply: `Apply as percentage of original`
+		2. Discount Amount: `25.000000`
+		3. Discard subsequent rules: `No`
+2. Save the rule
+3. Click `Schedule New Update`
+4. Choose `Assign to Existing Update`
+5. Select the appropriate Fourth of July Sale
+6. Save the update
+7. Save the rule
+8. Reindex
 
 <a id="summer-sale-lead-out"></a>
 ##### Summer Sale Lead-out
+**Update Details**
+1. Update Name: `2020 Summer Sale Lead-out`
+2. Description: `Return back to our summer season advertising through the end of August.`
+3. Start Date: `07/5/2020 12:00 AM`
+4. End Date: `08/31/2020 11:59 PM`
+
+**Update Content**
 1. Change the top row background image to `promotions/summersunset.jpg`
 2. Text:
 	1. Line 1: `Summer's Here`
 	2. Line 2: `Wow your friends and hit the beach in style!`
 	3. Button: `Shop New Yoga`
+		1. Button Category: `What's New`
 
 <a id="black-friday-lead-in"></a>
 ##### Black Friday Lead-in
+**Update Details**
+1. Update Name: `2020 Black Friday Lead-in`
+2. Description: `Introduce our Black Friday sale on the Monday before it goes live.`
+3. Start Date: `11/23/2020 12:00 AM`
+4. End Date: `11/26/2020 11:59 PM`
+
+**Update Content**
 1. Change the top row background image to `promotions/blackfridayleadinhero.jpg`
 2. Text:
 	1. Line 1: `It's Almost Here`
-	2. Line 2: `We've got your covered for Black Friday!`
+	2. Line 2: `We've got you covered for Black Friday!`
 	3. Button: `Shop New Yoga`
+		1. Button Category: `What's New`
 
 <a id="black-friday-sale"></a>
 ##### Black Friday Sale
+<a id="staging-update-1"></a>
+###### Staging Update
+**Update Details**
+1. Update Name: `2020 Black Friday Sale`
+2. Description: `Offer 30% off all products for Black Friday.`
+3. Start Date: `11/27/2020 12:00 AM`
+4. End Date: `11/27/2020 11:59 PM`
+
+**Update Content**
 1. Change the top row background image to `promotions/blackfridayweekendhero.jpg`
 2. Text:
 	1. Line 1: `Today Only`
 	2. Line 2: `Get 30% off ALL THE THINGS for Black Friday!`
 	3. Button: `Shop Now`
+		1. Button Category: `What's New`
+
+<a id="staging-promotion-1"></a>
+###### Staging Promotion
+1. Navigate  to `Marketing > Catalog Price Rule` and add a new rule:
+	1. Rule Name: `30% Off Everything (BF)`
+	2. Websites: `Luma B2C Website`
+	3. Customer Groups: `NOT LOGGED IN`, `Retailer`, `VIP`, `Wholesale`, `Default (General)`
+	4. Priority: `0`
+	5. Conditions:
+		1. Leave these as-is (blank) so that the rule applies to all products
+	6. Actions:
+		1. Apply: `Apply as percentage of original`
+		2. Discount Amount: `30.000000`
+		3. Discard subsequent rules: `No`
+2. Save the rule
+3. Click `Schedule New Update`
+4. Choose `Assign to Existing Update`
+5. Select the appropriate Black Friday Sale
+6. Save the update
+7. Save the rule
+8. Reindex
 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
+**Update Details**
+1. Update Name: `2020 Holiday Campaign`
+2. Description: `Our lead in to the holiday season lasting through the end of the year.`
+3. Start Date: `12/15/2020 12:00 AM`
+4. End Date: `12/31/2020 11:59 PM`
+
+**Update Content**
 1. Change the top row background image to `promotions/holidayhero.png`
 2. Text:
 	1. Line 1: `Welcome the season in style`
 	2. Line 2: `Happy Holidays from LUMA!`
 	3. Button: `Shop New Yoga`
+		1. Button Category: `What's New`
 
 <a id="additional-page-builder-content"></a>
 ### Additional Page Builder Content
@@ -2667,6 +2778,31 @@ By default, the customers grid is very crowded.  To help with this, consider rem
 
 <a id="staging-and-preview-grid"></a>
 #### Staging and Preview Grid
+We'll create four views for the staging and preview grid:
+
+<a id="marketing-plan"></a>
+##### Marketing Plan
+1. Keyword: `2020`
+2. Appearance: `Grid`
+
+<a id="summer"></a>
+##### Summer
+Note that your selected years should match the year for which you're creating the update.
+
+1. Start Time: `June 1, 2020`
+2. End Time: `August 31, 2020`
+3. Appearance: `Grid`
+
+<a id="black-friday"></a>
+##### Black Friday
+1. Keyword: `Black Friday`
+2. Appearance: `Timeline`
+3. Timefame: `1w`
+
+<a id="holiday"></a>
+##### Holiday
+1. Keyword: `Holiday`
+2. Appearance: `Grid`
 
 <a id="cache-warmer-site-map"></a>
 ### Cache Warmer (Site Map)
