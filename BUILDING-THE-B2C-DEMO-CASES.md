@@ -2501,13 +2501,13 @@ Once saved, clear the cache
 
 <a id="valentines-day"></a>
 ##### Valentine's Day
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Valentine's Day Campaign`
 2. Description: `Our Valentine's Day marketing effort to feature new yoga items.`
 3. Start Date: `02/14/2020 12:00 AM`
 4. End Date: `02/14/2020 11:59 PM`
 
-**Update Content
+_Update Content_
 1. Change the top row background image to `promotions/valentineshero.png`
 2. Text:
 	1. Line 1: `From LUMA with Love`
@@ -2517,13 +2517,13 @@ Once saved, clear the cache
 
 <a id="summer-sale-lead-in"></a>
 ##### Summer Sale Lead-in
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Summer Sale Lead-in`
 2. Description: `Our lead in to the summer season which runs up to our Fourth of July sale.`
 3. Start Date: `06/1/2020 12:00 AM`
 4. End Date: `07/3/2020 11:59 PM`
 
-**Update Content**
+_Update Content_
 1. Change the top row background image to `promotions/summersunset.jpg`
 2. Text:
 	1. Line 1: `Summer's Here`
@@ -2536,13 +2536,13 @@ Once saved, clear the cache
 ##### Fourth of July Sale
 <a id="staging-update"></a>
 ###### Staging Update
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Fourth of July Sale`
 2. Description: `Our Fourth of July sale offering 25% off bags`
 3. Start Date: `07/4/2020 12:00 AM`
 4. End Date: `07/4/2020 11:59 PM`
 
-**Update Content**
+_Update Content_
 1. Change the top row background image to `promotions/fireworks.jpg`
 2. Text:
 	1. Line 1: `Fourth of July Sale`
@@ -2574,13 +2574,13 @@ Once saved, clear the cache
 
 <a id="summer-sale-lead-out"></a>
 ##### Summer Sale Lead-out
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Summer Sale Lead-out`
 2. Description: `Return back to our summer season advertising through the end of August.`
 3. Start Date: `07/5/2020 12:00 AM`
 4. End Date: `08/31/2020 11:59 PM`
 
-**Update Content**
+_Update Content_
 1. Change the top row background image to `promotions/summersunset.jpg`
 2. Text:
 	1. Line 1: `Summer's Here`
@@ -2590,13 +2590,13 @@ Once saved, clear the cache
 
 <a id="black-friday-lead-in"></a>
 ##### Black Friday Lead-in
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Black Friday Lead-in`
 2. Description: `Introduce our Black Friday sale on the Monday before it goes live.`
 3. Start Date: `11/23/2020 12:00 AM`
 4. End Date: `11/26/2020 11:59 PM`
 
-**Update Content**
+_Update Content_
 1. Change the top row background image to `promotions/blackfridayleadinhero.jpg`
 2. Text:
 	1. Line 1: `It's Almost Here`
@@ -2608,13 +2608,13 @@ Once saved, clear the cache
 ##### Black Friday Sale
 <a id="staging-update-1"></a>
 ###### Staging Update
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Black Friday Sale`
 2. Description: `Offer 30% off all products for Black Friday.`
 3. Start Date: `11/27/2020 12:00 AM`
 4. End Date: `11/27/2020 11:59 PM`
 
-**Update Content**
+_Update Content_
 1. Change the top row background image to `promotions/blackfridayweekendhero.jpg`
 2. Text:
 	1. Line 1: `Today Only`
@@ -2645,13 +2645,13 @@ Once saved, clear the cache
 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
-**Update Details**
+_Update Details_
 1. Update Name: `2020 Holiday Campaign`
 2. Description: `Our lead in to the holiday season lasting through the end of the year.`
 3. Start Date: `12/15/2020 12:00 AM`
 4. End Date: `12/31/2020 11:59 PM`
 
-**Update Content**
+_Update Content_
 1. Change the top row background image to `promotions/holidayhero.png`
 2. Text:
 	1. Line 1: `Welcome the season in style`
