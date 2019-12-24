@@ -86,6 +86,8 @@
 ### Software
 All we'll need to use this solution is *VMWare Fusion*.  This is provided by Adobe via the *App Catalog*.
 
+**Note:** If you've installed a version of VMWare Fusion via the app catalog, be aware that you can also _upgrade_ VMWare Fusion via the app catalog as well to keep current.
+
 <a id="vm-set-up"></a>
 ### VM Set Up
 The following are the settings for the machine in VMWare:

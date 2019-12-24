@@ -104,6 +104,8 @@ The Cloud Extension is an extension for Google Chrome developed by Keith Bentrup
 ## VMWare Fusion
 All we’ll need to use this solution is a hypervisor called VMWare Fusion. This is provided by Adobe via the App Catalog.
 
+**Note:** If you've installed a version of VMWare Fusion via the app catalog, be aware that you can also _upgrade_ VMWare Fusion via the app catalog as well to keep current.
+
 <a id="installing-vmware-fusion"></a>
 ### Installing VMWare Fusion
 To Install VMWare Fusion:
