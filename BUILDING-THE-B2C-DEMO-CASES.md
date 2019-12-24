@@ -2568,9 +2568,10 @@ _Update Content_
 3. Click `Schedule New Update`
 4. Choose `Assign to Existing Update`
 5. Select the appropriate Fourth of July Sale
-6. Save the update
-7. Save the rule
-8. Reindex
+6. Set the status to: `Active`
+7. Save the update
+8. Save the rule
+9. Reindex
 
 <a id="summer-sale-lead-out"></a>
 ##### Summer Sale Lead-out
@@ -2639,9 +2640,10 @@ _Update Content_
 3. Click `Schedule New Update`
 4. Choose `Assign to Existing Update`
 5. Select the appropriate Black Friday Sale
-6. Save the update
-7. Save the rule
-8. Reindex
+6. Set the status to: `Active`
+7. Save the update
+8. Save the rule
+9. Reindex
 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
