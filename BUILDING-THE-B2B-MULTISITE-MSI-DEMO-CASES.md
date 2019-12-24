@@ -49,7 +49,8 @@
 - [Multi-source Inventory](#multi-source-inventory)
 	- [Creating Sources](#creating-sources)
 - [B2B Fixes](#b2b-fixes)
-	- [Hiding Company/Company Structure Menu Options](#hiding-companycompany-structure-menu-options)
+	- [Removing the 'Enable Shared Catalog' Notification](#removing-the-enable-shared-catalog-notification)
+	- [Hiding Company/Company Structure Menu Options \(FIXED in 2.3.3\)](#hiding-companycompany-structure-menu-options-fixed-in-233)
 
 <!-- /MarkdownTOC -->
 
@@ -1140,9 +1141,34 @@ Navigate to: `Stores > Inventory > Sources`
 
 <a id="b2b-fixes"></a>
 ## B2B Fixes
-<a id="hiding-companycompany-structure-menu-options"></a>
-### Hiding Company/Company Structure Menu Options
+<a id="removing-the-enable-shared-catalog-notification"></a>
+### Removing the 'Enable Shared Catalog' Notification
+Natively, (as of 2.3.3), there appears to be a bug wherein the warning notification on the Shared Catalog grid screen shows _whether or not_ shared catalogs are actually enabled.  (Understandably, this would cause some confusion if you were to enable shared catalogs and show them). The error is likely caused by the fact that in versions previous to 2.3.3, shared catalogs couldn't be enabled at website scope; they were only available to be configured globally.  2.3.3 has addressed this; however, the messaging still remains, so we'll need to hide it:
 
+1. Navigate to the web root with: `www`
+2. Navigate to the folder which contains the file that controls the messaging: `cd vendor/magento/module-shared-catalog/view/adminhtml/templates/messages`
+3. Create a backup of the file which contains the messaging:
+
+```
+cp ./notification.phtml ./notification.phtml.bak
+```
+
+4. Edit the `notification.php` file: `vim ./notification.php`
+5. Turn on line numbers with `:set number`
+6. Delete the `@noEscape` comment on line 14
+6. Open a PHP comment following the opening PHP statement on line 13: (`<?php /*`)
+7. Close the PHP comment after the closing PHP statement which is on line 29: `*/ ?>`)
+8. Open an HTML comment before the `<div>` tag on line 9 (`<!--`)
+9. Close the HTML comment after the final closing `</div>` tag on line 31 (`-->`)
+10. Save the file with `Esc`, then `:wq` and `Enter`
+11. Remove the static files from the `adminhtml` area, regenerate static content, and flush cache:
+
+```
+www && rm -rf pub/static/adminhtml/* && deploy-content && flush-cache
+```
+
+<a id="hiding-companycompany-structure-menu-options-fixed-in-233"></a>
+### Hiding Company/Company Structure Menu Options (FIXED in 2.3.3)
 Since Shared Catalogs don't allow for website scope for catagory selection as they should, we are forced to enable companies globally in order to allow for creating shared catalogs at all.  As such, certain menu items will be shown to B2C customers which shouldn't be.  We'll use CSS to hide them from the B2C website.
 
 Navigate to: `Content > Design > Configuration > Luma B2C Website > HTML Head`
