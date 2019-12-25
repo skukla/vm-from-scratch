@@ -50,6 +50,7 @@
 	- [Creating Sources](#creating-sources)
 - [B2B Fixes](#b2b-fixes)
 	- [Item with Duplicate ID Exists](#item-with-duplicate-id-exists)
+	- [Decreasing Indexer Batch Time](#decreasing-indexer-batch-time)
 	- [Removing the 'Enable Shared Catalog' Notification](#removing-the-enable-shared-catalog-notification)
 	- [Hiding Company/Company Structure Menu Options \(FIXED in 2.3.3\)](#hiding-companycompany-structure-menu-options-fixed-in-233)
 
@@ -1157,6 +1158,34 @@ The currently-employed solution was to fork/duplicate the repository offered in 
 The resulting repository (converted into a composer-friendly module) is here: [https://github.com/skukla/module-magento-framework-data-collection](https://github.com/skukla/module-magento-framework-data-collection).
 
 This should likely be converted into a patch.
+
+<a id="decreasing-indexer-batch-time"></a>
+### Decreasing Indexer Batch Time
+When processing shared catalogs, the `system.log` file presents the following message:
+
+```
+Memory size allocated for the temporary table is more than 20% of innodb_buffer_pool_size. Please update innodb_buffer_pool_size or decrease batch size value (which decreases memory usages for the temporary table). 
+```
+
+The Magento developer documentation suggests decreasing the batch size for the catalog product indexer to help address this:
+
+1. Navigate to the web root: `www`
+2. `vim vendor/magento/module-catalog/etc/di.xml`
+3. Search for "batch": `/batch`
+4. In the following:
+
+```
+<argument name="batchRowsCount" xsi:type="array">
+	<item name="default" xsi:type="number">5000</item>
+</argument>
+```
+
+Change `5000` to `1000`
+
+5. Save the file: `Esc`, then `:wq` and `Enter`
+6. Re-compile dependency injections: `di-compile`
+
+Source: [Indexer Optimization](https://devdocs.magento.com/guides/v2.3/extension-dev-guide/indexer-batch.html)
 
 <a id="removing-the-enable-shared-catalog-notification"></a>
 ### Removing the 'Enable Shared Catalog' Notification
