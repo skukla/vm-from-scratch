@@ -50,7 +50,7 @@
 	- [Creating Sources](#creating-sources)
 - [B2B Fixes](#b2b-fixes)
 	- [Item with Duplicate ID Exists](#item-with-duplicate-id-exists)
-	- [Decreasing Indexer Batch Time](#decreasing-indexer-batch-time)
+	- [Decreasing Indexer Batch Size](#decreasing-indexer-batch-size)
 	- [Removing the 'Enable Shared Catalog' Notification](#removing-the-enable-shared-catalog-notification)
 	- [Hiding Company/Company Structure Menu Options \(FIXED in 2.3.3\)](#hiding-companycompany-structure-menu-options-fixed-in-233)
 
@@ -1159,8 +1159,8 @@ The resulting repository (converted into a composer-friendly module) is here: [h
 
 This should likely be converted into a patch.
 
-<a id="decreasing-indexer-batch-time"></a>
-### Decreasing Indexer Batch Time
+<a id="decreasing-indexer-batch-size"></a>
+### Decreasing Indexer Batch Size
 When processing shared catalogs, the `system.log` file presents the following message:
 
 ```
