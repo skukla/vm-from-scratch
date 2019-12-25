@@ -49,6 +49,7 @@
 - [Multi-source Inventory](#multi-source-inventory)
 	- [Creating Sources](#creating-sources)
 - [B2B Fixes](#b2b-fixes)
+	- [Item with Duplicate ID Exists](#item-with-duplicate-id-exists)
 	- [Removing the 'Enable Shared Catalog' Notification](#removing-the-enable-shared-catalog-notification)
 	- [Hiding Company/Company Structure Menu Options \(FIXED in 2.3.3\)](#hiding-companycompany-structure-menu-options-fixed-in-233)
 
@@ -1141,6 +1142,16 @@ Navigate to: `Stores > Inventory > Sources`
 
 <a id="b2b-fixes"></a>
 ## B2B Fixes
+<a id="item-with-duplicate-id-exists"></a>
+### Item with Duplicate ID Exists
+As of 2.3.3, when attempting to remove categories from a custom shared catalog, an error occurs stating:
+
+```
+Item (Magento\Catalog\Model\Product\Interceptor) with the same ID "1228" already exists.
+```
+
+After some searching, the following github issue cropped up: [Item (Magento\Catalog\Model\Product\Interceptor) with the same ID "##" already exists](https://github.com/magento/magento2/issues/6126).  The currently-employed solution was to fork/duplicate the repository offered in [this comment](https://github.com/magento/magento2/issues/6126#issuecomment-484360524).  The resulting repository (converted into a composer-friendly module) is here: [https://github.com/skukla/module-magento-framework-data-collection](https://github.com/skukla/module-magento-framework-data-collection).  This should likely be converted into a patch.
+
 <a id="removing-the-enable-shared-catalog-notification"></a>
 ### Removing the 'Enable Shared Catalog' Notification
 Natively, (as of 2.3.3), there appears to be a bug wherein the warning notification on the Shared Catalog grid screen shows _whether or not_ shared catalogs are actually enabled.  (Understandably, this would cause some confusion if you were to enable shared catalogs and show them). The error is likely caused by the fact that in versions previous to 2.3.3, shared catalogs couldn't be enabled at website scope; they were only available to be configured globally.  2.3.3 has addressed this; however, the messaging still remains, so we'll need to hide it:
