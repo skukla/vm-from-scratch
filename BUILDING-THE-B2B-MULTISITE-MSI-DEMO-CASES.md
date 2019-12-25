@@ -1150,7 +1150,13 @@ As of 2.3.3, when attempting to remove categories from a custom shared catalog, 
 Item (Magento\Catalog\Model\Product\Interceptor) with the same ID "1228" already exists.
 ```
 
-After some searching, the following github issue cropped up: [Item (Magento\Catalog\Model\Product\Interceptor) with the same ID "##" already exists](https://github.com/magento/magento2/issues/6126).  The currently-employed solution was to fork/duplicate the repository offered in [this comment](https://github.com/magento/magento2/issues/6126#issuecomment-484360524).  The resulting repository (converted into a composer-friendly module) is here: [https://github.com/skukla/module-magento-framework-data-collection](https://github.com/skukla/module-magento-framework-data-collection).  This should likely be converted into a patch.
+After some searching, the following github issue cropped up: [Item (Magento\Catalog\Model\Product\Interceptor) with the same ID "##" already exists](https://github.com/magento/magento2/issues/6126).  
+
+The currently-employed solution was to fork/duplicate the repository offered in [this comment](https://github.com/magento/magento2/issues/6126#issuecomment-484360524).  
+
+The resulting repository (converted into a composer-friendly module) is here: [https://github.com/skukla/module-magento-framework-data-collection](https://github.com/skukla/module-magento-framework-data-collection).
+
+This should likely be converted into a patch.
 
 <a id="removing-the-enable-shared-catalog-notification"></a>
 ### Removing the 'Enable Shared Catalog' Notification
