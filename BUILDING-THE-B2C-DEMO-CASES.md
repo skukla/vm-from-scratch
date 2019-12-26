@@ -2538,7 +2538,7 @@ _Update Content_
 ###### Staging Update
 _Update Details_
 1. Update Name: `2020 Fourth of July Sale`
-2. Description: `Our Fourth of July sale offering 25% off bags`
+2. Description: `Our Fourth of July sale offering 25% off bags.`
 3. Start Date: `07/4/2020 12:00 AM`
 4. End Date: `07/4/2020 11:59 PM`
 

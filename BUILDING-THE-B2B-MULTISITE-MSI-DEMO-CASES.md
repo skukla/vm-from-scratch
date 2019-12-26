@@ -1175,12 +1175,30 @@ The Magento developer documentation suggests decreasing the batch size for the c
 4. In the following:
 
 ```
-<argument name="batchRowsCount" xsi:type="array">
-	<item name="default" xsi:type="number">5000</item>
-</argument>
+<type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\BatchSizeCalculator">
+	<arguments>
+		<argument name="batchRowsCount" xsi:type="array">
+			<item name="default" xsi:type="number">5000</item>
+		</argument>
+		<argument name="estimators" xsi:type="array">
+			<item name="default" xsi:type="object">Magento\Catalog\Model\Indexer\Price\BatchSizeManagement</item>
+        </argument>
+    </arguments>
+</type>
 ```
-
 Change `5000` to `1000`
+
+And in:
+
+```
+<type name="Magento\Catalog\Model\Indexer\Category\Product\Action\Full">
+	<arguments>
+		<argument name="batchRowsCount" xsi:type="number">100000</argument>
+		<argument name="batchSizeManagement" xsi:type="object">Magento\Catalog\Model\Indexer\CategoryProductBatchSize</argument>
+    </arguments>
+</type>
+```
+Change `10000` to `1000`
 
 5. Save the file: `Esc`, then `:wq` and `Enter`
 6. Re-compile dependency injections: `di-compile`
