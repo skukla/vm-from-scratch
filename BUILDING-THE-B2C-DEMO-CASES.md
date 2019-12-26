@@ -2573,6 +2573,8 @@ _Update Content_
 8. Save the rule
 9. Reindex
 
+**Note:** If you've already created this promotion and have used it in previous staging campaigns, you don't need to recreate it.  All you'll need to do is to start at step three above (`Schedule New Update`) and re-assign it to your new campaign.
+
 <a id="summer-sale-lead-out"></a>
 ##### Summer Sale Lead-out
 _Update Details_
@@ -2644,6 +2646,8 @@ _Update Content_
 7. Save the update
 8. Save the rule
 9. Reindex
+
+**Note:** If you've already created this promotion and have used it in previous staging campaigns, you don't need to recreate it.  All you'll need to do is to start at step three above (`Schedule New Update`) and re-assign it to your new campaign.
 
 <a id="holiday-campaign"></a>
 ##### Holiday Campaign
