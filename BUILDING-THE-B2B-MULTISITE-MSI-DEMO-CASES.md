@@ -42,6 +42,11 @@
 		- [Terra Welcome Message Widget](#terra-welcome-message-widget)
 	- [Company User Segments](#company-user-segments)
 	- [Catalogs](#catalogs)
+		- [Distributor Level A Catalog](#distributor-level-a-catalog)
+			- [Enable Shared Catalogs](#enable-shared-catalogs)
+			- [Catalog Creation](#catalog-creation)
+			- [Catalog Assignment](#catalog-assignment)
+			- [Applying Catalog Changes](#applying-catalog-changes)
 	- [B2B Call-outs](#b2b-call-outs)
 	- [Home Page Updates](#home-page-updates)
 	- [B2B Staging Updates](#b2b-staging-updates)
@@ -870,6 +875,59 @@ Navigate to: `Customers > Customer Segments > Add Segment`
 <a id="catalogs"></a>
 ### Catalogs
 In order to use the shared catalog functionality to show pricing, we need to set our product prices at `Website` scope. Navigate to: `Stores > Settings > Configuration > Catalog > Catalog > Price` and change Catalog Price Scope to `Website`.
+
+<a id="distributor-level-a-catalog"></a>
+#### Distributor Level A Catalog
+Next, let's create a shared catalog that we can use with our Terra Outfitters users:
+
+<a id="enable-shared-catalogs"></a>
+##### Enable Shared Catalogs
+1. Navigate to `Stores > Configuration`
+2. Change the data scope from `Default Config` to `Luma B2B Website`
+3. Click on `General > B2B Features`
+4. De-tickk the `Use Default` check box and switch `Enable Shared Catalog` to `Yes`
+5. Click `Save Config`
+
+<a id="catalog-creation"></a>
+##### Catalog Creation
+1. Navigate to `Catalog > Shared Catalogs` and click `Add Shared Catalog`
+2. Catalog Details:
+	1. Name: `Distributor Level A`
+	2. Type: `Custom`
+	3. Customer Tax Class: `Retail Customer`
+
+	**Note:** It might make more sense to create a custom tax class, _Wholesale_ for this catalog.
+
+3. Save the catalog
+4. Click the `Select` action and choose `Set Pricing and Structure`
+5. Click `Configure`
+6. Select the following catalog structure:
+	1. `Luma Catalog > Women > Tops > Hoodies & Sweatshirts`
+	2. `Luma Catalog > Men > Tops > Hoodies & Sweatshirts`
+	3. `Luma Catalog > Gear > Bags`
+	4. `Luma Catalog > Promotions > Featured Products`
+
+7. Make sure everything else should be de-selected
+8. Click `Next`
+9. Change the Scope from `All Websites` to `Luma B2B Website`
+10. Click on the `Luma Catalog > Women > Tops > Hoodies & Sweatshirts` category, select all the products, then use the mass action dropdown to apply a 50% discount
+11. Repeat the above step for the `Luma Catalog > Men > Tops > Hoodies & Sweatshirts` category
+12. Repeat the above step for the `Luma Catalog > Gear > Bags` category and apply a 25% discount
+13. Click `Generate Catalog` to return to Catalog Structure
+14. Click `Save` to save the catalog
+
+<a id="catalog-assignment"></a>
+##### Catalog Assignment
+Finally, we need assign our new catalog to the companies whose users should use it:
+
+1. From the shared catalogs grid, click the `Select` action and choose `Assign Companies`
+2. Click `Assign` next to Terra Outfitters, or otherwise, tick the checkbox next to Terra Outfitters and use the mass actions dropdown to select Terra Outfitters
+3. Click `Save`
+
+<a id="applying-catalog-changes"></a>
+##### Applying Catalog Changes
+If cron is enabled correctly, catalog updates should be automatically applied in the background.  If not, however, you can manually apply them by using the `process-catalogs` command from the VM terminal.
+
 
 <a id="b2b-call-outs"></a>
 ### B2B Call-outs
