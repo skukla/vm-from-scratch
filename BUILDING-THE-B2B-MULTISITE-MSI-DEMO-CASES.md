@@ -923,11 +923,11 @@ Finally, we need assign our new catalog to the companies whose users should use 
 1. From the shared catalogs grid, click the `Select` action and choose `Assign Companies`
 2. Click `Assign` next to Terra Outfitters, or otherwise, tick the checkbox next to Terra Outfitters and use the mass actions dropdown to select Terra Outfitters
 3. Click `Save`
+4. Make sure catalog updates are applied and cache is cleared
 
 <a id="applying-catalog-changes"></a>
 ##### Applying Catalog Changes
-If cron is enabled correctly, catalog updates should be automatically applied in the background.  If not, however, you can manually apply them by using the `process-catalogs` command from the VM terminal.
-
+If cron is enabled correctly, catalog updates should be automatically applied in the background.  If not, however, you can manually apply them by using the `process-catalogs` command from the VM terminal. As mentioned above, you may need to clear cache once updates have been applied.
 
 <a id="b2b-call-outs"></a>
 ### B2B Call-outs
