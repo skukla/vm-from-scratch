@@ -110,7 +110,7 @@ The VM consists of the following elements:
  3. ***PHP Version:*** 7.3
  4. ***Database:*** MySQL 5.7
  5. ***Sessions:*** N/A
- 6. ***Cache*** N/A
+ 6. ***Cache:*** N/A
  7. ***Search:*** Elasticsearch 6.x
  8. ***Message Queue:*** RabbitMQ (optional)
  9. ***Package Manager:*** Composer
