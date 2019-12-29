@@ -124,7 +124,7 @@ The VM consists of the following elements:
 The VM will also consist of the following packages/programs to aid in command line tasks and machine usage:
  1. `zip` (Zip utility)
  2. `unzip` (Unzip utility)
- 3. `ag` (Super fast in-file search - similar to `grep`)
+ 3. `silversearcher-ag` (Super fast in-file search - similar to `grep`)
  4. `figlet` (Converts text to ascii art - used in our custom MoTD)
 
 <a id="installing-vmware-fusion"></a>
