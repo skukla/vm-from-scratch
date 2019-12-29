@@ -105,13 +105,13 @@ The following are the settings for the machine in VMWare:
 <a id="solution-components-overview"></a>
 ### Solution Components Overview
 The VM consists of the following elements:
- 1. ***Operating System:*** Ubuntu Server 18.04 LTS
+ 1. ***Operating System:*** Ubuntu Server 16.04 LTS
  2. ***Web Server:*** Nginx
- 3. ***PHP Version:*** 7.2
- 4. ***Database:*** MariaDB
- 5. ***Sessions:*** Redis
- 6. ***Cache*** Varnish?
- 7. ***Search:*** Elasticsearch 5.x
+ 3. ***PHP Version:*** 7.3
+ 4. ***Database:*** MySQL 5.7
+ 5. ***Sessions:*** N/A
+ 6. ***Cache*** N/A
+ 7. ***Search:*** Elasticsearch 6.x
  8. ***Message Queue:*** RabbitMQ (optional)
  9. ***Package Manager:*** Composer
  10. ***Version Control:*** Git (included with Ubuntu)
