@@ -284,7 +284,7 @@ Next, we'll install the additional programs listedin the [Helpful Additions](#he
 
 <a id="installing-a-self-signed-ssl-certificate"></a>
 ### Installing A Self-Signed SSL Certificate
-*TODO*
+See: [Creating a Self-Signed Certificate for Nginx in 5 Minutes](https://www.humankode.com/ssl/create-a-selfsigned-certificate-for-nginx-in-5-minutes)
 
 <a id="setting-the-motd"></a>
 ### Setting the MotD
