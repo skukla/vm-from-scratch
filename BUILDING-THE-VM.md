@@ -367,18 +367,18 @@ Next, we'll install and configure our solution components listed in the [Solutio
 
 <a id="php"></a>
 ### PHP
-First we'll install PHP 7.2 on Ubuntu.
+First we'll install PHP 7.x on Ubuntu.
 
 <a id="installing-php-with-the-ondrejphp-repository"></a>
 #### Installing PHP with the `ondrej/php` Repository
-The main set of repositories for both PHP 5.6 and PHP 7.x are actively maintained by a fellow named Ondrej Sury. His repository is not part of the standard repository source list provided by Ubuntu, so we'll need to add it.  Once that's done, we'll check to see if the addition of that repository source requires updates for any of the other repositories on our system and then proceed to install PHP 7.2.x.  We'll also add the necessary PHP extensions/modules that Magento will need in order to run.  Copy and paste the below:
+The main set of repositories for both PHP 5.6 and PHP 7.x are actively maintained by a fellow named Ondrej Sury. His repository is not part of the standard repository source list provided by Ubuntu, so we'll need to add it.  Once that's done, we'll check to see if the addition of that repository source requires updates for any of the other repositories on our system and then proceed to install PHP 7.2.x.  We'll also add the necessary PHP extensions/modules that Magento will need in order to run.  Copy and paste the below (where the `x` in `7.x` is the minor version you want to use:
 
-`sudo apt-get -y update && sudo add-apt-repository ppa:ondrej/php && sudo apt-get -y update && sudo apt-get install -y php7.2 libapache2-mod-php7.2 php7.2-common php7.2-gd php7.2-mysql php7.2-curl php7.2-intl php7.2-xsl php7.2-mbstring php7.2-zip php7.2-bcmath php7.2-iconv php7.2-soap php7.2-fpm`
+`sudo apt-get -y update && sudo add-apt-repository ppa:ondrej/php && sudo apt-get -y update && sudo apt-get install -y php7.2 libapache2-mod-php7.x php7.x-common php7.x-gd php7.x-mysql php7.x-curl php7.x-intl php7.x-xsl php7.x-mbstring php7.x-zip php7.x-bcmath php7.x-iconv php7.x-soap php7.x-fpm`
 
 During the installation process, you'll be prompted to confirm the addition of the PHP repository.  Press `Enter` when prompted.  Once the process finishes, PHP (both `cli` and `fpm`) will be installed.  Confirm this by checking your PHP version with `php -v`.  You should see something like:
 
 ```
-PHP 7.2.13-1+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Dec  7 2018 08:07:36) ( NTS )
+PHP 7.x.13-1+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Dec  7 2018 08:07:36) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
     with Zend OPcache v7.2.13-1+ubuntu18.04.1+deb.sury.org+1, Copyright (c) 1999-2018, by Zend Technologies
@@ -399,7 +399,7 @@ First, the common settings.  Settings for PHP are configured in `php.ini` files.
 
 To edit these settings for PHP via the CLI:
 
-1. Edit the CLI `php.ini` file using `vim` and `sudo`: `sudo vim /etc/php/7.2/cli/php.ini`
+1. Edit the CLI `php.ini` file using `vim` and `sudo`: `sudo vim /etc/php/7.x/cli/php.ini` (Remember to update the `x` with the right version)
 2. In *Command* mode, search the file for the above strings with the `/` character, e.g. `/date.timezone`
 3. Press `Enter` to execute the search
 4. When you find the line you want to edit, switch to *Insert* mode using the `i` key
@@ -407,7 +407,7 @@ To edit these settings for PHP via the CLI:
 6. If you want to search the file again for another string after a change is made, switch back to *Command* mode with `Esc` and then search again (e.g. `/memory_limit`)
 7. If you're in *Command* mode, save and quit with `x` and then `Enter`.  If in *Insert* mode, use `Esc`, `x`, and `Enter`
 
-To use the same settings for PHP via FPM, follow the same process with `sudo vim /etc/php/7.2/fpm/php.ini`
+To use the same settings for PHP via FPM, follow the same process with `sudo vim /etc/php/7.x/fpm/php.ini`
 
 Once the configurations are saved, we'll want to restart PHP-FPM so they take effect.  Use `sudo systemctl restart php7.2-fpm`
 
