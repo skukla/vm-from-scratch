@@ -409,7 +409,7 @@ To edit these settings for PHP via the CLI:
 
 To use the same settings for PHP via FPM, follow the same process with `sudo vim /etc/php/7.x/fpm/php.ini`
 
-Once the configurations are saved, we'll want to restart PHP-FPM so they take effect.  Use `sudo systemctl restart php7.2-fpm`
+Once the configurations are saved, we'll want to restart PHP-FPM so they take effect.  Use `sudo systemctl restart php7.x-fpm`
 
 (Sources: [Magento Dev Docs : Required PHP Settings](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/php-centos-ubuntu.html#instgde-prereq-php71-ubuntu) and [Magento Dev Docs : Install and configure php-fpm](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html#install-and-configure-php-fpm))
 
