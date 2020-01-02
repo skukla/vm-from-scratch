@@ -373,7 +373,7 @@ First we'll install PHP 7.x on Ubuntu.
 #### Installing PHP with the `ondrej/php` Repository
 The main set of repositories for both PHP 5.6 and PHP 7.x are actively maintained by a fellow named Ondrej Sury. His repository is not part of the standard repository source list provided by Ubuntu, so we'll need to add it.  Once that's done, we'll check to see if the addition of that repository source requires updates for any of the other repositories on our system and then proceed to install PHP 7.2.x.  We'll also add the necessary PHP extensions/modules that Magento will need in order to run.  Copy and paste the below (where the `x` in `7.x` is the minor version you want to use:
 
-`sudo apt-get -y update && sudo add-apt-repository ppa:ondrej/php && sudo apt-get -y update && sudo apt-get install -y php7.2 libapache2-mod-php7.x php7.x-common php7.x-gd php7.x-mysql php7.x-curl php7.x-intl php7.x-xsl php7.x-mbstring php7.x-zip php7.x-bcmath php7.x-iconv php7.x-soap php7.x-fpm`
+`sudo apt-get -y update && sudo add-apt-repository ppa:ondrej/php && sudo apt-get -y update && sudo apt-get install -y php7.x libapache2-mod-php7.x php7.x-common php7.x-gd php7.x-mysql php7.x-curl php7.x-intl php7.x-xsl php7.x-mbstring php7.x-zip php7.x-bcmath php7.x-iconv php7.x-soap php7.x-fpm`
 
 During the installation process, you'll be prompted to confirm the addition of the PHP repository.  Press `Enter` when prompted.  Once the process finishes, PHP (both `cli` and `fpm`) will be installed.  Confirm this by checking your PHP version with `php -v`.  You should see something like:
 
@@ -444,7 +444,7 @@ Using the `-G` flag makes the `www-data` group a *supplemental* group for the `m
 
 <a id="configuring-nginx-with-php-fpm"></a>
 #### Configuring Nginx with PHP-FPM
-Next, we'll need to configure Nginx to talk to PHP-FPM.  This connection is managed in `/etc/php/7.2/fpm/pool.d/www.conf`.  Using `sudo` and `vim` open the `www.conf` file and make the following changes:
+Next, we'll need to configure Nginx to talk to PHP-FPM.  This connection is managed in `/etc/php/7.x/fpm/pool.d/www.conf`.  Using `sudo` and `vim` open the `www.conf` file and make the following changes:
 
 ```
 user = magento
@@ -468,7 +468,7 @@ Next, we'll need to update the nginx configuration file to indicate that the `ma
 
 Now we'll restart both the web server and PHP-FPM:
 
-`sudo systemctl restart nginx && sudo systemctl restart php7.2-fpm`
+`sudo systemctl restart nginx && sudo systemctl restart php7.x-fpm`
 
 Once this is done and the systems are started, you can verify everything is running as expected by running `sudo netstat -tulpn`.
 
