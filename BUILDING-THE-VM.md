@@ -59,6 +59,7 @@
 		- [Installing RabbitMQ](#installing-rabbitmq)
 		- [Configuring RabbitMQ To Respect Hostname Change](#configuring-rabbitmq-to-respect-hostname-change)
 		- [Installing the RabbitMQ Management Dashboard](#installing-the-rabbitmq-management-dashboard)
+	- [Sharing Files with Samba](#sharing-files-with-samba)
 	- [Managing the VM with Webmin](#managing-the-vm-with-webmin)
 		- [Installing and Configuring Webmin](#installing-and-configuring-webmin)
 			- [Configuring the Webmin Port](#configuring-the-webmin-port)
@@ -787,6 +788,10 @@ By default, a guest user is available (`user: guest / password: guest`); however
 Now, log in to the dashboard at the url above.
 
 (Source: [Enable the RabbitMQ Management Dashboard](https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-18-04-lts/))
+
+<a id="sharing-files-with-samba"></a>
+### Sharing Files with Samba
+
 
 <a id="managing-the-vm-with-webmin"></a>
 ### Managing the VM with Webmin
