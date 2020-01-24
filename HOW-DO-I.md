@@ -83,17 +83,17 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 **Require Statements**
 ```
 "amasty/base": "1.9.2.x-dev",
-"amasty/blog": "2.4.0.x-dev",
-"amasty/geoip": "1.5.0.x-dev",
 "amasty/module-advanced-conditions":"1.3.14.x-dev",
 "amasty/module-banners-lite":"1.0.8.x-dev",
 "amasty/module-salesrulewizard": "dev-master",
 "amasty/module-special-promo": "2.7.7.x-dev",
 "amasty/module-special-promo-pro": "2.7.11.x-dev",
-"amasty/module-store-locator": "2.3.0.x-dev",
-"amasty/product-attachment": "1.3.3.x-dev",
 "amasty/promo": "2.6.1.x-dev",
 "amasty/rgrid": "1.0.7.x-dev"
+"amasty/blog": "2.4.0.x-dev",
+"amasty/geoip": "1.5.0.x-dev",
+"amasty/module-store-locator": "2.3.0.x-dev",
+"amasty/product-attachment": "1.3.3.x-dev",
 ```
 **Repositories**
 ```
