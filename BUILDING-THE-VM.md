@@ -285,7 +285,15 @@ Next, we'll install the additional programs listedin the [Helpful Additions](#he
 
 <a id="installing-a-self-signed-ssl-certificate"></a>
 ### Installing A Self-Signed SSL Certificate
-See: [Creating a Self-Signed Certificate for Nginx in 5 Minutes](https://www.humankode.com/ssl/create-a-selfsigned-certificate-for-nginx-in-5-minutes)
+See: [This Stackoverflow Post](https://unix.stackexchange.com/a/104305)
+
+The one-liner code:
+
+```
+openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" \
+    -keyout www.example.com.key  -out www.example.com.cert
+```
 
 <a id="setting-the-motd"></a>
 ### Setting the MotD
