@@ -40,7 +40,7 @@
 		- [Installing Nginx](#installing-nginx)
 		- [Configuring the Web Server User](#configuring-the-web-server-user)
 		- [Configuring Nginx with PHP-FPM](#configuring-nginx-with-php-fpm)
-		- [Creatig the Web Root](#creatig-the-web-root)
+		- [Creating the Web Root](#creating-the-web-root)
 		- [Configuring the Magento Virtual Host](#configuring-the-magento-virtual-host)
 	- [Composer](#composer)
 	- [VM CLI](#vm-cli)
@@ -483,8 +483,8 @@ Once this is done and the systems are started, you can verify everything is runn
 
 (Source: [Magento Dev Docs : Install and configure php-fpm](https://devdocs.magento.com/guides/v2.3/install-gde/prereq/nginx.html#install-and-configure-php-fpm-1)) -- Note that the settings were taken from a section dealing with CentOS rather than Ubuntu, and the approach was modified to use the `magento` user instead of the web server user and a localhost and port directive instead of the php socket.)
 
-<a id="creatig-the-web-root"></a>
-#### Creatig the Web Root
+<a id="creating-the-web-root"></a>
+#### Creating the Web Root
 Since we'll need the web root in order to make installing the Composer package manager easier, let's create it as `magento` inside of `/var/www`.  To do this, we need to give either the magento user or the web server user ownership of `var/www`.  (Since we've overridden the web server user in favor of `magento` in our PHP-FPM configuration, we'll use `magento`):
 
 `sudo chown -R magento:magento /var/www`
