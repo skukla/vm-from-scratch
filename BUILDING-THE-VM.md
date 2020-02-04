@@ -800,6 +800,11 @@ Now, log in to the dashboard at the url above.
 <a id="sharing-files-with-samba"></a>
 ### Sharing Files with Samba
 
+See: 
+[Setting up the Samba File Server on Ubuntu/Linux](https://adrianmejia.com/how-to-set-up-samba-in-ubuntu-linux-and-access-it-in-mac-os-and-windows/)
+[How to Install and Configure Samba on Ubuntu 18.04](https://linuxize.com/post/how-to-install-and-configure-samba-on-ubuntu-18-04/)
+
+
 
 <a id="managing-the-vm-with-webmin"></a>
 ### Managing the VM with Webmin
