@@ -54,7 +54,7 @@ _TODO: Finish this_
 #### Accorin (B2B)
 **Require Statements**
 ```
-"accorin/module-orderapprovals": "1.4.x-dev",
+"accorin/module-orderapprovals": "dev-master",
 "accorin/module-companyaddressbook": "dev-master"
 ```
 **Repositories**
@@ -93,7 +93,7 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 "amasty/blog": "2.4.0.x-dev",
 "amasty/geoip": "1.5.0.x-dev",
 "amasty/module-store-locator": "2.3.0.x-dev",
-"amasty/product-attachment": "1.3.3.x-dev",
+"amasty/product-attachment": "1.3.3.x-dev",<s></s>
 ```
 **Repositories**
 ```
