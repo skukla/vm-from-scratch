@@ -82,25 +82,24 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 #### Amasty
 **Require Statements**
 ```
-"amasty/base": "1.9.2.x-dev",
-"amasty/module-advanced-conditions":"1.3.14.x-dev",
-"amasty/module-banners-lite":"1.0.8.x-dev",
-"amasty/module-salesrulewizard": "dev-master",
-"amasty/module-special-promo": "2.7.7.x-dev",
+
+"amasty/base": "1.9.10.x-dev",
+"amasty/module-advanced-conditions":"1.4.0.x-dev",
+"amasty/module-banners-lite":"1.0.10.x-dev",
+"amasty/module-salesrulewizard": "1.0.1.x-dev",
+"amasty/module-special-promo": "2.7.13.x-dev",
 "amasty/module-special-promo-pro": "2.7.11.x-dev",
-"amasty/promo": "2.6.1.x-dev",
-"amasty/rgrid": "1.0.7.x-dev"
-"amasty/blog": "2.4.0.x-dev",
-"amasty/geoip": "1.5.0.x-dev",
-"amasty/module-store-locator": "2.3.0.x-dev",
-"amasty/product-attachment": "1.3.3.x-dev",<s></s>
+"amasty/promo": "2.8.3.x-dev",
+"amasty/rgrid": "1.0.7.x-dev",
+"amasty/geoip": "1.5.1.x-dev",
+"amasty/module-store-locator": "2.3.6.x-dev",
+"amasty/product-attachment": "1.3.3.x-dev",
 ```
 **Repositories**
 ```
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-advanced-conditions.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-banners-lite.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-base.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-blog-pro.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-duplicate-categories.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-free-gift.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/amasty-module-geoip.git"},
@@ -155,11 +154,11 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 #### Paradox Labs
 **Require Statements**
 ```
-"paradoxlabs/tokenbase": "4.2.1.x-dev",
-"paradoxlabs/subscriptions": "3.1.0.x-dev",
-"paradoxlabs/authnetcim": "4.2.1.x-dev",
-"paradoxlabs/firstdata": "2.2.0.x-dev",
-"paradoxlabs/stripe": "2.2.0.x-dev",       
+"paradoxlabs/tokenbase": "4.2.5.x-dev"
+"paradoxlabs/subscriptions": "3.1.5.x-dev",
+"paradoxlabs/authnetcim": "4.2.5.x-dev",
+"paradoxlabs/firstdata": "2.3.0.x-dev",
+"paradoxlabs/stripe": "2.3.4.x-dev",
 ```
 **Repositories**
 ```
@@ -167,8 +166,7 @@ gQG4ko24U6dPurNUQsX155Wo6WnUpGJVS
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-firstdata.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-stripe.git"},
 {"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-subscriptions.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
-{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"},
+{"type": "git", "url": "git@gitlab.the1umastory.com:md/paradoxlabs-tokenbase.git"}
 ```
 
 <a id="notes-on-updating-the-codebase"></a>
